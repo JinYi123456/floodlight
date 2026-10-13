@@ -897,7 +897,6 @@ export class MatchSimulator {
     // Skip the backup goalkeeper — keepers are not substituted in this model.
     let idx = this.benchIndex[side];
     while (idx < bench.length && bench[idx]!.role === 'GK') idx++;
-    this.benchIndex[side] = idx;
     const on = bench[idx];
     if (!on) {
       this.nextSubT[side] = Infinity;
@@ -912,7 +911,9 @@ export class MatchSimulator {
       this.nextSubT[side] = this.t + 120;
       return;
     }
-    this.lineups[side].bench.splice(idx, 1);
+    // The bench stays pristine — downstream consumers (engine, tracking)
+    // rebuild rosters from it plus the substitution events.
+    this.benchIndex[side] = idx + 1;
     this.removeFromPitch(side, off.id);
     this.onPitch[side].push(on.id);
     this.squads[side].set(on.id, { ...on, team: side });

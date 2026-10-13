@@ -43,10 +43,7 @@ export const SCENARIOS: Scenario[] = [
     tagline: 'Two down inside half an hour. Then the floodlights changed everything.',
     homeClubId: 'riverside',
     awayClubId: 'northgate',
-    naturalGoalBlocks: [
-      { fromMinute: 0, toMinute: 31, team: 'both' },
-      { fromMinute: 31, toMinute: 100, team: 'away' },
-    ],
+    naturalGoalBlocks: [{ fromMinute: 0, toMinute: 100, team: 'both' }],
     directives: [
       { kind: 'force_goal', team: 'away', byMinute: 9, style: 'open_play' },
       { kind: 'force_goal', team: 'away', byMinute: 29, style: 'screamer' },

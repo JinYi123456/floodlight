@@ -11,15 +11,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "baseUrl": ".",
     "paths": {
-      "@floodlight/core": ["packages/core/src/index.ts"],
-      "@floodlight/simulator": ["packages/simulator/src/index.ts"],
-      "@floodlight/engine": ["packages/engine/src/index.ts"],
-      "@floodlight/agents": ["packages/agents/src/index.ts"],
-      "@floodlight/cuesheet": ["packages/cuesheet/src/index.ts"],
-      "@floodlight/vision": ["packages/vision/src/index.ts"],
-      "@floodlight/dataset": ["packages/dataset/src/index.ts"]
+      "@floodlight/core": ["./packages/core/src/index.ts"],
+      "@floodlight/simulator": ["./packages/simulator/src/index.ts"],
+      "@floodlight/engine": ["./packages/engine/src/index.ts"],
+      "@floodlight/agents": ["./packages/agents/src/index.ts"],
+      "@floodlight/cuesheet": ["./packages/cuesheet/src/index.ts"],
+      "@floodlight/vision": ["./packages/vision/src/index.ts"],
+      "@floodlight/dataset": ["./packages/dataset/src/index.ts"]
     }
   }
 }

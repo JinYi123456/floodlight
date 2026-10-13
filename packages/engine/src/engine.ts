@@ -228,6 +228,10 @@ export class MatchEngine {
   private clockSeconds = 0;
   private period: 1 | 2 = 1;
   private score: Record<TeamSide, number> = { home: 0, away: 0 };
+  /** Cumulative score over time; VAR overturns remove their entry. */
+  private readonly scoreTimeline: Array<{ t: number; home: number; away: number; eventId: string | null }> = [
+    { t: 0, home: 0, away: 0, eventId: null },
+  ];
   private possessionTeam: TeamSide = 'home';
   private lastEvent: MatchEvent | null = null;
   private lastMinute = -1;
@@ -438,7 +442,8 @@ export class MatchEngine {
           });
           this.lastGoalCandidate = candidate;
           emitted.push(candidate);
-          if (player && player.goals >= 2) {
+          this.scoreTimeline.push({ t: shot.t, home: this.score.home, away: this.score.away, eventId: shot.id });
+          if (player && (player.goals === 2 || player.goals === 3)) {
             emitted.push(
               this.pushCandidate({
                 t: shot.t,
@@ -621,6 +626,7 @@ export class MatchEngine {
             this.teamStats[team].goalsDisallowed++;
             const scorer = this.lastGoalCandidate.playerId ? this.playerStats.get(this.lastGoalCandidate.playerId) : undefined;
             if (scorer) scorer.goals = Math.max(0, scorer.goals - 1);
+            this.removeFromTimeline(this.lastGoalCandidate.evidenceEventIds[0] ?? null);
           }
           emitted.push(
             this.pushCandidate({
@@ -880,6 +886,32 @@ export class MatchEngine {
 
   candidates(): InsightCandidate[] {
     return this.candidatesList;
+  }
+
+  /** The scoreboard as it stood at match time t (VAR overturns applied). */
+  scoreAt(t: number): { home: number; away: number } {
+    let home = 0;
+    let away = 0;
+    for (const point of this.scoreTimeline) {
+      if (point.t > t) break;
+      home = point.home;
+      away = point.away;
+    }
+    return { home, away };
+  }
+
+  private removeFromTimeline(eventId: string | null): void {
+    const idx = eventId ? this.scoreTimeline.findIndex((p) => p.eventId === eventId) : -1;
+    if (idx <= 0) return;
+    const removed = this.scoreTimeline[idx]!;
+    const prev = this.scoreTimeline[idx - 1]!;
+    const dHome = removed.home - prev.home;
+    const dAway = removed.away - prev.away;
+    this.scoreTimeline.splice(idx, 1);
+    for (let i = idx; i < this.scoreTimeline.length; i++) {
+      const point = this.scoreTimeline[i]!;
+      this.scoreTimeline[i] = { ...point, home: point.home - dHome, away: point.away - dAway };
+    }
   }
 
   private pushCandidate(partial: Omit<InsightCandidate, 'id' | 'minuteLabel' | 'provisional' | 'overturned' | 'window'> & {

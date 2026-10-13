@@ -156,6 +156,9 @@ describe('production crew end to end', () => {
       expect(moment.verification.approved).toBe(true);
       expect(moment.provider).toBe('template');
       expect(moment.variants.length).toBe(PERSONAS.length * LANGUAGES.length);
+      // Authored templates must clear the gate on their own — if one ever
+      // falls through to the metric-only floor, the floor marks it here.
+      expect(moment.verification.issues.join(' ')).not.toContain('template failed');
     }
     const kinds = production.moments.map((m) => m.candidate.kind);
     expect(kinds).toContain('goal');

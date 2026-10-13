@@ -153,7 +153,12 @@ export class ProductionCrew {
     const team = meta[side];
     const opponent = meta[side === 'home' ? 'away' : 'home'];
     const player = candidate.playerId ? state.players.find((p) => p.playerId === candidate.playerId)?.name ?? null : null;
-    const score = typeof candidate.facts['score'] === 'string' ? (candidate.facts['score'] as string) : `${state.score.home}–${state.score.away}`;
+    const score = typeof candidate.facts['score'] === 'string'
+      ? (candidate.facts['score'] as string)
+      : (() => {
+          const at = engine.scoreAt(candidate.t);
+          return `${at.home}–${at.away}`;
+        })();
     const window = candidate.window ?? { t0: Math.max(0, candidate.t - 300), t1: candidate.t };
     const features = engine.windowFeatures(window.t0, window.t1);
     const context: NarrativeContext = {
@@ -167,7 +172,10 @@ export class ProductionCrew {
       score,
       facts: candidate.facts,
     };
+    const atTime = engine.scoreAt(candidate.t);
     const evidenceNumbers: number[] = [
+      atTime.home,
+      atTime.away,
       state.score.home,
       state.score.away,
       features.possessionHome,
@@ -254,7 +262,11 @@ export class ProductionCrew {
       provider = 'template';
     }
 
-    let verdict: VerifierVerdict = verifyDraft(`${headline} ${body}`, pack);
+    // Entity vocabulary constrains model free-text; authored templates are
+    // trusted prose (their numbers are still verified against the evidence).
+    let verdict: VerifierVerdict = verifyDraft(`${headline} ${body}`, pack, {
+      checkEntities: provider === 'llm',
+    });
 
     // One guided rewrite if the model produced unverifiable claims.
     if (!verdict.approved && provider === 'llm') {
@@ -282,7 +294,7 @@ export class ProductionCrew {
       headline = t.headline;
       body = t.body;
       provider = 'template';
-      verdict = verifyDraft(`${headline} ${body}`, pack);
+      verdict = verifyDraft(`${headline} ${body}`, pack, { checkEntities: false });
       if (!verdict.approved) {
         // Metric-only fallback: the director airs the numbers, not a story.
         headline = `${brief.context.minute} ${brief.context.teamAbbr}`;
