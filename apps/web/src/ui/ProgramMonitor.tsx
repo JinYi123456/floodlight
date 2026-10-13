@@ -1,192 +1,405 @@
 /**
- * The program monitor — a top-down view of the match drawn from 10 Hz
- * tracking frames, with the cue sheet rendered on top.
+ * The program monitor — a live 3D feed of the match rendered from 10 Hz
+ * tracking frames, with the cue sheet on top.
  *
- * Stage 1 draws in 2D; the same cue payloads also drive the 3D broadcast
- * camera that lands next, so the contract is: everything on screen here is
- * something the cue sheet asked for.
+ * Everything on screen is something the cue sheet asked for: the clock and
+ * tally are always on, lower thirds, stat bumpers, the momentum ribbon and
+ * the goal flash are screen-fixed graphics, the player tag is anchored to a
+ * tracked player, and telestration is drawn in the world itself. The camera
+ * is part of the production: tactical overview, ball-follow or player focus.
  */
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import * as THREE from 'three';
 import { formatClock } from '@floodlight/core';
-import type { Cue } from '@floodlight/cuesheet';
 import { cuesAt, cueForSlot } from '../state/derive';
 import { useAppStore, trackingCache } from '../state/store';
+import { createPitchTexture } from './pitchTexture';
 
-const W = 960;
-const H = 622;
-const MARGIN = 34;
-const PITCH_W = 105;
-const PITCH_H = 68;
+type CameraMode = 'tactical' | 'follow' | 'player';
 
-function sx(x: number): number {
-  return MARGIN + ((x + PITCH_W / 2) / PITCH_W) * (W - MARGIN * 2);
-}
-function sy(y: number): number {
-  return MARGIN + ((y + PITCH_H / 2) / PITCH_H) * (H - MARGIN * 2);
-}
-
-function drawPitch(ctx: CanvasRenderingContext2D): void {
-  ctx.fillStyle = '#0b1220';
-  ctx.fillRect(0, 0, W, H);
-
-  // Grass with mow stripes.
-  const stripeW = (W - MARGIN * 2) / 10;
-  for (let i = 0; i < 10; i++) {
-    ctx.fillStyle = i % 2 === 0 ? '#123a26' : '#113524';
-    ctx.fillRect(MARGIN + i * stripeW, MARGIN, stripeW + 0.5, H - MARGIN * 2);
-  }
-
-  ctx.strokeStyle = 'rgba(220, 255, 230, 0.55)';
-  ctx.lineWidth = 2;
-  ctx.strokeRect(MARGIN, MARGIN, W - MARGIN * 2, H - MARGIN * 2);
-
-  // Halfway line + centre circle.
-  ctx.beginPath();
-  ctx.moveTo(W / 2, MARGIN);
-  ctx.lineTo(W / 2, H - MARGIN);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.arc(W / 2, H / 2, ((9.15 / PITCH_W) * (W - MARGIN * 2)), 0, Math.PI * 2);
-  ctx.stroke();
-
-  const boxDepth = (16.5 / PITCH_W) * (W - MARGIN * 2);
-  const boxHalf = (20.15 / 68) * (H - MARGIN * 2);
-  const sixDepth = (5.5 / PITCH_W) * (W - MARGIN * 2);
-  const sixHalf = (9.16 / 68) * (H - MARGIN * 2);
-
-  for (const side of [0, 1]) {
-    const left = side === 0 ? MARGIN : W - MARGIN - boxDepth;
-    ctx.strokeRect(left, H / 2 - boxHalf / 2, boxDepth, boxHalf);
-    const sixLeft = side === 0 ? MARGIN : W - MARGIN - sixDepth;
-    ctx.strokeRect(sixLeft, H / 2 - sixHalf / 2, sixDepth, sixHalf);
-    const spotX = side === 0 ? MARGIN + (11 / 105) * (W - MARGIN * 2) : W - MARGIN - (11 / 105) * (W - MARGIN * 2);
-    ctx.beginPath();
-    ctx.arc(spotX, H / 2, 2.5, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(220, 255, 230, 0.55)';
-    ctx.fill();
-  }
-}
+const SPRINT_RING = 0xffa53a;
 
 export function ProgramMonitor() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const match = useAppStore((state) => state.match);
+  const t = useAppStore((state) => state.t);
+  const focusPlayerId = useAppStore((state) => state.prefs.playerId);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const tagRef = useRef<HTMLDivElement | null>(null);
+  const [mode, setMode] = useState<CameraMode>('tactical');
+  const modeRef = useRef(mode);
+
+  useEffect(() => {
+    if (focusPlayerId) setMode('player');
+  }, [focusPlayerId]);
+
+  useEffect(() => {
+    modeRef.current = mode;
+  }, [mode]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas || !match) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
 
-    const colors = {
-      home: match.meta.home.primary,
-      away: match.meta.away.primary,
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color('#04070d');
+    scene.fog = new THREE.Fog('#04070d', 140, 260);
+
+    const camera = new THREE.PerspectiveCamera(42, 16 / 9, 0.6, 400);
+    const cameraTarget = new THREE.Vector3(0, 0, 0);
+
+    // Floodlights.
+    scene.add(new THREE.HemisphereLight(0xe8f1ff, 0x0b1520, 1.0));
+    const key = new THREE.DirectionalLight(0xfff3d6, 1.9);
+    key.position.set(55, 95, 40);
+    scene.add(key);
+    const fill = new THREE.DirectionalLight(0xbfd8ff, 0.55);
+    fill.position.set(-70, 60, -45);
+    scene.add(fill);
+
+    // Ground + pitch.
+    const ground = new THREE.Mesh(
+      new THREE.PlaneGeometry(240, 170),
+      new THREE.MeshStandardMaterial({ color: '#050a12', roughness: 1 }),
+    );
+    ground.rotation.x = -Math.PI / 2;
+    ground.position.y = -0.25;
+    scene.add(ground);
+
+    const pitchTexture = new THREE.CanvasTexture(createPitchTexture());
+    pitchTexture.colorSpace = THREE.SRGBColorSpace;
+    pitchTexture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    const pitch = new THREE.Mesh(
+      new THREE.PlaneGeometry(111, 74),
+      new THREE.MeshStandardMaterial({ map: pitchTexture, roughness: 0.95 }),
+    );
+    pitch.rotation.x = -Math.PI / 2;
+    scene.add(pitch);
+
+    // Player objects, created lazily as they appear in the feed.
+    interface PlayerObject {
+      puck: THREE.Mesh;
+      ring: THREE.Mesh;
+      ownerRing: THREE.Mesh;
+      number: THREE.Sprite;
+    }
+    const playerObjects = new Map<string, PlayerObject>();
+    const numberTextureCache = new Map<string, THREE.Texture>();
+
+    const numberTexture = (shirt: number, color: string, onColor: string): THREE.Texture => {
+      const cacheKey = `${shirt}:${color}`;
+      const cached = numberTextureCache.get(cacheKey);
+      if (cached) return cached;
+      const size = 64;
+      const c = document.createElement('canvas');
+      c.width = size;
+      c.height = size;
+      const ctx = c.getContext('2d')!;
+      ctx.beginPath();
+      ctx.arc(size / 2, size / 2, size * 0.42, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+      ctx.lineWidth = size * 0.06;
+      ctx.strokeStyle = 'rgba(0,0,0,0.55)';
+      ctx.stroke();
+      ctx.fillStyle = onColor;
+      ctx.font = `700 ${size * 0.44}px 'Cascadia Code', monospace`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(String(shirt), size / 2, size / 2 + size * 0.02);
+      const texture = new THREE.CanvasTexture(c);
+      texture.colorSpace = THREE.SRGBColorSpace;
+      numberTextureCache.set(cacheKey, texture);
+      return texture;
     };
 
+    const roster = new Map(
+      [...match.lineups.home, ...match.lineups.away].map((p) => [
+        p.id,
+        { team: p.team, shirt: p.shirt } as const,
+      ]),
+    );
+
+    const ensurePlayer = (playerId: string): PlayerObject => {
+      const existing = playerObjects.get(playerId);
+      if (existing) return existing;
+      const info = roster.get(playerId);
+      const isHome = (info?.team ?? 'home') === 'home';
+      const club = isHome ? match.meta.home : match.meta.away;
+      const puck = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.95, 0.95, 0.3, 20),
+        new THREE.MeshStandardMaterial({ color: club.primary, roughness: 0.6 }),
+      );
+      puck.position.y = 0.15;
+      const ring = new THREE.Mesh(
+        new THREE.RingGeometry(1.3, 1.65, 26),
+        new THREE.MeshBasicMaterial({ color: SPRINT_RING, side: THREE.DoubleSide, transparent: true, opacity: 0.9 }),
+      );
+      ring.rotation.x = -Math.PI / 2;
+      ring.position.y = 0.02;
+      const ownerRing = new THREE.Mesh(
+        new THREE.RingGeometry(1.05, 1.28, 26),
+        new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide, transparent: true, opacity: 0.95 }),
+      );
+      ownerRing.rotation.x = -Math.PI / 2;
+      ownerRing.position.y = 0.03;
+      const number = new THREE.Sprite(
+        new THREE.SpriteMaterial({
+          map: numberTexture(info?.shirt ?? 0, club.primary, club.onPrimary),
+          depthTest: true,
+        }),
+      );
+      number.scale.setScalar(2.1);
+      number.position.y = 1.7;
+      const group = { puck, ring, ownerRing, number };
+      scene.add(puck);
+      scene.add(ring);
+      scene.add(ownerRing);
+      scene.add(number);
+      playerObjects.set(playerId, group);
+      return group;
+    };
+
+    // Ball + trail.
+    const ball = new THREE.Mesh(
+      new THREE.SphereGeometry(0.38, 16, 12),
+      new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.35, emissive: 0x222222 }),
+    );
+    ball.position.y = 0.38;
+    scene.add(ball);
+    const trailLength = 42;
+    const trailPositions = new Float32Array(trailLength * 3);
+    const trailGeometry = new THREE.BufferGeometry();
+    trailGeometry.setAttribute('position', new THREE.BufferAttribute(trailPositions, 3));
+    trailGeometry.setDrawRange(0, 0);
+    const trail = new THREE.Line(
+      trailGeometry,
+      new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.4 }),
+    );
+    scene.add(trail);
+    let trailCount = 0;
+
+    // Telestration (cue-driven, drawn in the world).
+    const telePoints = 26;
+    const teleGeometry = new THREE.BufferGeometry();
+    teleGeometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(telePoints * 3), 3));
+    const teleLine = new THREE.Line(
+      teleGeometry,
+      new THREE.LineDashedMaterial({ color: 0xffd166, dashSize: 1.6, gapSize: 1.1, linewidth: 2 }),
+    );
+    teleLine.visible = false;
+    scene.add(teleLine);
+
+    const resize = () => {
+      const parent = canvas.parentElement;
+      if (!parent) return;
+      const w = parent.clientWidth;
+      const h = parent.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    };
+    const observer = new ResizeObserver(resize);
+    if (canvas.parentElement) observer.observe(canvas.parentElement);
+    resize();
+
+    const project = new THREE.Vector3();
     let raf = 0;
     const render = () => {
       raf = requestAnimationFrame(render);
-      const { t } = useAppStore.getState();
-      const frame = trackingCache.at(t);
+      const state = useAppStore.getState();
+      const currentMatch = state.match;
+      if (!currentMatch) return;
+      const time = state.t;
+      const frame = trackingCache.at(time);
 
-      drawPitch(ctx);
-      if (!frame) {
-        ctx.fillStyle = 'rgba(220,255,230,0.35)';
-        ctx.font = '500 22px ui-monospace, monospace';
-        ctx.fillText('acquiring tracking data…', MARGIN + 16, H / 2);
-        return;
-      }
-
-      // Ball trail.
-      ctx.beginPath();
-      for (let back = 0; back <= 12; back++) {
-        const past = trackingCache.at(t - back * 0.2);
-        if (!past) continue;
-        const px = sx(past.ball.pos.x);
-        const py = sy(past.ball.pos.y);
-        if (back === 0) ctx.moveTo(px, py);
-        else ctx.lineTo(px, py);
-      }
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.22)';
-      ctx.lineWidth = 3;
-      ctx.stroke();
-
-      // Players.
-      for (const player of frame.players) {
-        const isHome = match.lineups.home.some((p) => p.id === player.playerId);
-        const px = sx(player.pos.x);
-        const py = sy(player.pos.y);
-        const sprinting = player.speedKph >= 25.2;
-        const r = sprinting ? 9 : 8;
-        ctx.beginPath();
-        ctx.arc(px, py, r, 0, Math.PI * 2);
-        ctx.fillStyle = isHome ? colors.home : colors.away;
-        ctx.fill();
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = sprinting ? '#ffffff' : 'rgba(0,0,0,0.45)';
-        ctx.stroke();
-        if (sprinting) {
-          ctx.fillStyle = '#ffffff';
-          ctx.font = '700 10px ui-monospace, monospace';
-          ctx.textAlign = 'center';
-          ctx.fillText(`${Math.round(player.speedKph)}`, px, py - 13);
-          ctx.textAlign = 'left';
-        }
-      }
-
-      // Ball.
-      const bx = sx(frame.ball.pos.x);
-      const by = sy(frame.ball.pos.y);
-      ctx.beginPath();
-      ctx.arc(bx, by, 5.5, 0, Math.PI * 2);
-      ctx.fillStyle = '#ffffff';
-      ctx.fill();
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = '#0b1220';
-      ctx.stroke();
-
-      // Cue sheet on top: telestration + player tag are pitch-space graphics.
-      const active = cuesAt(match, t);
+      const active = cuesAt(currentMatch, time);
+      const tagCue = cueForSlot(active, 'player_tag');
       const telestration = cueForSlot(active, 'telestration');
+
+      if (frame) {
+        // Players.
+        const seen = new Set<string>();
+        for (const player of frame.players) {
+          seen.add(player.playerId);
+          const object = ensurePlayer(player.playerId);
+          object.puck.position.x = player.pos.x;
+          object.puck.position.z = player.pos.y;
+          const sprinting = player.speedKph >= 25.2;
+          object.ring.position.x = player.pos.x;
+          object.ring.position.z = player.pos.y;
+          object.ring.visible = sprinting;
+          object.number.position.x = player.pos.x;
+          object.number.position.z = player.pos.y;
+        }
+        for (const [id, object] of playerObjects) {
+          if (!seen.has(id)) {
+            object.puck.visible = false;
+            object.ring.visible = false;
+            object.ownerRing.visible = false;
+            object.number.visible = false;
+          } else {
+            object.puck.visible = true;
+            object.number.visible = true;
+          }
+        }
+
+        // Ball + trail.
+        ball.position.x = frame.ball.pos.x;
+        ball.position.z = frame.ball.pos.y;
+        for (let i = trailCount; i > 0; i--) {
+          trailPositions[i * 3] = trailPositions[(i - 1) * 3]!;
+          trailPositions[i * 3 + 1] = trailPositions[(i - 1) * 3 + 1]!;
+          trailPositions[i * 3 + 2] = trailPositions[(i - 1) * 3 + 2]!;
+        }
+        trailPositions[0] = frame.ball.pos.x;
+        trailPositions[1] = 0.12;
+        trailPositions[2] = frame.ball.pos.y;
+        trailCount = Math.min(trailCount + 1, trailLength);
+        trailGeometry.attributes.position!.needsUpdate = true;
+        trailGeometry.setDrawRange(0, trailCount);
+
+        // Owner highlight.
+        let owner: string | null = null;
+        let bestD = 2.2;
+        for (const player of frame.players) {
+          const d = Math.hypot(player.pos.x - frame.ball.pos.x, player.pos.y - frame.ball.pos.y);
+          if (d < bestD) {
+            bestD = d;
+            owner = player.playerId;
+          }
+        }
+        for (const [id, object] of playerObjects) {
+          const isOwner = id === owner;
+          object.ownerRing.visible = isOwner;
+          if (isOwner) {
+            const ref = object.puck;
+            object.ownerRing.position.x = ref.position.x;
+            object.ownerRing.position.z = ref.position.z;
+          }
+        }
+
+        // Camera.
+        const mode = modeRef.current;
+        const focusId = state.prefs.playerId;
+        const desired = new THREE.Vector3(0, 84, 48);
+        const target = new THREE.Vector3(0, 0, 0);
+        if (mode === 'follow') {
+          const bx = THREE.MathUtils.clamp(frame.ball.pos.x, -34, 34);
+          desired.set(bx * 0.55, 40, 30 + frame.ball.pos.y * 0.25);
+          target.set(bx * 0.85, 0, frame.ball.pos.y * 0.55);
+        } else if (mode === 'player' && focusId) {
+          const focused = frame.players.find((p) => p.playerId === focusId);
+          const px = focused?.pos.x ?? frame.ball.pos.x;
+          const py = focused?.pos.y ?? frame.ball.pos.y;
+          desired.set(px * 0.6 + 9, 24, 20 + py * 0.3);
+          target.set(px, 1, py);
+        }
+        const smoothing = mode === 'tactical' ? 0.05 : 0.075;
+        camera.position.lerp(desired, smoothing);
+        cameraTarget.lerp(target, smoothing * 1.4);
+        camera.lookAt(cameraTarget);
+      }
+
+      // Telestration grows from its anchor point.
       if (telestration?.payload.from && telestration.payload.to) {
         const from = telestration.payload.from as { x: number; y: number };
         const to = telestration.payload.to as { x: number; y: number };
-        const progress = Math.min(1, (t - telestration.t0) / 1.2);
-        const x2 = from.x + (to.x - from.x) * progress;
-        const y2 = from.y + (to.y - from.y) * progress;
-        ctx.beginPath();
-        ctx.moveTo(sx(from.x), sy(from.y));
-        ctx.lineTo(sx(x2), sy(y2));
-        ctx.strokeStyle = '#ffd166';
-        ctx.lineWidth = 4;
-        ctx.setLineDash([10, 6]);
-        ctx.stroke();
-        ctx.setLineDash([]);
-        ctx.beginPath();
-        ctx.arc(sx(from.x), sy(from.y), 7, 0, Math.PI * 2);
-        ctx.strokeStyle = '#ffd166';
-        ctx.lineWidth = 3;
-        ctx.stroke();
+        const progress = THREE.MathUtils.clamp((time - telestration.t0) / 1.1, 0.05, 1);
+        const positions = teleGeometry.attributes.position!.array as Float32Array;
+        for (let i = 0; i < telePoints; i++) {
+          const k = (i / (telePoints - 1)) * progress;
+          positions[i * 3] = from.x + (to.x - from.x) * k;
+          positions[i * 3 + 1] = 0.15;
+          positions[i * 3 + 2] = from.y + (to.y - from.y) * k;
+        }
+        teleGeometry.attributes.position!.needsUpdate = true;
+        teleGeometry.computeBoundingSphere();
+        teleLine.computeLineDistances();
+        teleLine.visible = true;
+      } else {
+        teleLine.visible = false;
       }
-    };
 
+      // Anchored player tag: project the tracked player into screen space.
+      const tagElement = tagRef.current;
+      if (tagElement) {
+        if (tagCue && frame) {
+          const playerId = String(tagCue.payload.playerId ?? '');
+          const tracked = frame.players.find((p) => p.playerId === playerId);
+          if (tracked) {
+            project.set(tracked.pos.x, 1.6, tracked.pos.y).project(camera);
+            const rect = renderer.domElement;
+            const sx = (project.x * 0.5 + 0.5) * rect.clientWidth;
+            const sy = (-project.y * 0.5 + 0.5) * rect.clientHeight;
+            tagElement.style.transform = `translate(${Math.round(sx)}px, ${Math.round(sy)}px)`;
+            tagElement.style.opacity = '1';
+          } else {
+            tagElement.style.opacity = '0';
+          }
+        } else {
+          tagElement.style.opacity = '0';
+        }
+      }
+
+      renderer.render(scene, camera);
+    };
     raf = requestAnimationFrame(render);
-    return () => cancelAnimationFrame(raf);
+
+    if (import.meta.env.DEV) {
+      (window as unknown as { __floodlightScene?: unknown }).__floodlightScene = {
+        step: () => render(),
+        visibleCount: () => [...playerObjects.values()].filter((o) => o.puck.visible).length,
+        positions: () => [...playerObjects.values()].map((o) => [Math.round(o.puck.position.x), Math.round(o.puck.position.z)]),
+        camera: () => [Math.round(camera.position.x), Math.round(camera.position.y), Math.round(camera.position.z)],
+      };
+    }
+
+    return () => {
+      cancelAnimationFrame(raf);
+      observer.disconnect();
+      for (const object of playerObjects.values()) {
+        scene.remove(object.puck, object.ring, object.ownerRing, object.number);
+      }
+      for (const texture of numberTextureCache.values()) texture.dispose();
+      pitchTexture.dispose();
+      trailGeometry.dispose();
+      teleGeometry.dispose();
+      renderer.dispose();
+    };
   }, [match]);
 
   if (!match) return null;
 
-  const t = useAppStore((state) => state.t);
   const active = cuesAt(match, t);
   const lowerThird = cueForSlot(active, 'lower_third');
   const statBumper = cueForSlot(active, 'stat_bumper');
   const ribbon = cueForSlot(active, 'momentum_ribbon');
   const flash = cueForSlot(active, 'goal_flash');
-  const playerTag = cueForSlot(active, 'player_tag');
+  const tagCue = cueForSlot(active, 'player_tag');
+  const focusedName = [...match.lineups.home, ...match.lineups.away].find((p) => p.id === focusPlayerId)?.name ?? null;
 
   return (
     <div className="program-monitor">
-      <canvas ref={canvasRef} width={W} height={H} />
+      <canvas ref={canvasRef} className="monitor-canvas" />
+      <div className="monitor-cams">
+        {(['tactical', 'follow', 'player'] as CameraMode[]).map((value) => (
+          <button
+            type="button"
+            key={value}
+            className={mode === value ? 'active' : ''}
+            onClick={() => setMode(value)}
+            disabled={value === 'player' && !focusPlayerId}
+            title={value === 'player' && focusedName ? `Follow ${focusedName}` : undefined}
+          >
+            {value === 'tactical' ? 'Tactical' : value === 'follow' ? 'Follow ball' : 'Player'}
+          </button>
+        ))}
+      </div>
       <div className="overlay-layer">
         {flash && (
           <div className="cue-goal-flash" key={flash.id}>
@@ -224,12 +437,14 @@ export function ProgramMonitor() {
             ))}
           </div>
         )}
-        {playerTag && (
-          <div className="cue-player-tag" key={playerTag.id}>
-            <strong>{playerName(match, String(playerTag.payload.playerId ?? ''))}</strong>
-            {playerTag.payload.speedKph != null && <span>{String(playerTag.payload.speedKph)} km/h</span>}
-          </div>
-        )}
+        <div className={`cue-player-tag${tagCue ? '' : ' hidden'}`} ref={tagRef}>
+          {tagCue && (
+            <>
+              <strong>{playerName(match, String(tagCue.payload.playerId ?? ''))}</strong>
+              {tagCue.payload.speedKph != null && <span>{String(tagCue.payload.speedKph)} km/h</span>}
+            </>
+          )}
+        </div>
       </div>
       <div className="monitor-tally">
         <span className="tally-dot" /> {formatClock(t)}

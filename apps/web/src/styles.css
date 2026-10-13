@@ -587,13 +587,47 @@ button {
   border: 1px solid var(--line);
   border-radius: 12px;
   overflow: hidden;
-  background: #0b1220;
+  background: #04070d;
   box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.9);
+  aspect-ratio: 16 / 9;
 }
-.program-monitor canvas {
+.monitor-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
   display: block;
-  width: 100%;
-  height: auto;
+}
+
+.monitor-cams {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  display: flex;
+  gap: 4px;
+  z-index: 6;
+}
+.monitor-cams button {
+  background: rgba(5, 7, 13, 0.72);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  border-radius: 7px;
+  padding: 4px 11px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(4px);
+  transition: all 0.14s ease;
+}
+.monitor-cams button:hover:not(:disabled) {
+  color: var(--text);
+}
+.monitor-cams button.active {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+.monitor-cams button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .overlay-layer {
@@ -770,8 +804,9 @@ button {
 
 .cue-player-tag {
   position: absolute;
-  top: 56px;
-  left: 18px;
+  top: 0;
+  left: 0;
+  margin: -24px 0 0 18px;
   display: flex;
   flex-direction: column;
   background: rgba(8, 12, 22, 0.85);
@@ -779,7 +814,11 @@ button {
   border-radius: 8px;
   padding: 6px 12px;
   backdrop-filter: blur(6px);
-  animation: drop-in 0.4s ease;
+  will-change: transform;
+  transition: opacity 0.2s ease;
+}
+.cue-player-tag.hidden {
+  opacity: 0;
 }
 .cue-player-tag strong {
   font-size: 13px;
