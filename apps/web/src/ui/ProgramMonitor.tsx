@@ -16,6 +16,7 @@ import { cuesAt, cueForSlot } from '../state/derive';
 import { useAppStore, trackingCache } from '../state/store';
 import { createPitchTexture } from './pitchTexture';
 import { createGoalFrames, createPlayerFigure, type PlayerFigure } from './players3d';
+import { broadcast } from './audio';
 
 type CameraMode = 'tactical' | 'follow' | 'player';
 
@@ -32,6 +33,16 @@ export function ProgramMonitor() {
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const [mode, setMode] = useState<CameraMode>('tactical');
   const modeRef = useRef(mode);
+  const [audioOn, setAudioOn] = useState(false);
+
+  // The crowd, the whistles and the commentary desk. Browsers only start
+  // audio after a gesture — the last gesture was entering the studio, so a
+  // resume attempt here normally sticks; the toggle is the fallback.
+  useEffect(() => {
+    setAudioOn(broadcast.enabled || broadcast.enable());
+    // Leaving the studio silences the programme.
+    return () => broadcast.disable();
+  }, []);
 
   // Click a player to follow them: project every tracked player into screen
   // space and take the nearest one inside the hit radius.
@@ -91,7 +102,7 @@ export function ProgramMonitor() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color('#04070d');
@@ -288,6 +299,18 @@ export function ProgramMonitor() {
       const tagCue = cueForSlot(active, 'player_tag');
       const telestration = cueForSlot(active, 'telestration');
 
+      // Sound follows the clock: kick thumps, whistles and the goal roar,
+      // plus the commentary desk reading the marquee cues aloud.
+      broadcast.update(currentMatch.events, time, state.playing);
+      if (state.playing) {
+        const flash = cueForSlot(active, 'goal_flash');
+        if (flash) broadcast.speak(flash.id, String(flash.payload.headline ?? 'Goal!'));
+        const line = cueForSlot(active, 'lower_third');
+        if (line) {
+          broadcast.speak(line.id, `${String(line.payload.headline ?? '')}. ${String(line.payload.body ?? '')}`);
+        }
+      }
+
       if (frame) {
         // Players.
         const now = performance.now();
@@ -428,6 +451,7 @@ export function ProgramMonitor() {
       (window as unknown as { __floodlightScene?: unknown }).__floodlightScene = {
         step: () => render(),
         mode: () => modeRef.current,
+        audio: () => broadcast.debugState(),
         visibleCount: () => [...playerObjects.values()].filter((o) => o.figure.group.visible).length,
         positions: () => [...playerObjects.values()].map((o) => [Math.round(o.figure.group.position.x), Math.round(o.figure.group.position.z)]),
         camera: () => [Math.round(camera.position.x), Math.round(camera.position.y), Math.round(camera.position.z)],
@@ -498,6 +522,14 @@ export function ProgramMonitor() {
             {value === 'tactical' ? 'Tactical' : value === 'follow' ? 'Follow ball' : 'Player'}
           </button>
         ))}
+        <button
+          type="button"
+          className={audioOn ? 'active' : ''}
+          onClick={() => setAudioOn(audioOn ? (broadcast.disable(), false) : broadcast.enable())}
+          title="Crowd, whistles, kicks and the commentary desk"
+        >
+          {audioOn ? 'audio on' : 'audio off'}
+        </button>
       </div>
       <div className="overlay-layer">
         {flash && (
