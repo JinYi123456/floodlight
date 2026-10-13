@@ -46,6 +46,12 @@ export interface VisionReport {
   possessionAgreement: number;
   /** How kit classes map onto home/away for the possession score. */
   paletteMapping: 'direct' | 'swapped';
+  /** The same window, split by side — what each team did, as detected and
+   *  as truth, against their share of live possession. */
+  byTeam: {
+    home: { passes: number; truthPasses: number; shots: number; truthShots: number; possessionShare: number };
+    away: { passes: number; truthPasses: number; shots: number; truthShots: number; possessionShare: number };
+  };
   samples: FrameSample[];
 }
 
@@ -352,6 +358,8 @@ export interface AnalyzeResult {
   possessionSwapped: number;
   /** The mapping that scored better over the window. */
   paletteMapping: 'direct' | 'swapped';
+  /** Live frames the truth says each team had the ball (for shares). */
+  possessionTruthFrames: { home: number; away: number };
 }
 
 /**
@@ -392,6 +400,7 @@ export function analyzeWindow(result: SimulationResult, options: AnalyzeOptions)
   let possessionFrames = 0;
   let possessionDirect = 0;
   let possessionSwapped = 0;
+  const possessionTruthFrames = { home: 0, away: 0 };
   let frameCount = 0;
 
   // Possession change-points from the event stream (ground truth).
@@ -502,6 +511,8 @@ export function analyzeWindow(result: SimulationResult, options: AnalyzeOptions)
     const detectedTeam = deriver.ownerTeam();
     const live = inWindow && !isDeadBall(t);
     if (live) possessionFrames++;
+    if (live && truthTeam === 'home') possessionTruthFrames.home++;
+    if (live && truthTeam === 'away') possessionTruthFrames.away++;
     if (!truthTeam && !detectedTeam) {
       if (live) {
         possessionDirect++;
@@ -554,6 +565,7 @@ export function analyzeWindow(result: SimulationResult, options: AnalyzeOptions)
     possessionDirect,
     possessionSwapped,
     paletteMapping,
+    possessionTruthFrames,
   };
 }
 
@@ -606,6 +618,16 @@ export function buildReport(result: SimulationResult, analysis: AnalyzeResult, w
   const recall = truthPasses.length > 0 ? matchedPasses / truthPasses.length : 1;
   const f1 = precision + recall > 0 ? (2 * precision * recall) / (precision + recall) : 0;
 
+  const truthFrames = analysis.possessionTruthFrames.home + analysis.possessionTruthFrames.away;
+  const byTeam = (team: 'home' | 'away') => ({
+    passes: detectedPasses.filter((e) => e.team === team).length,
+    truthPasses: truthPasses.filter((e) => e.team === team).length,
+    shots: detectedShots.filter((e) => e.team === team).length,
+    truthShots: truthShots.filter((e) => e.team === team).length,
+    possessionShare:
+      truthFrames > 0 ? round3(analysis.possessionTruthFrames[team] / truthFrames) : 0,
+  });
+
   return {
     window,
     framesProcessed: analysis.frameCount,
@@ -620,6 +642,7 @@ export function buildReport(result: SimulationResult, analysis: AnalyzeResult, w
     possessionAgreement:
       analysis.possessionFrames > 0 ? round3(analysis.possessionAgreementFrames / analysis.possessionFrames) : 0,
     paletteMapping: analysis.paletteMapping,
+    byTeam: { home: byTeam('home'), away: byTeam('away') },
     samples: analysis.samples,
   };
 }

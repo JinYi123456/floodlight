@@ -255,6 +255,8 @@ function ReportCard({ report }: { report: VisionReport }) {
         </div>
       </div>
 
+      <TeamSplit report={report} />
+
       <div className="report-metrics">
         <div>
           <span>Ball speed error</span>
@@ -280,6 +282,44 @@ function ReportCard({ report }: { report: VisionReport }) {
         pixels, reports what it finds, and is scored afterwards.
       </p>
     </>
+  );
+}
+
+function TeamSplit({ report }: { report: VisionReport }) {
+  const match = useAppStore((state) => state.match);
+  return (
+    <div className="report-teams">
+      <p className="report-teams-head">Same window, split by side — detected / truth</p>
+      {(['home', 'away'] as const).map((side) => {
+        const club = match ? (side === 'home' ? match.meta.home : match.meta.away) : null;
+        const row = report.byTeam[side];
+        return (
+          <div className="report-team" key={side}>
+            <span
+              className="report-team-chip"
+              style={club ? { background: club.primary, color: club.onPrimary } : undefined}
+            >
+              {club ? club.abbr : side}
+            </span>
+            <span title="Share of live possession in the window">
+              <strong>{Math.round(row.possessionShare * 100)}%</strong> poss
+            </span>
+            <span title="Passes detected against truth">
+              <strong>
+                {row.passes}/{row.truthPasses}
+              </strong>{' '}
+              pass
+            </span>
+            <span title="Shots detected against truth">
+              <strong>
+                {row.shots}/{row.truthShots}
+              </strong>{' '}
+              shot
+            </span>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
