@@ -1,0 +1,1264 @@
+{
+  "version": "1.0",
+  "matchId": "m-e08b11dd",
+  "cues": [
+    {
+      "id": "cue-0001",
+      "t0": 129,
+      "t1": 134,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Fastest of the match",
+        "body": "Blistering pace from Emil Rahman: 33.1 km/h — the fastest of the match so far.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "3'",
+        "playerId": "oldtower-p12",
+        "speedKph": 33.1
+      },
+      "source": {
+        "momentId": "cand-0027",
+        "candidateId": "cand-0027",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 141
+    },
+    {
+      "id": "cue-0004",
+      "t0": 174.1,
+      "t1": 180.1,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.79 — Valentin Heikkila denies a 0.27 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "3'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.79
+          },
+          {
+            "label": "xg",
+            "value": 0.27
+          },
+          {
+            "label": "shooterId",
+            "value": "oldtower-p11"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0002",
+        "candidateId": "cand-0002",
+        "evidenceEventIds": [
+          "e00064"
+        ],
+        "verified": true
+      },
+      "expiresAt": 199.1
+    },
+    {
+      "id": "cue-0002",
+      "t0": 174.1,
+      "t1": 181.1,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Old Tower FC: Viggo Ortega gets a 0.27 xG look from 5.7 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "3'",
+        "from": {
+          "x": -49,
+          "y": 4.54
+        },
+        "to": {
+          "x": -52.5,
+          "y": 1.36
+        }
+      },
+      "source": {
+        "momentId": "cand-0001",
+        "candidateId": "cand-0001",
+        "evidenceEventIds": [
+          "e00063"
+        ],
+        "verified": true
+      },
+      "expiresAt": 199.1
+    },
+    {
+      "id": "cue-0005",
+      "t0": 752,
+      "t1": 757,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Fastest of the match",
+        "body": "Blistering pace from Wim Bouchard: 34 km/h — the fastest of the match so far.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "13'",
+        "playerId": "oldtower-p16",
+        "speedKph": 34
+      },
+      "source": {
+        "momentId": "cand-0028",
+        "candidateId": "cand-0028",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 764
+    },
+    {
+      "id": "cue-0008",
+      "t0": 878.8,
+      "t1": 884.8,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.86 — Franco Halvorsen denies a 0.3 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "15'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.86
+          },
+          {
+            "label": "xg",
+            "value": 0.3
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p11"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
+        "evidenceEventIds": [
+          "e00328"
+        ],
+        "verified": true
+      },
+      "expiresAt": 903.8
+    },
+    {
+      "id": "cue-0006",
+      "t0": 878.8,
+      "t1": 885.8,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.3 xG look from 6.9 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "15'",
+        "from": {
+          "x": 45.82,
+          "y": -1.82
+        },
+        "to": {
+          "x": 52.5,
+          "y": -0.55
+        }
+      },
+      "source": {
+        "momentId": "cand-0003",
+        "candidateId": "cand-0003",
+        "evidenceEventIds": [
+          "e00327"
+        ],
+        "verified": true
+      },
+      "expiresAt": 903.8
+    },
+    {
+      "id": "cue-0010",
+      "t0": 900,
+      "t1": 908,
+      "slot": "lower_third",
+      "priority": 58,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Momentum shift",
+        "body": "Momentum has swung to Harbour City — a 0.55 shift over the last five minutes.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "15'",
+        "team": "home",
+        "kind": "momentum_shift"
+      },
+      "source": {
+        "momentId": "cand-0007",
+        "candidateId": "cand-0007",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 1140
+    },
+    {
+      "id": "cue-0009",
+      "t0": 900,
+      "t1": 912,
+      "slot": "momentum_ribbon",
+      "priority": 58,
+      "animation": "pulse",
+      "payload": {
+        "direction": "home",
+        "swing": 0.55,
+        "headline": "Momentum shift",
+        "body": "Momentum has swung to Harbour City — a 0.55 shift over the last five minutes.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "15'"
+      },
+      "source": {
+        "momentId": "cand-0007",
+        "candidateId": "cand-0007",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 1140
+    },
+    {
+      "id": "cue-0013",
+      "t0": 930.3,
+      "t1": 936.3,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.75 — Franco Halvorsen denies a 0.22 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "16'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.75
+          },
+          {
+            "label": "xg",
+            "value": 0.22
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p5"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
+        "evidenceEventIds": [
+          "e00351"
+        ],
+        "verified": true
+      },
+      "expiresAt": 955.3
+    },
+    {
+      "id": "cue-0011",
+      "t0": 930.3,
+      "t1": 937.3,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Harbour City: Lucien Eriksen gets a 0.22 xG look from 8.4 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "16'",
+        "from": {
+          "x": 44.65,
+          "y": 2.95
+        },
+        "to": {
+          "x": 52.5,
+          "y": 0.88
+        }
+      },
+      "source": {
+        "momentId": "cand-0005",
+        "candidateId": "cand-0005",
+        "evidenceEventIds": [
+          "e00350"
+        ],
+        "verified": true
+      },
+      "expiresAt": 955.3
+    },
+    {
+      "id": "cue-0015",
+      "t0": 1640.9,
+      "t1": 1646.9,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Old Tower FC: Emil Rahman gets a 0.3 xG look from 6.7 metres — off_target.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "28'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.3
+          },
+          {
+            "label": "outcome",
+            "value": "off_target"
+          },
+          {
+            "label": "distanceM",
+            "value": 6.7
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0008",
+        "candidateId": "cand-0008",
+        "evidenceEventIds": [
+          "e00613"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1665.9
+    },
+    {
+      "id": "cue-0014",
+      "t0": 1640.9,
+      "t1": 1647.9,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Old Tower FC: Emil Rahman gets a 0.3 xG look from 6.7 metres — off_target.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "28'",
+        "from": {
+          "x": -45.95,
+          "y": -1.59
+        },
+        "to": {
+          "x": -52.5,
+          "y": -0.48
+        }
+      },
+      "source": {
+        "momentId": "cand-0008",
+        "candidateId": "cand-0008",
+        "evidenceEventIds": [
+          "e00613"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1665.9
+    },
+    {
+      "id": "cue-0016",
+      "t0": 2336.2,
+      "t1": 2344.2,
+      "slot": "lower_third",
+      "priority": 85,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Penalty",
+        "body": "Penalty to Harbour City! A huge chance at 39'.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "39'",
+        "team": "home",
+        "kind": "penalty"
+      },
+      "source": {
+        "momentId": "cand-0009",
+        "candidateId": "cand-0009",
+        "evidenceEventIds": [
+          "e00861"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2426.2
+    },
+    {
+      "id": "cue-0017",
+      "t0": 2336.2,
+      "t1": 2342.2,
+      "slot": "stat_bumper",
+      "priority": 85,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Penalty",
+        "body": "Penalty to Harbour City! A huge chance at 39'.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "39'",
+        "stats": [
+          {
+            "label": "minute",
+            "value": "39'"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0009",
+        "candidateId": "cand-0009",
+        "evidenceEventIds": [
+          "e00861"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2426.2
+    },
+    {
+      "id": "cue-0018",
+      "t0": 2336.2,
+      "t1": 2343.2,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Harbour City: Duncan Jankovic gets a 0.78 xG look from 11 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "39'",
+        "from": {
+          "x": 41.5,
+          "y": 0
+        },
+        "to": {
+          "x": 52.5,
+          "y": 0
+        }
+      },
+      "source": {
+        "momentId": "cand-0010",
+        "candidateId": "cand-0010",
+        "evidenceEventIds": [
+          "e00862"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2361.2
+    },
+    {
+      "id": "cue-0019",
+      "t0": 2342.2,
+      "t1": 2348.2,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Harbour City: Duncan Jankovic gets a 0.78 xG look from 11 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "39'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.78
+          },
+          {
+            "label": "outcome",
+            "value": "saved"
+          },
+          {
+            "label": "distanceM",
+            "value": 11
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0010",
+        "candidateId": "cand-0010",
+        "evidenceEventIds": [
+          "e00862"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2361.2
+    },
+    {
+      "id": "cue-0020",
+      "t0": 2348.2,
+      "t1": 2354.2,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 1 — Franco Halvorsen denies a 0.78 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "39'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 1
+          },
+          {
+            "label": "xg",
+            "value": 0.78
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p15"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0011",
+        "candidateId": "cand-0011",
+        "evidenceEventIds": [
+          "e00863"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2361.2
+    },
+    {
+      "id": "cue-0022",
+      "t0": 2833.1,
+      "t1": 2839.1,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Old Tower FC: Piotr Ibarra gets a 0.34 xG look from 5.2 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "48'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.34
+          },
+          {
+            "label": "outcome",
+            "value": "blocked"
+          },
+          {
+            "label": "distanceM",
+            "value": 5.2
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0012",
+        "candidateId": "cand-0012",
+        "evidenceEventIds": [
+          "e01039"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2858.1
+    },
+    {
+      "id": "cue-0021",
+      "t0": 2833.1,
+      "t1": 2840.1,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Old Tower FC: Piotr Ibarra gets a 0.34 xG look from 5.2 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "48'",
+        "from": {
+          "x": -47.55,
+          "y": -1.58
+        },
+        "to": {
+          "x": -52.5,
+          "y": -0.47
+        }
+      },
+      "source": {
+        "momentId": "cand-0012",
+        "candidateId": "cand-0012",
+        "evidenceEventIds": [
+          "e01039"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2858.1
+    },
+    {
+      "id": "cue-0025",
+      "t0": 3259.9,
+      "t1": 3265.9,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.74 — Franco Halvorsen denies a 0.21 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "55'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.74
+          },
+          {
+            "label": "xg",
+            "value": 0.21
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p11"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0014",
+        "candidateId": "cand-0014",
+        "evidenceEventIds": [
+          "e01207"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3284.9
+    },
+    {
+      "id": "cue-0023",
+      "t0": 3259.9,
+      "t1": 3266.9,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.21 xG look from 7.9 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "55'",
+        "from": {
+          "x": 46.85,
+          "y": 5.45
+        },
+        "to": {
+          "x": 52.5,
+          "y": 1.64
+        }
+      },
+      "source": {
+        "momentId": "cand-0013",
+        "candidateId": "cand-0013",
+        "evidenceEventIds": [
+          "e01206"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3284.9
+    },
+    {
+      "id": "cue-0028",
+      "t0": 3709,
+      "t1": 3715,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.78 — Franco Halvorsen denies a 0.34 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "62'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.78
+          },
+          {
+            "label": "xg",
+            "value": 0.34
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p7"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0016",
+        "candidateId": "cand-0016",
+        "evidenceEventIds": [
+          "e01356"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3734
+    },
+    {
+      "id": "cue-0026",
+      "t0": 3709,
+      "t1": 3716,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Harbour City: Dario Lombardi gets a 0.34 xG look from 75.8 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "62'",
+        "from": {
+          "x": -18.48,
+          "y": 26.57
+        },
+        "to": {
+          "x": 52.5,
+          "y": 3
+        }
+      },
+      "source": {
+        "momentId": "cand-0015",
+        "candidateId": "cand-0015",
+        "evidenceEventIds": [
+          "e01355"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3734
+    },
+    {
+      "id": "cue-0031",
+      "t0": 4380.5,
+      "t1": 4386.5,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.83 — Franco Halvorsen denies a 0.28 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "74'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.83
+          },
+          {
+            "label": "xg",
+            "value": 0.28
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p11"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0018",
+        "candidateId": "cand-0018",
+        "evidenceEventIds": [
+          "e01609"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4405.5
+    },
+    {
+      "id": "cue-0029",
+      "t0": 4380.5,
+      "t1": 4387.5,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.28 xG look from 7.4 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "74'",
+        "from": {
+          "x": 45.76,
+          "y": -2.95
+        },
+        "to": {
+          "x": 52.5,
+          "y": -0.89
+        }
+      },
+      "source": {
+        "momentId": "cand-0017",
+        "candidateId": "cand-0017",
+        "evidenceEventIds": [
+          "e01608"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4405.5
+    },
+    {
+      "id": "cue-0033",
+      "t0": 4849.7,
+      "t1": 4855.7,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.2 xG look from 9.5 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "81'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.2
+          },
+          {
+            "label": "outcome",
+            "value": "blocked"
+          },
+          {
+            "label": "distanceM",
+            "value": 9.5
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0019",
+        "candidateId": "cand-0019",
+        "evidenceEventIds": [
+          "e01776"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4874.7
+    },
+    {
+      "id": "cue-0032",
+      "t0": 4849.7,
+      "t1": 4856.7,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.2 xG look from 9.5 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "81'",
+        "from": {
+          "x": 44.25,
+          "y": -4.63
+        },
+        "to": {
+          "x": 52.5,
+          "y": -1.39
+        }
+      },
+      "source": {
+        "momentId": "cand-0019",
+        "candidateId": "cand-0019",
+        "evidenceEventIds": [
+          "e01776"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4874.7
+    },
+    {
+      "id": "cue-0034",
+      "t0": 5248.9,
+      "t1": 5254.9,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.6 — Valentin Heikkila denies a 0.13 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "88'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.6
+          },
+          {
+            "label": "xg",
+            "value": 0.13
+          },
+          {
+            "label": "shooterId",
+            "value": "oldtower-p11"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0020",
+        "candidateId": "cand-0020",
+        "evidenceEventIds": [
+          "e01921"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5273.9
+    },
+    {
+      "id": "cue-0035",
+      "t0": 5325,
+      "t1": 5328,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "home",
+        "headline": "GOAL — Halvard Tuominen makes it HAR 1–0 OLD"
+      },
+      "source": {
+        "momentId": "cand-0021",
+        "candidateId": "cand-0021",
+        "evidenceEventIds": [
+          "e01946"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5505
+    },
+    {
+      "id": "cue-0038",
+      "t0": 5325,
+      "t1": 5328,
+      "slot": "goal_flash",
+      "priority": 92,
+      "animation": "flash",
+      "payload": {
+        "team": "home",
+        "headline": "Late drama"
+      },
+      "source": {
+        "momentId": "cand-0022",
+        "candidateId": "cand-0022",
+        "evidenceEventIds": [
+          "e01946"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5505
+    },
+    {
+      "id": "cue-0036",
+      "t0": 5325,
+      "t1": 5333,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Halvard Tuominen makes it HAR 1–0 OLD",
+        "body": "Halvard Tuominen strikes from 27.2 metres at 102 km/h — a 0.02 xG chance. The scoreline now reads HAR 1–0 OLD.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "89'",
+        "team": "home",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0021",
+        "candidateId": "cand-0021",
+        "evidenceEventIds": [
+          "e01946"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5505
+    },
+    {
+      "id": "cue-0037",
+      "t0": 5325,
+      "t1": 5331,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Halvard Tuominen makes it HAR 1–0 OLD",
+        "body": "Halvard Tuominen strikes from 27.2 metres at 102 km/h — a 0.02 xG chance. The scoreline now reads HAR 1–0 OLD.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "89'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "HAR 1–0 OLD"
+          },
+          {
+            "label": "xg",
+            "value": 0.02
+          },
+          {
+            "label": "distanceM",
+            "value": 27.2
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0021",
+        "candidateId": "cand-0021",
+        "evidenceEventIds": [
+          "e01946"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5505
+    },
+    {
+      "id": "cue-0039",
+      "t0": 5333,
+      "t1": 5341,
+      "slot": "lower_third",
+      "priority": 92,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Late drama",
+        "body": "LATE DRAMA at 89'! Harbour City strike with the clock nearly out — 1–0.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "89'",
+        "team": "home",
+        "kind": "late_drama"
+      },
+      "source": {
+        "momentId": "cand-0022",
+        "candidateId": "cand-0022",
+        "evidenceEventIds": [
+          "e01946"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5505
+    },
+    {
+      "id": "cue-0040",
+      "t0": 5415.8,
+      "t1": 5421.8,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.56 — Valentin Heikkila denies a 0.14 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "91'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.56
+          },
+          {
+            "label": "xg",
+            "value": 0.14
+          },
+          {
+            "label": "shooterId",
+            "value": "oldtower-p11"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0023",
+        "candidateId": "cand-0023",
+        "evidenceEventIds": [
+          "e01964"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5440.8
+    },
+    {
+      "id": "cue-0042",
+      "t0": 5760,
+      "t1": 5768,
+      "slot": "lower_third",
+      "priority": 58,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Momentum shift",
+        "body": "Momentum has swung to Harbour City — a 0.47 shift over the last five minutes.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "96'",
+        "team": "home",
+        "kind": "momentum_shift"
+      },
+      "source": {
+        "momentId": "cand-0026",
+        "candidateId": "cand-0026",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 6000
+    },
+    {
+      "id": "cue-0041",
+      "t0": 5760,
+      "t1": 5772,
+      "slot": "momentum_ribbon",
+      "priority": 58,
+      "animation": "pulse",
+      "payload": {
+        "direction": "home",
+        "swing": 0.47,
+        "headline": "Momentum shift",
+        "body": "Momentum has swung to Harbour City — a 0.47 shift over the last five minutes.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "96'"
+      },
+      "source": {
+        "momentId": "cand-0026",
+        "candidateId": "cand-0026",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 6000
+    },
+    {
+      "id": "cue-0045",
+      "t0": 5805,
+      "t1": 5811,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.94 — Franco Halvorsen denies a 0.31 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "97'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.94
+          },
+          {
+            "label": "xg",
+            "value": 0.31
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p11"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0025",
+        "candidateId": "cand-0025",
+        "evidenceEventIds": [
+          "e02105"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5830
+    },
+    {
+      "id": "cue-0043",
+      "t0": 5805,
+      "t1": 5812,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.31 xG look from 6.2 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "97'",
+        "from": {
+          "x": 46.95,
+          "y": -2.66
+        },
+        "to": {
+          "x": 52.5,
+          "y": -0.8
+        }
+      },
+      "source": {
+        "momentId": "cand-0024",
+        "candidateId": "cand-0024",
+        "evidenceEventIds": [
+          "e02104"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5830
+    }
+  ],
+  "meta": {
+    "homeAbbr": "HAR",
+    "awayAbbr": "OLD",
+    "competition": "Meridian League",
+    "generatedBy": "floodlight-cuesheet"
+  }
+}

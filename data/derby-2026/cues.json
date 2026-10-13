@@ -1,0 +1,1917 @@
+{
+  "version": "1.0",
+  "matchId": "m-2c5e6fb0",
+  "cues": [
+    {
+      "id": "cue-0001",
+      "t0": 157,
+      "t1": 162,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Fastest of the match",
+        "body": "Blistering pace from Fionn Christou: 32.7 km/h — the fastest of the match so far.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "3'",
+        "playerId": "westerly-p5",
+        "speedKph": 32.7
+      },
+      "source": {
+        "momentId": "cand-0036",
+        "candidateId": "cand-0036",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 169
+    },
+    {
+      "id": "cue-0002",
+      "t0": 227.7,
+      "t1": 233.7,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.62 — Halvard Petrov denies a 0.15 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "4'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.62
+          },
+          {
+            "label": "xg",
+            "value": 0.15
+          },
+          {
+            "label": "shooterId",
+            "value": "ironworks-p11"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0001",
+        "candidateId": "cand-0001",
+        "evidenceEventIds": [
+          "e00093"
+        ],
+        "verified": true
+      },
+      "expiresAt": 252.7
+    },
+    {
+      "id": "cue-0003",
+      "t0": 343.5,
+      "t1": 348.5,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Fastest of the match",
+        "body": "Blistering pace from Elias Pereira: 33.7 km/h — the fastest of the match so far.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "6'",
+        "playerId": "ironworks-p3",
+        "speedKph": 33.7
+      },
+      "source": {
+        "momentId": "cand-0037",
+        "candidateId": "cand-0037",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 355.5
+    },
+    {
+      "id": "cue-0005",
+      "t0": 360,
+      "t1": 368,
+      "slot": "lower_third",
+      "priority": 58,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Momentum shift",
+        "body": "Momentum has swung to Ironworks FC — a 0.45 shift over the last five minutes.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "6'",
+        "team": "home",
+        "kind": "momentum_shift"
+      },
+      "source": {
+        "momentId": "cand-0003",
+        "candidateId": "cand-0003",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 600
+    },
+    {
+      "id": "cue-0004",
+      "t0": 360,
+      "t1": 372,
+      "slot": "momentum_ribbon",
+      "priority": 58,
+      "animation": "pulse",
+      "payload": {
+        "direction": "home",
+        "swing": 0.45,
+        "headline": "Momentum shift",
+        "body": "Momentum has swung to Ironworks FC — a 0.45 shift over the last five minutes.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "6'"
+      },
+      "source": {
+        "momentId": "cand-0003",
+        "candidateId": "cand-0003",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 600
+    },
+    {
+      "id": "cue-0006",
+      "t0": 370.9,
+      "t1": 376.9,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.6 — Halvard Petrov denies a 0.13 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "7'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.6
+          },
+          {
+            "label": "xg",
+            "value": 0.13
+          },
+          {
+            "label": "shooterId",
+            "value": "ironworks-p13"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0002",
+        "candidateId": "cand-0002",
+        "evidenceEventIds": [
+          "e00147"
+        ],
+        "verified": true
+      },
+      "expiresAt": 395.9
+    },
+    {
+      "id": "cue-0007",
+      "t0": 592,
+      "t1": 597,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Fastest of the match",
+        "body": "Blistering pace from Yusuf Giordano: 33.1 km/h — the fastest of the match so far.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "10'",
+        "playerId": "westerly-p17",
+        "speedKph": 33.1
+      },
+      "source": {
+        "momentId": "cand-0038",
+        "candidateId": "cand-0038",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 604
+    },
+    {
+      "id": "cue-0008",
+      "t0": 721.9,
+      "t1": 724.9,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "home",
+        "headline": "GOAL — Valentin Weiss makes it IRN 1–0 WES"
+      },
+      "source": {
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
+        "evidenceEventIds": [
+          "e00281"
+        ],
+        "verified": true
+      },
+      "expiresAt": 901.9
+    },
+    {
+      "id": "cue-0009",
+      "t0": 721.9,
+      "t1": 729.9,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Valentin Weiss makes it IRN 1–0 WES",
+        "body": "Valentin Weiss strikes from 14.4 metres at 81.1 km/h — a 0.08 xG chance. The scoreline now reads IRN 1–0 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "13'",
+        "team": "home",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
+        "evidenceEventIds": [
+          "e00281"
+        ],
+        "verified": true
+      },
+      "expiresAt": 901.9
+    },
+    {
+      "id": "cue-0010",
+      "t0": 721.9,
+      "t1": 727.9,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Valentin Weiss makes it IRN 1–0 WES",
+        "body": "Valentin Weiss strikes from 14.4 metres at 81.1 km/h — a 0.08 xG chance. The scoreline now reads IRN 1–0 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "13'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "IRN 1–0 WES"
+          },
+          {
+            "label": "xg",
+            "value": 0.08
+          },
+          {
+            "label": "distanceM",
+            "value": 14.4
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
+        "evidenceEventIds": [
+          "e00281"
+        ],
+        "verified": true
+      },
+      "expiresAt": 901.9
+    },
+    {
+      "id": "cue-0011",
+      "t0": 1199.5,
+      "t1": 1205.5,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.65 — Halvard Petrov denies a 0.16 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "20'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.65
+          },
+          {
+            "label": "xg",
+            "value": 0.16
+          },
+          {
+            "label": "shooterId",
+            "value": "ironworks-p11"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0005",
+        "candidateId": "cand-0005",
+        "evidenceEventIds": [
+          "e00437"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1224.5
+    },
+    {
+      "id": "cue-0012",
+      "t0": 1330.2,
+      "t1": 1333.2,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "away",
+        "headline": "GOAL — Jamal Zander makes it IRN 1–1 WES"
+      },
+      "source": {
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
+        "evidenceEventIds": [
+          "e00480"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1510.2
+    },
+    {
+      "id": "cue-0013",
+      "t0": 1330.2,
+      "t1": 1338.2,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Jamal Zander makes it IRN 1–1 WES",
+        "body": "Jamal Zander strikes from 20.4 metres at 79.3 km/h — a 0.03 xG chance. The scoreline now reads IRN 1–1 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "23'",
+        "team": "away",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
+        "evidenceEventIds": [
+          "e00480"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1510.2
+    },
+    {
+      "id": "cue-0014",
+      "t0": 1330.2,
+      "t1": 1336.2,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Jamal Zander makes it IRN 1–1 WES",
+        "body": "Jamal Zander strikes from 20.4 metres at 79.3 km/h — a 0.03 xG chance. The scoreline now reads IRN 1–1 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "23'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "IRN 1–1 WES"
+          },
+          {
+            "label": "xg",
+            "value": 0.03
+          },
+          {
+            "label": "distanceM",
+            "value": 20.4
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
+        "evidenceEventIds": [
+          "e00480"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1510.2
+    },
+    {
+      "id": "cue-0017",
+      "t0": 1400.2,
+      "t1": 1406.2,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.79 — Halvard Petrov denies a 0.22 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "24'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.79
+          },
+          {
+            "label": "xg",
+            "value": 0.22
+          },
+          {
+            "label": "shooterId",
+            "value": "ironworks-p8"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0008",
+        "candidateId": "cand-0008",
+        "evidenceEventIds": [
+          "e00493"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1425.2
+    },
+    {
+      "id": "cue-0015",
+      "t0": 1400.2,
+      "t1": 1407.2,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.22 xG look from 8.6 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "24'",
+        "from": {
+          "x": 45.92,
+          "y": -5.55
+        },
+        "to": {
+          "x": 52.5,
+          "y": -1.67
+        }
+      },
+      "source": {
+        "momentId": "cand-0007",
+        "candidateId": "cand-0007",
+        "evidenceEventIds": [
+          "e00492"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1425.2
+    },
+    {
+      "id": "cue-0019",
+      "t0": 1406.2,
+      "t1": 1412.2,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.22 xG look from 8.6 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "24'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.22
+          },
+          {
+            "label": "outcome",
+            "value": "saved"
+          },
+          {
+            "label": "distanceM",
+            "value": 8.6
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0009",
+        "candidateId": "cand-0009",
+        "evidenceEventIds": [
+          "e00495"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1425.2
+    },
+    {
+      "id": "cue-0018",
+      "t0": 1407.2,
+      "t1": 1414.2,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.22 xG look from 8.6 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "24'",
+        "from": {
+          "x": 45.1,
+          "y": -4.35
+        },
+        "to": {
+          "x": 52.5,
+          "y": -1.31
+        }
+      },
+      "source": {
+        "momentId": "cand-0009",
+        "candidateId": "cand-0009",
+        "evidenceEventIds": [
+          "e00495"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1425.2
+    },
+    {
+      "id": "cue-0020",
+      "t0": 1412.2,
+      "t1": 1418.2,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.72 — Halvard Petrov denies a 0.22 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "24'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.72
+          },
+          {
+            "label": "xg",
+            "value": 0.22
+          },
+          {
+            "label": "shooterId",
+            "value": "ironworks-p8"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0010",
+        "candidateId": "cand-0010",
+        "evidenceEventIds": [
+          "e00496"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1425.2
+    },
+    {
+      "id": "cue-0025",
+      "t0": 1982.1,
+      "t1": 1988.1,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.76 — Halvard Petrov denies a 0.2 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "34'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.76
+          },
+          {
+            "label": "xg",
+            "value": 0.2
+          },
+          {
+            "label": "shooterId",
+            "value": "ironworks-p8"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0013",
+        "candidateId": "cand-0013",
+        "evidenceEventIds": [
+          "e00715"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2007.1
+    },
+    {
+      "id": "cue-0021",
+      "t0": 1982.1,
+      "t1": 1989.1,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Ironworks FC: Valentin Weiss gets a 0.21 xG look from 8 metres — post.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "34'",
+        "from": {
+          "x": 46.3,
+          "y": 5.04
+        },
+        "to": {
+          "x": 52.5,
+          "y": 1.51
+        }
+      },
+      "source": {
+        "momentId": "cand-0011",
+        "candidateId": "cand-0011",
+        "evidenceEventIds": [
+          "e00712"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2007.1
+    },
+    {
+      "id": "cue-0024",
+      "t0": 1988.1,
+      "t1": 1994.1,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.2 xG look from 8.9 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "34'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.2
+          },
+          {
+            "label": "outcome",
+            "value": "saved"
+          },
+          {
+            "label": "distanceM",
+            "value": 8.9
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0012",
+        "candidateId": "cand-0012",
+        "evidenceEventIds": [
+          "e00714"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2007.1
+    },
+    {
+      "id": "cue-0023",
+      "t0": 1989.1,
+      "t1": 1996.1,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.2 xG look from 8.9 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "34'",
+        "from": {
+          "x": 44.94,
+          "y": 4.75
+        },
+        "to": {
+          "x": 52.5,
+          "y": 1.43
+        }
+      },
+      "source": {
+        "momentId": "cand-0012",
+        "candidateId": "cand-0012",
+        "evidenceEventIds": [
+          "e00714"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2007.1
+    },
+    {
+      "id": "cue-0026",
+      "t0": 2070.3,
+      "t1": 2078.3,
+      "slot": "lower_third",
+      "priority": 95,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Red card",
+        "body": "RED CARD — Valentin Weiss is off (reckless). Ironworks FC are down to ten.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "35'",
+        "team": "home",
+        "kind": "red_card"
+      },
+      "source": {
+        "momentId": "cand-0014",
+        "candidateId": "cand-0014",
+        "evidenceEventIds": [
+          "e00747"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2250.3
+    },
+    {
+      "id": "cue-0027",
+      "t0": 2070.3,
+      "t1": 2076.3,
+      "slot": "stat_bumper",
+      "priority": 95,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Red card",
+        "body": "RED CARD — Valentin Weiss is off (reckless). Ironworks FC are down to ten.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "35'",
+        "stats": [
+          {
+            "label": "player",
+            "value": "Valentin Weiss"
+          },
+          {
+            "label": "reason",
+            "value": "reckless"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0014",
+        "candidateId": "cand-0014",
+        "evidenceEventIds": [
+          "e00747"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2250.3
+    },
+    {
+      "id": "cue-0028",
+      "t0": 2192.6,
+      "t1": 2195.6,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "away",
+        "headline": "GOAL — Jamal Zander makes it IRN 1–2 WES"
+      },
+      "source": {
+        "momentId": "cand-0015",
+        "candidateId": "cand-0015",
+        "evidenceEventIds": [
+          "e00797"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2372.6
+    },
+    {
+      "id": "cue-0029",
+      "t0": 2192.6,
+      "t1": 2200.6,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Jamal Zander makes it IRN 1–2 WES",
+        "body": "Jamal Zander strikes from 2.5 metres at 102.7 km/h — a 0.38 xG chance. The scoreline now reads IRN 1–2 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "37'",
+        "team": "away",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0015",
+        "candidateId": "cand-0015",
+        "evidenceEventIds": [
+          "e00797"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2372.6
+    },
+    {
+      "id": "cue-0030",
+      "t0": 2192.6,
+      "t1": 2198.6,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Jamal Zander makes it IRN 1–2 WES",
+        "body": "Jamal Zander strikes from 2.5 metres at 102.7 km/h — a 0.38 xG chance. The scoreline now reads IRN 1–2 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "37'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "IRN 1–2 WES"
+          },
+          {
+            "label": "xg",
+            "value": 0.38
+          },
+          {
+            "label": "distanceM",
+            "value": 2.5
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0015",
+        "candidateId": "cand-0015",
+        "evidenceEventIds": [
+          "e00797"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2372.6
+    },
+    {
+      "id": "cue-0031",
+      "t0": 2198.6,
+      "t1": 2204.6,
+      "slot": "stat_bumper",
+      "priority": 70,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Milestone",
+        "body": "Jamal Zander completes a brace — 2 goals today.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "37'",
+        "stats": [
+          {
+            "label": "milestone",
+            "value": "brace"
+          },
+          {
+            "label": "goals",
+            "value": 2
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0016",
+        "candidateId": "cand-0016",
+        "evidenceEventIds": [
+          "e00797"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2312.6
+    },
+    {
+      "id": "cue-0033",
+      "t0": 2400,
+      "t1": 2408,
+      "slot": "lower_third",
+      "priority": 58,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Momentum shift",
+        "body": "Momentum has swung to Westerly Wanderers — a -0.52 shift over the last five minutes.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "40'",
+        "team": "away",
+        "kind": "momentum_shift"
+      },
+      "source": {
+        "momentId": "cand-0019",
+        "candidateId": "cand-0019",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 2640
+    },
+    {
+      "id": "cue-0032",
+      "t0": 2400,
+      "t1": 2412,
+      "slot": "momentum_ribbon",
+      "priority": 58,
+      "animation": "pulse",
+      "payload": {
+        "direction": "away",
+        "swing": -0.52,
+        "headline": "Momentum shift",
+        "body": "Momentum has swung to Westerly Wanderers — a -0.52 shift over the last five minutes.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "40'"
+      },
+      "source": {
+        "momentId": "cand-0019",
+        "candidateId": "cand-0019",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 2640
+    },
+    {
+      "id": "cue-0036",
+      "t0": 2456.9,
+      "t1": 2462.9,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.98 — Ezra Bianchi denies a 0.37 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "41'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.98
+          },
+          {
+            "label": "xg",
+            "value": 0.37
+          },
+          {
+            "label": "shooterId",
+            "value": "westerly-p13"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0018",
+        "candidateId": "cand-0018",
+        "evidenceEventIds": [
+          "e00874"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2481.9
+    },
+    {
+      "id": "cue-0034",
+      "t0": 2456.9,
+      "t1": 2463.9,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.37 xG look from 3.9 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "41'",
+        "from": {
+          "x": -48.71,
+          "y": 1.06
+        },
+        "to": {
+          "x": -52.5,
+          "y": 0.32
+        }
+      },
+      "source": {
+        "momentId": "cand-0017",
+        "candidateId": "cand-0017",
+        "evidenceEventIds": [
+          "e00873"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2481.9
+    },
+    {
+      "id": "cue-0037",
+      "t0": 2583.5,
+      "t1": 2591.5,
+      "slot": "lower_third",
+      "priority": 80,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Under review",
+        "body": "The referee is checking... the goal is under review. Hold everything.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "44'",
+        "team": "none",
+        "kind": "var_review"
+      },
+      "source": {
+        "momentId": "cand-0021",
+        "candidateId": "cand-0021",
+        "evidenceEventIds": [
+          "e00925"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2673.5
+    },
+    {
+      "id": "cue-0038",
+      "t0": 2674,
+      "t1": 2677,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "none",
+        "headline": "Overturned"
+      },
+      "source": {
+        "momentId": "cand-0022",
+        "candidateId": "cand-0022",
+        "evidenceEventIds": [
+          "e00957"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2794
+    },
+    {
+      "id": "cue-0039",
+      "t0": 2674,
+      "t1": 2682,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Overturned",
+        "body": "OVERTURNED. The goal is chalked off and the scoreline rolls back. The insights surrounding that moment are retracted.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "45'",
+        "team": "none",
+        "kind": "var_overturn"
+      },
+      "source": {
+        "momentId": "cand-0022",
+        "candidateId": "cand-0022",
+        "evidenceEventIds": [
+          "e00957"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2794
+    },
+    {
+      "id": "cue-0041",
+      "t0": 2867.2,
+      "t1": 2873.2,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.21 xG look from 9.2 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "48'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.21
+          },
+          {
+            "label": "outcome",
+            "value": "blocked"
+          },
+          {
+            "label": "distanceM",
+            "value": 9.2
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0023",
+        "candidateId": "cand-0023",
+        "evidenceEventIds": [
+          "e01029"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2892.2
+    },
+    {
+      "id": "cue-0040",
+      "t0": 2867.2,
+      "t1": 2874.2,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.21 xG look from 9.2 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "48'",
+        "from": {
+          "x": -43.87,
+          "y": 3.07
+        },
+        "to": {
+          "x": -52.5,
+          "y": 0.92
+        }
+      },
+      "source": {
+        "momentId": "cand-0023",
+        "candidateId": "cand-0023",
+        "evidenceEventIds": [
+          "e01029"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2892.2
+    },
+    {
+      "id": "cue-0042",
+      "t0": 3041.6,
+      "t1": 3044.6,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "home",
+        "headline": "GOAL — Zane Pereira makes it IRN 2–2 WES"
+      },
+      "source": {
+        "momentId": "cand-0024",
+        "candidateId": "cand-0024",
+        "evidenceEventIds": [
+          "e01094"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3221.6
+    },
+    {
+      "id": "cue-0043",
+      "t0": 3041.6,
+      "t1": 3049.6,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Zane Pereira makes it IRN 2–2 WES",
+        "body": "Zane Pereira strikes from 22.4 metres at 88.5 km/h — a 0.02 xG chance. The scoreline now reads IRN 2–2 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "51'",
+        "team": "home",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0024",
+        "candidateId": "cand-0024",
+        "evidenceEventIds": [
+          "e01094"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3221.6
+    },
+    {
+      "id": "cue-0044",
+      "t0": 3041.6,
+      "t1": 3047.6,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Zane Pereira makes it IRN 2–2 WES",
+        "body": "Zane Pereira strikes from 22.4 metres at 88.5 km/h — a 0.02 xG chance. The scoreline now reads IRN 2–2 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "51'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "IRN 2–2 WES"
+          },
+          {
+            "label": "xg",
+            "value": 0.02
+          },
+          {
+            "label": "distanceM",
+            "value": 22.4
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0024",
+        "candidateId": "cand-0024",
+        "evidenceEventIds": [
+          "e01094"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3221.6
+    },
+    {
+      "id": "cue-0046",
+      "t0": 3120.5,
+      "t1": 3126.5,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.23 xG look from 8.7 metres — post.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "53'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.23
+          },
+          {
+            "label": "outcome",
+            "value": "post"
+          },
+          {
+            "label": "distanceM",
+            "value": 8.7
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0025",
+        "candidateId": "cand-0025",
+        "evidenceEventIds": [
+          "e01111"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3145.5
+    },
+    {
+      "id": "cue-0045",
+      "t0": 3120.5,
+      "t1": 3127.5,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.23 xG look from 8.7 metres — post.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "53'",
+        "from": {
+          "x": 44.25,
+          "y": -2.66
+        },
+        "to": {
+          "x": 52.5,
+          "y": -0.8
+        }
+      },
+      "source": {
+        "momentId": "cand-0025",
+        "candidateId": "cand-0025",
+        "evidenceEventIds": [
+          "e01111"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3145.5
+    },
+    {
+      "id": "cue-0048",
+      "t0": 3495.7,
+      "t1": 3501.7,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.34 xG look from 2.9 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "59'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.34
+          },
+          {
+            "label": "outcome",
+            "value": "blocked"
+          },
+          {
+            "label": "distanceM",
+            "value": 2.9
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0026",
+        "candidateId": "cand-0026",
+        "evidenceEventIds": [
+          "e01247"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3520.7
+    },
+    {
+      "id": "cue-0047",
+      "t0": 3495.7,
+      "t1": 3502.7,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.34 xG look from 2.9 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "59'",
+        "from": {
+          "x": -51.5,
+          "y": -2.75
+        },
+        "to": {
+          "x": -52.5,
+          "y": -0.82
+        }
+      },
+      "source": {
+        "momentId": "cand-0026",
+        "candidateId": "cand-0026",
+        "evidenceEventIds": [
+          "e01247"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3520.7
+    },
+    {
+      "id": "cue-0049",
+      "t0": 3546,
+      "t1": 3554,
+      "slot": "lower_third",
+      "priority": 95,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Red card",
+        "body": "RED CARD — Fionn Jelinek is off (tactical). Westerly Wanderers are down to ten.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "60'",
+        "team": "away",
+        "kind": "red_card"
+      },
+      "source": {
+        "momentId": "cand-0027",
+        "candidateId": "cand-0027",
+        "evidenceEventIds": [
+          "e01273"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3726
+    },
+    {
+      "id": "cue-0050",
+      "t0": 3546,
+      "t1": 3552,
+      "slot": "stat_bumper",
+      "priority": 95,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Red card",
+        "body": "RED CARD — Fionn Jelinek is off (tactical). Westerly Wanderers are down to ten.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "60'",
+        "stats": [
+          {
+            "label": "player",
+            "value": "Fionn Jelinek"
+          },
+          {
+            "label": "reason",
+            "value": "tactical"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0027",
+        "candidateId": "cand-0027",
+        "evidenceEventIds": [
+          "e01273"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3726
+    },
+    {
+      "id": "cue-0053",
+      "t0": 3736.3,
+      "t1": 3742.3,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.83 — Ezra Bianchi denies a 0.26 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "63'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.83
+          },
+          {
+            "label": "xg",
+            "value": 0.26
+          },
+          {
+            "label": "shooterId",
+            "value": "westerly-p13"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0029",
+        "candidateId": "cand-0029",
+        "evidenceEventIds": [
+          "e01344"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3761.3
+    },
+    {
+      "id": "cue-0051",
+      "t0": 3736.3,
+      "t1": 3743.3,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.26 xG look from 7.4 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "63'",
+        "from": {
+          "x": -45.49,
+          "y": 2.53
+        },
+        "to": {
+          "x": -52.5,
+          "y": 0.76
+        }
+      },
+      "source": {
+        "momentId": "cand-0028",
+        "candidateId": "cand-0028",
+        "evidenceEventIds": [
+          "e01343"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3761.3
+    },
+    {
+      "id": "cue-0056",
+      "t0": 3780.3,
+      "t1": 3783.3,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "home",
+        "headline": "GOAL — Piotr Iversen makes it IRN 3–2 WES"
+      },
+      "source": {
+        "momentId": "cand-0031",
+        "candidateId": "cand-0031",
+        "evidenceEventIds": [
+          "e01359"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3960.3
+    },
+    {
+      "id": "cue-0057",
+      "t0": 3780.3,
+      "t1": 3788.3,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Piotr Iversen makes it IRN 3–2 WES",
+        "body": "Piotr Iversen strikes from 11 metres at 91.7 km/h — a 0.78 xG chance from the spot. The scoreline now reads IRN 3–2 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "64'",
+        "team": "home",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0031",
+        "candidateId": "cand-0031",
+        "evidenceEventIds": [
+          "e01359"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3960.3
+    },
+    {
+      "id": "cue-0058",
+      "t0": 3780.3,
+      "t1": 3786.3,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Piotr Iversen makes it IRN 3–2 WES",
+        "body": "Piotr Iversen strikes from 11 metres at 91.7 km/h — a 0.78 xG chance from the spot. The scoreline now reads IRN 3–2 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "64'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "IRN 3–2 WES"
+          },
+          {
+            "label": "xg",
+            "value": 0.78
+          },
+          {
+            "label": "distanceM",
+            "value": 11
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0031",
+        "candidateId": "cand-0031",
+        "evidenceEventIds": [
+          "e01359"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3960.3
+    },
+    {
+      "id": "cue-0059",
+      "t0": 4871.6,
+      "t1": 4874.6,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "away",
+        "headline": "GOAL — Oscar Iversen makes it IRN 3–3 WES"
+      },
+      "source": {
+        "momentId": "cand-0032",
+        "candidateId": "cand-0032",
+        "evidenceEventIds": [
+          "e01738"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5051.6
+    },
+    {
+      "id": "cue-0060",
+      "t0": 4871.6,
+      "t1": 4879.6,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Oscar Iversen makes it IRN 3–3 WES",
+        "body": "Oscar Iversen strikes from 25.1 metres at 74.4 km/h — a 0.01 xG chance. The scoreline now reads IRN 3–3 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "82'",
+        "team": "away",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0032",
+        "candidateId": "cand-0032",
+        "evidenceEventIds": [
+          "e01738"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5051.6
+    },
+    {
+      "id": "cue-0061",
+      "t0": 4871.6,
+      "t1": 4877.6,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Oscar Iversen makes it IRN 3–3 WES",
+        "body": "Oscar Iversen strikes from 25.1 metres at 74.4 km/h — a 0.01 xG chance. The scoreline now reads IRN 3–3 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "82'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "IRN 3–3 WES"
+          },
+          {
+            "label": "xg",
+            "value": 0.01
+          },
+          {
+            "label": "distanceM",
+            "value": 25.1
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0032",
+        "candidateId": "cand-0032",
+        "evidenceEventIds": [
+          "e01738"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5051.6
+    },
+    {
+      "id": "cue-0062",
+      "t0": 5484.4,
+      "t1": 5487.4,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "home",
+        "headline": "GOAL — Piotr Iversen makes it IRN 4–3 WES"
+      },
+      "source": {
+        "momentId": "cand-0033",
+        "candidateId": "cand-0033",
+        "evidenceEventIds": [
+          "e01950"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5664.4
+    },
+    {
+      "id": "cue-0066",
+      "t0": 5484.4,
+      "t1": 5487.4,
+      "slot": "goal_flash",
+      "priority": 92,
+      "animation": "flash",
+      "payload": {
+        "team": "home",
+        "headline": "Late drama"
+      },
+      "source": {
+        "momentId": "cand-0035",
+        "candidateId": "cand-0035",
+        "evidenceEventIds": [
+          "e01950"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5664.4
+    },
+    {
+      "id": "cue-0063",
+      "t0": 5484.4,
+      "t1": 5492.4,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Piotr Iversen makes it IRN 4–3 WES",
+        "body": "Piotr Iversen strikes from 25.7 metres at 75 km/h — a 0.01 xG chance. The scoreline now reads IRN 4–3 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "92'",
+        "team": "home",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0033",
+        "candidateId": "cand-0033",
+        "evidenceEventIds": [
+          "e01950"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5664.4
+    },
+    {
+      "id": "cue-0064",
+      "t0": 5484.4,
+      "t1": 5490.4,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Piotr Iversen makes it IRN 4–3 WES",
+        "body": "Piotr Iversen strikes from 25.7 metres at 75 km/h — a 0.01 xG chance. The scoreline now reads IRN 4–3 WES.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "92'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "IRN 4–3 WES"
+          },
+          {
+            "label": "xg",
+            "value": 0.01
+          },
+          {
+            "label": "distanceM",
+            "value": 25.7
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0033",
+        "candidateId": "cand-0033",
+        "evidenceEventIds": [
+          "e01950"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5664.4
+    },
+    {
+      "id": "cue-0065",
+      "t0": 5490.4,
+      "t1": 5496.4,
+      "slot": "stat_bumper",
+      "priority": 70,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Milestone",
+        "body": "Piotr Iversen completes a brace — 2 goals today.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "92'",
+        "stats": [
+          {
+            "label": "milestone",
+            "value": "brace"
+          },
+          {
+            "label": "goals",
+            "value": 2
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0034",
+        "candidateId": "cand-0034",
+        "evidenceEventIds": [
+          "e01950"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5604.4
+    },
+    {
+      "id": "cue-0067",
+      "t0": 5492.4,
+      "t1": 5500.4,
+      "slot": "lower_third",
+      "priority": 92,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Late drama",
+        "body": "LATE DRAMA at 92'! Ironworks FC strike with the clock nearly out — 4–3.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "92'",
+        "team": "home",
+        "kind": "late_drama"
+      },
+      "source": {
+        "momentId": "cand-0035",
+        "candidateId": "cand-0035",
+        "evidenceEventIds": [
+          "e01950"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5664.4
+    }
+  ],
+  "meta": {
+    "homeAbbr": "IRN",
+    "awayAbbr": "WES",
+    "competition": "Meridian League",
+    "generatedBy": "floodlight-cuesheet"
+  }
+}

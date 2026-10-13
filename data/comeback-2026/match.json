@@ -1,0 +1,121 @@
+{
+  "scenario": {
+    "id": "comeback",
+    "name": "The Comeback",
+    "tagline": "Two down inside half an hour. Then the floodlights changed everything."
+  },
+  "seed": 2026,
+  "meta": {
+    "id": "m-d3bd8f61",
+    "seed": 2026,
+    "scenario": "comeback",
+    "competition": "Meridian League",
+    "venue": {
+      "id": "riverside-park",
+      "name": "Riverside Park",
+      "city": "Riverside",
+      "capacity": 52400
+    },
+    "kickoffISO": "2026-08-15T19:45:00.000Z",
+    "home": {
+      "id": "riverside",
+      "name": "Riverside Athletic",
+      "abbr": "RIV",
+      "primary": "#d7263d",
+      "secondary": "#ffffff",
+      "onPrimary": "#ffffff"
+    },
+    "away": {
+      "id": "northgate",
+      "name": "Northgate United",
+      "abbr": "NOR",
+      "primary": "#1f4e9c",
+      "secondary": "#f2c14e",
+      "onPrimary": "#ffffff"
+    },
+    "homeManager": "Dana Whitfield",
+    "awayManager": "Marek Ostrowski",
+    "referee": "Rosa Delgado"
+  },
+  "timing": {
+    "halfTimeT": 2994,
+    "fullTimeT": 6055
+  },
+  "finalScore": {
+    "home": 3,
+    "away": 2
+  },
+  "teamStats": {
+    "home": {
+      "side": "home",
+      "goals": 3,
+      "goalsDisallowed": 0,
+      "shots": 22,
+      "shotsOnTarget": 7,
+      "bigChances": 11,
+      "xg": 3.985,
+      "passes": 575,
+      "passesCompleted": 482,
+      "passAccuracy": 0.8382608695652174,
+      "progressivePasses": 144,
+      "passDifficultyAvg": 0.5368539130434777,
+      "xtGenerated": 16.738300000000002,
+      "carries": 157,
+      "tackles": 22,
+      "interceptions": 6,
+      "fouls": 15,
+      "yellowCards": 1,
+      "redCards": 0,
+      "corners": 7,
+      "turnovers": 93,
+      "highTurnovers": 0,
+      "possessionSeconds": 2977.7000000000025,
+      "possessionShare": 0.49169418758256317,
+      "defensiveActions": 43,
+      "ppda": 13.930232558139535,
+      "topSpeedKph": 35.5,
+      "distanceCoveredKm": 90.94070706447631,
+      "sprints": 1745,
+      "touchesInBox": 17
+    },
+    "away": {
+      "side": "away",
+      "goals": 2,
+      "goalsDisallowed": 0,
+      "shots": 5,
+      "shotsOnTarget": 3,
+      "bigChances": 0,
+      "xg": 0.291,
+      "passes": 599,
+      "passesCompleted": 501,
+      "passAccuracy": 0.8363939899833055,
+      "progressivePasses": 120,
+      "passDifficultyAvg": 0.4918714524207013,
+      "xtGenerated": 6.57389999999999,
+      "carries": 156,
+      "tackles": 18,
+      "interceptions": 4,
+      "fouls": 11,
+      "yellowCards": 3,
+      "redCards": 1,
+      "corners": 1,
+      "turnovers": 98,
+      "highTurnovers": 0,
+      "possessionSeconds": 3078.2999999999975,
+      "possessionShare": 0.5083058124174369,
+      "defensiveActions": 33,
+      "ppda": 17.424242424242426,
+      "topSpeedKph": 36,
+      "distanceCoveredKm": 79.65539884369987,
+      "sprints": 1454,
+      "touchesInBox": 3
+    }
+  },
+  "counts": {
+    "events": 2118,
+    "candidates": 31,
+    "moments": 31,
+    "cues": 53,
+    "players": 36
+  }
+}

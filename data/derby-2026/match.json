@@ -1,0 +1,121 @@
+{
+  "scenario": {
+    "id": "derby",
+    "name": "The Derby",
+    "tagline": "Seven goals, a red card, a VAR overturn — ninety minutes of beautiful chaos."
+  },
+  "seed": 2026,
+  "meta": {
+    "id": "m-2c5e6fb0",
+    "seed": 2026,
+    "scenario": "derby",
+    "competition": "Meridian League",
+    "venue": {
+      "id": "the-foundry",
+      "name": "The Foundry",
+      "city": "Ironworks",
+      "capacity": 39800
+    },
+    "kickoffISO": "2026-08-15T19:45:00.000Z",
+    "home": {
+      "id": "ironworks",
+      "name": "Ironworks FC",
+      "abbr": "IRN",
+      "primary": "#2b2b2b",
+      "secondary": "#f2a541",
+      "onPrimary": "#f2a541"
+    },
+    "away": {
+      "id": "westerly",
+      "name": "Westerly Wanderers",
+      "abbr": "WES",
+      "primary": "#e07a1f",
+      "secondary": "#14342b",
+      "onPrimary": "#14342b"
+    },
+    "homeManager": "Callum Brae",
+    "awayManager": "Nora Kestrel",
+    "referee": "Rosa Delgado"
+  },
+  "timing": {
+    "halfTimeT": 2994,
+    "fullTimeT": 6055
+  },
+  "finalScore": {
+    "home": 4,
+    "away": 3
+  },
+  "teamStats": {
+    "home": {
+      "side": "home",
+      "goals": 4,
+      "goalsDisallowed": 1,
+      "shots": 19,
+      "shotsOnTarget": 11,
+      "bigChances": 6,
+      "xg": 3.0009999999999994,
+      "passes": 638,
+      "passesCompleted": 527,
+      "passAccuracy": 0.8260188087774295,
+      "progressivePasses": 149,
+      "passDifficultyAvg": 0.542626959247648,
+      "xtGenerated": 9.688199999999991,
+      "carries": 190,
+      "tackles": 13,
+      "interceptions": 2,
+      "fouls": 7,
+      "yellowCards": 3,
+      "redCards": 1,
+      "corners": 8,
+      "turnovers": 111,
+      "highTurnovers": 0,
+      "possessionSeconds": 3242.5999999999976,
+      "possessionShare": 0.5352856694785145,
+      "defensiveActions": 22,
+      "ppda": 24.636363636363637,
+      "topSpeedKph": 34.7,
+      "distanceCoveredKm": 84.43978841132915,
+      "sprints": 1459,
+      "touchesInBox": 14
+    },
+    "away": {
+      "side": "away",
+      "goals": 3,
+      "goalsDisallowed": 0,
+      "shots": 7,
+      "shotsOnTarget": 5,
+      "bigChances": 5,
+      "xg": 1.6059999999999999,
+      "passes": 542,
+      "passesCompleted": 433,
+      "passAccuracy": 0.7988929889298892,
+      "progressivePasses": 108,
+      "passDifficultyAvg": 0.5449852398523982,
+      "xtGenerated": 9.897700000000002,
+      "carries": 145,
+      "tackles": 5,
+      "interceptions": 6,
+      "fouls": 5,
+      "yellowCards": 0,
+      "redCards": 1,
+      "corners": 0,
+      "turnovers": 109,
+      "highTurnovers": 0,
+      "possessionSeconds": 2815.100000000002,
+      "possessionShare": 0.4647143305214854,
+      "defensiveActions": 16,
+      "ppda": 39.875,
+      "topSpeedKph": 33.7,
+      "distanceCoveredKm": 89.27145828182005,
+      "sprints": 1625,
+      "touchesInBox": 5
+    }
+  },
+  "counts": {
+    "events": 2144,
+    "candidates": 38,
+    "moments": 37,
+    "cues": 61,
+    "players": 36
+  }
+}

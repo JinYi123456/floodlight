@@ -19,7 +19,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p apps/web/tsconfig.json --noEmit",
     "dev": "npm --workspace @floodlight/web run dev",
     "build:web": "npm --workspace @floodlight/web run build",
-    "api": "npm --workspace @floodlight/api run start"
+    "api": "npm --workspace @floodlight/api run start",
+    "export:dataset": "tsx packages/dataset/src/cli.ts"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",

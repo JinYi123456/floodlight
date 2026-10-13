@@ -1,0 +1,121 @@
+{
+  "scenario": {
+    "id": "siege",
+    "name": "The Siege",
+    "tagline": "Twenty-eight shots, one goal, and a wall that almost held forever."
+  },
+  "seed": 2026,
+  "meta": {
+    "id": "m-e08b11dd",
+    "seed": 2026,
+    "scenario": "siege",
+    "competition": "Meridian League",
+    "venue": {
+      "id": "harbour-bowl",
+      "name": "Harbour Bowl",
+      "city": "Harbour",
+      "capacity": 47300
+    },
+    "kickoffISO": "2026-08-15T19:45:00.000Z",
+    "home": {
+      "id": "harbour",
+      "name": "Harbour City",
+      "abbr": "HAR",
+      "primary": "#59c3e0",
+      "secondary": "#12263a",
+      "onPrimary": "#12263a"
+    },
+    "away": {
+      "id": "oldtower",
+      "name": "Old Tower FC",
+      "abbr": "OLD",
+      "primary": "#7b2d26",
+      "secondary": "#d9c9a3",
+      "onPrimary": "#f4e9d8"
+    },
+    "homeManager": "Ines Carmo",
+    "awayManager": "Gareth Lyle",
+    "referee": "Rosa Delgado"
+  },
+  "timing": {
+    "halfTimeT": 2994,
+    "fullTimeT": 6055
+  },
+  "finalScore": {
+    "home": 1,
+    "away": 0
+  },
+  "teamStats": {
+    "home": {
+      "side": "home",
+      "goals": 1,
+      "goalsDisallowed": 0,
+      "shots": 14,
+      "shotsOnTarget": 8,
+      "bigChances": 8,
+      "xg": 3.1790000000000003,
+      "passes": 654,
+      "passesCompleted": 529,
+      "passAccuracy": 0.808868501529052,
+      "progressivePasses": 146,
+      "passDifficultyAvg": 0.5228715596330278,
+      "xtGenerated": 13.932100000000004,
+      "carries": 163,
+      "tackles": 14,
+      "interceptions": 5,
+      "fouls": 5,
+      "yellowCards": 1,
+      "redCards": 0,
+      "corners": 4,
+      "turnovers": 125,
+      "highTurnovers": 0,
+      "possessionSeconds": 3151.4999999999964,
+      "possessionShare": 0.5203242636375638,
+      "defensiveActions": 24,
+      "ppda": 23.916666666666668,
+      "topSpeedKph": 34.9,
+      "distanceCoveredKm": 94.02094239406557,
+      "sprints": 1819,
+      "touchesInBox": 10
+    },
+    "away": {
+      "side": "away",
+      "goals": 0,
+      "goalsDisallowed": 0,
+      "shots": 15,
+      "shotsOnTarget": 4,
+      "bigChances": 3,
+      "xg": 2.11,
+      "passes": 574,
+      "passesCompleted": 458,
+      "passAccuracy": 0.7979094076655052,
+      "progressivePasses": 115,
+      "passDifficultyAvg": 0.5289320557491287,
+      "xtGenerated": 13.062900000000003,
+      "carries": 186,
+      "tackles": 13,
+      "interceptions": 9,
+      "fouls": 2,
+      "yellowCards": 0,
+      "redCards": 0,
+      "corners": 4,
+      "turnovers": 116,
+      "highTurnovers": 0,
+      "possessionSeconds": 2905.300000000004,
+      "possessionShare": 0.4796757363624362,
+      "defensiveActions": 24,
+      "ppda": 27.25,
+      "topSpeedKph": 34,
+      "distanceCoveredKm": 102.50043509431991,
+      "sprints": 2453,
+      "touchesInBox": 13
+    }
+  },
+  "counts": {
+    "events": 2194,
+    "candidates": 28,
+    "moments": 28,
+    "cues": 38,
+    "players": 36
+  }
+}

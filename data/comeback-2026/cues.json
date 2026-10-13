@@ -1,0 +1,1711 @@
+{
+  "version": "1.0",
+  "matchId": "m-d3bd8f61",
+  "cues": [
+    {
+      "id": "cue-0001",
+      "t0": 130,
+      "t1": 135,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Fastest of the match",
+        "body": "Blistering pace from Alden Iversen: 34.6 km/h — the fastest of the match so far.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "3'",
+        "playerId": "riverside-p4",
+        "speedKph": 34.6
+      },
+      "source": {
+        "momentId": "cand-0029",
+        "candidateId": "cand-0029",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 142
+    },
+    {
+      "id": "cue-0003",
+      "t0": 308.6,
+      "t1": 314.6,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.22 xG look from 8.7 metres — post.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "6'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.22
+          },
+          {
+            "label": "outcome",
+            "value": "post"
+          },
+          {
+            "label": "distanceM",
+            "value": 8.7
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0001",
+        "candidateId": "cand-0001",
+        "evidenceEventIds": [
+          "e00109"
+        ],
+        "verified": true
+      },
+      "expiresAt": 333.6
+    },
+    {
+      "id": "cue-0002",
+      "t0": 308.6,
+      "t1": 315.6,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.22 xG look from 8.7 metres — post.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "6'",
+        "from": {
+          "x": 44.14,
+          "y": 2.48
+        },
+        "to": {
+          "x": 52.5,
+          "y": 0.74
+        }
+      },
+      "source": {
+        "momentId": "cand-0001",
+        "candidateId": "cand-0001",
+        "evidenceEventIds": [
+          "e00109"
+        ],
+        "verified": true
+      },
+      "expiresAt": 333.6
+    },
+    {
+      "id": "cue-0004",
+      "t0": 342.5,
+      "t1": 347.5,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Fastest of the match",
+        "body": "Blistering pace from Ivo Whitlock: 35.4 km/h — the fastest of the match so far.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "6'",
+        "playerId": "riverside-p3",
+        "speedKph": 35.4
+      },
+      "source": {
+        "momentId": "cand-0030",
+        "candidateId": "cand-0030",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 354.5
+    },
+    {
+      "id": "cue-0005",
+      "t0": 456.5,
+      "t1": 459.5,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "away",
+        "headline": "GOAL — Theo Escobar makes it RIV 0–1 NOR"
+      },
+      "source": {
+        "momentId": "cand-0002",
+        "candidateId": "cand-0002",
+        "evidenceEventIds": [
+          "e00164"
+        ],
+        "verified": true
+      },
+      "expiresAt": 636.5
+    },
+    {
+      "id": "cue-0006",
+      "t0": 456.5,
+      "t1": 464.5,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Theo Escobar makes it RIV 0–1 NOR",
+        "body": "Theo Escobar strikes from 16.4 metres at 82.7 km/h — a 0.07 xG chance. The scoreline now reads RIV 0–1 NOR.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "8'",
+        "team": "away",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0002",
+        "candidateId": "cand-0002",
+        "evidenceEventIds": [
+          "e00164"
+        ],
+        "verified": true
+      },
+      "expiresAt": 636.5
+    },
+    {
+      "id": "cue-0007",
+      "t0": 456.5,
+      "t1": 462.5,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Theo Escobar makes it RIV 0–1 NOR",
+        "body": "Theo Escobar strikes from 16.4 metres at 82.7 km/h — a 0.07 xG chance. The scoreline now reads RIV 0–1 NOR.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "8'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "RIV 0–1 NOR"
+          },
+          {
+            "label": "xg",
+            "value": 0.07
+          },
+          {
+            "label": "distanceM",
+            "value": 16.4
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0002",
+        "candidateId": "cand-0002",
+        "evidenceEventIds": [
+          "e00164"
+        ],
+        "verified": true
+      },
+      "expiresAt": 636.5
+    },
+    {
+      "id": "cue-0008",
+      "t0": 790,
+      "t1": 795,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Fastest of the match",
+        "body": "Blistering pace from Cassian Anselm: 34.8 km/h — the fastest of the match so far.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "14'",
+        "playerId": "northgate-p11",
+        "speedKph": 34.8
+      },
+      "source": {
+        "momentId": "cand-0031",
+        "candidateId": "cand-0031",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 802
+    },
+    {
+      "id": "cue-0009",
+      "t0": 1388.1,
+      "t1": 1394.1,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.52 — Hugo Marchetti denies a 0.09 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "24'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.52
+          },
+          {
+            "label": "xg",
+            "value": 0.09
+          },
+          {
+            "label": "shooterId",
+            "value": "northgate-p14"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0003",
+        "candidateId": "cand-0003",
+        "evidenceEventIds": [
+          "e00499"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1413.1
+    },
+    {
+      "id": "cue-0010",
+      "t0": 1604.2,
+      "t1": 1607.2,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "away",
+        "headline": "GOAL — Theo Escobar makes it RIV 0–2 NOR"
+      },
+      "source": {
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
+        "evidenceEventIds": [
+          "e00576"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1784.2
+    },
+    {
+      "id": "cue-0011",
+      "t0": 1604.2,
+      "t1": 1612.2,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Theo Escobar makes it RIV 0–2 NOR",
+        "body": "Theo Escobar strikes from 27.3 metres at 110.3 km/h — a 0.02 xG chance. The scoreline now reads RIV 0–2 NOR.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "27'",
+        "team": "away",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
+        "evidenceEventIds": [
+          "e00576"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1784.2
+    },
+    {
+      "id": "cue-0012",
+      "t0": 1604.2,
+      "t1": 1610.2,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Theo Escobar makes it RIV 0–2 NOR",
+        "body": "Theo Escobar strikes from 27.3 metres at 110.3 km/h — a 0.02 xG chance. The scoreline now reads RIV 0–2 NOR.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "27'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "RIV 0–2 NOR"
+          },
+          {
+            "label": "xg",
+            "value": 0.02
+          },
+          {
+            "label": "distanceM",
+            "value": 27.3
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
+        "evidenceEventIds": [
+          "e00576"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1784.2
+    },
+    {
+      "id": "cue-0013",
+      "t0": 1610.2,
+      "t1": 1616.2,
+      "slot": "stat_bumper",
+      "priority": 70,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Milestone",
+        "body": "Theo Escobar completes a brace — 2 goals today.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "27'",
+        "stats": [
+          {
+            "label": "milestone",
+            "value": "brace"
+          },
+          {
+            "label": "goals",
+            "value": 2
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0005",
+        "candidateId": "cand-0005",
+        "evidenceEventIds": [
+          "e00576"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1724.2
+    },
+    {
+      "id": "cue-0014",
+      "t0": 1946.4,
+      "t1": 1954.4,
+      "slot": "lower_third",
+      "priority": 95,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Red card",
+        "body": "RED CARD — Theo Escobar is off (reckless). Northgate United are down to ten.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "33'",
+        "team": "away",
+        "kind": "red_card"
+      },
+      "source": {
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
+        "evidenceEventIds": [
+          "e00682"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2126.4
+    },
+    {
+      "id": "cue-0015",
+      "t0": 1946.4,
+      "t1": 1952.4,
+      "slot": "stat_bumper",
+      "priority": 95,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Red card",
+        "body": "RED CARD — Theo Escobar is off (reckless). Northgate United are down to ten.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "33'",
+        "stats": [
+          {
+            "label": "player",
+            "value": "Theo Escobar"
+          },
+          {
+            "label": "reason",
+            "value": "reckless"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
+        "evidenceEventIds": [
+          "e00682"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2126.4
+    },
+    {
+      "id": "cue-0017",
+      "t0": 2040,
+      "t1": 2048,
+      "slot": "lower_third",
+      "priority": 58,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Momentum shift",
+        "body": "Momentum has swung to Riverside Athletic — a 0.57 shift over the last five minutes.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "34'",
+        "team": "home",
+        "kind": "momentum_shift"
+      },
+      "source": {
+        "momentId": "cand-0010",
+        "candidateId": "cand-0010",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 2280
+    },
+    {
+      "id": "cue-0016",
+      "t0": 2040,
+      "t1": 2052,
+      "slot": "momentum_ribbon",
+      "priority": 58,
+      "animation": "pulse",
+      "payload": {
+        "direction": "home",
+        "swing": 0.57,
+        "headline": "Momentum shift",
+        "body": "Momentum has swung to Riverside Athletic — a 0.57 shift over the last five minutes.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "34'"
+      },
+      "source": {
+        "momentId": "cand-0010",
+        "candidateId": "cand-0010",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 2280
+    },
+    {
+      "id": "cue-0020",
+      "t0": 2040.9,
+      "t1": 2046.9,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.9 — Fionn Karlsson denies a 0.27 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "35'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.9
+          },
+          {
+            "label": "xg",
+            "value": 0.27
+          },
+          {
+            "label": "shooterId",
+            "value": "riverside-p9"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0008",
+        "candidateId": "cand-0008",
+        "evidenceEventIds": [
+          "e00718"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2065.9
+    },
+    {
+      "id": "cue-0018",
+      "t0": 2040.9,
+      "t1": 2047.9,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 7.2 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "35'",
+        "from": {
+          "x": 46.42,
+          "y": 3.8
+        },
+        "to": {
+          "x": 52.5,
+          "y": 1.14
+        }
+      },
+      "source": {
+        "momentId": "cand-0007",
+        "candidateId": "cand-0007",
+        "evidenceEventIds": [
+          "e00717"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2065.9
+    },
+    {
+      "id": "cue-0022",
+      "t0": 2046.9,
+      "t1": 2052.9,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.29 xG look from 6.2 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "35'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.29
+          },
+          {
+            "label": "outcome",
+            "value": "blocked"
+          },
+          {
+            "label": "distanceM",
+            "value": 6.2
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0009",
+        "candidateId": "cand-0009",
+        "evidenceEventIds": [
+          "e00720"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2065.9
+    },
+    {
+      "id": "cue-0021",
+      "t0": 2047.9,
+      "t1": 2054.9,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.29 xG look from 6.2 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "35'",
+        "from": {
+          "x": 46.42,
+          "y": -1.27
+        },
+        "to": {
+          "x": 52.5,
+          "y": -0.38
+        }
+      },
+      "source": {
+        "momentId": "cand-0009",
+        "candidateId": "cand-0009",
+        "evidenceEventIds": [
+          "e00720"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2065.9
+    },
+    {
+      "id": "cue-0024",
+      "t0": 2134,
+      "t1": 2140,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.28 xG look from 6.4 metres — off_target.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "36'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.28
+          },
+          {
+            "label": "outcome",
+            "value": "off_target"
+          },
+          {
+            "label": "distanceM",
+            "value": 6.4
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0011",
+        "candidateId": "cand-0011",
+        "evidenceEventIds": [
+          "e00759"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2159
+    },
+    {
+      "id": "cue-0023",
+      "t0": 2134,
+      "t1": 2141,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.28 xG look from 6.4 metres — off_target.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "36'",
+        "from": {
+          "x": 47.08,
+          "y": 3.4
+        },
+        "to": {
+          "x": 52.5,
+          "y": 1.02
+        }
+      },
+      "source": {
+        "momentId": "cand-0011",
+        "candidateId": "cand-0011",
+        "evidenceEventIds": [
+          "e00759"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2159
+    },
+    {
+      "id": "cue-0026",
+      "t0": 2462.8,
+      "t1": 2468.8,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.32 xG look from 4.9 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "42'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.32
+          },
+          {
+            "label": "outcome",
+            "value": "blocked"
+          },
+          {
+            "label": "distanceM",
+            "value": 4.9
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0012",
+        "candidateId": "cand-0012",
+        "evidenceEventIds": [
+          "e00872"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2487.8
+    },
+    {
+      "id": "cue-0025",
+      "t0": 2462.8,
+      "t1": 2469.8,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.32 xG look from 4.9 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "42'",
+        "from": {
+          "x": 49.7,
+          "y": -4.01
+        },
+        "to": {
+          "x": 52.5,
+          "y": -1.2
+        }
+      },
+      "source": {
+        "momentId": "cand-0012",
+        "candidateId": "cand-0012",
+        "evidenceEventIds": [
+          "e00872"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2487.8
+    },
+    {
+      "id": "cue-0028",
+      "t0": 2864.1,
+      "t1": 2870.1,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 5.9 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "48'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.27
+          },
+          {
+            "label": "outcome",
+            "value": "blocked"
+          },
+          {
+            "label": "distanceM",
+            "value": 5.9
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0013",
+        "candidateId": "cand-0013",
+        "evidenceEventIds": [
+          "e01013"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2889.1
+    },
+    {
+      "id": "cue-0027",
+      "t0": 2864.1,
+      "t1": 2871.1,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 5.9 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "48'",
+        "from": {
+          "x": 47.5,
+          "y": 3.09
+        },
+        "to": {
+          "x": 52.5,
+          "y": 0.93
+        }
+      },
+      "source": {
+        "momentId": "cand-0013",
+        "candidateId": "cand-0013",
+        "evidenceEventIds": [
+          "e01013"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2889.1
+    },
+    {
+      "id": "cue-0030",
+      "t0": 2870.1,
+      "t1": 2876.1,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.24 xG look from 8.7 metres — post.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "48'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.24
+          },
+          {
+            "label": "outcome",
+            "value": "post"
+          },
+          {
+            "label": "distanceM",
+            "value": 8.7
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0014",
+        "candidateId": "cand-0014",
+        "evidenceEventIds": [
+          "e01016"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2889.1
+    },
+    {
+      "id": "cue-0029",
+      "t0": 2871.1,
+      "t1": 2878.1,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.24 xG look from 8.7 metres — post.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "48'",
+        "from": {
+          "x": 43.86,
+          "y": 1.27
+        },
+        "to": {
+          "x": 52.5,
+          "y": 0.38
+        }
+      },
+      "source": {
+        "momentId": "cand-0014",
+        "candidateId": "cand-0014",
+        "evidenceEventIds": [
+          "e01016"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2889.1
+    },
+    {
+      "id": "cue-0031",
+      "t0": 3050,
+      "t1": 3053,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "home",
+        "headline": "GOAL — Lucien Keller makes it RIV 1–2 NOR"
+      },
+      "source": {
+        "momentId": "cand-0015",
+        "candidateId": "cand-0015",
+        "evidenceEventIds": [
+          "e01076"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3230
+    },
+    {
+      "id": "cue-0032",
+      "t0": 3050,
+      "t1": 3058,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Lucien Keller makes it RIV 1–2 NOR",
+        "body": "Lucien Keller strikes from 24.9 metres at 74.7 km/h — a 0.02 xG chance. The scoreline now reads RIV 1–2 NOR.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "51'",
+        "team": "home",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0015",
+        "candidateId": "cand-0015",
+        "evidenceEventIds": [
+          "e01076"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3230
+    },
+    {
+      "id": "cue-0035",
+      "t0": 3050,
+      "t1": 3062,
+      "slot": "momentum_ribbon",
+      "priority": 88,
+      "animation": "pulse",
+      "payload": {
+        "direction": "home",
+        "swing": null,
+        "headline": "Back in it",
+        "body": "They're back in it! Lucien Keller halves the deficit — 1–2.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "51'"
+      },
+      "source": {
+        "momentId": "cand-0016",
+        "candidateId": "cand-0016",
+        "evidenceEventIds": [
+          "e01076"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3200
+    },
+    {
+      "id": "cue-0033",
+      "t0": 3050,
+      "t1": 3056,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Lucien Keller makes it RIV 1–2 NOR",
+        "body": "Lucien Keller strikes from 24.9 metres at 74.7 km/h — a 0.02 xG chance. The scoreline now reads RIV 1–2 NOR.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "51'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "RIV 1–2 NOR"
+          },
+          {
+            "label": "xg",
+            "value": 0.02
+          },
+          {
+            "label": "distanceM",
+            "value": 24.9
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0015",
+        "candidateId": "cand-0015",
+        "evidenceEventIds": [
+          "e01076"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3230
+    },
+    {
+      "id": "cue-0034",
+      "t0": 3058,
+      "t1": 3066,
+      "slot": "lower_third",
+      "priority": 88,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Back in it",
+        "body": "They're back in it! Lucien Keller halves the deficit — 1–2.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "51'",
+        "team": "home",
+        "kind": "comeback_trigger"
+      },
+      "source": {
+        "momentId": "cand-0016",
+        "candidateId": "cand-0016",
+        "evidenceEventIds": [
+          "e01076"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3200
+    },
+    {
+      "id": "cue-0038",
+      "t0": 3217,
+      "t1": 3223,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.94 — Fionn Karlsson denies a 0.31 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "54'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.94
+          },
+          {
+            "label": "xg",
+            "value": 0.31
+          },
+          {
+            "label": "shooterId",
+            "value": "riverside-p9"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0018",
+        "candidateId": "cand-0018",
+        "evidenceEventIds": [
+          "e01122"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3242
+    },
+    {
+      "id": "cue-0036",
+      "t0": 3217,
+      "t1": 3224,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.31 xG look from 5.9 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "54'",
+        "from": {
+          "x": 46.74,
+          "y": -1.47
+        },
+        "to": {
+          "x": 52.5,
+          "y": -0.44
+        }
+      },
+      "source": {
+        "momentId": "cand-0017",
+        "candidateId": "cand-0017",
+        "evidenceEventIds": [
+          "e01121"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3242
+    },
+    {
+      "id": "cue-0039",
+      "t0": 3311,
+      "t1": 3317,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.72 — Fionn Karlsson denies a 0.17 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "56'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.72
+          },
+          {
+            "label": "xg",
+            "value": 0.17
+          },
+          {
+            "label": "shooterId",
+            "value": "riverside-p9"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0019",
+        "candidateId": "cand-0019",
+        "evidenceEventIds": [
+          "e01155"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3336
+    },
+    {
+      "id": "cue-0042",
+      "t0": 3926.6,
+      "t1": 3932.6,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.9 — Fionn Karlsson denies a 0.26 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "66'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.9
+          },
+          {
+            "label": "xg",
+            "value": 0.26
+          },
+          {
+            "label": "shooterId",
+            "value": "riverside-p9"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0021",
+        "candidateId": "cand-0021",
+        "evidenceEventIds": [
+          "e01388"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3951.6
+    },
+    {
+      "id": "cue-0040",
+      "t0": 3926.6,
+      "t1": 3933.6,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.26 xG look from 7.6 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "66'",
+        "from": {
+          "x": 45.65,
+          "y": 3.29
+        },
+        "to": {
+          "x": 52.5,
+          "y": 0.99
+        }
+      },
+      "source": {
+        "momentId": "cand-0020",
+        "candidateId": "cand-0020",
+        "evidenceEventIds": [
+          "e01387"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3951.6
+    },
+    {
+      "id": "cue-0043",
+      "t0": 4113.5,
+      "t1": 4116.5,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "home",
+        "headline": "GOAL — Lucien Keller makes it RIV 2–2 NOR"
+      },
+      "source": {
+        "momentId": "cand-0022",
+        "candidateId": "cand-0022",
+        "evidenceEventIds": [
+          "e01455"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4293.5
+    },
+    {
+      "id": "cue-0044",
+      "t0": 4113.5,
+      "t1": 4121.5,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Lucien Keller makes it RIV 2–2 NOR",
+        "body": "Lucien Keller strikes from 15.5 metres at 82.6 km/h — a 0.09 xG chance. The scoreline now reads RIV 2–2 NOR.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "69'",
+        "team": "home",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0022",
+        "candidateId": "cand-0022",
+        "evidenceEventIds": [
+          "e01455"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4293.5
+    },
+    {
+      "id": "cue-0045",
+      "t0": 4113.5,
+      "t1": 4119.5,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Lucien Keller makes it RIV 2–2 NOR",
+        "body": "Lucien Keller strikes from 15.5 metres at 82.6 km/h — a 0.09 xG chance. The scoreline now reads RIV 2–2 NOR.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "69'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "RIV 2–2 NOR"
+          },
+          {
+            "label": "xg",
+            "value": 0.09
+          },
+          {
+            "label": "distanceM",
+            "value": 15.5
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0022",
+        "candidateId": "cand-0022",
+        "evidenceEventIds": [
+          "e01455"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4293.5
+    },
+    {
+      "id": "cue-0046",
+      "t0": 4119.5,
+      "t1": 4125.5,
+      "slot": "stat_bumper",
+      "priority": 70,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Milestone",
+        "body": "Lucien Keller completes a brace — 2 goals today.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "69'",
+        "stats": [
+          {
+            "label": "milestone",
+            "value": "brace"
+          },
+          {
+            "label": "goals",
+            "value": 2
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0023",
+        "candidateId": "cand-0023",
+        "evidenceEventIds": [
+          "e01455"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4233.5
+    },
+    {
+      "id": "cue-0048",
+      "t0": 4772.6,
+      "t1": 4778.6,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.36 xG look from 2.7 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "80'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.36
+          },
+          {
+            "label": "outcome",
+            "value": "blocked"
+          },
+          {
+            "label": "distanceM",
+            "value": 2.7
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0024",
+        "candidateId": "cand-0024",
+        "evidenceEventIds": [
+          "e01671"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4797.6
+    },
+    {
+      "id": "cue-0047",
+      "t0": 4772.6,
+      "t1": 4779.6,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.36 xG look from 2.7 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "80'",
+        "from": {
+          "x": 50.04,
+          "y": 1.12
+        },
+        "to": {
+          "x": 52.5,
+          "y": 0.34
+        }
+      },
+      "source": {
+        "momentId": "cand-0024",
+        "candidateId": "cand-0024",
+        "evidenceEventIds": [
+          "e01671"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4797.6
+    },
+    {
+      "id": "cue-0050",
+      "t0": 4874.5,
+      "t1": 4880.5,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 6.5 metres — off_target.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "82'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.27
+          },
+          {
+            "label": "outcome",
+            "value": "off_target"
+          },
+          {
+            "label": "distanceM",
+            "value": 6.5
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0025",
+        "candidateId": "cand-0025",
+        "evidenceEventIds": [
+          "e01708"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4899.5
+    },
+    {
+      "id": "cue-0049",
+      "t0": 4874.5,
+      "t1": 4881.5,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 6.5 metres — off_target.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "82'",
+        "from": {
+          "x": 47.4,
+          "y": 4.06
+        },
+        "to": {
+          "x": 52.5,
+          "y": 1.22
+        }
+      },
+      "source": {
+        "momentId": "cand-0025",
+        "candidateId": "cand-0025",
+        "evidenceEventIds": [
+          "e01708"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4899.5
+    },
+    {
+      "id": "cue-0051",
+      "t0": 5071,
+      "t1": 5074,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "home",
+        "headline": "GOAL — Lucien Keller makes it RIV 3–2 NOR"
+      },
+      "source": {
+        "momentId": "cand-0026",
+        "candidateId": "cand-0026",
+        "evidenceEventIds": [
+          "e01779"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5251
+    },
+    {
+      "id": "cue-0055",
+      "t0": 5071,
+      "t1": 5074,
+      "slot": "goal_flash",
+      "priority": 92,
+      "animation": "flash",
+      "payload": {
+        "team": "home",
+        "headline": "Late drama"
+      },
+      "source": {
+        "momentId": "cand-0028",
+        "candidateId": "cand-0028",
+        "evidenceEventIds": [
+          "e01779"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5251
+    },
+    {
+      "id": "cue-0052",
+      "t0": 5071,
+      "t1": 5079,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Lucien Keller makes it RIV 3–2 NOR",
+        "body": "Lucien Keller strikes from 17.3 metres at 85.9 km/h — a 0.06 xG chance. The scoreline now reads RIV 3–2 NOR.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "85'",
+        "team": "home",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0026",
+        "candidateId": "cand-0026",
+        "evidenceEventIds": [
+          "e01779"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5251
+    },
+    {
+      "id": "cue-0053",
+      "t0": 5071,
+      "t1": 5077,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Lucien Keller makes it RIV 3–2 NOR",
+        "body": "Lucien Keller strikes from 17.3 metres at 85.9 km/h — a 0.06 xG chance. The scoreline now reads RIV 3–2 NOR.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "85'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "RIV 3–2 NOR"
+          },
+          {
+            "label": "xg",
+            "value": 0.06
+          },
+          {
+            "label": "distanceM",
+            "value": 17.3
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0026",
+        "candidateId": "cand-0026",
+        "evidenceEventIds": [
+          "e01779"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5251
+    },
+    {
+      "id": "cue-0054",
+      "t0": 5077,
+      "t1": 5083,
+      "slot": "stat_bumper",
+      "priority": 70,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Milestone",
+        "body": "Lucien Keller completes a hat-trick — 3 goals today.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "85'",
+        "stats": [
+          {
+            "label": "milestone",
+            "value": "hat-trick"
+          },
+          {
+            "label": "goals",
+            "value": 3
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0027",
+        "candidateId": "cand-0027",
+        "evidenceEventIds": [
+          "e01779"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5191
+    },
+    {
+      "id": "cue-0056",
+      "t0": 5079,
+      "t1": 5087,
+      "slot": "lower_third",
+      "priority": 92,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Late drama",
+        "body": "LATE DRAMA at 85'! Riverside Athletic strike with the clock nearly out — 3–2.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "85'",
+        "team": "home",
+        "kind": "late_drama"
+      },
+      "source": {
+        "momentId": "cand-0028",
+        "candidateId": "cand-0028",
+        "evidenceEventIds": [
+          "e01779"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5251
+    }
+  ],
+  "meta": {
+    "homeAbbr": "RIV",
+    "awayAbbr": "NOR",
+    "competition": "Meridian League",
+    "generatedBy": "floodlight-cuesheet"
+  }
+}

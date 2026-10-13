@@ -1,0 +1,17 @@
+{
+  "name": "@floodlight/dataset",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Portable exports of a finished pipeline run — events, insight feed, verified stories, cue sheet and player stats — plus a data card.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@floodlight/agents": "0.1.0",
+    "@floodlight/core": "0.1.0",
+    "@floodlight/cuesheet": "0.1.0",
+    "@floodlight/engine": "0.1.0",
+    "@floodlight/simulator": "0.1.0"
+  }
+}

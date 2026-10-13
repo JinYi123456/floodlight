@@ -1,0 +1,831 @@
+{
+  "version": "1.0",
+  "matchId": "m-be9928da",
+  "cues": [
+    {
+      "id": "cue-0001",
+      "t0": 122.5,
+      "t1": 127.5,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Fastest of the match",
+        "body": "Blistering pace from Rafael Moreau: 32.3 km/h — the fastest of the match so far.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "3'",
+        "playerId": "northgate-p5",
+        "speedKph": 32.3
+      },
+      "source": {
+        "momentId": "cand-0015",
+        "candidateId": "cand-0015",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 134.5
+    },
+    {
+      "id": "cue-0003",
+      "t0": 249.8,
+      "t1": 255.8,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Northgate United: Theo Escobar gets a 0.38 xG look from 3.7 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "5'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.38
+          },
+          {
+            "label": "outcome",
+            "value": "blocked"
+          },
+          {
+            "label": "distanceM",
+            "value": 3.7
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0001",
+        "candidateId": "cand-0001",
+        "evidenceEventIds": [
+          "e00092"
+        ],
+        "verified": true
+      },
+      "expiresAt": 274.8
+    },
+    {
+      "id": "cue-0002",
+      "t0": 249.8,
+      "t1": 256.8,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Northgate United: Theo Escobar gets a 0.38 xG look from 3.7 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "5'",
+        "from": {
+          "x": -49.62,
+          "y": 2.24
+        },
+        "to": {
+          "x": -52.5,
+          "y": 0.67
+        }
+      },
+      "source": {
+        "momentId": "cand-0001",
+        "candidateId": "cand-0001",
+        "evidenceEventIds": [
+          "e00092"
+        ],
+        "verified": true
+      },
+      "expiresAt": 274.8
+    },
+    {
+      "id": "cue-0004",
+      "t0": 306,
+      "t1": 311,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Fastest of the match",
+        "body": "Blistering pace from Aron Tavares: 34.7 km/h — the fastest of the match so far.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "6'",
+        "playerId": "northgate-p8",
+        "speedKph": 34.7
+      },
+      "source": {
+        "momentId": "cand-0016",
+        "candidateId": "cand-0016",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 318
+    },
+    {
+      "id": "cue-0005",
+      "t0": 426.3,
+      "t1": 429.3,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "home",
+        "headline": "GOAL — Halvard Tuominen makes it HAR 1–0 NOR"
+      },
+      "source": {
+        "momentId": "cand-0002",
+        "candidateId": "cand-0002",
+        "evidenceEventIds": [
+          "e00159"
+        ],
+        "verified": true
+      },
+      "expiresAt": 606.3
+    },
+    {
+      "id": "cue-0006",
+      "t0": 426.3,
+      "t1": 434.3,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Halvard Tuominen makes it HAR 1–0 NOR",
+        "body": "Halvard Tuominen strikes from 7.5 metres at 85.5 km/h — a 0.27 xG chance. The scoreline now reads HAR 1–0 NOR.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "8'",
+        "team": "home",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0002",
+        "candidateId": "cand-0002",
+        "evidenceEventIds": [
+          "e00159"
+        ],
+        "verified": true
+      },
+      "expiresAt": 606.3
+    },
+    {
+      "id": "cue-0007",
+      "t0": 426.3,
+      "t1": 432.3,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "GOAL — Halvard Tuominen makes it HAR 1–0 NOR",
+        "body": "Halvard Tuominen strikes from 7.5 metres at 85.5 km/h — a 0.27 xG chance. The scoreline now reads HAR 1–0 NOR.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "8'",
+        "stats": [
+          {
+            "label": "score",
+            "value": "HAR 1–0 NOR"
+          },
+          {
+            "label": "xg",
+            "value": 0.27
+          },
+          {
+            "label": "distanceM",
+            "value": 7.5
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0002",
+        "candidateId": "cand-0002",
+        "evidenceEventIds": [
+          "e00159"
+        ],
+        "verified": true
+      },
+      "expiresAt": 606.3
+    },
+    {
+      "id": "cue-0008",
+      "t0": 497,
+      "t1": 502,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Fastest of the match",
+        "body": "Blistering pace from Leon Reyes: 36 km/h — the fastest of the match so far.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "9'",
+        "playerId": "northgate-p9",
+        "speedKph": 36
+      },
+      "source": {
+        "momentId": "cand-0017",
+        "candidateId": "cand-0017",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 509
+    },
+    {
+      "id": "cue-0010",
+      "t0": 1260,
+      "t1": 1268,
+      "slot": "lower_third",
+      "priority": 58,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Momentum shift",
+        "body": "Momentum has swung to Northgate United — a -0.59 shift over the last five minutes.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "21'",
+        "team": "away",
+        "kind": "momentum_shift"
+      },
+      "source": {
+        "momentId": "cand-0003",
+        "candidateId": "cand-0003",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 1500
+    },
+    {
+      "id": "cue-0009",
+      "t0": 1260,
+      "t1": 1272,
+      "slot": "momentum_ribbon",
+      "priority": 58,
+      "animation": "pulse",
+      "payload": {
+        "direction": "away",
+        "swing": -0.59,
+        "headline": "Momentum shift",
+        "body": "Momentum has swung to Northgate United — a -0.59 shift over the last five minutes.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "21'"
+      },
+      "source": {
+        "momentId": "cand-0003",
+        "candidateId": "cand-0003",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 1500
+    },
+    {
+      "id": "cue-0011",
+      "t0": 1600.2,
+      "t1": 1606.2,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.41 — Fionn Karlsson denies a 0.03 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "27'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.41
+          },
+          {
+            "label": "xg",
+            "value": 0.03
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p9"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
+        "evidenceEventIds": [
+          "e00576"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1625.2
+    },
+    {
+      "id": "cue-0012",
+      "t0": 1681.7,
+      "t1": 1687.7,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.66 — Valentin Heikkila denies a 0.15 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "29'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.66
+          },
+          {
+            "label": "xg",
+            "value": 0.15
+          },
+          {
+            "label": "shooterId",
+            "value": "northgate-p14"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0005",
+        "candidateId": "cand-0005",
+        "evidenceEventIds": [
+          "e00612"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1706.7
+    },
+    {
+      "id": "cue-0014",
+      "t0": 1902.4,
+      "t1": 1908.4,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Northgate United: Theo Escobar gets a 0.4 xG look from 3.1 metres — post.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "32'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.4
+          },
+          {
+            "label": "outcome",
+            "value": "post"
+          },
+          {
+            "label": "distanceM",
+            "value": 3.1
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
+        "evidenceEventIds": [
+          "e00695"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1927.4
+    },
+    {
+      "id": "cue-0013",
+      "t0": 1902.4,
+      "t1": 1909.4,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Northgate United: Theo Escobar gets a 0.4 xG look from 3.1 metres — post.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "32'",
+        "from": {
+          "x": -49.8,
+          "y": -1.61
+        },
+        "to": {
+          "x": -52.5,
+          "y": -0.48
+        }
+      },
+      "source": {
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
+        "evidenceEventIds": [
+          "e00695"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1927.4
+    },
+    {
+      "id": "cue-0015",
+      "t0": 2033.7,
+      "t1": 2041.7,
+      "slot": "lower_third",
+      "priority": 95,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Red card",
+        "body": "RED CARD — Nils Lombardi is off (dissent). Harbour City are down to ten.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "34'",
+        "team": "home",
+        "kind": "red_card"
+      },
+      "source": {
+        "momentId": "cand-0007",
+        "candidateId": "cand-0007",
+        "evidenceEventIds": [
+          "e00750"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2213.7
+    },
+    {
+      "id": "cue-0016",
+      "t0": 2033.7,
+      "t1": 2039.7,
+      "slot": "stat_bumper",
+      "priority": 95,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Red card",
+        "body": "RED CARD — Nils Lombardi is off (dissent). Harbour City are down to ten.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "34'",
+        "stats": [
+          {
+            "label": "player",
+            "value": "Nils Lombardi"
+          },
+          {
+            "label": "reason",
+            "value": "dissent"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0007",
+        "candidateId": "cand-0007",
+        "evidenceEventIds": [
+          "e00750"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2213.7
+    },
+    {
+      "id": "cue-0019",
+      "t0": 2081.1,
+      "t1": 2087.1,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.74 — Fionn Karlsson denies a 0.22 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "35'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.74
+          },
+          {
+            "label": "xg",
+            "value": 0.22
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p11"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0009",
+        "candidateId": "cand-0009",
+        "evidenceEventIds": [
+          "e00767"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2106.1
+    },
+    {
+      "id": "cue-0017",
+      "t0": 2081.1,
+      "t1": 2088.1,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.22 xG look from 8.4 metres — saved.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "35'",
+        "from": {
+          "x": 45.89,
+          "y": 5.12
+        },
+        "to": {
+          "x": 52.5,
+          "y": 1.54
+        }
+      },
+      "source": {
+        "momentId": "cand-0008",
+        "candidateId": "cand-0008",
+        "evidenceEventIds": [
+          "e00766"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2106.1
+    },
+    {
+      "id": "cue-0020",
+      "t0": 3254.1,
+      "t1": 3262.1,
+      "slot": "lower_third",
+      "priority": 95,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Red card",
+        "body": "RED CARD — Theo Escobar is off (reckless). Northgate United are down to ten.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "55'",
+        "team": "away",
+        "kind": "red_card"
+      },
+      "source": {
+        "momentId": "cand-0010",
+        "candidateId": "cand-0010",
+        "evidenceEventIds": [
+          "e01202"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3434.1
+    },
+    {
+      "id": "cue-0021",
+      "t0": 3254.1,
+      "t1": 3260.1,
+      "slot": "stat_bumper",
+      "priority": 95,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Red card",
+        "body": "RED CARD — Theo Escobar is off (reckless). Northgate United are down to ten.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "55'",
+        "stats": [
+          {
+            "label": "player",
+            "value": "Theo Escobar"
+          },
+          {
+            "label": "reason",
+            "value": "reckless"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0010",
+        "candidateId": "cand-0010",
+        "evidenceEventIds": [
+          "e01202"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3434.1
+    },
+    {
+      "id": "cue-0022",
+      "t0": 3757.8,
+      "t1": 3763.8,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.73 — Fionn Karlsson denies a 0.19 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "63'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.73
+          },
+          {
+            "label": "xg",
+            "value": 0.19
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p11"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0011",
+        "candidateId": "cand-0011",
+        "evidenceEventIds": [
+          "e01391"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3782.8
+    },
+    {
+      "id": "cue-0023",
+      "t0": 5185.8,
+      "t1": 5191.8,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.58 — Fionn Karlsson denies a 0.11 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "87'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.58
+          },
+          {
+            "label": "xg",
+            "value": 0.11
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p11"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0012",
+        "candidateId": "cand-0012",
+        "evidenceEventIds": [
+          "e01884"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5210.8
+    },
+    {
+      "id": "cue-0025",
+      "t0": 5854.9,
+      "t1": 5860.9,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.22 xG look from 8.7 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "98'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.22
+          },
+          {
+            "label": "outcome",
+            "value": "blocked"
+          },
+          {
+            "label": "distanceM",
+            "value": 8.7
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0013",
+        "candidateId": "cand-0013",
+        "evidenceEventIds": [
+          "e02119"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5879.9
+    },
+    {
+      "id": "cue-0024",
+      "t0": 5854.9,
+      "t1": 5861.9,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Big chance",
+        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.22 xG look from 8.7 metres — blocked.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "98'",
+        "from": {
+          "x": 44.21,
+          "y": -2.78
+        },
+        "to": {
+          "x": 52.5,
+          "y": -0.83
+        }
+      },
+      "source": {
+        "momentId": "cand-0013",
+        "candidateId": "cand-0013",
+        "evidenceEventIds": [
+          "e02119"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5879.9
+    },
+    {
+      "id": "cue-0026",
+      "t0": 5867.7,
+      "t1": 5873.7,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Big save",
+        "body": "What a save! Difficulty 0.53 — Fionn Karlsson denies a 0.07 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "98'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.53
+          },
+          {
+            "label": "xg",
+            "value": 0.07
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p11"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0014",
+        "candidateId": "cand-0014",
+        "evidenceEventIds": [
+          "e02126"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5892.7
+    }
+  ],
+  "meta": {
+    "homeAbbr": "HAR",
+    "awayAbbr": "NOR",
+    "competition": "Meridian League",
+    "generatedBy": "floodlight-cuesheet"
+  }
+}
