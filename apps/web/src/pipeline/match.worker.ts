@@ -56,9 +56,12 @@ interface Recording {
   moments: RecordedMoment[];
 }
 
-async function loadRecording(id: string): Promise<Recording | null> {
+async function loadRecording(id: string, base: string | null): Promise<Recording | null> {
   try {
-    const response = await fetch(`./recordings/${id}.json`);
+    // Relative paths inside a worker resolve against the worker script, not
+    // the page — the base URL is handed over by the control room instead.
+    const url = new URL(`${id}.json`, base ?? './recordings/');
+    const response = await fetch(url);
     if (!response.ok) return null;
     return (await response.json()) as Recording;
   } catch {
@@ -66,7 +69,7 @@ async function loadRecording(id: string): Promise<Recording | null> {
   }
 }
 
-async function prepare(request: { scenarioId: string | null; seed: number; recording?: string | null }): Promise<void> {
+async function prepare(request: { scenarioId: string | null; seed: number; recording?: string | null; recordingsBase?: string | null }): Promise<void> {
   const scenario = request.scenarioId ? SCENARIOS.find((s) => s.id === request.scenarioId) : undefined;
 
   progress('Playing the match', 0.05);
@@ -94,7 +97,7 @@ async function prepare(request: { scenarioId: string | null; seed: number; recor
   progress('Directing the show', 0.72);
   candidates.sort((a, b) => a.t - b.t || a.id.localeCompare(b.id));
 
-  const recording = request.recording ? await loadRecording(request.recording) : null;
+  const recording = request.recording ? await loadRecording(request.recording, request.recordingsBase ?? null) : null;
   const recordedById = new Map<string, RecordedMoment>();
   if (recording) for (const m of recording.moments) recordedById.set(m.candidateId, m);
 

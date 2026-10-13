@@ -46,7 +46,7 @@ export type VisionJob =
   | { type: 'visionAnalyze' };
 
 export type WorkerRequest =
-  | { type: 'prepare'; scenarioId: string | null; seed: number; recording?: string | null }
+  | { type: 'prepare'; scenarioId: string | null; seed: number; recording?: string | null; recordingsBase?: string | null }
   | { type: 'trackingWindow'; t0: number; t1: number; hz?: number }
   | VisionJob;
 

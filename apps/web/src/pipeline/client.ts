@@ -34,12 +34,13 @@ export class PipelineClient {
     this.worker.onerror = (event) => this.failAll(new Error(event.message || 'pipeline worker crashed'));
   }
 
-  prepare(scenarioId: string | null, seed: number, recording?: string | null): Promise<PreparedMatch> {
+  prepare(scenarioId: string | null, seed: number, recording?: string | null, recordingsBase?: string): Promise<PreparedMatch> {
     return this.request<PreparedMatch>('prepare', {
       type: 'prepare',
       scenarioId,
       seed,
       recording: recording ?? null,
+      recordingsBase: recordingsBase ?? null,
     });
   }
 

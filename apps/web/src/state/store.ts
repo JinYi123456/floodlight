@@ -102,7 +102,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       }
     };
     try {
-      const match = await pipeline.prepare(scenarioId, seed, recording);
+      const match = await pipeline.prepare(scenarioId, seed, recording, new URL('recordings/', document.baseURI).href);
       trackingCache.reset();
       set({
         phase: 'ready',
