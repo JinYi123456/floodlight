@@ -44,6 +44,10 @@ interface PlayerRuntime {
   player: SquadPlayer;
   team: TeamSide;
   pos: Vec2;
+  /** Velocity in m/s — motion is acceleration-limited, so this persists. */
+  vel: Vec2;
+  /** Formation slot 0..10 — substitutes inherit the slot they replace. */
+  slot: number;
 }
 
 interface NoiseCache {
@@ -58,7 +62,7 @@ function makeNoise(seed: number): NoiseCache {
       const hit = cache.get(key);
       if (hit) return hit;
       const rng = createRng(deriveSeed(deriveSeed(seed, playerId), `n${second}`));
-      const value = { x: rng.gaussian(0, 1.1), y: rng.gaussian(0, 0.9) };
+      const value = { x: rng.gaussian(0, 0.7), y: rng.gaussian(0, 0.6) };
       cache.set(key, value);
       return value;
     },
@@ -113,12 +117,23 @@ export function trackingWindow(
     home: new Set(result.lineups.home.starters.map((p) => p.id)),
     away: new Set(result.lineups.away.starters.map((p) => p.id)),
   };
+  // Formation slots by player id. Starters keep their own; substitutes
+  // inherit the slot of the player they replace — otherwise slot % 11
+  // collisions put two players on the exact same anchor.
+  const slotOf = new Map<string, number>();
+  for (const side of ['home', 'away'] as const) {
+    for (const p of result.lineups[side].starters) slotOf.set(p.id, p.slot % 11);
+  }
   let changePointer = 0;
   const applyChangesUntil = (t: number) => {
     while (changePointer < rosterChanges.length && rosterChanges[changePointer]!.t <= t) {
       const change = rosterChanges[changePointer]!;
+      const inherited = change.out.map((id) => slotOf.get(id)).find((slot) => slot !== undefined);
       for (const id of change.out) onPitch[change.side].delete(id);
-      for (const id of change.in) onPitch[change.side].add(id);
+      for (const id of change.in) {
+        onPitch[change.side].add(id);
+        if (inherited !== undefined) slotOf.set(id, inherited);
+      }
       changePointer++;
     }
   };
@@ -150,22 +165,38 @@ export function trackingWindow(
     }
 
     if (next.type === 'kickoff') {
-      // After a goal: the ball first finishes its flight into the net (or
-      // wherever the shot ended), rests, then glides back to the centre.
-      const glideStart = Math.max(e.t, next.t - 1.5);
-      if (speed > 0 && travel > 0.3) {
-        const flight = clamp((travel / speed) * 3.6, 0.2, 2.5);
-        const flightEnd = Math.min(e.t + flight, glideStart);
-        segments.push({ fromT: e.t, toT: flightEnd, from, to, speedKph: speed });
-        if (flightEnd < glideStart) {
-          segments.push({ fromT: flightEnd, toT: glideStart, from: to, to, speedKph: 0 });
-        }
-      } else {
-        segments.push({ fromT: e.t, toT: glideStart, from: to, to, speedKph: 0 });
-      }
-      segments.push({ fromT: glideStart, toT: next.t, from: to, to: { x: 0, y: 0 }, speedKph: 22 });
+      // After a goal: the ball finishes its flight into the net, holds for
+      // the celebration, is walked back to the centre at a stroll and waits
+      // there for the restart — no ball frozen in the net for half a minute.
+      const centre = { x: 0, y: 0 };
+      const flight = speed > 0 && travel > 0.3 ? clamp((travel / speed) * 3.6, 0.2, 2.5) : 0;
+      const flightEnd = Math.min(e.t + flight, next.t);
+      if (flight > 0) segments.push({ fromT: e.t, toT: flightEnd, from, to, speedKph: speed });
+      const restEnd = Math.min(flightEnd + 3.5, next.t);
+      if (restEnd > flightEnd) segments.push({ fromT: flightEnd, toT: restEnd, from: to, to, speedKph: 0 });
+      const walkSeconds = distance(to.x, to.y, centre.x, centre.y) / (14 / 3.6);
+      const glideEnd = Math.min(restEnd + walkSeconds, next.t);
+      if (glideEnd > restEnd) segments.push({ fromT: restEnd, toT: glideEnd, from: to, to: centre, speedKph: 14 });
+      if (next.t > glideEnd) segments.push({ fromT: glideEnd, toT: next.t, from: centre, to: centre, speedKph: 0 });
       continue;
     }
+
+    // Where the ball will restart: if the break is long, the ball is walked
+    // from where it stopped to the restart spot and placed there — never
+    // parked on a frozen pixel for half a minute.
+    const restart = { x: clamp(next.at.x, -50.5, 50.5), y: clamp(next.at.y, -32.5, 32.5) };
+    const parkThenGlide = (fromT: number, toT: number, restAt: Vec2) => {
+      const walkSeconds = distance(restAt.x, restAt.y, restart.x, restart.y) / (16 / 3.6);
+      if (toT - fromT < 3 + walkSeconds) {
+        segments.push({ fromT, toT, from: restAt, to: restAt, speedKph: 0 });
+        return;
+      }
+      const moveStart = fromT + 3;
+      const moveEnd = Math.min(moveStart + walkSeconds, toT);
+      segments.push({ fromT, toT: moveStart, from: restAt, to: restAt, speedKph: 0 });
+      segments.push({ fromT: moveStart, toT: moveEnd, from: restAt, to: restart, speedKph: 16 });
+      if (moveEnd < toT) segments.push({ fromT: moveEnd, toT, from: restart, to: restart, speedKph: 0 });
+    };
 
     if (speed > 0 && travel > 0.3) {
       // Flight: the ball travels at governed speed, then rests where it lands.
@@ -173,10 +204,10 @@ export function trackingWindow(
       const flightEnd = Math.min(e.t + flight, next.t);
       segments.push({ fromT: e.t, toT: flightEnd, from, to, speedKph: speed });
       if (flightEnd < next.t) {
-        segments.push({ fromT: flightEnd, toT: next.t, from: to, to, speedKph: 0 });
+        parkThenGlide(flightEnd, next.t, to);
       }
     } else {
-      segments.push({ fromT: e.t, toT: next.t, from: to, to, speedKph: 0 });
+      parkThenGlide(e.t, next.t, to);
     }
   }
 
@@ -245,11 +276,12 @@ export function trackingWindow(
   const spawn = (playerId: string, team: TeamSide, ballPos: Vec2, possessionTeam: TeamSide) => {
     const player = playerIndex.get(playerId)!;
     const tactics = result.config.tactics[team];
+    const slot = slotOf.get(playerId) ?? player.slot % 11;
     const base =
       player.role === 'GK'
         ? goalkeeperAnchor(team, ballPos)
-        : anchorPosition(formationSlotFor(tactics.formation, player.slot % 11), team, possessionTeam, tactics, ballPos);
-    runtime.set(playerId, { player, team, pos: base });
+        : anchorPosition(formationSlotFor(tactics.formation, slot), team, possessionTeam, tactics, ballPos);
+    runtime.set(playerId, { player, team, pos: base, vel: { x: 0, y: 0 }, slot });
   };
 
   const ball0 = ballAt(t0 + dt).pos;
@@ -276,6 +308,8 @@ export function trackingWindow(
     return base * fatigue * burst * (1000 / 3600);
   };
 
+  const active: Array<{ id: string; rt: PlayerRuntime; speedKph: number }> = [];
+
   for (let f = 1; f <= frameCount; f++) {
     const t = t0 + f * dt;
     applyChangesUntil(t);
@@ -286,6 +320,12 @@ export function trackingWindow(
     const actor = nextActorId();
     const second = Math.floor(t);
     const frac = t - second;
+    const currentEvent = events[eventPointer];
+    const passInFlight =
+      currentEvent && currentEvent.type === 'pass' && t >= currentEvent.t
+        ? (currentEvent as MatchEvent & { outcome: string; recipientId: string | null; endAt: Vec2 | null })
+        : null;
+    const shotInFlight = currentEvent && currentEvent.type === 'shot' && t >= currentEvent.t ? currentEvent : null;
 
     // Spawn any players who joined the pitch inside this window.
     for (const side of ['home', 'away'] as const) {
@@ -294,7 +334,7 @@ export function trackingWindow(
       }
     }
 
-    const players: TrackingPlayer[] = [];
+    active.length = 0;
     for (const [id, rt] of runtime) {
       if (!onPitch[rt.team].has(id)) continue;
       const tactics = result.config.tactics[rt.team];
@@ -302,7 +342,7 @@ export function trackingWindow(
       if (rt.player.role === 'GK') {
         target = goalkeeperAnchor(rt.team, ball.pos);
       } else {
-        const anchor = anchorPosition(formationSlotFor(tactics.formation, rt.player.slot % 11), rt.team, possession, tactics, ball.pos);
+        const anchor = anchorPosition(formationSlotFor(tactics.formation, rt.slot), rt.team, possession, tactics, ball.pos);
         const n0 = noise.get(id, second);
         const n1 = noise.get(id, second + 1);
         target = {
@@ -313,8 +353,17 @@ export function trackingWindow(
 
       const isOwner = owner.playerId === id;
       const isActor = actor === id;
-      if (isOwner) {
+      // A player who just released the ball (pass or shot) is no longer on
+      // it: he follows through and recovers shape instead of sprinting
+      // after his own ball — that lunge-and-return was the giveaway.
+      const released = (passInFlight?.playerId === id) || (shotInFlight?.playerId === id);
+      if (isOwner && !released) {
         target = { x: ball.pos.x, y: ball.pos.y };
+      } else if (passInFlight && passInFlight.recipientId === id && passInFlight.outcome === 'complete') {
+        // The intended recipient runs onto the arrival point — a burst onto
+        // the pass that arrives with the ball, instead of reacting late.
+        const arrival = passInFlight.endAt ?? ball.pos;
+        target = { x: arrival.x, y: arrival.y };
       } else if (isActor && !isOwner && ball.speedKph > 5) {
         // The next actor drifts toward the ball to receive or collect — but
         // only while the ball is actually travelling. A ball at rest holds
@@ -325,28 +374,87 @@ export function trackingWindow(
         };
       }
 
+      // Steering: seek speed from a distance time-constant, capped by the
+      // player's pace, then limited by acceleration/deceleration so turns
+      // and stops look human rather than servo-like.
       const dx = target.x - rt.pos.x;
       const dy = target.y - rt.pos.y;
       const dist = Math.hypot(dx, dy);
-      let step = 0;
+      let desiredMag = 0;
+      let desiredVx = 0;
+      let desiredVy = 0;
       if (dist > 0.02) {
         const tau = isOwner ? 0.4 : isActor ? 1.1 : 2.2;
-        // maxSpeed is metres per second; cap the seek speed with it directly.
         const speedCap = maxSpeed(rt.player, t, dist > 10);
-        const v = Math.min(dist / tau, speedCap);
-        step = Math.min(v * dt, dist);
-        rt.pos.x += (dx / dist) * step;
-        rt.pos.y += (dy / dist) * step;
+        desiredMag = Math.min(dist / tau, speedCap);
+        desiredVx = (dx / dist) * desiredMag;
+        desiredVy = (dy / dist) * desiredMag;
       }
+      const speedNow = Math.hypot(rt.vel.x, rt.vel.y);
+      let dvx = desiredVx - rt.vel.x;
+      let dvy = desiredVy - rt.vel.y;
+      const dvMag = Math.hypot(dvx, dvy);
+      if (dvMag > 1e-6) {
+        const rate = (desiredMag < speedNow ? 7.0 : 4.6) * dt;
+        const k = Math.min(1, rate / dvMag);
+        rt.vel.x += dvx * k;
+        rt.vel.y += dvy * k;
+      } else if (dist <= 0.02) {
+        rt.vel.x = 0;
+        rt.vel.y = 0;
+      }
+      const speed = Math.hypot(rt.vel.x, rt.vel.y);
+      let step = 0;
+      if (speed > 1e-4 && dist > 0.02) {
+        step = Math.min(speed * dt, dist);
+        rt.pos.x += (rt.vel.x / speed) * step;
+        rt.pos.y += (rt.vel.y / speed) * step;
+        if (step >= dist) {
+          rt.vel.x = 0;
+          rt.vel.y = 0;
+        }
+      }
+      active.push({ id, rt, speedKph: clamp((step / dt) * 3.6, 0, 36) });
+    }
+
+    // Separation: nobody stands inside anybody. Two relaxation passes —
+    // teammates keep more space than opponents (duels may get close).
+    for (let iter = 0; iter < 2; iter++) {
+      for (let i = 0; i < active.length; i++) {
+        for (let j = i + 1; j < active.length; j++) {
+          const a = active[i]!.rt;
+          const b = active[j]!.rt;
+          let dx = b.pos.x - a.pos.x;
+          let dy = b.pos.y - a.pos.y;
+          let d = Math.hypot(dx, dy);
+          const min = a.team === b.team ? 1.8 : 1.0;
+          if (d >= min) continue;
+          if (d < 1e-3) {
+            // Exactly stacked: a deterministic nudge keeps runs seeded.
+            const h = active[i]!.id.charCodeAt(active[i]!.id.length - 1) + active[j]!.id.charCodeAt(active[j]!.id.length - 1);
+            const ang = ((h % 360) / 360) * Math.PI * 2;
+            dx = Math.cos(ang) * 0.01;
+            dy = Math.sin(ang) * 0.01;
+            d = 0.01;
+          }
+          const push = (min - d) / 2 / d;
+          a.pos.x -= dx * push;
+          a.pos.y -= dy * push;
+          b.pos.x += dx * push;
+          b.pos.y += dy * push;
+        }
+      }
+    }
+
+    const players: TrackingPlayer[] = active.map(({ id, rt, speedKph }) => {
       rt.pos.x = clamp(rt.pos.x, -52.5 + 0.4, 52.5 - 0.4);
       rt.pos.y = clamp(rt.pos.y, -34 + 0.4, 34 - 0.4);
-
-      players.push({
+      return {
         playerId: id,
         pos: { x: roundTo(rt.pos.x, 2), y: roundTo(rt.pos.y, 2) },
-        speedKph: roundTo(clamp((step / dt) * 3.6, 0, 36), 1),
-      });
-    }
+        speedKph: roundTo(speedKph, 1),
+      };
+    });
 
     frames.push({
       t: roundTo(t, 1),

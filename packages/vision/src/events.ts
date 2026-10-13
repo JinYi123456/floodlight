@@ -51,7 +51,9 @@ export interface VisionReport {
 
 const OWNER_RADIUS = 2.0;
 const OWNER_LOST_RADIUS = 2.4;
-const DWELL_FRAMES = 2;
+/** How long a player must stay nearest the ball to take control, in
+ *  seconds — time-based so coarse analysis rates behave the same. */
+const DWELL_SECONDS = 0.2;
 
 interface OwnerState {
   trackId: number | null;
@@ -89,10 +91,12 @@ export class EventDeriver {
    *  that follows it (dwell arrives ~0.2 s after the ball has settled). */
   private lastFlight: FlightState | null = null;
   private lastFlightEndT = -Infinity;
+  private lastT = -Infinity;
   private events: DerivedEvent[] = [];
 
   update(t: number, ball: Track | null, players: Track[]): DerivedEvent[] {
     const emitted: DerivedEvent[] = [];
+    this.lastT = t;
     if (!ball) return emitted;
 
     // Nearest player to the ball.
@@ -109,7 +113,7 @@ export class EventDeriver {
     const ownerCandidate = nearest && nearestD <= OWNER_RADIUS ? nearest : null;
     if (ownerCandidate) {
       if (this.candidateId === ownerCandidate.id) {
-        if (t - this.candidateSince >= DWELL_FRAMES * 0.1 - 1e-6) {
+        if (t - this.candidateSince >= DWELL_SECONDS - 1e-6) {
           this.establishOwner(ownerCandidate, t, ball, emitted);
         }
       } else {
@@ -260,9 +264,13 @@ export class EventDeriver {
     };
   }
 
-  /** Who the deriver currently believes is on the ball (team level). */
+  /** Who the deriver currently believes is on the ball (team level).
+   *  Broadcast possession semantics: while the ball travels, control stays
+   *  with the side that played it — a flight is not a turnover. */
   ownerTeam(): 'home' | 'away' | null {
-    return this.owner.team;
+    if (this.owner.team) return this.owner.team;
+    if (this.lastOwner && this.lastT - this.lastOwner.lastSeen <= 4) return this.lastOwner.team;
+    return null;
   }
 
   all(): DerivedEvent[] {
@@ -361,6 +369,41 @@ export function analyzeWindow(result: SimulationResult, options: AnalyzeOptions)
   let possessionSwapped = 0;
   let frameCount = 0;
 
+  // Possession change-points from the event stream (ground truth).
+  const possessionChanges: Array<{ t: number; team: 'home' | 'away' }> = [];
+  for (const event of result.events) {
+    if ((event.type === 'kickoff' || event.type === 'possession_change') && event.team !== 'none') {
+      possessionChanges.push({ t: event.t, team: event.team as 'home' | 'away' });
+    }
+  }
+  let possessionPointer = 0;
+
+  // Dead-ball intervals: after a goal until the kickoff, and after the ball
+  // leaves play until the restart. Possession is only scored while the ball
+  // is actually in play — a ball in the net or walking to a restart spot is
+  // not a possession battle.
+  const deadIntervals: Array<{ t0: number; t1: number }> = [];
+  for (let i = 0; i < result.events.length - 1; i++) {
+    const event = result.events[i]!;
+    const next = result.events[i + 1]!;
+    if (next.t <= t0 - warmup) continue;
+    if (event.t > t1 + dt) break;
+    const outcome = (event as { outcome?: string }).outcome;
+    const end = (event as { endAt?: { x: number; y: number } | null }).endAt;
+    const wentOut = end ? Math.abs(end.x) > 52.4 || Math.abs(end.y) > 33.9 : false;
+    const isGoal = event.type === 'shot' && outcome === 'goal';
+    const leftPlay = (event.type === 'shot' && outcome !== 'goal' && wentOut) || (event.type === 'pass' && outcome === 'out');
+    if (isGoal || leftPlay) {
+      deadIntervals.push({ t0: Math.min(event.t + 1.5, next.t), t1: next.t });
+    }
+  }
+  let deadPointer = 0;
+  const isDeadBall = (t: number): boolean => {
+    while (deadPointer < deadIntervals.length && deadIntervals[deadPointer]!.t1 <= t) deadPointer++;
+    const interval = deadIntervals[deadPointer];
+    return interval !== undefined && t >= interval.t0 && t <= interval.t1;
+  };
+
   const truthEvents = result.events.filter((e) => e.t >= t0 && e.t <= t1);
   const truthPasses = truthEvents.filter((e) => e.type === 'pass');
   const truthShots = truthEvents.filter((e) => e.type === 'shot');
@@ -421,18 +464,28 @@ export function analyzeWindow(result: SimulationResult, options: AnalyzeOptions)
 
     // Possession agreement (team-level), scored under both possible
     // home/away label mappings — kit learning cannot know team identity.
-    const truthTeam = truthOwnerTeam(frame.truth.ball, frame.truth.players);
+    // Ground truth is the simulation's own possession state: it changes
+    // only when an actual possession_change event fires, which is the
+    // broadcast semantic (a flying pass still belongs to the passer's
+    // team; being near the ball is not control).
+    if (possessionChanges.length > 0) {
+      while (possessionChanges[possessionPointer + 1] && possessionChanges[possessionPointer + 1]!.t <= t) {
+        possessionPointer++;
+      }
+    }
+    const truthTeam = possessionChanges[possessionPointer]?.team ?? null;
     const detectedTeam = deriver.ownerTeam();
-    if (inWindow) possessionFrames++;
+    const live = inWindow && !isDeadBall(t);
+    if (live) possessionFrames++;
     if (!truthTeam && !detectedTeam) {
-      if (inWindow) {
+      if (live) {
         possessionDirect++;
         possessionSwapped++;
       }
     } else if (detectedTeam) {
-      if (detectedTeam === truthTeam && inWindow) possessionDirect++;
+      if (detectedTeam === truthTeam && live) possessionDirect++;
       const swapped = detectedTeam === 'home' ? 'away' : 'home';
-      if (swapped === truthTeam && inWindow) possessionSwapped++;
+      if (swapped === truthTeam && live) possessionSwapped++;
     }
 
     if (t + 1e-9 >= nextSampleT) {
