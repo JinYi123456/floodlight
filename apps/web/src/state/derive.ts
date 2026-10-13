@@ -3,6 +3,7 @@
  * prepared match and a match-second clock.
  */
 
+import { formatMinute } from '@floodlight/core';
 import type { Cue } from '@floodlight/cuesheet';
 import type { NarratedMoment } from '@floodlight/agents';
 import type { PreparedMatch } from '../pipeline/protocol';
@@ -53,6 +54,10 @@ export interface FeedItem {
   state: 'aired' | 'live' | 'upcoming' | 'retracted';
   moment: NarratedMoment | null;
   candidateId: string;
+  /** Structural rows (subs, period markers) wear their own badge. */
+  badge?: { label: string; color: string };
+  /** Structural rows have no insight dossier behind them. */
+  synthetic?: boolean;
 }
 
 /**
@@ -92,7 +97,58 @@ export function buildFeed(match: PreparedMatch, t: number, lookahead = 150): Fee
       candidateId: candidate.id,
     });
   }
+  items.push(...structuralRows(match, t, lookahead));
   return items.sort((a, b) => a.t - b.t);
+}
+
+function playerName(match: PreparedMatch, id: string): string {
+  for (const side of ['home', 'away'] as const) {
+    const found =
+      match.lineups[side].find((p) => p.id === id) ?? match.bench[side].find((p) => p.id === id);
+    if (found) return found.name;
+  }
+  return 'Unnamed';
+}
+
+/**
+ * Structural rows — substitutions and period markers. They belong in the
+ * running order (a producer needs the full show), but they carry no story,
+ * so they render their own badge and have no insight dossier behind them.
+ */
+function structuralRows(match: PreparedMatch, t: number, lookahead: number): FeedItem[] {
+  const rows: FeedItem[] = [];
+  for (const event of match.events) {
+    if (event.t > t + lookahead) continue;
+    if (event.type === 'substitution') {
+      const abbr = event.team === 'home' ? match.meta.home.abbr : match.meta.away.abbr;
+      rows.push({
+        key: `sub:${event.id}`,
+        t: event.t,
+        minuteLabel: formatMinute(event.t),
+        kind: 'substitution',
+        headline: `${abbr} — ${playerName(match, event.playerOnId)} on for ${playerName(match, event.playerOffId)}`,
+        state: event.t > t ? 'upcoming' : 'aired',
+        moment: null,
+        candidateId: event.id,
+        badge: { label: 'SUB', color: '#94a3b8' },
+        synthetic: true,
+      });
+    } else if (event.type === 'half_time' || event.type === 'full_time') {
+      rows.push({
+        key: `phase:${event.id}`,
+        t: event.t,
+        minuteLabel: formatMinute(event.t),
+        kind: event.type,
+        headline: event.detail,
+        state: event.t > t ? 'upcoming' : 'aired',
+        moment: null,
+        candidateId: event.id,
+        badge: { label: event.type === 'half_time' ? 'HALF TIME' : 'FULL TIME', color: '#cbd5e1' },
+        synthetic: true,
+      });
+    }
+  }
+  return rows;
 }
 
 /** The most recent aired ticker line (ticker persists ~25s on screen). */

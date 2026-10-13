@@ -34,7 +34,7 @@ export function MomentRail() {
       </header>
       <ol className="moment-list">
         {feed.map((item) => {
-          const style = kindStyle(item.kind as MomentKind);
+          const style = item.badge ?? kindStyle(item.kind as MomentKind);
           const isLive = item.candidateId === liveId;
           const isSelected = item.candidateId === selectedMomentId;
           const retracted = item.state === 'retracted';
@@ -42,12 +42,18 @@ export function MomentRail() {
             <li
               key={item.key}
               ref={isLive ? liveRef : undefined}
-              className={`moment-item ${item.state}${isSelected ? ' selected' : ''}${isLive ? ' is-live' : ''}`}
+              className={`moment-item ${item.state}${isSelected ? ' selected' : ''}${isLive ? ' is-live' : ''}${item.synthetic ? ' structural' : ''}`}
               onClick={() => {
-                selectMoment(item.candidateId);
+                if (!item.synthetic) selectMoment(item.candidateId);
                 if (!retracted) scrub(Math.max(0, item.t - 6));
               }}
-              title={retracted ? 'Chalked off by VAR — click to inspect the retraction' : 'Click to inspect and replay from here'}
+              title={
+                retracted
+                  ? 'Chalked off by VAR — click to inspect the retraction'
+                  : item.synthetic
+                    ? 'Structural cue — click to jump to it in the match'
+                    : 'Click to inspect and replay from here'
+              }
             >
               <span className="moment-minute">{item.minuteLabel}</span>
               <span className="kind-badge" style={{ background: style.color }}>

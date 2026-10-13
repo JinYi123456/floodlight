@@ -540,6 +540,13 @@ button {
   border-color: var(--cyan);
   background: rgba(76, 201, 240, 0.07);
 }
+.moment-item.structural .moment-headline {
+  font-size: 12px;
+  color: #8b9bb4;
+}
+.moment-item.structural .kind-badge {
+  opacity: 0.85;
+}
 .moment-minute {
   grid-area: minute;
   font-family: var(--mono);
