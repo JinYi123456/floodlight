@@ -50,7 +50,7 @@ export interface VisionFrameEntity {
 
 export type VisionJob =
   | { type: 'visionPrepare' }
-  | { type: 'visionFrame'; t: number; width: number; height: number }
+  | { type: 'visionFrame'; t: number; width: number; height: number; dt?: number }
   | { type: 'visionAnalyze' };
 
 export type WorkerRequest =

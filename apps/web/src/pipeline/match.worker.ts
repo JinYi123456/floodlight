@@ -225,7 +225,7 @@ self.onmessage = async (event: MessageEvent<WorkerRequest>) => {
         });
         const ballEntity = entities.find((e) => e.cls === 'ball') ?? null;
         if (ballEntity) session.prevBall = { x: ballEntity.x, y: ballEntity.y };
-        const tracks = session.tracker.update(entities, 0.1);
+        const tracks = session.tracker.update(entities, request.dt ?? 0.1);
         const ballTrack = tracks.find((track) => track.cls === 'ball') ?? null;
         const playerTracks = tracks.filter((track) => track.cls !== 'ball');
         const detected = session.deriver.update(request.t, ballTrack, playerTracks);

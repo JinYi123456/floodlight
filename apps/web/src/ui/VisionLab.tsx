@@ -43,7 +43,10 @@ export function VisionLab() {
     windowRef.current = vision.window;
   }, [vision.window]);
 
-  // Frame pump: request one frame every 100 ms of wall time.
+  // Frame pump: one camera frame per ~30 ms of wall time. The cursor moves by
+  // the real elapsed step (clamped), so the feed plays at true speed whatever
+  // the render load, and the tracker is told the same dt — derived speeds stay
+  // honest at any cadence.
   useEffect(() => {
     if (vision.phase !== 'ready') return;
     let raf = 0;
@@ -52,11 +55,12 @@ export function VisionLab() {
       raf = requestAnimationFrame(tick);
       const win = windowRef.current;
       if (!win || !playingRef.current) return;
-      if (now - lastRequest < 100) return;
+      if (now - lastRequest < 30) return;
+      const dt = Math.min(0.12, Math.max(0.02, (now - lastRequest) / 1000));
       lastRequest = now;
       const t = win.t0 + cursorRef.current;
-      pipeline.visionFrame(t, W, H);
-      cursorRef.current += 0.1;
+      pipeline.visionFrame(t, W, H, dt);
+      cursorRef.current += dt;
       if (cursorRef.current > win.t1 - win.t0) cursorRef.current = 0;
       setCursor(cursorRef.current);
     };

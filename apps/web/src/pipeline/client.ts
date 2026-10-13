@@ -61,8 +61,8 @@ export class PipelineClient {
     return this.request<VisionReport>('visionAnalyze', { type: 'visionAnalyze' });
   }
 
-  visionFrame(t: number, width: number, height: number): void {
-    const message: WorkerRequest = { type: 'visionFrame', t, width, height };
+  visionFrame(t: number, width: number, height: number, dt = 0.1): void {
+    const message: WorkerRequest = { type: 'visionFrame', t, width, height, dt };
     this.worker.postMessage(message);
   }
 
