@@ -1,0 +1,14 @@
+{
+  "name": "@floodlight/vision",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Auto-eventing: derive passes, shots and speeds from rendered match video, scored against ground truth.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@floodlight/core": "0.1.0",
+    "@floodlight/simulator": "0.1.0"
+  }
+}

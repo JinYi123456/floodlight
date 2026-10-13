@@ -150,9 +150,19 @@ export function trackingWindow(
     }
 
     if (next.type === 'kickoff') {
-      // After a goal the ball rests, then glides back to the centre spot.
+      // After a goal: the ball first finishes its flight into the net (or
+      // wherever the shot ended), rests, then glides back to the centre.
       const glideStart = Math.max(e.t, next.t - 1.5);
-      segments.push({ fromT: e.t, toT: glideStart, from: to, to, speedKph: 0 });
+      if (speed > 0 && travel > 0.3) {
+        const flight = clamp((travel / speed) * 3.6, 0.2, 2.5);
+        const flightEnd = Math.min(e.t + flight, glideStart);
+        segments.push({ fromT: e.t, toT: flightEnd, from, to, speedKph: speed });
+        if (flightEnd < glideStart) {
+          segments.push({ fromT: flightEnd, toT: glideStart, from: to, to, speedKph: 0 });
+        }
+      } else {
+        segments.push({ fromT: e.t, toT: glideStart, from: to, to, speedKph: 0 });
+      }
       segments.push({ fromT: glideStart, toT: next.t, from: to, to: { x: 0, y: 0 }, speedKph: 22 });
       continue;
     }

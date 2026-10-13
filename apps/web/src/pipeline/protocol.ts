@@ -8,6 +8,9 @@ import type { MatchEvent, MatchMeta, TeamSide, TrackingFrame } from '@floodlight
 import type { NarratedMoment, TaskTrace } from '@floodlight/agents';
 import type { CueSheet } from '@floodlight/cuesheet';
 import type { InsightCandidate, PlayerMatchStats } from '@floodlight/engine';
+import type { DerivedEvent, VisionReport } from '@floodlight/vision';
+
+export type { VisionReport, DerivedEvent };
 
 export interface LineupPlayer {
   id: string;
@@ -31,46 +34,16 @@ export interface PreparedMatch {
   providerSummary: { completed: number; fallback: number; failed: number; recorded: boolean };
 }
 
-export interface VisionDetectedEvent {
-  t: number;
-  type: 'pass' | 'shot' | 'possession_change';
-  team: 'home' | 'away' | 'none';
-  from: { x: number; y: number };
-  to: { x: number; y: number };
-  speedKph: number;
-}
-
-export interface VisionFrameSample {
-  t: number;
-  /** Detected entities: [x, y, speedKph, classId] in pitch metres. */
-  entities: Array<{ x: number; y: number; speedKph: number; cls: 'ball' | 'home' | 'away' | 'official' }>;
-}
-
-export interface VisionReport {
-  scenarioId: string;
-  window: { t0: number; t1: number };
-  framesProcessed: number;
-  groundTruth: { passes: number; shots: number };
-  detected: { passes: number; shots: number };
-  passPrecision: number;
-  passRecall: number;
-  passF1: number;
-  ballSpeedMaeKph: number;
-  playerSpeedMaeKph: number;
-  possessionAgreement: number;
-  samples: Array<{
-    t: number;
-    truth: { passes: number; shots: number };
-    detected: { passes: number; shots: number };
-    ballSpeedTruth: number;
-    ballSpeedDetected: number;
-  }>;
+export interface VisionFrameEntity {
+  cls: 'ball' | 'home' | 'away';
+  x: number;
+  y: number;
 }
 
 export type VisionJob =
-  | { type: 'visionPrepare'; scenarioId: string }
+  | { type: 'visionPrepare' }
   | { type: 'visionFrame'; t: number; width: number; height: number }
-  | { type: 'visionReport' };
+  | { type: 'visionAnalyze' };
 
 export type WorkerRequest =
   | { type: 'prepare'; scenarioId: string | null; seed: number; recording?: string | null }
@@ -78,10 +51,18 @@ export type WorkerRequest =
   | VisionJob;
 
 export type WorkerResponse =
-  | { type: 'progress'; label: string; fraction: number }
+  | { type: 'progress'; label: string; fraction: number; channel?: 'prepare' | 'vision' }
   | { type: 'ready'; payload: PreparedMatch }
   | { type: 'tracking'; t0: number; t1: number; frames: TrackingFrame[] }
-  | { type: 'visionReady'; scenarioId: string; window: { t0: number; t1: number } }
-  | { type: 'visionFrame'; t: number; rgba: ArrayBuffer; width: number; height: number; entities: VisionFrameSample['entities']; detected: VisionDetectedEvent[] }
+  | { type: 'visionReady'; window: { t0: number; t1: number } }
+  | {
+      type: 'visionFrame';
+      t: number;
+      width: number;
+      height: number;
+      rgba: ArrayBuffer;
+      entities: VisionFrameEntity[];
+      detected: DerivedEvent[];
+    }
   | { type: 'visionReport'; report: VisionReport }
   | { type: 'error'; message: string };

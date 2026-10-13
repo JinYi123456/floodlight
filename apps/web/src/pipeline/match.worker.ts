@@ -8,13 +8,34 @@ import { SCENARIOS, simulateMatch, trackingWindow, type SimulationResult } from 
 import { MatchEngine } from '@floodlight/engine';
 import { ProductionCrew, type NarratedMoment } from '@floodlight/agents';
 import { compileCues } from '@floodlight/cuesheet';
+import {
+  detectEntities,
+  EventDeriver,
+  learnPalettes,
+  projection,
+  renderFeedFrame,
+  runVisionPass,
+  TrackingLayer,
+  visionWindowFor,
+  type KitPalettes,
+} from '@floodlight/vision';
 import type { TrackingFrame } from '@floodlight/core';
 import type { PreparedMatch, WorkerRequest, WorkerResponse } from './protocol';
 
 let result: SimulationResult | null = null;
 
+interface VisionSession {
+  window: { t0: number; t1: number };
+  tracker: TrackingLayer;
+  deriver: EventDeriver;
+  palettes: KitPalettes | null;
+  prevBall: { x: number; y: number } | null;
+}
+let visionSession: VisionSession | null = null;
+
 const post = (message: WorkerResponse) => self.postMessage(message);
-const progress = (label: string, fraction: number) => post({ type: 'progress', label, fraction });
+const progress = (label: string, fraction: number, channel: 'prepare' | 'vision' = 'prepare') =>
+  post({ type: 'progress', label, fraction, channel });
 
 interface RecordedMoment {
   candidateId: string;
@@ -155,8 +176,63 @@ self.onmessage = async (event: MessageEvent<WorkerRequest>) => {
         post({ type: 'tracking', t0: request.t0, t1: request.t1, frames });
         break;
       }
+      case 'visionPrepare': {
+        if (!result) throw new Error('match not prepared');
+        const window = visionWindowFor(result);
+        visionSession = {
+          window,
+          tracker: new TrackingLayer(),
+          deriver: new EventDeriver(),
+          palettes: null,
+          prevBall: null,
+        };
+        post({ type: 'visionReady', window });
+        break;
+      }
+      case 'visionFrame': {
+        if (!result || !visionSession) throw new Error('vision not prepared');
+        const session = visionSession;
+        const frame = renderFeedFrame(result, request.t, request.width, request.height);
+        if (!session.palettes) session.palettes = learnPalettes(frame);
+        const proj = projection(request.width, request.height);
+        const entities = detectEntities(frame, {
+          projection: proj,
+          palettes: session.palettes,
+          ballHint: session.prevBall,
+        });
+        const ballEntity = entities.find((e) => e.cls === 'ball') ?? null;
+        if (ballEntity) session.prevBall = { x: ballEntity.x, y: ballEntity.y };
+        const tracks = session.tracker.update(entities, 0.1);
+        const ballTrack = tracks.find((track) => track.cls === 'ball') ?? null;
+        const playerTracks = tracks.filter((track) => track.cls !== 'ball');
+        const detected = session.deriver.update(request.t, ballTrack, playerTracks);
+        // Worker-global postMessage supports a transfer list; the DOM typings
+        // for window.postMessage do not, hence the narrow cast.
+        const postWithTransfer = self.postMessage as unknown as (message: unknown, transfer: Transferable[]) => void;
+        postWithTransfer(
+          {
+            type: 'visionFrame',
+            t: request.t,
+            width: request.width,
+            height: request.height,
+            rgba: frame.rgba.buffer,
+            entities: entities.map((e) => ({ cls: e.cls, x: e.x, y: e.y })),
+            detected,
+          },
+          [frame.rgba.buffer],
+        );
+        break;
+      }
+      case 'visionAnalyze': {
+        if (!result) throw new Error('match not prepared');
+        progress('Watching the tape', 0.05, 'vision');
+        const { report } = runVisionPass(result);
+        progress('Ready', 1, 'vision');
+        post({ type: 'visionReport', report });
+        break;
+      }
       default:
-        post({ type: 'error', message: `unsupported request: ${request.type}` });
+        post({ type: 'error', message: `unsupported request: ${(request as { type: string }).type}` });
     }
   } catch (error) {
     post({ type: 'error', message: error instanceof Error ? error.message : String(error) });

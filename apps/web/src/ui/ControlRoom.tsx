@@ -15,6 +15,7 @@ import { ProgramMonitor } from './ProgramMonitor';
 import { MomentRail } from './MomentRail';
 import { InsightPanel } from './InsightPanel';
 import { ModeConsole } from './ModeConsole';
+import { VisionLab } from './VisionLab';
 
 function useTheaterClock(): void {
   useEffect(() => {
@@ -68,6 +69,9 @@ export function ControlRoom() {
   const t = useAppStore((state) => state.t);
   const playing = useAppStore((state) => state.playing);
   const rate = useAppStore((state) => state.rate);
+  const view = useAppStore((state) => state.view);
+  const setView = useAppStore((state) => state.setView);
+  const enterVision = useAppStore((state) => state.enterVision);
   const toggle = useAppStore((state) => state.toggle);
   const setRate = useAppStore((state) => state.setRate);
   const scrub = useAppStore((state) => state.scrub);
@@ -89,6 +93,15 @@ export function ControlRoom() {
             FLOOD<em>LIGHT</em>
           </span>
           <span className="room-sub">Match Intelligence Control Room</span>
+        </div>
+
+        <div className="view-tabs">
+          <button type="button" className={view === 'room' ? 'active' : ''} onClick={() => setView('room')}>
+            Control room
+          </button>
+          <button type="button" className={view === 'vision' ? 'active' : ''} onClick={() => void enterVision()}>
+            Vision lab
+          </button>
         </div>
 
         <div className="score-bug">
@@ -114,64 +127,70 @@ export function ControlRoom() {
         </div>
       </header>
 
-      <div className="room-body">
-        <MomentRail />
-        <main className="stage">
-          <ProgramMonitor />
-          <div className="ticker-strip">
-            <span className="ticker-label">LIVE</span>
-            <span className="ticker-text">{ticker ?? 'The match is under way — the crew is watching.'}</span>
+      {view === 'vision' ? (
+        <VisionLab />
+      ) : (
+        <>
+          <div className="room-body">
+            <MomentRail />
+            <main className="stage">
+              <ProgramMonitor />
+              <div className="ticker-strip">
+                <span className="ticker-label">LIVE</span>
+                <span className="ticker-text">{ticker ?? 'The match is under way — the crew is watching.'}</span>
+              </div>
+            </main>
+            <div className="right-rail">
+              <ModeConsole />
+              <InsightPanel />
+            </div>
           </div>
-        </main>
-        <div className="right-rail">
-          <ModeConsole />
-          <InsightPanel />
-        </div>
-      </div>
 
-      <footer className="transport">
-        <button type="button" className="play-button" onClick={toggle} aria-label={playing ? 'Pause' : 'Play'}>
-          {playing ? '❚❚' : '▶'}
-        </button>
-        <div className="rate-group">
-          {[1, 2, 4].map((value) => (
-            <button
-              type="button"
-              key={value}
-              className={rate === value ? 'active' : ''}
-              onClick={() => setRate(value)}
-            >
-              {value}×
+          <footer className="transport">
+            <button type="button" className="play-button" onClick={toggle} aria-label={playing ? 'Pause' : 'Play'}>
+              {playing ? '❚❚' : '▶'}
             </button>
-          ))}
-        </div>
-        <div className="scrubber">
-          <div className="scrub-track">
-            <div className="scrub-progress" style={{ width: `${progressPct}%` }} />
-            {match.scoreTimeline.slice(1).map((goal, index) => (
-              <span
-                key={`${goal.t}-${index}`}
-                className="goal-marker"
-                style={{ left: `${(goal.t / match.timing.fullTimeT) * 100}%` }}
-                title={`Goal at ${formatMinute(goal.t)} — ${goal.home}–${goal.away}`}
+            <div className="rate-group">
+              {[1, 2, 4].map((value) => (
+                <button
+                  type="button"
+                  key={value}
+                  className={rate === value ? 'active' : ''}
+                  onClick={() => setRate(value)}
+                >
+                  {value}×
+                </button>
+              ))}
+            </div>
+            <div className="scrubber">
+              <div className="scrub-track">
+                <div className="scrub-progress" style={{ width: `${progressPct}%` }} />
+                {match.scoreTimeline.slice(1).map((goal, index) => (
+                  <span
+                    key={`${goal.t}-${index}`}
+                    className="goal-marker"
+                    style={{ left: `${(goal.t / match.timing.fullTimeT) * 100}%` }}
+                    title={`Goal at ${formatMinute(goal.t)} — ${goal.home}–${goal.away}`}
+                  />
+                ))}
+              </div>
+              <input
+                type="range"
+                min={0}
+                max={match.timing.fullTimeT}
+                step={0.5}
+                value={t}
+                onChange={(event) => scrub(Number(event.target.value))}
+                aria-label="Match time"
               />
-            ))}
-          </div>
-          <input
-            type="range"
-            min={0}
-            max={match.timing.fullTimeT}
-            step={0.5}
-            value={t}
-            onChange={(event) => scrub(Number(event.target.value))}
-            aria-label="Match time"
-          />
-        </div>
-        <div className="clock-display">
-          <span className="clock-main">{formatClock(t)}</span>
-          <span className="clock-sub">{formatMinute(t)} of 90</span>
-        </div>
-      </footer>
+            </div>
+            <div className="clock-display">
+              <span className="clock-main">{formatClock(t)}</span>
+              <span className="clock-sub">{formatMinute(t)} of 90</span>
+            </div>
+          </footer>
+        </>
+      )}
     </div>
   );
 }

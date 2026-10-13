@@ -7,15 +7,26 @@
  */
 
 import type { TrackingFrame } from '@floodlight/core';
-import type { PreparedMatch, WorkerRequest, WorkerResponse } from './protocol';
+import type { VisionReport, WorkerRequest, WorkerResponse } from './protocol';
+import type { PreparedMatch } from './protocol';
 
 const TRACKING_SEGMENT_S = 20;
 const TRACKING_HZ = 10;
 
+export interface VisionFrameMessage {
+  t: number;
+  width: number;
+  height: number;
+  rgba: ArrayBuffer;
+  entities: Array<{ cls: 'ball' | 'home' | 'away'; x: number; y: number }>;
+  detected: Array<{ t: number; type: 'pass' | 'shot' | 'possession_change'; team: 'home' | 'away'; from: { x: number; y: number }; to: { x: number; y: number }; speedKph: number }>;
+}
+
 export class PipelineClient {
   private readonly worker: Worker;
   private readonly waiters = new Map<string, { resolve: (value: unknown) => void; reject: (error: Error) => void }>();
-  onProgress: ((label: string, fraction: number) => void) | null = null;
+  onProgress: ((label: string, fraction: number, channel: 'prepare' | 'vision') => void) | null = null;
+  onVisionFrame: ((frame: VisionFrameMessage) => void) | null = null;
 
   constructor() {
     this.worker = new Worker(new URL('./match.worker.ts', import.meta.url), { type: 'module' });
@@ -41,6 +52,19 @@ export class PipelineClient {
     });
   }
 
+  visionPrepare(): Promise<{ t0: number; t1: number }> {
+    return this.request<{ t0: number; t1: number }>('visionPrepare', { type: 'visionPrepare' });
+  }
+
+  visionAnalyze(): Promise<VisionReport> {
+    return this.request<VisionReport>('visionAnalyze', { type: 'visionAnalyze' });
+  }
+
+  visionFrame(t: number, width: number, height: number): void {
+    const message: WorkerRequest = { type: 'visionFrame', t, width, height };
+    this.worker.postMessage(message);
+  }
+
   private request<T>(key: string, message: WorkerRequest): Promise<T> {
     const existing = this.waiters.get(key);
     if (existing) existing.reject(new Error(`duplicate request: ${key}`));
@@ -53,13 +77,22 @@ export class PipelineClient {
   private handle(message: WorkerResponse): void {
     switch (message.type) {
       case 'progress':
-        this.onProgress?.(message.label, message.fraction);
+        this.onProgress?.(message.label, message.fraction, message.channel ?? 'prepare');
         break;
       case 'ready':
         this.settle('prepare', message.payload);
         break;
       case 'tracking':
         this.settle(`tracking:${message.t0}:${message.t1}`, message.frames);
+        break;
+      case 'visionReady':
+        this.settle('visionPrepare', message.window);
+        break;
+      case 'visionFrame':
+        this.onVisionFrame?.(message);
+        break;
+      case 'visionReport':
+        this.settle('visionAnalyze', message.report);
         break;
       case 'error':
         this.failAll(new Error(message.message));

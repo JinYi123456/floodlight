@@ -5,6 +5,7 @@
 
 import { create } from 'zustand';
 import type { Lang, Persona } from '@floodlight/agents';
+import type { VisionReport } from '@floodlight/vision';
 import { PipelineClient, TrackingCache } from '../pipeline/client';
 import type { PreparedMatch } from '../pipeline/protocol';
 
@@ -12,6 +13,7 @@ export const pipeline = new PipelineClient();
 export const trackingCache = new TrackingCache(pipeline);
 
 export type Phase = 'launch' | 'preparing' | 'ready' | 'error';
+export type View = 'room' | 'vision';
 
 export interface ViewerPrefs {
   persona: Persona;
@@ -21,6 +23,15 @@ export interface ViewerPrefs {
   metric: string | null;
 }
 
+export interface VisionState {
+  phase: 'idle' | 'preparing' | 'analyzing' | 'ready' | 'error';
+  progressLabel: string;
+  progressFraction: number;
+  window: { t0: number; t1: number } | null;
+  report: VisionReport | null;
+  error: string | null;
+}
+
 interface AppState {
   phase: Phase;
   progressLabel: string;
@@ -28,6 +39,8 @@ interface AppState {
   error: string | null;
   match: PreparedMatch | null;
   recordingId: string | null;
+  view: View;
+  vision: VisionState;
 
   /** Theater clock, in match seconds. */
   t: number;
@@ -48,6 +61,8 @@ interface AppState {
   setRate: (rate: number) => void;
   selectMoment: (id: string | null) => void;
   setPrefs: (partial: Partial<ViewerPrefs>) => void;
+  setView: (view: View) => void;
+  enterVision: () => Promise<void>;
   backToLaunch: () => void;
 }
 
@@ -58,6 +73,8 @@ export const useAppStore = create<AppState>((set, get) => ({
   error: null,
   match: null,
   recordingId: null,
+  view: 'room',
+  vision: { phase: 'idle', progressLabel: '', progressFraction: 0, window: null, report: null, error: null },
 
   t: 0,
   playing: false,
@@ -69,8 +86,21 @@ export const useAppStore = create<AppState>((set, get) => ({
 
   ensurePrepared: async (scenarioId, seed, recording) => {
     if (get().phase === 'preparing') return;
-    set({ phase: 'preparing', progressLabel: 'Warming up', progressFraction: 0, error: null });
-    pipeline.onProgress = (label, fraction) => set({ progressLabel: label, progressFraction: fraction });
+    set({
+      phase: 'preparing',
+      progressLabel: 'Warming up',
+      progressFraction: 0,
+      error: null,
+      view: 'room',
+      vision: { phase: 'idle', progressLabel: '', progressFraction: 0, window: null, report: null, error: null },
+    });
+    pipeline.onProgress = (label, fraction, channel) => {
+      if (channel === 'vision') {
+        set((state) => ({ vision: { ...state.vision, progressLabel: label, progressFraction: fraction } }));
+      } else {
+        set({ progressLabel: label, progressFraction: fraction });
+      }
+    };
     try {
       const match = await pipeline.prepare(scenarioId, seed, recording);
       trackingCache.reset();
@@ -105,7 +135,43 @@ export const useAppStore = create<AppState>((set, get) => ({
   setRate: (rate) => set({ rate }),
   selectMoment: (id) => set({ selectedMomentId: id }),
   setPrefs: (partial) => set((state) => ({ prefs: { ...state.prefs, ...partial } })),
-  backToLaunch: () => set({ phase: 'launch', match: null, playing: false, t: 0, selectedMomentId: null }),
+  setView: (view) => set({ view }),
+
+  enterVision: async () => {
+    const state = get();
+    if (!state.match || state.vision.phase === 'analyzing') return;
+    set({
+      view: 'vision',
+      playing: false,
+      vision: { ...get().vision, phase: 'preparing', progressLabel: 'Opening the tape', progressFraction: 0.02, error: null },
+    });
+    pipeline.onProgress = (label, fraction, channel) => {
+      if (channel === 'vision') {
+        set((s) => ({ vision: { ...s.vision, progressLabel: label, progressFraction: fraction } }));
+      }
+    };
+    try {
+      const window = await pipeline.visionPrepare();
+      set((s) => ({
+        vision: { ...s.vision, window, phase: 'analyzing', progressLabel: 'Watching the tape', progressFraction: 0.05 },
+      }));
+      const report = await pipeline.visionAnalyze();
+      set((s) => ({ vision: { ...s.vision, phase: 'ready', report, progressLabel: 'Ready', progressFraction: 1 } }));
+    } catch (error) {
+      set((s) => ({
+        vision: {
+          ...s.vision,
+          phase: 'error',
+          error: error instanceof Error ? error.message : String(error),
+        },
+      }));
+    } finally {
+      pipeline.onProgress = null;
+    }
+  },
+
+  backToLaunch: () =>
+    set({ phase: 'launch', match: null, playing: false, t: 0, selectedMomentId: null, view: 'room' }),
 }));
 
 // Dev-only inspection hook (stripped from production builds).
