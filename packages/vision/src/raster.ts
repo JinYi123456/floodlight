@@ -75,6 +75,38 @@ function parseHex(hex: string): [number, number, number] {
   ];
 }
 
+/**
+ * Fixed-pattern sensor grain: the same speck sits on the same pixel every
+ * frame, like a real sensor defect — per-frame random specks made the feed
+ * look like it was snowing.
+ */
+interface SensorMap {
+  noise: Array<{ index: number; jitter: number }>;
+  dead: number[];
+}
+
+const sensorMaps = new Map<string, SensorMap>();
+
+function sensorMapFor(width: number, height: number): SensorMap {
+  const key = `${width}x${height}`;
+  const cached = sensorMaps.get(key);
+  if (cached) return cached;
+  const rng = createRng(0x5e05_eed);
+  const noise: Array<{ index: number; jitter: number }> = [];
+  const noiseCount = Math.round(width * height * 0.0035);
+  for (let n = 0; n < noiseCount; n++) {
+    noise.push({ index: (rng.int(0, height - 1) * width + rng.int(0, width - 1)) * 4, jitter: rng.int(-9, 9) });
+  }
+  const dead: number[] = [];
+  const deadCount = Math.round(width * height * 0.0008);
+  for (let n = 0; n < deadCount; n++) {
+    dead.push((rng.int(0, height - 1) * width + rng.int(0, width - 1)) * 4);
+  }
+  const map = { noise, dead };
+  sensorMaps.set(key, map);
+  return map;
+}
+
 export interface RasterOptions {
   width?: number;
   height?: number;
@@ -161,21 +193,21 @@ export function renderPixels(current: TrackingFrame, trail: TrackingFrame[], opt
     drawLine(PX(s * 52.5), PY(-3.66), PX(s * 52.5), PY(3.66));
   }
 
-  // Sensor noise + dead pixels.
-  const noiseCount = Math.round(width * height * 0.02);
-  for (let n = 0; n < noiseCount; n++) {
-    const i = (rng.int(0, height - 1) * width + rng.int(0, width - 1)) * 4;
-    const jitter = rng.int(-14, 14);
-    rgba[i] = rgba[i]! + jitter;
-    rgba[i + 1] = rgba[i + 1]! + jitter;
-    rgba[i + 2] = rgba[i + 2]! + jitter;
+  // Fixed-pattern sensor grain + dead pixels (same pixels every frame).
+  const sensor = sensorMapFor(width, height);
+  for (const { index, jitter } of sensor.noise) {
+    rgba[index] = rgba[index]! + jitter;
+    rgba[index + 1] = rgba[index + 1]! + jitter;
+    rgba[index + 2] = rgba[index + 2]! + jitter;
   }
-  const deadCount = Math.round(width * height * 0.0012);
-  for (let n = 0; n < deadCount; n++) {
-    put(rng.int(0, width - 1), rng.int(0, height - 1), 6, 8, 10);
+  for (const index of sensor.dead) {
+    rgba[index] = 6;
+    rgba[index + 1] = 8;
+    rgba[index + 2] = 10;
+    rgba[index + 3] = 255;
   }
 
-  // Ball trail (dimmer than the ball).
+  // Ball trail (a short smear, dimmer than the ball).
   for (const past of trail) {
     const bx = Math.round(PX(past.ball.pos.x));
     const by = Math.round(PY(past.ball.pos.y));
@@ -184,18 +216,20 @@ export function renderPixels(current: TrackingFrame, trail: TrackingFrame[], opt
     }
   }
 
-  // Players: kit-coloured discs with a dark rim.
+  // Players: kit-coloured discs with a bright rim, capped below the ball's
+  // white so adjacent players never read as one blob (or as the ball).
   const radiusPx = Math.max(2, Math.round(1.05 * proj.scale));
   for (const player of current.players) {
     const isHome = options.homeIds.has(player.playerId);
     const [r, g, b] = isHome ? homeRgb : awayRgb;
+    const rim: [number, number, number] = [Math.min(210, r * 0.5 + 120), Math.min(210, g * 0.5 + 120), Math.min(210, b * 0.5 + 120)];
     const cx = Math.round(PX(player.pos.x));
     const cy = Math.round(PY(player.pos.y));
     for (let dy = -radiusPx - 1; dy <= radiusPx + 1; dy++) {
       for (let dx = -radiusPx - 1; dx <= radiusPx + 1; dx++) {
         const d = Math.hypot(dx, dy);
         if (d <= radiusPx - 0.4) put(cx + dx, cy + dy, r, g, b);
-        else if (d <= radiusPx + 0.6) put(cx + dx, cy + dy, r * 0.45, g * 0.45, b * 0.45);
+        else if (d <= radiusPx + 0.6) put(cx + dx, cy + dy, rim[0], rim[1], rim[2]);
       }
     }
   }
@@ -263,7 +297,7 @@ export function renderFeedFrame(
       homeIds: homeIdSet(result),
     });
   }
-  return renderPixels(current, frames.slice(0, -1), {
+  return renderPixels(current, frames.slice(-6, -1), {
     width,
     height,
     homePrimary: result.meta.home.primary,

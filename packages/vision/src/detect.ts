@@ -8,7 +8,7 @@
  */
 
 import type { Projection } from './raster';
-import { toPitch } from './raster';
+import { projection, toPitch } from './raster';
 
 export interface DetectedEntity {
   cls: 'ball' | 'home' | 'away';
@@ -70,7 +70,12 @@ function colorDistance(a: [number, number, number], b: [number, number, number])
  * that are neither white nor grass are candidate shirts. Deterministic.
  */
 export function learnPalettes(frame: { width: number; height: number; rgba: Uint8ClampedArray }): KitPalettes {
-  const colors = collectBlobs(frame).map((blob) => blobColor(blob));
+  // Player-sized blobs only. The pitch surround and its fragments are also
+  // "neither grass nor white" and would otherwise seed the clustering on the
+  // background colour instead of the two shirts.
+  const colors = collectBlobs(frame)
+    .filter((blob) => blob.area >= 12 && blob.area <= 420)
+    .map((blob) => blobColor(blob));
   if (colors.length < 2) {
     return { home: [214, 38, 61], away: [31, 78, 156] };
   }
@@ -123,12 +128,25 @@ function blobColor(blob: Blob): [number, number, number] {
 
 function collectBlobs(frame: { width: number; height: number; rgba: Uint8ClampedArray }): Blob[] {
   const { width, height, rgba } = frame;
+  // The dark surround outside the pitch is "neither grass nor white" too —
+  // never flood it, or its fragments become kit-colour candidates.
+  const proj = projection(width, height);
+  const left = Math.max(0, Math.floor(proj.ox) - 1);
+  const right = Math.min(width - 1, Math.ceil(proj.ox + 105 * proj.scale) + 1);
+  const top = Math.max(0, Math.floor(proj.oy) - 1);
+  const bottom = Math.min(height - 1, Math.ceil(proj.oy + 68 * proj.scale) + 1);
+  const insidePitch = (x: number, y: number) => x >= left && x <= right && y >= top && y <= bottom;
   const visited = new Uint8Array(width * height);
   const blobs: Blob[] = [];
   const stack: number[] = [];
 
   for (let start = 0; start < width * height; start++) {
     if (visited[start]) continue;
+    const sy = Math.floor(start / width);
+    if (!insidePitch(start - sy * width, sy)) {
+      visited[start] = 1;
+      continue;
+    }
     const i = start * 4;
     const r = rgba[i]!;
     const g = rgba[i + 1]!;
@@ -179,6 +197,8 @@ function collectBlobs(frame: { width: number; height: number; rgba: Uint8Clamped
       ];
       for (const np of neighbors) {
         if (np < 0 || visited[np]) continue;
+        const ny = Math.floor(np / width);
+        if (!insidePitch(np - ny * width, ny)) continue;
         const ni = np * 4;
         const nr = rgba[ni]!;
         const ng = rgba[ni + 1]!;

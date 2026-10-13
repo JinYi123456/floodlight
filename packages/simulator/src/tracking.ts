@@ -141,15 +141,64 @@ export function trackingWindow(
 
   /* ---------------- ball path segments ---------------- */
 
+  // Events that move the ball. Period markers, possession changes, cards,
+  // substitutions and fouls do not touch it — parking the ball on every
+  // marker left it sitting at a stale spot and jumping metres when play
+  // resumed. The path model below is continuous by construction: the ball
+  // rolls or flies from wherever it is to wherever the next real event
+  // needs it, arriving when that event happens.
+  const ballMoves = (e: MatchEvent): boolean =>
+    e.type === 'pass' ||
+    e.type === 'carry' ||
+    e.type === 'shot' ||
+    e.type === 'save' ||
+    e.type === 'block' ||
+    e.type === 'interception' ||
+    e.type === 'tackle' ||
+    e.type === 'clearance' ||
+    e.type === 'penalty' ||
+    e.type === 'corner' ||
+    e.type === 'goal_kick' ||
+    e.type === 'throw_in' ||
+    e.type === 'kickoff';
+  const path = events.filter(ballMoves);
+
   const segments: BallSegment[] = [];
-  for (let i = 0; i < events.length; i++) {
-    const e = events[i]!;
-    const next = events[i + 1];
-    if (!next) break;
-    const gap = Math.max(next.t - e.t, 0.05);
+  let cursorPos: Vec2 = { x: 0, y: 0 };
+  let cursorT = 0;
+  const push = (fromT: number, toT: number, from: Vec2, to: Vec2, speedKph: number) => {
+    const span = toT - fromT;
+    if (span <= 1e-6) {
+      if (distance(from.x, from.y, to.x, to.y) <= 0.01) return;
+      toT = fromT + 1e-6;
+    }
+    segments.push({ fromT, toT, from: { ...from }, to: { ...to }, speedKph });
+    cursorPos = { ...to };
+    cursorT = toT;
+  };
+  const rest = (toT: number) => {
+    if (toT > cursorT + 1e-6) push(cursorT, toT, cursorPos, cursorPos, 0);
+  };
+  /** Roll the ball to `target` so it gets there as close to `byT` as the
+   *  schedule allows — just in time for the event that needs it there. */
+  const moveIn = (target: Vec2, byT: number, minKph: number, maxKph: number) => {
+    const d = distance(cursorPos.x, cursorPos.y, target.x, target.y);
+    if (d <= 0.5) return;
+    const span = byT - cursorT;
+    const speed = clamp(span > 0.3 ? (d / span) * 3.6 : maxKph, minKph, maxKph);
+    push(cursorT, cursorT + d / (speed / 3.6), cursorPos, target, roundTo(speed, 1));
+  };
+
+  for (let i = 0; i < path.length; i++) {
+    const e = path[i]!;
+    const next = path[i + 1];
     const from = e.at;
     const to = e.endAt ?? e.at;
     const travel = distance(from.x, from.y, to.x, to.y);
+    const gap = Math.max((next?.t ?? e.t + 6) - e.t, 0.05);
+
+    // Get the ball to where this event happens, by the time it happens.
+    moveIn(from, e.t, 8, 30);
 
     let speed = 0;
     if (e.type === 'pass') {
@@ -164,50 +213,38 @@ export function trackingWindow(
       speed = 65;
     }
 
-    if (next.type === 'kickoff') {
+    if (next?.type === 'kickoff') {
       // After a goal: the ball finishes its flight into the net, holds for
-      // the celebration, is walked back to the centre at a stroll and waits
-      // there for the restart — no ball frozen in the net for half a minute.
+      // the celebration, is walked back to the centre and waits there — no
+      // ball frozen in the net for half a minute. When there is no time to
+      // pace it (the compressed half-time kickoff), the ball simply rolls
+      // to the centre instead of teleporting.
       const centre = { x: 0, y: 0 };
-      const flight = speed > 0 && travel > 0.3 ? clamp((travel / speed) * 3.6, 0.2, 2.5) : 0;
-      const flightEnd = Math.min(e.t + flight, next.t);
-      if (flight > 0) segments.push({ fromT: e.t, toT: flightEnd, from, to, speedKph: speed });
-      const restEnd = Math.min(flightEnd + 3.5, next.t);
-      if (restEnd > flightEnd) segments.push({ fromT: flightEnd, toT: restEnd, from: to, to, speedKph: 0 });
-      const walkSeconds = distance(to.x, to.y, centre.x, centre.y) / (14 / 3.6);
-      const glideEnd = Math.min(restEnd + walkSeconds, next.t);
-      if (glideEnd > restEnd) segments.push({ fromT: restEnd, toT: glideEnd, from: to, to: centre, speedKph: 14 });
-      if (next.t > glideEnd) segments.push({ fromT: glideEnd, toT: next.t, from: centre, to: centre, speedKph: 0 });
+      const natural = speed > 0 && travel > 0.3 ? clamp((travel / speed) * 3.6, 0.2, 2.5) : 0;
+      rest(Math.max(e.t, cursorT));
+      if (natural > 0.05) push(cursorT, cursorT + natural, cursorPos, to, speed);
+      if (next.t > cursorT + 5) {
+        rest(cursorT + 3.5);
+        const d = distance(cursorPos.x, cursorPos.y, centre.x, centre.y);
+        const avail = next.t - 1 - cursorT;
+        if (d > 0.5 && avail > 0.5) {
+          const walkKph = clamp((d / avail) * 3.6, 6, 14);
+          push(cursorT, cursorT + d / (walkKph / 3.6), cursorPos, centre, roundTo(walkKph, 1));
+        } else {
+          moveIn(centre, next.t, 8, 30);
+        }
+        rest(next.t);
+      } else {
+        moveIn(centre, Math.max(next.t, cursorT + 0.5), 8, 30);
+      }
       continue;
     }
 
-    // Where the ball will restart: if the break is long, the ball is walked
-    // from where it stopped to the restart spot and placed there — never
-    // parked on a frozen pixel for half a minute.
-    const restart = { x: clamp(next.at.x, -50.5, 50.5), y: clamp(next.at.y, -32.5, 32.5) };
-    const parkThenGlide = (fromT: number, toT: number, restAt: Vec2) => {
-      const walkSeconds = distance(restAt.x, restAt.y, restart.x, restart.y) / (16 / 3.6);
-      if (toT - fromT < 3 + walkSeconds) {
-        segments.push({ fromT, toT, from: restAt, to: restAt, speedKph: 0 });
-        return;
-      }
-      const moveStart = fromT + 3;
-      const moveEnd = Math.min(moveStart + walkSeconds, toT);
-      segments.push({ fromT, toT: moveStart, from: restAt, to: restAt, speedKph: 0 });
-      segments.push({ fromT: moveStart, toT: moveEnd, from: restAt, to: restart, speedKph: 16 });
-      if (moveEnd < toT) segments.push({ fromT: moveEnd, toT, from: restart, to: restart, speedKph: 0 });
-    };
-
     if (speed > 0 && travel > 0.3) {
-      // Flight: the ball travels at governed speed, then rests where it lands.
+      // Wait until the action moment, then fly at the governed speed.
+      rest(e.t);
       const flight = clamp((travel / speed) * 3.6, 0.2, 2.5);
-      const flightEnd = Math.min(e.t + flight, next.t);
-      segments.push({ fromT: e.t, toT: flightEnd, from, to, speedKph: speed });
-      if (flightEnd < next.t) {
-        parkThenGlide(flightEnd, next.t, to);
-      }
-    } else {
-      parkThenGlide(e.t, next.t, to);
+      push(cursorT, cursorT + flight, cursorPos, to, speed);
     }
   }
 
@@ -266,8 +303,14 @@ export function trackingWindow(
   };
 
   const nextActorId = (): string | null => {
-    const next = events[eventPointer + 1];
-    return next && (next.type === 'pass' || next.type === 'carry' || next.type === 'shot') ? next.playerId : null;
+    for (let k = eventPointer + 1; k < events.length; k++) {
+      const next = events[k]!;
+      if (next.type === 'pass' || next.type === 'carry' || next.type === 'shot') return next.playerId;
+      // Markers don't touch the ball — keep looking for the next real actor
+      // so the player scheduled on the ball is drawn to it as it rolls.
+      if (ballMoves(next)) return null;
+    }
+    return null;
   };
 
   /* ---------------- player integration ---------------- */
@@ -365,13 +408,17 @@ export function trackingWindow(
         const arrival = passInFlight.endAt ?? ball.pos;
         target = { x: arrival.x, y: arrival.y };
       } else if (isActor && !isOwner && ball.speedKph > 5) {
-        // The next actor drifts toward the ball to receive or collect — but
-        // only while the ball is actually travelling. A ball at rest holds
-        // the shape; nobody sprints at nothing during kickoff waits.
-        target = {
-          x: target.x + (ball.pos.x - target.x) * 0.45,
-          y: target.y + (ball.pos.y - target.y) * 0.45,
-        };
+        // The next actor goes to the ball — a positional drift while someone
+        // owns it, a committed fetch when the ball is loose and nobody has
+        // it (a ball spilled out of play or rolling to a restart).
+        if (owner.playerId === null) {
+          target = { x: ball.pos.x, y: ball.pos.y };
+        } else {
+          target = {
+            x: target.x + (ball.pos.x - target.x) * 0.45,
+            y: target.y + (ball.pos.y - target.y) * 0.45,
+          };
+        }
       }
 
       // Steering: seek speed from a distance time-constant, capped by the

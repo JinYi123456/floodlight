@@ -66,6 +66,10 @@ interface OwnerState {
 interface FlightState {
   startT: number;
   startPos: { x: number; y: number };
+  /** When the ball last went from slow to genuinely moving — the action
+   *  itself, as opposed to the roll-up that preceded it. */
+  fastStartT: number;
+  fastStartPos: { x: number; y: number };
   team: 'home' | 'away' | null;
   maxSpeedKph: number;
   speeds: number[];
@@ -136,6 +140,8 @@ export class EventDeriver {
         this.flight = {
           startT: t,
           startPos: { x: ball.x, y: ball.y },
+          fastStartT: t,
+          fastStartPos: { x: ball.x, y: ball.y },
           team: this.lastOwner && t - this.lastOwner.lastSeen <= 3 ? this.lastOwner.team : null,
           maxSpeedKph: ball.speedKph,
           speeds: [ball.speedKph],
@@ -144,6 +150,13 @@ export class EventDeriver {
           slowStreak: 0,
         };
       } else {
+        const prevSpeed = this.flight.speeds[this.flight.speeds.length - 1]!;
+        if (ball.speedKph >= 20 && prevSpeed < 20) {
+          // The ball quickening again after a slow spell is a new action —
+          // a rolling ball that gets kicked, not one long continuous travel.
+          this.flight.fastStartT = t;
+          this.flight.fastStartPos = { x: ball.x, y: ball.y };
+        }
         this.flight.maxSpeedKph = Math.max(this.flight.maxSpeedKph, ball.speedKph);
         this.flight.speeds.push(ball.speedKph);
         this.flight.lastPos = { x: ball.x, y: ball.y };
@@ -186,10 +199,18 @@ export class EventDeriver {
     const sameTrack = Boolean(previous && previous.trackId === track.id);
 
     // A flight that ends at a player inside the goal zone at shot speed is
-    // a shot (saved or gathered by the keeper) — not a pass.
+    // a shot (saved or gathered by the keeper) — not a pass. If the ball
+    // itself died deep in the net, it is a shot no matter who is standing
+    // next to it: nobody "collects" a ball that is in the goal.
     let shotEmitted = false;
     if (flight && !sameTrack) {
-      const shot = this.evaluateShot(flight, { x: track.x, y: track.y }, track.cls);
+      const ballEnd = flight.lastPos;
+      const deepInNet = Math.abs(ballEnd.x) >= 50;
+      const shot = this.evaluateShot(
+        flight,
+        deepInNet ? ballEnd : { x: track.x, y: track.y },
+        deepInNet ? null : track.cls,
+      );
       if (shot) {
         emitted.push(shot);
         this.events.push(shot);
@@ -213,10 +234,14 @@ export class EventDeriver {
       const ballTravel = flight ? Math.hypot(flight.lastPos.x - flight.startPos.x, flight.lastPos.y - flight.startPos.y) : 0;
       const eligible = sameTrack ? flightEvidence && (travel >= 2.0 || ballTravel >= 2.0) : travel >= 2.0;
       // A pass needs the ball to actually travel at passing speed — slow
-      // hand-overs (dribble jostles, restarts) are not passes.
-      if (eligible && (speed >= 20 || maxSpeed >= 28)) {
+      // hand-overs (dribble jostles, restarts) are not passes. A single fast
+      // sample doesn't count: the ball must have been quick right up to the
+      // hand-over, not fast seconds ago and rolling now.
+      const fastSamples = flight ? flight.speeds.filter((s) => s >= 25).length : 0;
+      const recentFast = flight ? flight.speeds.slice(-10).filter((s) => s >= 20).length : 0;
+      if (eligible && (speed >= 20 || (maxSpeed >= 28 && fastSamples >= 2 && recentFast >= 2))) {
         const event: DerivedEvent = {
-          t: flight?.startT ?? t - 0.2,
+          t: flight?.fastStartT ?? t - 0.2,
           type: track.cls === previous.team ? 'pass' : 'possession_change',
           team: previous.team,
           from: { ...previous.lastPos },
