@@ -1,0 +1,3079 @@
+{
+  "scenarioId": "derby",
+  "seed": 2026,
+  "provider": "featherless",
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "moments": [
+    {
+      "candidateId": "cand-0036",
+      "headline": "Fionn Christou's 32.7 kph sprint at 3' breaks early rhythm",
+      "body": "The fastest recorded burst of the match, 32.7 kph by Fionn Christou, disrupted Ironworks FC's defensive setup within the opening three minutes, establishing immediate pressure in a 0–0 contest.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": null,
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Fionn Christou's 32.7 kph sprint at 3' breaks early rhythm",
+          "body": "The fastest recorded burst of the match, 32.7 kph by Fionn Christou, disrupted Ironworks FC's defensive setup within the opening three minutes, establishing immediate pressure in a 0–0 contest."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Fionn Christou: 32.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Fionn Christou : 32.7 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Fionn Christou: 32.7 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Fionn Christou: 32.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Fionn Christou : 32.7 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Fionn Christou: 32.7 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Fionn Christou: 32.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Fionn Christou : 32.7 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Fionn Christou: 32.7 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Fionn Christou: 32.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Fionn Christou : 32.7 km/h — la plus élevée du match jusqu'ici."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0001",
+      "headline": "4' - Halvard Petrov's 0.62-difficulty save denies Ironworks FC's p11 at 0.15 xG",
+      "body": "Petrov's intervention prevented a 0.15 xG chance, maintaining a 0–0 deadlock after a high-probability shot from Ironworks FC's p11.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "4' - 0.62 difficulty save, 0.15 xG, 0–0",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "4' - Halvard Petrov's 0.62-difficulty save denies Ironworks FC's p11 at 0.15 xG",
+          "body": "Petrov's intervention prevented a 0.15 xG chance, maintaining a 0–0 deadlock after a high-probability shot from Ironworks FC's p11."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.62 — Halvard Petrov niega una ocasión de 0.15 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.62 — Halvard Petrov repousse une occasion de 0.15 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.62 — Halvard Petrov denies a 0.15 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.62 — Halvard Petrov niega una ocasión de 0.15 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.62 — Halvard Petrov repousse une occasion de 0.15 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.62 — Halvard Petrov denies a 0.15 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.62 — Halvard Petrov niega una ocasión de 0.15 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.62 — Halvard Petrov repousse une occasion de 0.15 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.62 — Halvard Petrov denies a 0.15 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.62 — Halvard Petrov niega una ocasión de 0.15 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.62 — Halvard Petrov repousse une occasion de 0.15 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0037",
+      "headline": "Elias Pereira's 33.7 kph sprint at 6' breaks defensive line",
+      "body": "At 6', Elias Pereira's 33.7 kph burst created the first high-pressure transition opportunity, disrupting Westerly Wanderers' build-up at 0–0.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": null,
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Elias Pereira's 33.7 kph sprint at 6' breaks defensive line",
+          "body": "At 6', Elias Pereira's 33.7 kph burst created the first high-pressure transition opportunity, disrupting Westerly Wanderers' build-up at 0–0."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Elias Pereira: 33.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Elias Pereira : 33.7 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Elias Pereira: 33.7 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Elias Pereira: 33.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Elias Pereira : 33.7 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Elias Pereira: 33.7 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Elias Pereira: 33.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Elias Pereira : 33.7 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Elias Pereira: 33.7 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Elias Pereira: 33.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Elias Pereira : 33.7 km/h — la plus élevée du match jusqu'ici."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0003",
+      "headline": "6' Ironworks FC 0–0 Westerly Wanderers: Momentum shifts to home side with 0.45 swing",
+      "body": "Ironworks FC's 0.45 momentum swing in 5 minutes elevates their control to 0.327, marking a decisive shift in phase dominance at 0–0.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "Momentum has swung to Ironworks FC — a 0.45 shift over the last five minutes.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "6' Ironworks FC 0–0 Westerly Wanderers: Momentum shifts to home side with 0.45 swing",
+          "body": "Ironworks FC's 0.45 momentum swing in 5 minutes elevates their control to 0.327, marking a decisive shift in phase dominance at 0–0."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Ironworks FC — un giro de 0.45 en cinco minutos."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Ironworks FC — un écart de 0.45 sur cinq minutes."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Ironworks FC — a 0.45 shift over the last five minutes."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Ironworks FC — un giro de 0.45 en cinco minutos."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Ironworks FC — un écart de 0.45 sur cinq minutes."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Ironworks FC — a 0.45 shift over the last five minutes."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Ironworks FC — un giro de 0.45 en cinco minutos."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Ironworks FC — un écart de 0.45 sur cinq minutes."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Ironworks FC — a 0.45 shift over the last five minutes."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Ironworks FC — un giro de 0.45 en cinco minutos."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Ironworks FC — un écart de 0.45 sur cinq minutes."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0002",
+      "headline": "7' Halvard Petrov denies Ironworks FC's p13 with 0.6 difficulty save at 0.13 xG",
+      "body": "Petrov's intervention prevented a 0.13 xG chance, maintaining 0–0 after a high-probability shot from Ironworks FC's p13.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "7' - 0.6 diff save, 0.13 xG, 0–0",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "7' Halvard Petrov denies Ironworks FC's p13 with 0.6 difficulty save at 0.13 xG",
+          "body": "Petrov's intervention prevented a 0.13 xG chance, maintaining 0–0 after a high-probability shot from Ironworks FC's p13."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.6 — Halvard Petrov niega una ocasión de 0.13 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.6 — Halvard Petrov repousse une occasion de 0.13 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.6 — Halvard Petrov denies a 0.13 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.6 — Halvard Petrov niega una ocasión de 0.13 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.6 — Halvard Petrov repousse une occasion de 0.13 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.6 — Halvard Petrov denies a 0.13 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.6 — Halvard Petrov niega una ocasión de 0.13 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.6 — Halvard Petrov repousse une occasion de 0.13 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.6 — Halvard Petrov denies a 0.13 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.6 — Halvard Petrov niega una ocasión de 0.13 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.6 — Halvard Petrov repousse une occasion de 0.13 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0038",
+      "headline": "Yusuf Giordano's 33.1 kph sprint at 10'",
+      "body": "The fastest recorded burst of the match, 33.1 kph by Yusuf Giordano, signaled immediate attacking intent from Westerly Wanderers in a 0–0 contest, disrupting Ironworks FC's defensive setup before the 10-minute mark.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": null,
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Yusuf Giordano's 33.1 kph sprint at 10'",
+          "body": "The fastest recorded burst of the match, 33.1 kph by Yusuf Giordano, signaled immediate attacking intent from Westerly Wanderers in a 0–0 contest, disrupting Ironworks FC's defensive setup before the 10-minute mark."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Yusuf Giordano: 33.1 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Yusuf Giordano : 33.1 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Yusuf Giordano: 33.1 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Yusuf Giordano: 33.1 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Yusuf Giordano : 33.1 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Yusuf Giordano: 33.1 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Yusuf Giordano: 33.1 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Yusuf Giordano : 33.1 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Yusuf Giordano: 33.1 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Yusuf Giordano: 33.1 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Yusuf Giordano : 33.1 km/h — la plus élevée du match jusqu'ici."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0004",
+      "headline": "Valentin Weiss scores 13' opener for Ironworks FC",
+      "body": "13' goal by Valentin Weiss (xG 0.08, 14.4m, 81.1km/h) establishes IRN 1–0 WES lead; non-penalty finish from 14.4m at 81.1km/h marks first shot on target in match.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "GOAL — Valentin Weiss makes it IRN 1–0 WES",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Valentin Weiss scores 13' opener for Ironworks FC",
+          "body": "13' goal by Valentin Weiss (xG 0.08, 14.4m, 81.1km/h) establishes IRN 1–0 WES lead; non-penalty finish from 14.4m at 81.1km/h marks first shot on target in match."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "GOL — Valentin Weiss pone el IRN 1–0 WES",
+          "body": "Valentin Weiss dispara desde 14.4 metros a 81.1 km/h — una ocasión de 0.08 xG. El marcador queda IRN 1–0 WES."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "BUT — Valentin Weiss porte le score à IRN 1–0 WES",
+          "body": "Valentin Weiss frappe depuis 14.4 mètres à 81.1 km/h — une occasion de 0.08 xG. Le score est de IRN 1–0 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "It's in! Valentin Weiss scores and the score is IRN 1–0 WES. The stadium erupts.",
+          "body": "Valentin Weiss strikes from 14.4 metres at 81.1 km/h — a 0.08 xG chance. The scoreline now reads IRN 1–0 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "¡Es gol! Valentin Weiss marca y el resultado es IRN 1–0 WES. Explota el estadio.",
+          "body": "Valentin Weiss dispara desde 14.4 metros a 81.1 km/h — una ocasión de 0.08 xG. El marcador queda IRN 1–0 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "C'est but ! Valentin Weiss marque et le score est de IRN 1–0 WES. Le stade explose.",
+          "body": "Valentin Weiss frappe depuis 14.4 mètres à 81.1 km/h — une occasion de 0.08 xG. Le score est de IRN 1–0 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "YES! Valentin Weiss buries it — IRN 1–0 WES and this one matters. Come on!",
+          "body": "Valentin Weiss strikes from 14.4 metres at 81.1 km/h — a 0.08 xG chance. The scoreline now reads IRN 1–0 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "¡SÍ! Valentin Weiss la manda a guardar — IRN 1–0 WES y esto importa. ¡Vamos!",
+          "body": "Valentin Weiss dispara desde 14.4 metros a 81.1 km/h — una ocasión de 0.08 xG. El marcador queda IRN 1–0 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "OUI ! Valentin Weiss la met au fond — IRN 1–0 WES et ça compte. Allez !",
+          "body": "Valentin Weiss frappe depuis 14.4 mètres à 81.1 km/h — une occasion de 0.08 xG. Le score est de IRN 1–0 WES."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "GOAL — Valentin Weiss makes it IRN 1–0 WES",
+          "body": "Watch Valentin Weiss here: a clean strike from 14.4 metres, worth 0.08 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "GOL — Valentin Weiss pone el IRN 1–0 WES",
+          "body": "Mira a Valentin Weiss: un golpeo limpio desde 14.4 metros, 0.08 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "BUT — Valentin Weiss porte le score à IRN 1–0 WES",
+          "body": "Regardez Valentin Weiss : une frappe propre depuis 14.4 mètres, 0.08 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0005",
+      "headline": "Halvard Petrov's 20' save denies Ironworks FC's 0.16 xG chance",
+      "body": "Petrov's 0.65-difficulty stop preserved Westerly Wanderers' 1–0 lead, nullifying Ironworks FC's 0.16 xG opportunity from player p11.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "20' - 0.65 diff save, 0.16 xG, 1-0",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Halvard Petrov's 20' save denies Ironworks FC's 0.16 xG chance",
+          "body": "Petrov's 0.65-difficulty stop preserved Westerly Wanderers' 1–0 lead, nullifying Ironworks FC's 0.16 xG opportunity from player p11."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.65 — Halvard Petrov niega una ocasión de 0.16 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.65 — Halvard Petrov repousse une occasion de 0.16 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.65 — Halvard Petrov denies a 0.16 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.65 — Halvard Petrov niega una ocasión de 0.16 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.65 — Halvard Petrov repousse une occasion de 0.16 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.65 — Halvard Petrov denies a 0.16 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.65 — Halvard Petrov niega una ocasión de 0.16 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.65 — Halvard Petrov repousse une occasion de 0.16 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.65 — Halvard Petrov denies a 0.16 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.65 — Halvard Petrov niega una ocasión de 0.16 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.65 — Halvard Petrov repousse une occasion de 0.16 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0006",
+      "headline": "Jamal Zander scores 23' equaliser from 20.4m at 79.3kph",
+      "body": "Zander's 0.03 xG strike from 20.4m at 79.3kph restored parity at 1–1, neutralising Ironworks FC's early lead with a clinically efficient finish.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "GOAL — Jamal Zander makes it IRN 1–1 WES",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Jamal Zander scores 23' equaliser from 20.4m at 79.3kph",
+          "body": "Zander's 0.03 xG strike from 20.4m at 79.3kph restored parity at 1–1, neutralising Ironworks FC's early lead with a clinically efficient finish."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "GOL — Jamal Zander pone el IRN 1–1 WES",
+          "body": "Jamal Zander dispara desde 20.4 metros a 79.3 km/h — una ocasión de 0.03 xG. El marcador queda IRN 1–1 WES."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "BUT — Jamal Zander porte le score à IRN 1–1 WES",
+          "body": "Jamal Zander frappe depuis 20.4 mètres à 79.3 km/h — une occasion de 0.03 xG. Le score est de IRN 1–1 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "It's in! Jamal Zander scores and the score is IRN 1–1 WES. The stadium erupts.",
+          "body": "Jamal Zander strikes from 20.4 metres at 79.3 km/h — a 0.03 xG chance. The scoreline now reads IRN 1–1 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "¡Es gol! Jamal Zander marca y el resultado es IRN 1–1 WES. Explota el estadio.",
+          "body": "Jamal Zander dispara desde 20.4 metros a 79.3 km/h — una ocasión de 0.03 xG. El marcador queda IRN 1–1 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "C'est but ! Jamal Zander marque et le score est de IRN 1–1 WES. Le stade explose.",
+          "body": "Jamal Zander frappe depuis 20.4 mètres à 79.3 km/h — une occasion de 0.03 xG. Le score est de IRN 1–1 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "YES! Jamal Zander buries it — IRN 1–1 WES and this one matters. Come on!",
+          "body": "Jamal Zander strikes from 20.4 metres at 79.3 km/h — a 0.03 xG chance. The scoreline now reads IRN 1–1 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "¡SÍ! Jamal Zander la manda a guardar — IRN 1–1 WES y esto importa. ¡Vamos!",
+          "body": "Jamal Zander dispara desde 20.4 metros a 79.3 km/h — una ocasión de 0.03 xG. El marcador queda IRN 1–1 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "OUI ! Jamal Zander la met au fond — IRN 1–1 WES et ça compte. Allez !",
+          "body": "Jamal Zander frappe depuis 20.4 mètres à 79.3 km/h — une occasion de 0.03 xG. Le score est de IRN 1–1 WES."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "GOAL — Jamal Zander makes it IRN 1–1 WES",
+          "body": "Watch Jamal Zander here: a clean strike from 20.4 metres, worth 0.03 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "GOL — Jamal Zander pone el IRN 1–1 WES",
+          "body": "Mira a Jamal Zander: un golpeo limpio desde 20.4 metros, 0.03 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "BUT — Jamal Zander porte le score à IRN 1–1 WES",
+          "body": "Regardez Jamal Zander : une frappe propre depuis 20.4 mètres, 0.03 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0007",
+      "headline": "Theo Quintero's 8.6m xG 0.22 chance saved at 24'",
+      "body": "A 24' 8.6m shot by Theo Quintero for Ironworks FC carried 0.22 xG, the highest expected threat of the match to date, but was denied by a save, preserving the 1–1 draw against Westerly Wanderers.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "24' Ironworks FC",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Theo Quintero's 8.6m xG 0.22 chance saved at 24'",
+          "body": "A 24' 8.6m shot by Theo Quintero for Ironworks FC carried 0.22 xG, the highest expected threat of the match to date, but was denied by a save, preserving the 1–1 draw against Westerly Wanderers."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.22 xG desde 8.6 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.22 xG depuis 8.6 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.22 xG look from 8.6 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.22 xG desde 8.6 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.22 xG depuis 8.6 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.22 xG look from 8.6 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.22 xG desde 8.6 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.22 xG depuis 8.6 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.22 xG look from 8.6 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.22 xG desde 8.6 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.22 xG depuis 8.6 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0008",
+      "headline": "Halvard Petrov's 24' save denies Ironworks FC's 0.22 xG chance",
+      "body": "Petrov's intervention at 24' prevented a 0.79-difficulty chance, preserving Westerly Wanderers' 1–1 draw after shooter p8's 0.22 xG effort.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "24' - 0.79 difficulty save, 0.22 xG chance denied",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Halvard Petrov's 24' save denies Ironworks FC's 0.22 xG chance",
+          "body": "Petrov's intervention at 24' prevented a 0.79-difficulty chance, preserving Westerly Wanderers' 1–1 draw after shooter p8's 0.22 xG effort."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.79 — Halvard Petrov niega una ocasión de 0.22 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.79 — Halvard Petrov repousse une occasion de 0.22 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.79 — Halvard Petrov denies a 0.22 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.79 — Halvard Petrov niega una ocasión de 0.22 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.79 — Halvard Petrov repousse une occasion de 0.22 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.79 — Halvard Petrov denies a 0.22 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.79 — Halvard Petrov niega una ocasión de 0.22 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.79 — Halvard Petrov repousse une occasion de 0.22 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.79 — Halvard Petrov denies a 0.22 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.79 — Halvard Petrov niega una ocasión de 0.22 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.79 — Halvard Petrov repousse une occasion de 0.22 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0009",
+      "headline": "Theo Quintero's 8.6m xG 0.22 chance saved at 24'",
+      "body": "A 24' 8.6m shot by Theo Quintero for Ironworks FC, valued at 0.22 xG, was denied by Westerly Wanderers' goalkeeper, preserving the 1–1 draw.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "24' Ironworks FC",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Theo Quintero's 8.6m xG 0.22 chance saved at 24'",
+          "body": "A 24' 8.6m shot by Theo Quintero for Ironworks FC, valued at 0.22 xG, was denied by Westerly Wanderers' goalkeeper, preserving the 1–1 draw."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.22 xG desde 8.6 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.22 xG depuis 8.6 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.22 xG look from 8.6 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.22 xG desde 8.6 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.22 xG depuis 8.6 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.22 xG look from 8.6 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.22 xG desde 8.6 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.22 xG depuis 8.6 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.22 xG look from 8.6 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.22 xG desde 8.6 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.22 xG depuis 8.6 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0010",
+      "headline": "Halvard Petrov's 24' save denies Ironworks FC's 0.22 xG chance",
+      "body": "Petrov's intervention at 24' prevented a 0.72-difficulty conversion, preserving Westerly Wanderers' 1–1 draw after Ironworks FC's p8 shooter generated 0.22 expected goals.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "What a save! Difficulty 0.72 — Halvard Petrov denies a 0.22 xG chance.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Halvard Petrov's 24' save denies Ironworks FC's 0.22 xG chance",
+          "body": "Petrov's intervention at 24' prevented a 0.72-difficulty conversion, preserving Westerly Wanderers' 1–1 draw after Ironworks FC's p8 shooter generated 0.22 expected goals."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.72 — Halvard Petrov niega una ocasión de 0.22 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.72 — Halvard Petrov repousse une occasion de 0.22 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.72 — Halvard Petrov denies a 0.22 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.72 — Halvard Petrov niega una ocasión de 0.22 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.72 — Halvard Petrov repousse une occasion de 0.22 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.72 — Halvard Petrov denies a 0.22 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.72 — Halvard Petrov niega una ocasión de 0.22 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.72 — Halvard Petrov repousse une occasion de 0.22 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.72 — Halvard Petrov denies a 0.22 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.72 — Halvard Petrov niega una ocasión de 0.22 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.72 — Halvard Petrov repousse une occasion de 0.22 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0011",
+      "headline": "Valentin Weiss' 8m xG 0.21 effort strikes crossbar at 34'",
+      "body": "The 0.21 xG chance from 8m distance represents Ironworks FC's highest expected threat in the match, with the post outcome underscoring a critical missed opportunity to lead at 1–1.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "34' Ironworks FC",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Valentin Weiss' 8m xG 0.21 effort strikes crossbar at 34'",
+          "body": "The 0.21 xG chance from 8m distance represents Ironworks FC's highest expected threat in the match, with the post outcome underscoring a critical missed opportunity to lead at 1–1."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Valentin Weiss con 0.21 xG desde 8 metros — post."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Valentin Weiss avec 0.21 xG depuis 8 mètres — post."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Valentin Weiss gets a 0.21 xG look from 8 metres — post."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Valentin Weiss con 0.21 xG desde 8 metros — post."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Valentin Weiss avec 0.21 xG depuis 8 mètres — post."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Valentin Weiss gets a 0.21 xG look from 8 metres — post."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Valentin Weiss con 0.21 xG desde 8 metros — post."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Valentin Weiss avec 0.21 xG depuis 8 mètres — post."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Valentin Weiss gets a 0.21 xG look from 8 metres — post."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Valentin Weiss con 0.21 xG desde 8 metros — post."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Valentin Weiss avec 0.21 xG depuis 8 mètres — post."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0012",
+      "headline": "Theo Quintero's 8.9m xG 0.2 chance saved at 34'",
+      "body": "A 0.2 xG opportunity from 8.9m out for Ironworks FC's Theo Quintero was denied, preserving Westerly Wanderers' 1–1 draw at 34'.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "34' Ironworks FC",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Theo Quintero's 8.9m xG 0.2 chance saved at 34'",
+          "body": "A 0.2 xG opportunity from 8.9m out for Ironworks FC's Theo Quintero was denied, preserving Westerly Wanderers' 1–1 draw at 34'."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.2 xG desde 8.9 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.2 xG depuis 8.9 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.2 xG look from 8.9 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.2 xG desde 8.9 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.2 xG depuis 8.9 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.2 xG look from 8.9 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.2 xG desde 8.9 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.2 xG depuis 8.9 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.2 xG look from 8.9 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.2 xG desde 8.9 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.2 xG depuis 8.9 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0013",
+      "headline": "34' - Halvard Petrov's 0.76-difficulty save denies Ironworks FC's p8 from converting 0.2 xG chance",
+      "body": "The intervention preserved Westerly Wanderers' 1–1 draw, neutralizing a high-probability chance with a 76% difficulty stop on a 0.2 xG shot from Ironworks FC's p8.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "34' - 0.76 difficulty save, 0.2 xG, 1–1",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "34' - Halvard Petrov's 0.76-difficulty save denies Ironworks FC's p8 from converting 0.2 xG chance",
+          "body": "The intervention preserved Westerly Wanderers' 1–1 draw, neutralizing a high-probability chance with a 76% difficulty stop on a 0.2 xG shot from Ironworks FC's p8."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.76 — Halvard Petrov niega una ocasión de 0.2 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.76 — Halvard Petrov repousse une occasion de 0.2 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.76 — Halvard Petrov denies a 0.2 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.76 — Halvard Petrov niega una ocasión de 0.2 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.76 — Halvard Petrov repousse une occasion de 0.2 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.76 — Halvard Petrov denies a 0.2 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.76 — Halvard Petrov niega una ocasión de 0.2 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.76 — Halvard Petrov repousse une occasion de 0.2 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.76 — Halvard Petrov denies a 0.2 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.76 — Halvard Petrov niega una ocasión de 0.2 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.76 — Halvard Petrov repousse une occasion de 0.2 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0014",
+      "headline": "Red card",
+      "body": "RED CARD — Valentin Weiss is off (reckless). Ironworks FC are down to ten.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "35' Valentin Weiss sent off, reckless foul, 1–1",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Red card",
+          "body": "RED CARD — Valentin Weiss is off (reckless). Ironworks FC are down to ten."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Red card",
+          "body": "TARJETA ROJA — Valentin Weiss se va (reckless). Ironworks FC se queda con diez."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Red card",
+          "body": "CARTON ROUGE — Valentin Weiss sort (reckless). Ironworks FC est réduit à dix."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Red card",
+          "body": "RED CARD — Valentin Weiss is off (reckless). Ironworks FC are down to ten."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Red card",
+          "body": "TARJETA ROJA — Valentin Weiss se va (reckless). Ironworks FC se queda con diez."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Red card",
+          "body": "CARTON ROUGE — Valentin Weiss sort (reckless). Ironworks FC est réduit à dix."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Red card",
+          "body": "RED CARD — Valentin Weiss is off (reckless). Ironworks FC are down to ten."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Red card",
+          "body": "TARJETA ROJA — Valentin Weiss se va (reckless). Ironworks FC se queda con diez."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Red card",
+          "body": "CARTON ROUGE — Valentin Weiss sort (reckless). Ironworks FC est réduit à dix."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Red card",
+          "body": "RED CARD — Valentin Weiss is off (reckless). Ironworks FC are down to ten."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Red card",
+          "body": "TARJETA ROJA — Valentin Weiss se va (reckless). Ironworks FC se queda con diez."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Red card",
+          "body": "CARTON ROUGE — Valentin Weiss sort (reckless). Ironworks FC est réduit à dix."
+        }
+      ],
+      "provider": "template"
+    },
+    {
+      "candidateId": "cand-0015",
+      "headline": "Jamal Zander scores 37' goal from 2.5m at 102.7kph, xG 0.38",
+      "body": "Westerly Wanderers' 1–2 lead at 37' reflects a high-efficiency finish: 102.7kph ball speed from 2.5m distance, 0.38 xG, non-penalty, sealing momentum shift.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "37' IRN 1–2 WES: 0.38 xG, 2.5m, 102.7 kph, no penalty",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Jamal Zander scores 37' goal from 2.5m at 102.7kph, xG 0.38",
+          "body": "Westerly Wanderers' 1–2 lead at 37' reflects a high-efficiency finish: 102.7kph ball speed from 2.5m distance, 0.38 xG, non-penalty, sealing momentum shift."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "GOL — Jamal Zander pone el IRN 1–2 WES",
+          "body": "Jamal Zander dispara desde 2.5 metros a 102.7 km/h — una ocasión de 0.38 xG. El marcador queda IRN 1–2 WES."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "BUT — Jamal Zander porte le score à IRN 1–2 WES",
+          "body": "Jamal Zander frappe depuis 2.5 mètres à 102.7 km/h — une occasion de 0.38 xG. Le score est de IRN 1–2 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "It's in! Jamal Zander scores and the score is IRN 1–2 WES. The stadium erupts.",
+          "body": "Jamal Zander strikes from 2.5 metres at 102.7 km/h — a 0.38 xG chance. The scoreline now reads IRN 1–2 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "¡Es gol! Jamal Zander marca y el resultado es IRN 1–2 WES. Explota el estadio.",
+          "body": "Jamal Zander dispara desde 2.5 metros a 102.7 km/h — una ocasión de 0.38 xG. El marcador queda IRN 1–2 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "C'est but ! Jamal Zander marque et le score est de IRN 1–2 WES. Le stade explose.",
+          "body": "Jamal Zander frappe depuis 2.5 mètres à 102.7 km/h — une occasion de 0.38 xG. Le score est de IRN 1–2 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "YES! Jamal Zander buries it — IRN 1–2 WES and this one matters. Come on!",
+          "body": "Jamal Zander strikes from 2.5 metres at 102.7 km/h — a 0.38 xG chance. The scoreline now reads IRN 1–2 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "¡SÍ! Jamal Zander la manda a guardar — IRN 1–2 WES y esto importa. ¡Vamos!",
+          "body": "Jamal Zander dispara desde 2.5 metros a 102.7 km/h — una ocasión de 0.38 xG. El marcador queda IRN 1–2 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "OUI ! Jamal Zander la met au fond — IRN 1–2 WES et ça compte. Allez !",
+          "body": "Jamal Zander frappe depuis 2.5 mètres à 102.7 km/h — une occasion de 0.38 xG. Le score est de IRN 1–2 WES."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "GOAL — Jamal Zander makes it IRN 1–2 WES",
+          "body": "Watch Jamal Zander here: a clean strike from 2.5 metres, worth 0.38 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "GOL — Jamal Zander pone el IRN 1–2 WES",
+          "body": "Mira a Jamal Zander: un golpeo limpio desde 2.5 metros, 0.38 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "BUT — Jamal Zander porte le score à IRN 1–2 WES",
+          "body": "Regardez Jamal Zander : une frappe propre depuis 2.5 mètres, 0.38 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0016",
+      "headline": "Jamal Zander scores brace in 37' to equalize for Westerly Wanderers",
+      "body": "Zander's 2nd goal of the match at 37' completes a brace, making him the first player to score two goals in the game and leveling the score at 2–2 against Ironworks FC.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "37' Westerly Wanderers",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Jamal Zander scores brace in 37' to equalize for Westerly Wanderers",
+          "body": "Zander's 2nd goal of the match at 37' completes a brace, making him the first player to score two goals in the game and leveling the score at 2–2 against Ironworks FC."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Jamal Zander completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Jamal Zander réalise un brace — 2 buts aujourd'hui."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Jamal Zander completes a brace — 2 goals today."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Jamal Zander completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Jamal Zander réalise un brace — 2 buts aujourd'hui."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Jamal Zander completes a brace — 2 goals today."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Jamal Zander completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Jamal Zander réalise un brace — 2 buts aujourd'hui."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Jamal Zander completes a brace — 2 goals today."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Jamal Zander completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Jamal Zander réalise un brace — 2 buts aujourd'hui."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0019",
+      "headline": "Westerly Wanderers' momentum shifts after 40' with -0.52 swing",
+      "body": "The away team's momentum dropped by 0.52 over 5 minutes, settling at -0.372 after conceding a goal, marking a critical shift in control during the match.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "Momentum has swung to Westerly Wanderers — a -0.52 shift over the last five minutes.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Westerly Wanderers' momentum shifts after 40' with -0.52 swing",
+          "body": "The away team's momentum dropped by 0.52 over 5 minutes, settling at -0.372 after conceding a goal, marking a critical shift in control during the match."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Westerly Wanderers — un giro de -0.52 en cinco minutos."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Westerly Wanderers — un écart de -0.52 sur cinq minutes."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Westerly Wanderers — a -0.52 shift over the last five minutes."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Westerly Wanderers — un giro de -0.52 en cinco minutos."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Westerly Wanderers — un écart de -0.52 sur cinq minutes."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Westerly Wanderers — a -0.52 shift over the last five minutes."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Westerly Wanderers — un giro de -0.52 en cinco minutos."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Westerly Wanderers — un écart de -0.52 sur cinq minutes."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Westerly Wanderers — a -0.52 shift over the last five minutes."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Westerly Wanderers — un giro de -0.52 en cinco minutos."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Westerly Wanderers — un écart de -0.52 sur cinq minutes."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0017",
+      "headline": "41' Jamal Zander's 3.9m xG 0.37 effort saved for Westerly Wanderers",
+      "body": "A 3.9m shot with 0.37 xG from Jamal Zander was denied, maintaining Ironworks FC's 1–2 lead and highlighting a high-value chance missed in the 41st minute.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "41' Westerly Wanderers",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "41' Jamal Zander's 3.9m xG 0.37 effort saved for Westerly Wanderers",
+          "body": "A 3.9m shot with 0.37 xG from Jamal Zander was denied, maintaining Ironworks FC's 1–2 lead and highlighting a high-value chance missed in the 41st minute."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.37 xG desde 3.9 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.37 xG depuis 3.9 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.37 xG look from 3.9 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.37 xG desde 3.9 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.37 xG depuis 3.9 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.37 xG look from 3.9 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.37 xG desde 3.9 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.37 xG depuis 3.9 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.37 xG look from 3.9 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.37 xG desde 3.9 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.37 xG depuis 3.9 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0018",
+      "headline": "41' - Ezra Bianchi's 0.98-difficulty save denies Westerly Wanderers' p13 with 0.37 xG chance",
+      "body": "The save prevented a 0.37 expected goal threat from Westerly's p13, maintaining Ironworks FC's 1–2 deficit under high-pressure conditions.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "41' - 0.98 difficulty save, 0.37 xG, 1–2",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "41' - Ezra Bianchi's 0.98-difficulty save denies Westerly Wanderers' p13 with 0.37 xG chance",
+          "body": "The save prevented a 0.37 expected goal threat from Westerly's p13, maintaining Ironworks FC's 1–2 deficit under high-pressure conditions."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.98 — Ezra Bianchi niega una ocasión de 0.37 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.98 — Ezra Bianchi repousse une occasion de 0.37 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.98 — Ezra Bianchi denies a 0.37 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.98 — Ezra Bianchi niega una ocasión de 0.37 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.98 — Ezra Bianchi repousse une occasion de 0.37 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.98 — Ezra Bianchi denies a 0.37 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.98 — Ezra Bianchi niega una ocasión de 0.37 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.98 — Ezra Bianchi repousse une occasion de 0.37 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.98 — Ezra Bianchi denies a 0.37 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.98 — Ezra Bianchi niega una ocasión de 0.37 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.98 — Ezra Bianchi repousse une occasion de 0.37 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0021",
+      "headline": "44' - Ironworks FC trail 1–2 as goal under review",
+      "body": "At 44', Ironworks FC's goal attempt is under review, maintaining Westerly Wanderers' 1–2 lead with no change in score or player involvement.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "Goal under review, 44', score 1–2",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "44' - Ironworks FC trail 1–2 as goal under review",
+          "body": "At 44', Ironworks FC's goal attempt is under review, maintaining Westerly Wanderers' 1–2 lead with no change in score or player involvement."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Under review",
+          "body": "El árbitro está revisando... el gol está bajo revisión. Esperen."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Under review",
+          "body": "L'arbitre vérifie... le but est en cours de révision. Patientez."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Under review",
+          "body": "The referee is checking... the goal is under review. Hold everything."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Under review",
+          "body": "El árbitro está revisando... el gol está bajo revisión. Esperen."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Under review",
+          "body": "L'arbitre vérifie... le but est en cours de révision. Patientez."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Under review",
+          "body": "The referee is checking... the goal is under review. Hold everything."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Under review",
+          "body": "El árbitro está revisando... el gol está bajo revisión. Esperen."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Under review",
+          "body": "L'arbitre vérifie... le but est en cours de révision. Patientez."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Under review",
+          "body": "The referee is checking... the goal is under review. Hold everything."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Under review",
+          "body": "El árbitro está revisando... el gol está bajo revisión. Esperen."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Under review",
+          "body": "L'arbitre vérifie... le but est en cours de révision. Patientez."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0022",
+      "headline": "45' Ironworks FC 1–2 Westerly Wanderers: VAR overturns goal due to offside",
+      "body": "The 45' goal by Ironworks FC was nullified after VAR review confirmed an offside position, maintaining Westerly Wanderers' 1–2 lead at halftime.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "Goal overturned: offside, 45' – 1–2",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "45' Ironworks FC 1–2 Westerly Wanderers: VAR overturns goal due to offside",
+          "body": "The 45' goal by Ironworks FC was nullified after VAR review confirmed an offside position, maintaining Westerly Wanderers' 1–2 lead at halftime."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Overturned",
+          "body": "ANULADO. El gol se anula y el marcador retrocede. Las narrativas de ese momento quedan retiradas."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Overturned",
+          "body": "ANNULÉ. Le but est refusé et le score revient en arrière. Les analyses de ce moment sont retirées."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Overturned",
+          "body": "OVERTURNED. The goal is chalked off and the scoreline rolls back. The insights surrounding that moment are retracted."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Overturned",
+          "body": "ANULADO. El gol se anula y el marcador retrocede. Las narrativas de ese momento quedan retiradas."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Overturned",
+          "body": "ANNULÉ. Le but est refusé et le score revient en arrière. Les analyses de ce moment sont retirées."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Overturned",
+          "body": "OVERTURNED. The goal is chalked off and the scoreline rolls back. The insights surrounding that moment are retracted."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Overturned",
+          "body": "ANULADO. El gol se anula y el marcador retrocede. Las narrativas de ese momento quedan retiradas."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Overturned",
+          "body": "ANNULÉ. Le but est refusé et le score revient en arrière. Les analyses de ce moment sont retirées."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Overturned",
+          "body": "OVERTURNED. The goal is chalked off and the scoreline rolls back. The insights surrounding that moment are retracted."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Overturned",
+          "body": "ANULADO. El gol se anula y el marcador retrocede. Las narrativas de ese momento quedan retiradas."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Overturned",
+          "body": "ANNULÉ. Le but est refusé et le score revient en arrière. Les analyses de ce moment sont retirées."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0023",
+      "headline": "48' Jamal Zander's 9.2m xG 0.21 chance blocked for Westerly Wanderers",
+      "body": "A 9.2m shot with 0.21 xG was blocked, representing a 21% expected goal probability lost at 48', crucial in a 1–2 deficit to Ironworks FC.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "48' Westerly Wanderers",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "48' Jamal Zander's 9.2m xG 0.21 chance blocked for Westerly Wanderers",
+          "body": "A 9.2m shot with 0.21 xG was blocked, representing a 21% expected goal probability lost at 48', crucial in a 1–2 deficit to Ironworks FC."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.21 xG desde 9.2 metros — blocked."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.21 xG depuis 9.2 mètres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.21 xG look from 9.2 metres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.21 xG desde 9.2 metros — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.21 xG depuis 9.2 mètres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.21 xG look from 9.2 metres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.21 xG desde 9.2 metros — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.21 xG depuis 9.2 mètres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.21 xG look from 9.2 metres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.21 xG desde 9.2 metros — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.21 xG depuis 9.2 mètres — blocked."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0024",
+      "headline": "Zane Pereira scores 22.4m strike at 88.5km/h to equalize at 2–2",
+      "body": "Pereira's 0.02 xG goal from 22.4m at 88.5km/h restored parity in a 2–2 draw, marking the 51st minute's decisive offensive intervention.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "GOAL — Zane Pereira makes it IRN 2–2 WES",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Zane Pereira scores 22.4m strike at 88.5km/h to equalize at 2–2",
+          "body": "Pereira's 0.02 xG goal from 22.4m at 88.5km/h restored parity in a 2–2 draw, marking the 51st minute's decisive offensive intervention."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "GOL — Zane Pereira pone el IRN 2–2 WES",
+          "body": "Zane Pereira dispara desde 22.4 metros a 88.5 km/h — una ocasión de 0.02 xG. El marcador queda IRN 2–2 WES."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "BUT — Zane Pereira porte le score à IRN 2–2 WES",
+          "body": "Zane Pereira frappe depuis 22.4 mètres à 88.5 km/h — une occasion de 0.02 xG. Le score est de IRN 2–2 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "It's in! Zane Pereira scores and the score is IRN 2–2 WES. The stadium erupts.",
+          "body": "Zane Pereira strikes from 22.4 metres at 88.5 km/h — a 0.02 xG chance. The scoreline now reads IRN 2–2 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "¡Es gol! Zane Pereira marca y el resultado es IRN 2–2 WES. Explota el estadio.",
+          "body": "Zane Pereira dispara desde 22.4 metros a 88.5 km/h — una ocasión de 0.02 xG. El marcador queda IRN 2–2 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "C'est but ! Zane Pereira marque et le score est de IRN 2–2 WES. Le stade explose.",
+          "body": "Zane Pereira frappe depuis 22.4 mètres à 88.5 km/h — une occasion de 0.02 xG. Le score est de IRN 2–2 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "YES! Zane Pereira buries it — IRN 2–2 WES and this one matters. Come on!",
+          "body": "Zane Pereira strikes from 22.4 metres at 88.5 km/h — a 0.02 xG chance. The scoreline now reads IRN 2–2 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "¡SÍ! Zane Pereira la manda a guardar — IRN 2–2 WES y esto importa. ¡Vamos!",
+          "body": "Zane Pereira dispara desde 22.4 metros a 88.5 km/h — una ocasión de 0.02 xG. El marcador queda IRN 2–2 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "OUI ! Zane Pereira la met au fond — IRN 2–2 WES et ça compte. Allez !",
+          "body": "Zane Pereira frappe depuis 22.4 mètres à 88.5 km/h — une occasion de 0.02 xG. Le score est de IRN 2–2 WES."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "GOAL — Zane Pereira makes it IRN 2–2 WES",
+          "body": "Watch Zane Pereira here: a clean strike from 22.4 metres, worth 0.02 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "GOL — Zane Pereira pone el IRN 2–2 WES",
+          "body": "Mira a Zane Pereira: un golpeo limpio desde 22.4 metros, 0.02 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "BUT — Zane Pereira porte le score à IRN 2–2 WES",
+          "body": "Regardez Zane Pereira : une frappe propre depuis 22.4 mètres, 0.02 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0025",
+      "headline": "53' Theo Quintero's 0.23 xG effort strikes post at 8.7m",
+      "body": "Theo Quintero's 0.23 xG chance from 8.7m out hits the woodwork, preserving the 2–2 draw and denying Ironworks FC a potential lead in the 53rd minute.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "53' Ironworks FC",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "53' Theo Quintero's 0.23 xG effort strikes post at 8.7m",
+          "body": "Theo Quintero's 0.23 xG chance from 8.7m out hits the woodwork, preserving the 2–2 draw and denying Ironworks FC a potential lead in the 53rd minute."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.23 xG desde 8.7 metros — post."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.23 xG depuis 8.7 mètres — post."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.23 xG look from 8.7 metres — post."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.23 xG desde 8.7 metros — post."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.23 xG depuis 8.7 mètres — post."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.23 xG look from 8.7 metres — post."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.23 xG desde 8.7 metros — post."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.23 xG depuis 8.7 mètres — post."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.23 xG look from 8.7 metres — post."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Ironworks FC: Theo Quintero con 0.23 xG desde 8.7 metros — post."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Ironworks FC : Theo Quintero avec 0.23 xG depuis 8.7 mètres — post."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0026",
+      "headline": "59' Jamal Zander's 2.9m xG 0.34 chance blocked at 2–2",
+      "body": "Westerly Wanderers' 0.34 xG opportunity from 2.9m by Jamal Zander was thwarted, preserving Ironworks FC's 2–2 draw at the 59' mark.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "59' 0.34 xG chance blocked from 2.9m",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "59' Jamal Zander's 2.9m xG 0.34 chance blocked at 2–2",
+          "body": "Westerly Wanderers' 0.34 xG opportunity from 2.9m by Jamal Zander was thwarted, preserving Ironworks FC's 2–2 draw at the 59' mark."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.34 xG desde 2.9 metros — blocked."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.34 xG depuis 2.9 mètres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.34 xG look from 2.9 metres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.34 xG desde 2.9 metros — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.34 xG depuis 2.9 mètres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.34 xG look from 2.9 metres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.34 xG desde 2.9 metros — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.34 xG depuis 2.9 mètres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.34 xG look from 2.9 metres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.34 xG desde 2.9 metros — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.34 xG depuis 2.9 mètres — blocked."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0027",
+      "headline": "Red card",
+      "body": "RED CARD — Fionn Jelinek is off (tactical). Westerly Wanderers are down to ten.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "60' Fionn Jelinek shown red card, 2–2",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Red card",
+          "body": "RED CARD — Fionn Jelinek is off (tactical). Westerly Wanderers are down to ten."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Red card",
+          "body": "TARJETA ROJA — Fionn Jelinek se va (tactical). Westerly Wanderers se queda con diez."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Red card",
+          "body": "CARTON ROUGE — Fionn Jelinek sort (tactical). Westerly Wanderers est réduit à dix."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Red card",
+          "body": "RED CARD — Fionn Jelinek is off (tactical). Westerly Wanderers are down to ten."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Red card",
+          "body": "TARJETA ROJA — Fionn Jelinek se va (tactical). Westerly Wanderers se queda con diez."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Red card",
+          "body": "CARTON ROUGE — Fionn Jelinek sort (tactical). Westerly Wanderers est réduit à dix."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Red card",
+          "body": "RED CARD — Fionn Jelinek is off (tactical). Westerly Wanderers are down to ten."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Red card",
+          "body": "TARJETA ROJA — Fionn Jelinek se va (tactical). Westerly Wanderers se queda con diez."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Red card",
+          "body": "CARTON ROUGE — Fionn Jelinek sort (tactical). Westerly Wanderers est réduit à dix."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Red card",
+          "body": "RED CARD — Fionn Jelinek is off (tactical). Westerly Wanderers are down to ten."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Red card",
+          "body": "TARJETA ROJA — Fionn Jelinek se va (tactical). Westerly Wanderers se queda con diez."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Red card",
+          "body": "CARTON ROUGE — Fionn Jelinek sort (tactical). Westerly Wanderers est réduit à dix."
+        }
+      ],
+      "provider": "template"
+    },
+    {
+      "candidateId": "cand-0028",
+      "headline": "63' Jamal Zander's 7.4m xG 0.26 chance saved at 2–2",
+      "body": "Westerly Wanderers' 26% expected goal opportunity from 7.4m out was thwarted, preserving Ironworks FC's 2–2 draw at 63'.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "63' Westerly Wanderers",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "63' Jamal Zander's 7.4m xG 0.26 chance saved at 2–2",
+          "body": "Westerly Wanderers' 26% expected goal opportunity from 7.4m out was thwarted, preserving Ironworks FC's 2–2 draw at 63'."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.26 xG desde 7.4 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.26 xG depuis 7.4 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.26 xG look from 7.4 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.26 xG desde 7.4 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.26 xG depuis 7.4 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.26 xG look from 7.4 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.26 xG desde 7.4 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.26 xG depuis 7.4 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.26 xG look from 7.4 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Westerly Wanderers: Jamal Zander con 0.26 xG desde 7.4 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Westerly Wanderers : Jamal Zander avec 0.26 xG depuis 7.4 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0029",
+      "headline": "63' - Ezra Bianchi's 0.83-difficulty save denies Westerly Wanderers' 0.26 xG chance",
+      "body": "Ezra Bianchi's intervention at 63' preserved Ironworks FC's 2–2 draw, nullifying a high-probability chance (0.26 xG) from Westerly Wanderers' player 13.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "63' - 0.83 difficulty save, 0.26 xG chance, 2–2",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "63' - Ezra Bianchi's 0.83-difficulty save denies Westerly Wanderers' 0.26 xG chance",
+          "body": "Ezra Bianchi's intervention at 63' preserved Ironworks FC's 2–2 draw, nullifying a high-probability chance (0.26 xG) from Westerly Wanderers' player 13."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.83 — Ezra Bianchi niega una ocasión de 0.26 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.83 — Ezra Bianchi repousse une occasion de 0.26 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.83 — Ezra Bianchi denies a 0.26 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.83 — Ezra Bianchi niega una ocasión de 0.26 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.83 — Ezra Bianchi repousse une occasion de 0.26 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.83 — Ezra Bianchi denies a 0.26 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.83 — Ezra Bianchi niega una ocasión de 0.26 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.83 — Ezra Bianchi repousse une occasion de 0.26 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.83 — Ezra Bianchi denies a 0.26 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.83 — Ezra Bianchi niega una ocasión de 0.26 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.83 — Ezra Bianchi repousse une occasion de 0.26 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0030",
+      "headline": "64': Ironworks FC scores penalty to extend lead to 3–2",
+      "body": "The penalty, awarded at 64', increased Ironworks FC's lead to 3–2 against Westerly Wanderers, marking the first goal in the match for Ironworks FC after the 60' mark.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "64' Penalty awarded, 3–2.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "64': Ironworks FC scores penalty to extend lead to 3–2",
+          "body": "The penalty, awarded at 64', increased Ironworks FC's lead to 3–2 against Westerly Wanderers, marking the first goal in the match for Ironworks FC after the 60' mark."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Penalty",
+          "body": "¡Penalti para Ironworks FC! Una ocasión enorme al 64'."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Penalty",
+          "body": "Penalty pour Ironworks FC ! Une occasion énorme à la 64'."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Penalty",
+          "body": "Penalty to Ironworks FC! A huge chance at 64'."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Penalty",
+          "body": "¡Penalti para Ironworks FC! Una ocasión enorme al 64'."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Penalty",
+          "body": "Penalty pour Ironworks FC ! Une occasion énorme à la 64'."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Penalty",
+          "body": "Penalty to Ironworks FC! A huge chance at 64'."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Penalty",
+          "body": "¡Penalti para Ironworks FC! Una ocasión enorme al 64'."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Penalty",
+          "body": "Penalty pour Ironworks FC ! Une occasion énorme à la 64'."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Penalty",
+          "body": "Penalty to Ironworks FC! A huge chance at 64'."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Penalty",
+          "body": "¡Penalti para Ironworks FC! Una ocasión enorme al 64'."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Penalty",
+          "body": "Penalty pour Ironworks FC ! Une occasion énorme à la 64'."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0031",
+      "headline": "Piotr Iversen's 64' penalty boosts Ironworks FC to 3–2 lead",
+      "body": "Iversen's 11m strike at 91.7 kph, with 0.78 xG, converted from a penalty to extend Ironworks FC's advantage, sealing a high-precision, high-impact moment in a 3–2 contest.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "64' IRN 3–2 WES: Penalty scored, xG 0.78, 11m, 91.7 km/h",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Piotr Iversen's 64' penalty boosts Ironworks FC to 3–2 lead",
+          "body": "Iversen's 11m strike at 91.7 kph, with 0.78 xG, converted from a penalty to extend Ironworks FC's advantage, sealing a high-precision, high-impact moment in a 3–2 contest."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "GOL — Piotr Iversen pone el IRN 3–2 WES",
+          "body": "Piotr Iversen dispara desde 11 metros a 91.7 km/h — una ocasión de 0.78 xG desde el punto de penalti. El marcador queda IRN 3–2 WES."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "BUT — Piotr Iversen porte le score à IRN 3–2 WES",
+          "body": "Piotr Iversen frappe depuis 11 mètres à 91.7 km/h — une occasion de 0.78 xG sur penalty. Le score est de IRN 3–2 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "It's in! Piotr Iversen scores and the score is IRN 3–2 WES. The stadium erupts.",
+          "body": "Piotr Iversen strikes from 11 metres at 91.7 km/h — a 0.78 xG chance from the spot. The scoreline now reads IRN 3–2 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "¡Es gol! Piotr Iversen marca y el resultado es IRN 3–2 WES. Explota el estadio.",
+          "body": "Piotr Iversen dispara desde 11 metros a 91.7 km/h — una ocasión de 0.78 xG desde el punto de penalti. El marcador queda IRN 3–2 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "C'est but ! Piotr Iversen marque et le score est de IRN 3–2 WES. Le stade explose.",
+          "body": "Piotr Iversen frappe depuis 11 mètres à 91.7 km/h — une occasion de 0.78 xG sur penalty. Le score est de IRN 3–2 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "YES! Piotr Iversen buries it — IRN 3–2 WES and this one matters. Come on!",
+          "body": "Piotr Iversen strikes from 11 metres at 91.7 km/h — a 0.78 xG chance from the spot. The scoreline now reads IRN 3–2 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "¡SÍ! Piotr Iversen la manda a guardar — IRN 3–2 WES y esto importa. ¡Vamos!",
+          "body": "Piotr Iversen dispara desde 11 metros a 91.7 km/h — una ocasión de 0.78 xG desde el punto de penalti. El marcador queda IRN 3–2 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "OUI ! Piotr Iversen la met au fond — IRN 3–2 WES et ça compte. Allez !",
+          "body": "Piotr Iversen frappe depuis 11 mètres à 91.7 km/h — une occasion de 0.78 xG sur penalty. Le score est de IRN 3–2 WES."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "GOAL — Piotr Iversen makes it IRN 3–2 WES",
+          "body": "Watch Piotr Iversen here: a clean strike from 11 metres, worth 0.78 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "GOL — Piotr Iversen pone el IRN 3–2 WES",
+          "body": "Mira a Piotr Iversen: un golpeo limpio desde 11 metros, 0.78 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "BUT — Piotr Iversen porte le score à IRN 3–2 WES",
+          "body": "Regardez Piotr Iversen : une frappe propre depuis 11 mètres, 0.78 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0032",
+      "headline": "Oscar Iversen scores 25.1m strike at 74.4kph to equalize at 3–3",
+      "body": "Iversen's 0.01 xG effort from 25.1m at 74.4kph in the 82' minute forces a draw, capping a high-intensity finish with minimal expected threat but maximum impact.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "82' IRN 3–3 WES: 25.1m, 74.4km/h, xG 0.01",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Oscar Iversen scores 25.1m strike at 74.4kph to equalize at 3–3",
+          "body": "Iversen's 0.01 xG effort from 25.1m at 74.4kph in the 82' minute forces a draw, capping a high-intensity finish with minimal expected threat but maximum impact."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "GOL — Oscar Iversen pone el IRN 3–3 WES",
+          "body": "Oscar Iversen dispara desde 25.1 metros a 74.4 km/h — una ocasión de 0.01 xG. El marcador queda IRN 3–3 WES."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "BUT — Oscar Iversen porte le score à IRN 3–3 WES",
+          "body": "Oscar Iversen frappe depuis 25.1 mètres à 74.4 km/h — une occasion de 0.01 xG. Le score est de IRN 3–3 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "It's in! Oscar Iversen scores and the score is IRN 3–3 WES. The stadium erupts.",
+          "body": "Oscar Iversen strikes from 25.1 metres at 74.4 km/h — a 0.01 xG chance. The scoreline now reads IRN 3–3 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "¡Es gol! Oscar Iversen marca y el resultado es IRN 3–3 WES. Explota el estadio.",
+          "body": "Oscar Iversen dispara desde 25.1 metros a 74.4 km/h — una ocasión de 0.01 xG. El marcador queda IRN 3–3 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "C'est but ! Oscar Iversen marque et le score est de IRN 3–3 WES. Le stade explose.",
+          "body": "Oscar Iversen frappe depuis 25.1 mètres à 74.4 km/h — une occasion de 0.01 xG. Le score est de IRN 3–3 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "YES! Oscar Iversen buries it — IRN 3–3 WES and this one matters. Come on!",
+          "body": "Oscar Iversen strikes from 25.1 metres at 74.4 km/h — a 0.01 xG chance. The scoreline now reads IRN 3–3 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "¡SÍ! Oscar Iversen la manda a guardar — IRN 3–3 WES y esto importa. ¡Vamos!",
+          "body": "Oscar Iversen dispara desde 25.1 metros a 74.4 km/h — una ocasión de 0.01 xG. El marcador queda IRN 3–3 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "OUI ! Oscar Iversen la met au fond — IRN 3–3 WES et ça compte. Allez !",
+          "body": "Oscar Iversen frappe depuis 25.1 mètres à 74.4 km/h — une occasion de 0.01 xG. Le score est de IRN 3–3 WES."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "GOAL — Oscar Iversen makes it IRN 3–3 WES",
+          "body": "Watch Oscar Iversen here: a clean strike from 25.1 metres, worth 0.01 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "GOL — Oscar Iversen pone el IRN 3–3 WES",
+          "body": "Mira a Oscar Iversen: un golpeo limpio desde 25.1 metros, 0.01 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "BUT — Oscar Iversen porte le score à IRN 3–3 WES",
+          "body": "Regardez Oscar Iversen : une frappe propre depuis 25.1 mètres, 0.01 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0033",
+      "headline": "GOAL — Piotr Iversen makes it IRN 4–3 WES",
+      "body": "Piotr Iversen strikes from 25.7 metres at 75 km/h — a 0.01 xG chance. The scoreline now reads IRN 4–3 WES.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "GOAL — Piotr Iversen makes it IRN 4–3 WES",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "GOAL — Piotr Iversen makes it IRN 4–3 WES",
+          "body": "Piotr Iversen strikes from 25.7 metres at 75 km/h — a 0.01 xG chance. The scoreline now reads IRN 4–3 WES."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "GOL — Piotr Iversen pone el IRN 4–3 WES",
+          "body": "Piotr Iversen dispara desde 25.7 metros a 75 km/h — una ocasión de 0.01 xG. El marcador queda IRN 4–3 WES."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "BUT — Piotr Iversen porte le score à IRN 4–3 WES",
+          "body": "Piotr Iversen frappe depuis 25.7 mètres à 75 km/h — une occasion de 0.01 xG. Le score est de IRN 4–3 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "It's in! Piotr Iversen scores and the score is IRN 4–3 WES. The stadium erupts.",
+          "body": "Piotr Iversen strikes from 25.7 metres at 75 km/h — a 0.01 xG chance. The scoreline now reads IRN 4–3 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "¡Es gol! Piotr Iversen marca y el resultado es IRN 4–3 WES. Explota el estadio.",
+          "body": "Piotr Iversen dispara desde 25.7 metros a 75 km/h — una ocasión de 0.01 xG. El marcador queda IRN 4–3 WES."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "C'est but ! Piotr Iversen marque et le score est de IRN 4–3 WES. Le stade explose.",
+          "body": "Piotr Iversen frappe depuis 25.7 mètres à 75 km/h — une occasion de 0.01 xG. Le score est de IRN 4–3 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "YES! Piotr Iversen buries it — IRN 4–3 WES and this one matters. Come on!",
+          "body": "Piotr Iversen strikes from 25.7 metres at 75 km/h — a 0.01 xG chance. The scoreline now reads IRN 4–3 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "¡SÍ! Piotr Iversen la manda a guardar — IRN 4–3 WES y esto importa. ¡Vamos!",
+          "body": "Piotr Iversen dispara desde 25.7 metros a 75 km/h — una ocasión de 0.01 xG. El marcador queda IRN 4–3 WES."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "OUI ! Piotr Iversen la met au fond — IRN 4–3 WES et ça compte. Allez !",
+          "body": "Piotr Iversen frappe depuis 25.7 mètres à 75 km/h — une occasion de 0.01 xG. Le score est de IRN 4–3 WES."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "GOAL — Piotr Iversen makes it IRN 4–3 WES",
+          "body": "Watch Piotr Iversen here: a clean strike from 25.7 metres, worth 0.01 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "GOL — Piotr Iversen pone el IRN 4–3 WES",
+          "body": "Mira a Piotr Iversen: un golpeo limpio desde 25.7 metros, 0.01 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "BUT — Piotr Iversen porte le score à IRN 4–3 WES",
+          "body": "Regardez Piotr Iversen : une frappe propre depuis 25.7 mètres, 0.01 xG."
+        }
+      ],
+      "provider": "template"
+    },
+    {
+      "candidateId": "cand-0034",
+      "headline": "Piotr Iversen scores 2nd goal in 92' to complete brace",
+      "body": "Iversen's 2nd goal at 92' confirms his brace, making Ironworks FC's 4–3 lead definitive against Westerly Wanderers.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "92' Ironworks FC",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Piotr Iversen scores 2nd goal in 92' to complete brace",
+          "body": "Iversen's 2nd goal at 92' confirms his brace, making Ironworks FC's 4–3 lead definitive against Westerly Wanderers."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Piotr Iversen completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Piotr Iversen réalise un brace — 2 buts aujourd'hui."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Piotr Iversen completes a brace — 2 goals today."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Piotr Iversen completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Piotr Iversen réalise un brace — 2 buts aujourd'hui."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Piotr Iversen completes a brace — 2 goals today."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Piotr Iversen completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Piotr Iversen réalise un brace — 2 buts aujourd'hui."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Piotr Iversen completes a brace — 2 goals today."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Piotr Iversen completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Piotr Iversen réalise un brace — 2 buts aujourd'hui."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0035",
+      "headline": "92' Piotr Iversen seals 4–3 comeback for Ironworks FC",
+      "body": "At 92', Piotr Iversen's decisive goal transformed a 3–3 deadlock into a 4–3 lead, securing Ironworks FC's dramatic late victory over Westerly Wanderers after trailing in the final minutes.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "92': 4–3 – late drama unfolds",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "92' Piotr Iversen seals 4–3 comeback for Ironworks FC",
+          "body": "At 92', Piotr Iversen's decisive goal transformed a 3–3 deadlock into a 4–3 lead, securing Ironworks FC's dramatic late victory over Westerly Wanderers after trailing in the final minutes."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Late drama",
+          "body": "¡DRAMA AL FINAL al 92'! Ironworks FC golpea con el tiempo casi agotado — 4–3."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Late drama",
+          "body": "DRAME EN FIN DE MATCH à la 92' ! Ironworks FC frappe à l'ultime moment — 4–3."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Late drama",
+          "body": "LATE DRAMA at 92'! Ironworks FC strike with the clock nearly out — 4–3."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Late drama",
+          "body": "¡DRAMA AL FINAL al 92'! Ironworks FC golpea con el tiempo casi agotado — 4–3."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Late drama",
+          "body": "DRAME EN FIN DE MATCH à la 92' ! Ironworks FC frappe à l'ultime moment — 4–3."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Late drama",
+          "body": "LATE DRAMA at 92'! Ironworks FC strike with the clock nearly out — 4–3."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Late drama",
+          "body": "¡DRAMA AL FINAL al 92'! Ironworks FC golpea con el tiempo casi agotado — 4–3."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Late drama",
+          "body": "DRAME EN FIN DE MATCH à la 92' ! Ironworks FC frappe à l'ultime moment — 4–3."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Late drama",
+          "body": "LATE DRAMA at 92'! Ironworks FC strike with the clock nearly out — 4–3."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Late drama",
+          "body": "¡DRAMA AL FINAL al 92'! Ironworks FC golpea con el tiempo casi agotado — 4–3."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Late drama",
+          "body": "DRAME EN FIN DE MATCH à la 92' ! Ironworks FC frappe à l'ultime moment — 4–3."
+        }
+      ],
+      "provider": "llm"
+    }
+  ]
+}
