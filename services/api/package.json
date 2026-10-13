@@ -1,0 +1,16 @@
+{
+  "name": "@floodlight/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The pipeline as a service — matches, stories and auto-eventing over HTTP, with server-sent events.",
+  "scripts": {
+    "start": "tsx src/server.ts"
+  },
+  "dependencies": {
+    "@floodlight/core": "0.1.0",
+    "@floodlight/dataset": "0.1.0",
+    "@floodlight/simulator": "0.1.0",
+    "@floodlight/vision": "0.1.0"
+  }
+}
