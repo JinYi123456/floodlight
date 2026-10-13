@@ -13,7 +13,7 @@ export const pipeline = new PipelineClient();
 export const trackingCache = new TrackingCache(pipeline);
 
 export type Phase = 'launch' | 'preparing' | 'ready' | 'error';
-export type View = 'room' | 'vision';
+export type View = 'room' | 'vision' | 'pack';
 
 export interface ViewerPrefs {
   persona: Persona;

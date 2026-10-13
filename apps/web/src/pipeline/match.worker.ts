@@ -4,7 +4,7 @@
  * through the typed protocol; the worker never touches the DOM.
  */
 
-import { SCENARIOS, simulateMatch, trackingWindow, type SimulationResult } from '@floodlight/simulator';
+import { SCENARIOS, simulateMatch, trackingWindow, formationSlotFor, type SimulationResult } from '@floodlight/simulator';
 import { MatchEngine } from '@floodlight/engine';
 import { ProductionCrew, type NarratedMoment } from '@floodlight/agents';
 import { compileCues } from '@floodlight/cuesheet';
@@ -20,7 +20,7 @@ import {
   type KitPalettes,
 } from '@floodlight/vision';
 import type { TrackingFrame } from '@floodlight/core';
-import type { PreparedMatch, WorkerRequest, WorkerResponse } from './protocol';
+import type { LineupPlayer, PreparedMatch, WorkerRequest, WorkerResponse } from './protocol';
 
 let result: SimulationResult | null = null;
 
@@ -141,13 +141,33 @@ async function prepare(request: { scenarioId: string | null; seed: number; recor
   }
 
   const stats = crew.runtime.stats();
+  const formations = {
+    home: simulation.config.tactics.home.formation,
+    away: simulation.config.tactics.away.formation,
+  };
+  const starters = (side: 'home' | 'away'): LineupPlayer[] =>
+    simulation.lineups[side].starters.map((p) => {
+      const slot = p.slot % 11;
+      const anchor = formationSlotFor(formations[side], slot);
+      return {
+        id: p.id,
+        name: p.name,
+        shirt: p.shirt,
+        role: p.role,
+        team: side,
+        slot,
+        slotX: anchor.x,
+        slotY: anchor.y,
+      };
+    });
+  const benchOf = (side: 'home' | 'away'): LineupPlayer[] =>
+    simulation.lineups[side].bench.map((p) => ({ id: p.id, name: p.name, shirt: p.shirt, role: p.role, team: side }));
   const payload: PreparedMatch = {
     meta: simulation.meta,
     timing: { halfTimeT: simulation.timing.halfTimeT, fullTimeT: simulation.timing.fullTimeT },
-    lineups: {
-      home: simulation.lineups.home.starters.map((p) => ({ id: p.id, name: p.name, shirt: p.shirt, role: p.role, team: 'home' as const })),
-      away: simulation.lineups.away.starters.map((p) => ({ id: p.id, name: p.name, shirt: p.shirt, role: p.role, team: 'away' as const })),
-    },
+    lineups: { home: starters('home'), away: starters('away') },
+    bench: { home: benchOf('home'), away: benchOf('away') },
+    formations,
     events: simulation.events,
     cues,
     moments,

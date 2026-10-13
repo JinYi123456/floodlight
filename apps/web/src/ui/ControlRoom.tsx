@@ -16,6 +16,7 @@ import { MomentRail } from './MomentRail';
 import { InsightPanel } from './InsightPanel';
 import { ModeConsole } from './ModeConsole';
 import { VisionLab } from './VisionLab';
+import { MatchPack } from './MatchPack';
 
 function useTheaterClock(): void {
   useEffect(() => {
@@ -99,6 +100,9 @@ export function ControlRoom() {
           <button type="button" className={view === 'room' ? 'active' : ''} onClick={() => setView('room')}>
             Control room
           </button>
+          <button type="button" className={view === 'pack' ? 'active' : ''} onClick={() => setView('pack')}>
+            Match pack
+          </button>
           <button type="button" className={view === 'vision' ? 'active' : ''} onClick={() => void enterVision()}>
             Vision lab
           </button>
@@ -129,6 +133,8 @@ export function ControlRoom() {
 
       {view === 'vision' ? (
         <VisionLab />
+      ) : view === 'pack' ? (
+        <MatchPack />
       ) : (
         <>
           <div className="room-body">

@@ -18,12 +18,20 @@ export interface LineupPlayer {
   shirt: number;
   role: string;
   team: TeamSide;
+  /** Formation slot 0..10 — starters only. */
+  slot?: number;
+  /** Normalised anchor on the right-facing half: x own goal → opponent goal
+   *  (0..1), y across (-1..1). Starters only. */
+  slotX?: number;
+  slotY?: number;
 }
 
 export interface PreparedMatch {
   meta: MatchMeta;
   timing: { halfTimeT: number; fullTimeT: number };
   lineups: { home: LineupPlayer[]; away: LineupPlayer[] };
+  bench: { home: LineupPlayer[]; away: LineupPlayer[] };
+  formations: { home: string; away: string };
   events: MatchEvent[];
   cues: CueSheet;
   moments: NarratedMoment[];
