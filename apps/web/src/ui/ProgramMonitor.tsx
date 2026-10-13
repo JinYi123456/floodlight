@@ -15,6 +15,7 @@ import { formatClock, type TrackingFrame } from '@floodlight/core';
 import { cuesAt, cueForSlot } from '../state/derive';
 import { useAppStore, trackingCache } from '../state/store';
 import { createPitchTexture } from './pitchTexture';
+import { createGoalFrames, createPlayerFigure, type PlayerFigure } from './players3d';
 
 type CameraMode = 'tactical' | 'follow' | 'player';
 
@@ -89,6 +90,8 @@ export function ProgramMonitor() {
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color('#04070d');
@@ -101,18 +104,28 @@ export function ProgramMonitor() {
     scene.add(new THREE.HemisphereLight(0xe8f1ff, 0x0b1520, 1.0));
     const key = new THREE.DirectionalLight(0xfff3d6, 1.9);
     key.position.set(55, 95, 40);
+    key.castShadow = true;
+    key.shadow.mapSize.set(2048, 2048);
+    key.shadow.camera.left = -80;
+    key.shadow.camera.right = 80;
+    key.shadow.camera.top = 60;
+    key.shadow.camera.bottom = -60;
+    key.shadow.camera.near = 10;
+    key.shadow.camera.far = 260;
+    key.shadow.bias = -0.0006;
     scene.add(key);
     const fill = new THREE.DirectionalLight(0xbfd8ff, 0.55);
     fill.position.set(-70, 60, -45);
     scene.add(fill);
 
-    // Ground + pitch.
+    // Ground + pitch + goals.
     const ground = new THREE.Mesh(
       new THREE.PlaneGeometry(240, 170),
       new THREE.MeshStandardMaterial({ color: '#050a12', roughness: 1 }),
     );
     ground.rotation.x = -Math.PI / 2;
     ground.position.y = -0.25;
+    ground.receiveShadow = true;
     scene.add(ground);
 
     const pitchTexture = new THREE.CanvasTexture(createPitchTexture());
@@ -123,14 +136,19 @@ export function ProgramMonitor() {
       new THREE.MeshStandardMaterial({ map: pitchTexture, roughness: 0.95 }),
     );
     pitch.rotation.x = -Math.PI / 2;
+    pitch.receiveShadow = true;
     scene.add(pitch);
 
-    // Player objects, created lazily as they appear in the feed.
+    const goals = createGoalFrames();
+    scene.add(goals);
+
+    // Player figures, created lazily as they appear in the feed.
     interface PlayerObject {
-      puck: THREE.Mesh;
+      figure: PlayerFigure;
       ring: THREE.Mesh;
       ownerRing: THREE.Mesh;
       number: THREE.Sprite;
+      lastPos: { x: number; y: number };
     }
     const playerObjects = new Map<string, PlayerObject>();
     const numberTextureCache = new Map<string, THREE.Texture>();
@@ -165,7 +183,7 @@ export function ProgramMonitor() {
     const roster = new Map(
       [...match.lineups.home, ...match.lineups.away].map((p) => [
         p.id,
-        { team: p.team, shirt: p.shirt } as const,
+        { team: p.team, shirt: p.shirt, role: p.role } as const,
       ]),
     );
 
@@ -175,11 +193,12 @@ export function ProgramMonitor() {
       const info = roster.get(playerId);
       const isHome = (info?.team ?? 'home') === 'home';
       const club = isHome ? match.meta.home : match.meta.away;
-      const puck = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.95, 0.95, 0.3, 20),
-        new THREE.MeshStandardMaterial({ color: club.primary, roughness: 0.6 }),
+      const isKeeper = info?.role === 'GK';
+      const figure = createPlayerFigure(
+        isKeeper
+          ? { shirt: club.secondary, shorts: '#161a22', socks: '#161a22' }
+          : { shirt: club.primary, shorts: club.secondary, socks: club.primary },
       );
-      puck.position.y = 0.15;
       const ring = new THREE.Mesh(
         new THREE.RingGeometry(1.3, 1.65, 26),
         new THREE.MeshBasicMaterial({ color: SPRINT_RING, side: THREE.DoubleSide, transparent: true, opacity: 0.9 }),
@@ -199,9 +218,9 @@ export function ProgramMonitor() {
         }),
       );
       number.scale.setScalar(2.1);
-      number.position.y = 1.7;
-      const group = { puck, ring, ownerRing, number };
-      scene.add(puck);
+      number.position.y = 2.35;
+      const group: PlayerObject = { figure, ring, ownerRing, number, lastPos: { x: 0, y: 0 } };
+      scene.add(figure.group);
       scene.add(ring);
       scene.add(ownerRing);
       scene.add(number);
@@ -253,6 +272,7 @@ export function ProgramMonitor() {
     resize();
 
     const project = new THREE.Vector3();
+    let lastTick = performance.now();
     let raf = 0;
     const render = () => {
       raf = requestAnimationFrame(render);
@@ -270,12 +290,20 @@ export function ProgramMonitor() {
 
       if (frame) {
         // Players.
+        const now = performance.now();
+        const dt = Math.min(0.1, Math.max(0.001, (now - lastTick) / 1000));
+        lastTick = now;
         const seen = new Set<string>();
         for (const player of frame.players) {
           seen.add(player.playerId);
           const object = ensurePlayer(player.playerId);
-          object.puck.position.x = player.pos.x;
-          object.puck.position.z = player.pos.y;
+          const dx = player.pos.x - object.lastPos.x;
+          const dz = player.pos.y - object.lastPos.y;
+          object.lastPos.x = player.pos.x;
+          object.lastPos.y = player.pos.y;
+          object.figure.group.position.x = player.pos.x;
+          object.figure.group.position.z = player.pos.y;
+          object.figure.update(dx, dz, player.speedKph, dt);
           const sprinting = player.speedKph >= 25.2;
           object.ring.position.x = player.pos.x;
           object.ring.position.z = player.pos.y;
@@ -285,12 +313,12 @@ export function ProgramMonitor() {
         }
         for (const [id, object] of playerObjects) {
           if (!seen.has(id)) {
-            object.puck.visible = false;
+            object.figure.group.visible = false;
             object.ring.visible = false;
             object.ownerRing.visible = false;
             object.number.visible = false;
           } else {
-            object.puck.visible = true;
+            object.figure.group.visible = true;
             object.number.visible = true;
           }
         }
@@ -324,9 +352,8 @@ export function ProgramMonitor() {
           const isOwner = id === owner;
           object.ownerRing.visible = isOwner;
           if (isOwner) {
-            const ref = object.puck;
-            object.ownerRing.position.x = ref.position.x;
-            object.ownerRing.position.z = ref.position.z;
+            object.ownerRing.position.x = object.figure.group.position.x;
+            object.ownerRing.position.z = object.figure.group.position.z;
           }
         }
 
@@ -400,8 +427,9 @@ export function ProgramMonitor() {
     if (import.meta.env.DEV) {
       (window as unknown as { __floodlightScene?: unknown }).__floodlightScene = {
         step: () => render(),
-        visibleCount: () => [...playerObjects.values()].filter((o) => o.puck.visible).length,
-        positions: () => [...playerObjects.values()].map((o) => [Math.round(o.puck.position.x), Math.round(o.puck.position.z)]),
+        mode: () => modeRef.current,
+        visibleCount: () => [...playerObjects.values()].filter((o) => o.figure.group.visible).length,
+        positions: () => [...playerObjects.values()].map((o) => [Math.round(o.figure.group.position.x), Math.round(o.figure.group.position.z)]),
         camera: () => [Math.round(camera.position.x), Math.round(camera.position.y), Math.round(camera.position.z)],
         screen: () => {
           const canvas = canvasRef.current;
@@ -427,8 +455,9 @@ export function ProgramMonitor() {
       cancelAnimationFrame(raf);
       observer.disconnect();
       for (const object of playerObjects.values()) {
-        scene.remove(object.puck, object.ring, object.ownerRing, object.number);
+        scene.remove(object.figure.group, object.ring, object.ownerRing, object.number);
       }
+      scene.remove(goals);
       for (const texture of numberTextureCache.values()) texture.dispose();
       pitchTexture.dispose();
       trailGeometry.dispose();
