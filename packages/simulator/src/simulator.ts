@@ -18,6 +18,7 @@ import {
   createRng,
   deriveSeed,
   distance,
+  expectedThreat,
   HALF_SECONDS,
   lerp,
   PITCH,
@@ -1131,18 +1132,11 @@ export class MatchSimulator {
   }
 
   /**
-   * Expected-threat surface (0..1) over the attacking half.
-   * Hand-calibrated for the synthetic league and shared with the engine so
-   * every xT number in the product traces back to the same function.
+   * Expected-threat surface — delegates to the single shared definition in
+   * core so the engine and the simulator can never disagree.
    */
   xtOf(pos: Vec2, attackSign: 1 | -1): number {
-    const own = (pos.x * attackSign + PITCH.halfLength) / PITCH.length;
-    const central = 1 - Math.abs(pos.y) / PITCH.halfWidth;
-    const t = clamp(own, 0, 1);
-    const base = 0.003 + 0.18 * t ** 2.6;
-    const box = clamp((t - 0.78) / 0.22, 0, 1);
-    const boxBoost = 0.55 * box ** 1.8 * (0.35 + 0.65 * central);
-    return roundTo(clamp(base + boxBoost * 0.42, 0, 0.92), 4);
+    return expectedThreat(pos, attackSign);
   }
 
   private emit(

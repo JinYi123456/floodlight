@@ -65,11 +65,11 @@ export const SCENARIOS: Scenario[] = [
     awayClubId: 'oldtower',
     naturalGoalBlocks: [{ fromMinute: 0, toMinute: 86, team: 'both' }],
     tacticsOverrides: {
-      home: { pressing: 0.7, risk: 0.55, directness: 0.4 },
-      away: { pressing: 0.18, directness: 0.85, lineHeight: 0.28, risk: 0.6 },
+      home: { pressing: 0.7, risk: 0.62, directness: 0.4 },
+      away: { pressing: 0.18, directness: 0.85, lineHeight: 0.28, risk: 0.35 },
     },
     directives: [
-      { kind: 'intent', team: 'home', fromMinute: 20, toMinute: 90, attackBias: 0.3, pressBias: 0.18, directBias: 0.05 },
+      { kind: 'intent', team: 'home', fromMinute: 15, toMinute: 90, attackBias: 0.45, pressBias: 0.2, directBias: 0.05 },
       { kind: 'force_big_save', team: 'home', atMinute: 61 },
       { kind: 'force_goal', team: 'home', byMinute: 89, style: 'screamer' },
     ],
