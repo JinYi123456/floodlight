@@ -256,6 +256,16 @@ export function trackingWindow(
   for (const side of ['home', 'away'] as const) {
     for (const id of onPitch[side]) spawn(id, side, ball0, possession);
   }
+  // Whoever is on the ball starts on the ball — no dashes from far anchors
+  // at a window edge (the worker tracks the match in separate windows).
+  const initialOwner = ownerAt(t0 + dt).playerId;
+  if (initialOwner) {
+    const rt = runtime.get(initialOwner);
+    if (rt) {
+      rt.pos.x = ball0.x;
+      rt.pos.y = ball0.y;
+    }
+  }
 
   const frames: TrackingFrame[] = [];
   const frameCount = Math.max(0, Math.floor((t1 - t0) / dt));
@@ -305,8 +315,10 @@ export function trackingWindow(
       const isActor = actor === id;
       if (isOwner) {
         target = { x: ball.pos.x, y: ball.pos.y };
-      } else if (isActor && !isOwner) {
-        // The next actor drifts toward the ball to receive or collect.
+      } else if (isActor && !isOwner && ball.speedKph > 5) {
+        // The next actor drifts toward the ball to receive or collect — but
+        // only while the ball is actually travelling. A ball at rest holds
+        // the shape; nobody sprints at nothing during kickoff waits.
         target = {
           x: target.x + (ball.pos.x - target.x) * 0.45,
           y: target.y + (ball.pos.y - target.y) * 0.45,
@@ -319,8 +331,9 @@ export function trackingWindow(
       let step = 0;
       if (dist > 0.02) {
         const tau = isOwner ? 0.4 : isActor ? 1.1 : 2.2;
+        // maxSpeed is metres per second; cap the seek speed with it directly.
         const speedCap = maxSpeed(rt.player, t, dist > 10);
-        const v = Math.min(dist / tau, speedCap / (1000 / 3600));
+        const v = Math.min(dist / tau, speedCap);
         step = Math.min(v * dt, dist);
         rt.pos.x += (dx / dist) * step;
         rt.pos.y += (dy / dist) * step;

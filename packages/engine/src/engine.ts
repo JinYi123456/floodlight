@@ -684,8 +684,11 @@ export class MatchEngine {
       this.lastFrame.set(p.playerId, { t: frame.t, x: p.pos.x, y: p.pos.y, speedKph: p.speedKph });
 
       // Speed flash: a new match-best sprint enters the highlight window.
+      // Not before two minutes in — no broadcast flashes a "fastest" graphic
+      // before the match has a shape to compare against.
       if (
         p.speedKph >= 32.2 &&
+        frame.t >= 120 &&
         frame.t - this.lastSpeedFlashT >= 180 &&
         this.speedFlashCount < 3 &&
         stats.topSpeedKph === p.speedKph

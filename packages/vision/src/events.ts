@@ -49,7 +49,7 @@ export interface VisionReport {
   samples: FrameSample[];
 }
 
-const OWNER_RADIUS = 1.8;
+const OWNER_RADIUS = 2.0;
 const OWNER_LOST_RADIUS = 2.4;
 const DWELL_FRAMES = 2;
 

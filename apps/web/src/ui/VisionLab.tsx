@@ -221,7 +221,9 @@ function ReportCard({ report }: { report: VisionReport }) {
         <span className="hero-label">
           pass-detection F1
           <br />
-          <em>precision {Math.round(report.passPrecision * 100)}% — everything reported was real</em>
+          <em>
+            precision {Math.round(report.passPrecision * 100)}% · recall {Math.round(report.passRecall * 100)}%
+          </em>
         </span>
       </div>
 
