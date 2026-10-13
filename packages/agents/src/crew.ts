@@ -381,6 +381,7 @@ export class ProductionCrew {
       'Use ONLY numbers and names present in the evidence JSON.',
       `Write in ${LANG_NAME[profile.lang]}. Tone: ${personaBrief[profile.persona]}.`,
       'At most two sentences. Return strict JSON: {"headline": string, "body": string}.',
+      'The minute is displayed separately — do not prefix or repeat it in the headline.',
       revision ? `A previous draft was rejected by the verifier for: ${revision}. Fix exactly these problems.` : '',
     ]
       .filter(Boolean)

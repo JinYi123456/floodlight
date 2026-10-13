@@ -107,7 +107,7 @@ async function prepare(request: { scenarioId: string | null; seed: number; recor
     if (recorded) {
       moment.headline = recorded.headline;
       moment.body = recorded.body;
-      moment.provider = 'llm';
+      moment.provider = recorded.provider === 'template' ? 'template' : 'llm';
       if (recorded.ticker) moment.ticker = recorded.ticker;
       if (recorded.variants?.length) {
         moment.variants = recorded.variants as NarratedMoment['variants'];

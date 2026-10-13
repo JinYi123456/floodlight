@@ -86,8 +86,11 @@ export function verifyDraft(text: string, pack: EvidencePack, options: { checkEn
       'Simply', 'Really', 'Almost', 'Nearly', 'Just', 'Even', 'Perhaps', 'Maybe', 'Those', 'These', 'They', 'We', 'Us', 'Our', 'You',
     ]);
     for (const token of tokens) {
-      const lower = token.toLowerCase();
-      if (ignored.has(token) || allowed.has(lower)) continue;
+      // Possessives of a known entity are still that entity: "Escobar's" is fine
+      // when "Escobar" is in the vocabulary.
+      const bare = token.replace(/[’']s$/, '');
+      const lower = bare.toLowerCase();
+      if (ignored.has(token) || ignored.has(bare) || allowed.has(lower)) continue;
       // Surnames count as valid if they appear inside a known full name.
       if ([...allowed].some((name) => name.includes(lower))) continue;
       issues.push(`unrecognised entity "${token}"`);
