@@ -1,0 +1,30 @@
+{
+  "name": "floodlight",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Real-time football intelligence engine — turns synthetic match events into explainable insights, automated broadcast direction, and personalized stories for every fan.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/*",
+    "services/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "npm --workspace @floodlight/web run dev",
+    "build:web": "npm --workspace @floodlight/web run build",
+    "api": "npm --workspace @floodlight/api run start"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.4"
+  }
+}
