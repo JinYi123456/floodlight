@@ -9,9 +9,9 @@
  * is part of the production: tactical overview, ball-follow or player focus.
  */
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type MouseEvent } from 'react';
 import * as THREE from 'three';
-import { formatClock } from '@floodlight/core';
+import { formatClock, type TrackingFrame } from '@floodlight/core';
 import { cuesAt, cueForSlot } from '../state/derive';
 import { useAppStore, trackingCache } from '../state/store';
 import { createPitchTexture } from './pitchTexture';
@@ -24,10 +24,55 @@ export function ProgramMonitor() {
   const match = useAppStore((state) => state.match);
   const t = useAppStore((state) => state.t);
   const focusPlayerId = useAppStore((state) => state.prefs.playerId);
+  const setPrefs = useAppStore((state) => state.setPrefs);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const tagRef = useRef<HTMLDivElement | null>(null);
+  const frameRef = useRef<TrackingFrame | null>(null);
+  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const [mode, setMode] = useState<CameraMode>('tactical');
   const modeRef = useRef(mode);
+
+  // Click a player to follow them: project every tracked player into screen
+  // space and take the nearest one inside the hit radius.
+  const pickPlayer = (clientX: number, clientY: number): string | null => {
+    const canvas = canvasRef.current;
+    const camera = cameraRef.current;
+    const frame = frameRef.current;
+    if (!canvas || !camera || !frame) return null;
+    const rect = canvas.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
+    const project = new THREE.Vector3();
+    let best: string | null = null;
+    let bestD = 26;
+    for (const player of frame.players) {
+      project.set(player.pos.x, 1.6, player.pos.y).project(camera);
+      const sx = (project.x * 0.5 + 0.5) * rect.width;
+      const sy = (-project.y * 0.5 + 0.5) * rect.height;
+      const d = Math.hypot(sx - x, sy - y);
+      if (d < bestD) {
+        bestD = d;
+        best = player.playerId;
+      }
+    }
+    return best;
+  };
+
+  const handlePointer = (event: MouseEvent<HTMLCanvasElement>) => {
+    const hit = pickPlayer(event.clientX, event.clientY);
+    event.currentTarget.style.cursor = hit ? 'pointer' : '';
+  };
+
+  const handleClick = (event: MouseEvent<HTMLCanvasElement>) => {
+    const hit = pickPlayer(event.clientX, event.clientY);
+    if (hit) {
+      setPrefs({ playerId: hit });
+    } else if (focusPlayerId) {
+      // Clicking away releases the focus and returns to the wide camera.
+      setPrefs({ playerId: null });
+      setMode('tactical');
+    }
+  };
 
   useEffect(() => {
     if (focusPlayerId) setMode('player');
@@ -215,7 +260,9 @@ export function ProgramMonitor() {
       const currentMatch = state.match;
       if (!currentMatch) return;
       const time = state.t;
-      const frame = trackingCache.at(time);
+      const frame = trackingCache.atSmooth(time);
+      frameRef.current = frame;
+      cameraRef.current = camera;
 
       const active = cuesAt(currentMatch, time);
       const tagCue = cueForSlot(active, 'player_tag');
@@ -356,6 +403,23 @@ export function ProgramMonitor() {
         visibleCount: () => [...playerObjects.values()].filter((o) => o.puck.visible).length,
         positions: () => [...playerObjects.values()].map((o) => [Math.round(o.puck.position.x), Math.round(o.puck.position.z)]),
         camera: () => [Math.round(camera.position.x), Math.round(camera.position.y), Math.round(camera.position.z)],
+        screen: () => {
+          const canvas = canvasRef.current;
+          const frame = frameRef.current;
+          if (!canvas || !cameraRef.current || !frame) return [];
+          const rect = canvas.getBoundingClientRect();
+          const v = new THREE.Vector3();
+          return frame.players.map((player) => {
+            v.set(player.pos.x, 1.6, player.pos.y).project(cameraRef.current!);
+            return {
+              id: player.playerId,
+              sx: (v.x * 0.5 + 0.5) * rect.width,
+              sy: (-v.y * 0.5 + 0.5) * rect.height,
+              left: rect.left,
+              top: rect.top,
+            };
+          });
+        },
       };
     }
 
@@ -385,7 +449,13 @@ export function ProgramMonitor() {
 
   return (
     <div className="program-monitor">
-      <canvas ref={canvasRef} className="monitor-canvas" />
+      <canvas
+        ref={canvasRef}
+        className="monitor-canvas"
+        onClick={handleClick}
+        onMouseMove={handlePointer}
+        title="Click a player to follow them"
+      />
       <div className="monitor-cams">
         {(['tactical', 'follow', 'player'] as CameraMode[]).map((value) => (
           <button

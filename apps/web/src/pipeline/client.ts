@@ -151,7 +151,45 @@ export class TrackingCache {
 
   /** Nearest cached frame at or before t (decisecond resolution). */
   at(t: number): TrackingFrame | null {
-    const key = Math.round(t * TRACKING_HZ);
+    return this.nearestAt(Math.round(t * TRACKING_HZ));
+  }
+
+  /** Interpolated frame for a smooth 60 fps read of a 10 Hz feed. */
+  atSmooth(t: number): TrackingFrame | null {
+    const key = Math.floor(t * TRACKING_HZ + 1e-6);
+    const a = this.nearestAt(key);
+    if (!a) return null;
+    const b = this.frames.get(key + 1) ?? null;
+    if (!b || b === a) return a;
+    const span = Math.max(b.t - a.t, 1e-6);
+    const f = Math.min(1, Math.max(0, (t - a.t) / span));
+    const nextById = new Map(b.players.map((player) => [player.playerId, player]));
+    const players = a.players.map((player) => {
+      const next = nextById.get(player.playerId);
+      if (!next) return player;
+      return {
+        playerId: player.playerId,
+        pos: {
+          x: player.pos.x + (next.pos.x - player.pos.x) * f,
+          y: player.pos.y + (next.pos.y - player.pos.y) * f,
+        },
+        speedKph: player.speedKph + (next.speedKph - player.speedKph) * f,
+      };
+    });
+    return {
+      t,
+      ball: {
+        pos: {
+          x: a.ball.pos.x + (b.ball.pos.x - a.ball.pos.x) * f,
+          y: a.ball.pos.y + (b.ball.pos.y - a.ball.pos.y) * f,
+        },
+        speedKph: a.ball.speedKph + (b.ball.speedKph - a.ball.speedKph) * f,
+      },
+      players,
+    };
+  }
+
+  private nearestAt(key: number): TrackingFrame | null {
     for (let k = key; k >= key - 2 && k >= 0; k--) {
       const frame = this.frames.get(k);
       if (frame) return frame;
