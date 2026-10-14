@@ -40,7 +40,9 @@ The web app runs the whole pipeline **in a worker**: matches precompute, then
 play back against a theatre clock — a 3D broadcast monitor with three camera
 presets, a retraction-aware rundown (a VAR-overturned goal pulls its story
 off air), an insight desk with the evidence trail, and the cue sheet driving
-the on-screen graphics.
+the on-screen graphics. A **catch-up** viewer mode is spoiler-safe: the
+rundown and the scrubber keep everything past the viewer's high-water mark
+hidden until they actually get there — watch it late, see it fresh.
 
 ## Data & assets
 
@@ -110,6 +112,7 @@ for a different seed.
 | `GET /matches/stream?scenario=&seed=` | **SSE**: stage → moment → ready → done, live |
 | `GET /matches/vision?scenario=&seed=` | the auto-eventing accuracy report |
 | `GET /matches/events.jsonl` · `/moments.csv` · `/data-card` | dataset formats |
+| `POST /mcp` | the studio as **MCP** tools over Streamable HTTP |
 
 ```bash
 curl -N "http://localhost:8787/matches/stream?scenario=derby&seed=2026"
@@ -118,14 +121,37 @@ curl -N "http://localhost:8787/matches/stream?scenario=derby&seed=2026"
 A `Dockerfile` ships it as a single container (`docker build -t floodlight-api .`
 from the repo root).
 
+## MCP — the studio as tools
+
+The whole studio is exposed as a typed **Model Context Protocol** tool
+surface — nine tools: `list_scenarios`, `prepare_match`, `match_state`,
+`state_at`, `query_events`, `query_moments`, `player_stats`, `get_cue_sheet`
+and `run_vision_pass`. Three real consumers ride on it (`services/mcp`):
+
+- **External agent hosts** attach over stdio: `npm run mcp` speaks the full
+  handshake; point any MCP client at `floodlight-mcp`.
+- **Remote hosts** attach over Streamable HTTP at `POST /mcp` on the API
+  service — stateless, so the container scales to zero.
+- **The crew itself** verifies over MCP: the production crew's fact-checking
+  (snapshot, score at time t, window features) runs as real tool calls over
+  an in-process transport — the browser worker links it to the live engine,
+  and a parity test proves the routed path is byte-identical to reading the
+  engine directly.
+
+A live-match tool set (`match_snapshot`, `match_score_at`,
+`match_window_features`) backs the crew's path; a framework-agnostic data
+service (`packages/dataservice`) backs every tool, so the verification the
+audience sees is the verification the tools serve.
+
 ## Quickstart
 
 ```bash
 npm install
 npm test            # deterministic suite: simulator, engine, agents, cues,
-                    # vision, dataset, api
+                    # vision, dataset, api, mcp
 npm run dev         # the web app (Vite dev server)
-npm run api         # the HTTP/SSE service
+npm run api         # the HTTP/SSE service (and POST /mcp on the same port)
+npm run mcp         # the studio as an MCP server over stdio
 npm run export:dataset    # regenerate data/
 npm run record:voice      # refresh the studio-voice recordings
 ```
@@ -162,7 +188,9 @@ packages/agents      director/analyst/commentator/verifier/personalizer crew
 packages/cuesheet    timed, machine-readable broadcast graphics compiler
 packages/vision      auto-eventing: pixels → detections → derived events
 packages/dataset     portable exports + generated data card
+packages/dataservice one tool surface over the pipeline (studio + live)
 services/api         HTTP/SSE service over the pipeline (+ Dockerfile)
+services/mcp         the MCP servers: stdio host + in-memory crew transport
 apps/web             control room: worker pipeline, 3D monitor, vision lab
 tools                studio-voice recorder
 data                 committed dataset records for the four scenarios
@@ -183,7 +211,14 @@ data                 committed dataset records for the four scenarios
 
 CI typechecks, tests and builds on every push; `main` publishes the web
 build to GitHub Pages automatically. The API ships as a container for any
-free-tier Node host.
+free-tier Node host — the image is built and pushed to
+`ghcr.io/jinyi123456/floodlight-api` by `.github/workflows/api-image.yml`
+on the same pushes.
+
+For **Azure Container Apps**, the whole runbook is
+[`docs/deploy-azure.md`](./docs/deploy-azure.md): three `az` commands put the
+API + MCP endpoint live on HTTPS with scale-to-zero inside the service's
+free monthly grant.
 
 ## License
 
