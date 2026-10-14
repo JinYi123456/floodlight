@@ -1,0 +1,2581 @@
+{
+  "scenarioId": "comeback",
+  "seed": 2026,
+  "provider": "featherless",
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "moments": [
+    {
+      "candidateId": "cand-0029",
+      "headline": "Julian Havlik's 32.7 kph sprint at 3'",
+      "body": "Julian Havlik's 32.7 kph burst in the 3rd minute established immediate attacking urgency, signaling Riverside Athletic's high-press intent before the first shot.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": null,
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Julian Havlik's 32.7 kph sprint at 3'",
+          "body": "Julian Havlik's 32.7 kph burst in the 3rd minute established immediate attacking urgency, signaling Riverside Athletic's high-press intent before the first shot."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Julian Havlik: 32.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Julian Havlik : 32.7 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Julian Havlik: 32.7 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Julian Havlik: 32.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Julian Havlik : 32.7 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Julian Havlik: 32.7 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Julian Havlik: 32.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Julian Havlik : 32.7 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Julian Havlik: 32.7 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Julian Havlik: 32.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Julian Havlik : 32.7 km/h — la plus élevée du match jusqu'ici."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0001",
+      "headline": "Lucien Keller's 8.7m effort hits post at 6'",
+      "body": "0.22 xG chance from 8.7m out missed the target, preserving 0–0 deadlock as Northgate United's defense repelled Riverside Athletic's early surge.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "6' - 0.22 xG chance hits post from 8.7m",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Keller's 8.7m effort hits post at 6'",
+          "body": "0.22 xG chance from 8.7m out missed the target, preserving 0–0 deadlock as Northgate United's defense repelled Riverside Athletic's early surge."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.22 xG desde 8.7 metros — post."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.22 xG depuis 8.7 mètres — post."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.22 xG look from 8.7 metres — post."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.22 xG desde 8.7 metros — post."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.22 xG depuis 8.7 mètres — post."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.22 xG look from 8.7 metres — post."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.22 xG desde 8.7 metros — post."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.22 xG depuis 8.7 mètres — post."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.22 xG look from 8.7 metres — post."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.22 xG desde 8.7 metros — post."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.22 xG depuis 8.7 mètres — post."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0030",
+      "headline": "Aron Weiss triggers early pace surge at 34.3 kph",
+      "body": "At 6', Aron Weiss of Riverside Athletic recorded a 34.3 kph sprint, the fastest in the match so far, signaling immediate attacking intent against Northgate United in a 0–0 contest.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": null,
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Aron Weiss triggers early pace surge at 34.3 kph",
+          "body": "At 6', Aron Weiss of Riverside Athletic recorded a 34.3 kph sprint, the fastest in the match so far, signaling immediate attacking intent against Northgate United in a 0–0 contest."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Aron Weiss: 34.3 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Aron Weiss : 34.3 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Aron Weiss: 34.3 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Aron Weiss: 34.3 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Aron Weiss : 34.3 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Aron Weiss: 34.3 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Aron Weiss: 34.3 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Aron Weiss : 34.3 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Aron Weiss: 34.3 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Aron Weiss: 34.3 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Aron Weiss : 34.3 km/h — la plus élevée du match jusqu'ici."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0002",
+      "headline": "Theo Escobar scores 8' goal from 16.4m at 82.7kph, xG 0.07",
+      "body": "Northgate United's 0.07 xG opener from 16.4m at 82.7kph marks the earliest goal of the match, establishing a 1-0 lead against Riverside Athletic.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "8' NOR lead: 0.07 xG, 16.4m, 82.7 km/h",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Theo Escobar scores 8' goal from 16.4m at 82.7kph, xG 0.07",
+          "body": "Northgate United's 0.07 xG opener from 16.4m at 82.7kph marks the earliest goal of the match, establishing a 1-0 lead against Riverside Athletic."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "GOL — Theo Escobar pone el RIV 0–1 NOR",
+          "body": "Theo Escobar dispara desde 16.4 metros a 82.7 km/h — una ocasión de 0.07 xG. El marcador queda RIV 0–1 NOR."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "BUT — Theo Escobar porte le score à RIV 0–1 NOR",
+          "body": "Theo Escobar frappe depuis 16.4 mètres à 82.7 km/h — une occasion de 0.07 xG. Le score est de RIV 0–1 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "It's in! Theo Escobar scores and the score is RIV 0–1 NOR. The stadium erupts.",
+          "body": "Theo Escobar strikes from 16.4 metres at 82.7 km/h — a 0.07 xG chance. The scoreline now reads RIV 0–1 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "¡Es gol! Theo Escobar marca y el resultado es RIV 0–1 NOR. Explota el estadio.",
+          "body": "Theo Escobar dispara desde 16.4 metros a 82.7 km/h — una ocasión de 0.07 xG. El marcador queda RIV 0–1 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "C'est but ! Theo Escobar marque et le score est de RIV 0–1 NOR. Le stade explose.",
+          "body": "Theo Escobar frappe depuis 16.4 mètres à 82.7 km/h — une occasion de 0.07 xG. Le score est de RIV 0–1 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "YES! Theo Escobar buries it — RIV 0–1 NOR and this one matters. Come on!",
+          "body": "Theo Escobar strikes from 16.4 metres at 82.7 km/h — a 0.07 xG chance. The scoreline now reads RIV 0–1 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "¡SÍ! Theo Escobar la manda a guardar — RIV 0–1 NOR y esto importa. ¡Vamos!",
+          "body": "Theo Escobar dispara desde 16.4 metros a 82.7 km/h — una ocasión de 0.07 xG. El marcador queda RIV 0–1 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "OUI ! Theo Escobar la met au fond — RIV 0–1 NOR et ça compte. Allez !",
+          "body": "Theo Escobar frappe depuis 16.4 mètres à 82.7 km/h — une occasion de 0.07 xG. Le score est de RIV 0–1 NOR."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "GOAL — Theo Escobar makes it RIV 0–1 NOR",
+          "body": "Watch Theo Escobar here: a clean strike from 16.4 metres, worth 0.07 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "GOL — Theo Escobar pone el RIV 0–1 NOR",
+          "body": "Mira a Theo Escobar: un golpeo limpio desde 16.4 metros, 0.07 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "BUT — Theo Escobar porte le score à RIV 0–1 NOR",
+          "body": "Regardez Theo Escobar : une frappe propre depuis 16.4 mètres, 0.07 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0031",
+      "headline": "Isaac Grigoryan's 36 kph sprint breaks Northgate United's defensive line",
+      "body": "At 12', Isaac Grigoryan's 36 kph burst created the decisive breakthrough, leading to Riverside Athletic's 0–1 deficit against Northgate United.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": null,
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Isaac Grigoryan's 36 kph sprint breaks Northgate United's defensive line",
+          "body": "At 12', Isaac Grigoryan's 36 kph burst created the decisive breakthrough, leading to Riverside Athletic's 0–1 deficit against Northgate United."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Isaac Grigoryan: 36 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Isaac Grigoryan : 36 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Isaac Grigoryan: 36 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Isaac Grigoryan: 36 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Isaac Grigoryan : 36 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Isaac Grigoryan: 36 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Isaac Grigoryan: 36 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Isaac Grigoryan : 36 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Isaac Grigoryan: 36 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Isaac Grigoryan: 36 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Isaac Grigoryan : 36 km/h — la plus élevée du match jusqu'ici."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0003",
+      "headline": "Hugo Marchetti's 24' save denies Northgate United's 0.09 xG chance",
+      "body": "Marchetti's intervention prevented a 0.52-difficulty shot from Northgate United's player 14, preserving Riverside Athletic's 0–1 lead with a 0.09 expected goal threat neutralized.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "24' - Save by keeper, 0.09 xG, 52% difficulty",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Hugo Marchetti's 24' save denies Northgate United's 0.09 xG chance",
+          "body": "Marchetti's intervention prevented a 0.52-difficulty shot from Northgate United's player 14, preserving Riverside Athletic's 0–1 lead with a 0.09 expected goal threat neutralized."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.52 — Hugo Marchetti niega una ocasión de 0.09 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.52 — Hugo Marchetti repousse une occasion de 0.09 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.52 — Hugo Marchetti denies a 0.09 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.52 — Hugo Marchetti niega una ocasión de 0.09 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.52 — Hugo Marchetti repousse une occasion de 0.09 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.52 — Hugo Marchetti denies a 0.09 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.52 — Hugo Marchetti niega una ocasión de 0.09 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.52 — Hugo Marchetti repousse une occasion de 0.09 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.52 — Hugo Marchetti denies a 0.09 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.52 — Hugo Marchetti niega una ocasión de 0.09 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.52 — Hugo Marchetti repousse une occasion de 0.09 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0004",
+      "headline": "Theo Escobar scores 27' goal from 27.3m at 110.3kph, xG 0.02",
+      "body": "The 27.3m strike by Theo Escobar at 110.3kph delivered a 0.02 xG goal, sealing Northgate United's 2–0 lead in the 27th minute.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "27' NOR 2-0 RIV, xG 0.02, 27.3m, 110.3km/h",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Theo Escobar scores 27' goal from 27.3m at 110.3kph, xG 0.02",
+          "body": "The 27.3m strike by Theo Escobar at 110.3kph delivered a 0.02 xG goal, sealing Northgate United's 2–0 lead in the 27th minute."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "GOL — Theo Escobar pone el RIV 0–2 NOR",
+          "body": "Theo Escobar dispara desde 27.3 metros a 110.3 km/h — una ocasión de 0.02 xG. El marcador queda RIV 0–2 NOR."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "BUT — Theo Escobar porte le score à RIV 0–2 NOR",
+          "body": "Theo Escobar frappe depuis 27.3 mètres à 110.3 km/h — une occasion de 0.02 xG. Le score est de RIV 0–2 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "It's in! Theo Escobar scores and the score is RIV 0–2 NOR. The stadium erupts.",
+          "body": "Theo Escobar strikes from 27.3 metres at 110.3 km/h — a 0.02 xG chance. The scoreline now reads RIV 0–2 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "¡Es gol! Theo Escobar marca y el resultado es RIV 0–2 NOR. Explota el estadio.",
+          "body": "Theo Escobar dispara desde 27.3 metros a 110.3 km/h — una ocasión de 0.02 xG. El marcador queda RIV 0–2 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "C'est but ! Theo Escobar marque et le score est de RIV 0–2 NOR. Le stade explose.",
+          "body": "Theo Escobar frappe depuis 27.3 mètres à 110.3 km/h — une occasion de 0.02 xG. Le score est de RIV 0–2 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "YES! Theo Escobar buries it — RIV 0–2 NOR and this one matters. Come on!",
+          "body": "Theo Escobar strikes from 27.3 metres at 110.3 km/h — a 0.02 xG chance. The scoreline now reads RIV 0–2 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "¡SÍ! Theo Escobar la manda a guardar — RIV 0–2 NOR y esto importa. ¡Vamos!",
+          "body": "Theo Escobar dispara desde 27.3 metros a 110.3 km/h — una ocasión de 0.02 xG. El marcador queda RIV 0–2 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "OUI ! Theo Escobar la met au fond — RIV 0–2 NOR et ça compte. Allez !",
+          "body": "Theo Escobar frappe depuis 27.3 mètres à 110.3 km/h — une occasion de 0.02 xG. Le score est de RIV 0–2 NOR."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "GOAL — Theo Escobar makes it RIV 0–2 NOR",
+          "body": "Watch Theo Escobar here: a clean strike from 27.3 metres, worth 0.02 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "GOL — Theo Escobar pone el RIV 0–2 NOR",
+          "body": "Mira a Theo Escobar: un golpeo limpio desde 27.3 metros, 0.02 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "BUT — Theo Escobar porte le score à RIV 0–2 NOR",
+          "body": "Regardez Theo Escobar : une frappe propre depuis 27.3 mètres, 0.02 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0005",
+      "headline": "Milestone",
+      "body": "Theo Escobar completes a brace — 2 goals today.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "27' Northgate United",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Theo Escobar completes a brace — 2 goals today."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Theo Escobar completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Theo Escobar réalise un brace — 2 buts aujourd'hui."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Theo Escobar completes a brace — 2 goals today."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Theo Escobar completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Theo Escobar réalise un brace — 2 buts aujourd'hui."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Theo Escobar completes a brace — 2 goals today."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Theo Escobar completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Theo Escobar réalise un brace — 2 buts aujourd'hui."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Theo Escobar completes a brace — 2 goals today."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Theo Escobar completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Theo Escobar réalise un brace — 2 buts aujourd'hui."
+        }
+      ],
+      "provider": "template"
+    },
+    {
+      "candidateId": "cand-0006",
+      "headline": "Red card",
+      "body": "RED CARD — Theo Escobar is off (reckless). Northgate United are down to ten.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "33' Theo Escobar red card: reckless tackle, 0–2",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Red card",
+          "body": "RED CARD — Theo Escobar is off (reckless). Northgate United are down to ten."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Red card",
+          "body": "TARJETA ROJA — Theo Escobar se va (reckless). Northgate United se queda con diez."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Red card",
+          "body": "CARTON ROUGE — Theo Escobar sort (reckless). Northgate United est réduit à dix."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Red card",
+          "body": "RED CARD — Theo Escobar is off (reckless). Northgate United are down to ten."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Red card",
+          "body": "TARJETA ROJA — Theo Escobar se va (reckless). Northgate United se queda con diez."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Red card",
+          "body": "CARTON ROUGE — Theo Escobar sort (reckless). Northgate United est réduit à dix."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Red card",
+          "body": "RED CARD — Theo Escobar is off (reckless). Northgate United are down to ten."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Red card",
+          "body": "TARJETA ROJA — Theo Escobar se va (reckless). Northgate United se queda con diez."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Red card",
+          "body": "CARTON ROUGE — Theo Escobar sort (reckless). Northgate United est réduit à dix."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Red card",
+          "body": "RED CARD — Theo Escobar is off (reckless). Northgate United are down to ten."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Red card",
+          "body": "TARJETA ROJA — Theo Escobar se va (reckless). Northgate United se queda con diez."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Red card",
+          "body": "CARTON ROUGE — Theo Escobar sort (reckless). Northgate United est réduit à dix."
+        }
+      ],
+      "provider": "template"
+    },
+    {
+      "candidateId": "cand-0010",
+      "headline": "Riverside Athletic's momentum drops to 0.368 after 34' despite 0–2 deficit",
+      "body": "A 0.57 swing in momentum over 5 minutes signals a critical shift, with home advantage failing to reverse Northgate United's 2-goal lead.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "Momentum has swung to Riverside Athletic — a 0.57 shift over the last five minutes.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Riverside Athletic's momentum drops to 0.368 after 34' despite 0–2 deficit",
+          "body": "A 0.57 swing in momentum over 5 minutes signals a critical shift, with home advantage failing to reverse Northgate United's 2-goal lead."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Riverside Athletic — un giro de 0.57 en cinco minutos."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Riverside Athletic — un écart de 0.57 sur cinq minutes."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Riverside Athletic — a 0.57 shift over the last five minutes."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Riverside Athletic — un giro de 0.57 en cinco minutos."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Riverside Athletic — un écart de 0.57 sur cinq minutes."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Riverside Athletic — a 0.57 shift over the last five minutes."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Riverside Athletic — un giro de 0.57 en cinco minutos."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Riverside Athletic — un écart de 0.57 sur cinq minutes."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Riverside Athletic — a 0.57 shift over the last five minutes."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Riverside Athletic — un giro de 0.57 en cinco minutos."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Riverside Athletic — un écart de 0.57 sur cinq minutes."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0007",
+      "headline": "Lucien Keller's 7.2m xG 0.27 chance saved at 35'",
+      "body": "Riverside Athletic's 35' opportunity, 7.2m from goal with 0.27 xG, was denied by Northgate United's goalkeeper, preserving their 0–2 lead.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "35' Riverside Athletic",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Keller's 7.2m xG 0.27 chance saved at 35'",
+          "body": "Riverside Athletic's 35' opportunity, 7.2m from goal with 0.27 xG, was denied by Northgate United's goalkeeper, preserving their 0–2 lead."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.27 xG desde 7.2 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.27 xG depuis 7.2 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 7.2 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.27 xG desde 7.2 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.27 xG depuis 7.2 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 7.2 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.27 xG desde 7.2 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.27 xG depuis 7.2 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 7.2 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.27 xG desde 7.2 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.27 xG depuis 7.2 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0008",
+      "headline": "Fionn Karlsson's 35' save denies Riverside Athletic's 0.27 xG chance",
+      "body": "At 35', Fionn Karlsson's intervention prevented a 0.9-difficulty, 0.27 xG opportunity for Riverside Athletic's p9, preserving Northgate United's 0–2 lead.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "35' - 0.9 difficulty save, 0.27 xG, riverside-p9 shot",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Fionn Karlsson's 35' save denies Riverside Athletic's 0.27 xG chance",
+          "body": "At 35', Fionn Karlsson's intervention prevented a 0.9-difficulty, 0.27 xG opportunity for Riverside Athletic's p9, preserving Northgate United's 0–2 lead."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.9 — Fionn Karlsson niega una ocasión de 0.27 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.9 — Fionn Karlsson repousse une occasion de 0.27 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.9 — Fionn Karlsson denies a 0.27 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.9 — Fionn Karlsson niega una ocasión de 0.27 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.9 — Fionn Karlsson repousse une occasion de 0.27 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.9 — Fionn Karlsson denies a 0.27 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.9 — Fionn Karlsson niega una ocasión de 0.27 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.9 — Fionn Karlsson repousse une occasion de 0.27 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.9 — Fionn Karlsson denies a 0.27 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.9 — Fionn Karlsson niega una ocasión de 0.27 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.9 — Fionn Karlsson repousse une occasion de 0.27 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0009",
+      "headline": "Clive Dahl's 6.2m xG 0.29 chance blocked at 35'",
+      "body": "Riverside Athletic's 0.29 xG opportunity from 6.2m out by Clive Dahl was thwarted, maintaining Northgate United's 0–2 lead at 35'.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "35' Riverside Athletic",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Clive Dahl's 6.2m xG 0.29 chance blocked at 35'",
+          "body": "Riverside Athletic's 0.29 xG opportunity from 6.2m out by Clive Dahl was thwarted, maintaining Northgate United's 0–2 lead at 35'."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Clive Dahl con 0.29 xG desde 6.2 metros — blocked."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Clive Dahl avec 0.29 xG depuis 6.2 mètres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.29 xG look from 6.2 metres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Clive Dahl con 0.29 xG desde 6.2 metros — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Clive Dahl avec 0.29 xG depuis 6.2 mètres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.29 xG look from 6.2 metres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Clive Dahl con 0.29 xG desde 6.2 metros — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Clive Dahl avec 0.29 xG depuis 6.2 mètres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.29 xG look from 6.2 metres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Clive Dahl con 0.29 xG desde 6.2 metros — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Clive Dahl avec 0.29 xG depuis 6.2 mètres — blocked."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0011",
+      "headline": "Lucien Keller's 6.4m xG 0.28 chance off target at 36'",
+      "body": "Riverside Athletic's Lucien Keller missed a 0.28 xG opportunity from 6.4m out, leaving Northgate United's 2–0 lead intact and reducing Riverside's expected goal probability by 28% in the 36th minute.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "36' Riverside Athletic",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Keller's 6.4m xG 0.28 chance off target at 36'",
+          "body": "Riverside Athletic's Lucien Keller missed a 0.28 xG opportunity from 6.4m out, leaving Northgate United's 2–0 lead intact and reducing Riverside's expected goal probability by 28% in the 36th minute."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.28 xG desde 6.4 metros — off_target."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.28 xG depuis 6.4 mètres — off_target."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.28 xG look from 6.4 metres — off_target."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.28 xG desde 6.4 metros — off_target."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.28 xG depuis 6.4 mètres — off_target."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.28 xG look from 6.4 metres — off_target."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.28 xG desde 6.4 metros — off_target."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.28 xG depuis 6.4 mètres — off_target."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.28 xG look from 6.4 metres — off_target."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.28 xG desde 6.4 metros — off_target."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.28 xG depuis 6.4 mètres — off_target."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0012",
+      "headline": "Big chance",
+      "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.32 xG look from 4.9 metres — blocked.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "42' Riverside Athletic",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.32 xG look from 4.9 metres — blocked."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.32 xG desde 4.9 metros — blocked."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.32 xG depuis 4.9 mètres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.32 xG look from 4.9 metres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.32 xG desde 4.9 metros — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.32 xG depuis 4.9 mètres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.32 xG look from 4.9 metres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.32 xG desde 4.9 metros — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.32 xG depuis 4.9 mètres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.32 xG look from 4.9 metres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.32 xG desde 4.9 metros — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.32 xG depuis 4.9 mètres — blocked."
+        }
+      ],
+      "provider": "template"
+    },
+    {
+      "candidateId": "cand-0013",
+      "headline": "Lucien Keller's 0.27 xG chance blocked at 5.9m",
+      "body": "Riverside Athletic's 48' opportunity, valued at 0.27 xG from 5.9m, was thwarted, maintaining Northgate United's 0–2 lead.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "48' Riverside Athletic",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Keller's 0.27 xG chance blocked at 5.9m",
+          "body": "Riverside Athletic's 48' opportunity, valued at 0.27 xG from 5.9m, was thwarted, maintaining Northgate United's 0–2 lead."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.27 xG desde 5.9 metros — blocked."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.27 xG depuis 5.9 mètres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 5.9 metres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.27 xG desde 5.9 metros — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.27 xG depuis 5.9 mètres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 5.9 metres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.27 xG desde 5.9 metros — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.27 xG depuis 5.9 mètres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 5.9 metres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.27 xG desde 5.9 metros — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.27 xG depuis 5.9 mètres — blocked."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0014",
+      "headline": "Clive Dahl's 8.7m xG 0.24 effort strikes crossbar at 48'",
+      "body": "Riverside Athletic's 0.24 xG chance from 8.7m out, taken by Clive Dahl, missed the target via post, leaving Northgate United 0–2 ahead.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "48' Riverside Athletic",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Clive Dahl's 8.7m xG 0.24 effort strikes crossbar at 48'",
+          "body": "Riverside Athletic's 0.24 xG chance from 8.7m out, taken by Clive Dahl, missed the target via post, leaving Northgate United 0–2 ahead."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Clive Dahl con 0.24 xG desde 8.7 metros — post."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Clive Dahl avec 0.24 xG depuis 8.7 mètres — post."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.24 xG look from 8.7 metres — post."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Clive Dahl con 0.24 xG desde 8.7 metros — post."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Clive Dahl avec 0.24 xG depuis 8.7 mètres — post."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.24 xG look from 8.7 metres — post."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Clive Dahl con 0.24 xG desde 8.7 metros — post."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Clive Dahl avec 0.24 xG depuis 8.7 mètres — post."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.24 xG look from 8.7 metres — post."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Clive Dahl con 0.24 xG desde 8.7 metros — post."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Clive Dahl avec 0.24 xG depuis 8.7 mètres — post."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0015",
+      "headline": "Lucien Keller scores 24.9m strike at 74.7kph to reduce deficit",
+      "body": "At 51', Lucien Keller's 0.02 xG effort from 24.9m at 74.7kph cut Northgate United's lead to 1–2, marking the highest-velocity non-penalty goal in the match.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "51' NOR score: 1–2, xG 0.02, 24.9m, 74.7km/h",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Keller scores 24.9m strike at 74.7kph to reduce deficit",
+          "body": "At 51', Lucien Keller's 0.02 xG effort from 24.9m at 74.7kph cut Northgate United's lead to 1–2, marking the highest-velocity non-penalty goal in the match."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "GOL — Lucien Keller pone el RIV 1–2 NOR",
+          "body": "Lucien Keller dispara desde 24.9 metros a 74.7 km/h — una ocasión de 0.02 xG. El marcador queda RIV 1–2 NOR."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "BUT — Lucien Keller porte le score à RIV 1–2 NOR",
+          "body": "Lucien Keller frappe depuis 24.9 mètres à 74.7 km/h — une occasion de 0.02 xG. Le score est de RIV 1–2 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "It's in! Lucien Keller scores and the score is RIV 1–2 NOR. The stadium erupts.",
+          "body": "Lucien Keller strikes from 24.9 metres at 74.7 km/h — a 0.02 xG chance. The scoreline now reads RIV 1–2 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "¡Es gol! Lucien Keller marca y el resultado es RIV 1–2 NOR. Explota el estadio.",
+          "body": "Lucien Keller dispara desde 24.9 metros a 74.7 km/h — una ocasión de 0.02 xG. El marcador queda RIV 1–2 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "C'est but ! Lucien Keller marque et le score est de RIV 1–2 NOR. Le stade explose.",
+          "body": "Lucien Keller frappe depuis 24.9 mètres à 74.7 km/h — une occasion de 0.02 xG. Le score est de RIV 1–2 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "YES! Lucien Keller buries it — RIV 1–2 NOR and this one matters. Come on!",
+          "body": "Lucien Keller strikes from 24.9 metres at 74.7 km/h — a 0.02 xG chance. The scoreline now reads RIV 1–2 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "¡SÍ! Lucien Keller la manda a guardar — RIV 1–2 NOR y esto importa. ¡Vamos!",
+          "body": "Lucien Keller dispara desde 24.9 metros a 74.7 km/h — una ocasión de 0.02 xG. El marcador queda RIV 1–2 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "OUI ! Lucien Keller la met au fond — RIV 1–2 NOR et ça compte. Allez !",
+          "body": "Lucien Keller frappe depuis 24.9 mètres à 74.7 km/h — une occasion de 0.02 xG. Le score est de RIV 1–2 NOR."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "GOAL — Lucien Keller makes it RIV 1–2 NOR",
+          "body": "Watch Lucien Keller here: a clean strike from 24.9 metres, worth 0.02 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "GOL — Lucien Keller pone el RIV 1–2 NOR",
+          "body": "Mira a Lucien Keller: un golpeo limpio desde 24.9 metros, 0.02 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "BUT — Lucien Keller porte le score à RIV 1–2 NOR",
+          "body": "Regardez Lucien Keller : une frappe propre depuis 24.9 mètres, 0.02 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0016",
+      "headline": "Back in it",
+      "body": "They're back in it! Lucien Keller halves the deficit — 1–2.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "51' Riverside Athletic",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Back in it",
+          "body": "They're back in it! Lucien Keller halves the deficit — 1–2."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Back in it",
+          "body": "¡Vuelven a meterse! Lucien Keller recorta distancias — 1–2."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Back in it",
+          "body": "Ils reviennent ! Lucien Keller réduit l'écart — 1–2."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Back in it",
+          "body": "They're back in it! Lucien Keller halves the deficit — 1–2."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Back in it",
+          "body": "¡Vuelven a meterse! Lucien Keller recorta distancias — 1–2."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Back in it",
+          "body": "Ils reviennent ! Lucien Keller réduit l'écart — 1–2."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Back in it",
+          "body": "They're back in it! Lucien Keller halves the deficit — 1–2."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Back in it",
+          "body": "¡Vuelven a meterse! Lucien Keller recorta distancias — 1–2."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Back in it",
+          "body": "Ils reviennent ! Lucien Keller réduit l'écart — 1–2."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Back in it",
+          "body": "They're back in it! Lucien Keller halves the deficit — 1–2."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Back in it",
+          "body": "¡Vuelven a meterse! Lucien Keller recorta distancias — 1–2."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Back in it",
+          "body": "Ils reviennent ! Lucien Keller réduit l'écart — 1–2."
+        }
+      ],
+      "provider": "template"
+    },
+    {
+      "candidateId": "cand-0017",
+      "headline": "Lucien Keller's 5.9m xG 0.31 chance saved at 54'",
+      "body": "Riverside Athletic's 5.9m shot by Lucien Keller, valued at 0.31 xG, was denied at 54', preserving Northgate United's 1–2 lead and reducing Riverside's expected goal probability by 0.31.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "54' Riverside Athletic",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Keller's 5.9m xG 0.31 chance saved at 54'",
+          "body": "Riverside Athletic's 5.9m shot by Lucien Keller, valued at 0.31 xG, was denied at 54', preserving Northgate United's 1–2 lead and reducing Riverside's expected goal probability by 0.31."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.31 xG desde 5.9 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.31 xG depuis 5.9 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.31 xG look from 5.9 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.31 xG desde 5.9 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.31 xG depuis 5.9 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.31 xG look from 5.9 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.31 xG desde 5.9 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.31 xG depuis 5.9 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.31 xG look from 5.9 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.31 xG desde 5.9 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.31 xG depuis 5.9 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0018",
+      "headline": "Fionn Karlsson's 54' save denies Riverside Athletic's 0.31 xG chance",
+      "body": "At 54', Fionn Karlsson's 0.94-difficulty stop prevented a 1–2 deficit from worsening, denying shooter p9's 0.31 xG opportunity.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "What a save! Difficulty 0.94 — Fionn Karlsson denies a 0.31 xG chance.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Fionn Karlsson's 54' save denies Riverside Athletic's 0.31 xG chance",
+          "body": "At 54', Fionn Karlsson's 0.94-difficulty stop prevented a 1–2 deficit from worsening, denying shooter p9's 0.31 xG opportunity."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.94 — Fionn Karlsson niega una ocasión de 0.31 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.94 — Fionn Karlsson repousse une occasion de 0.31 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.94 — Fionn Karlsson denies a 0.31 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.94 — Fionn Karlsson niega una ocasión de 0.31 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.94 — Fionn Karlsson repousse une occasion de 0.31 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.94 — Fionn Karlsson denies a 0.31 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.94 — Fionn Karlsson niega una ocasión de 0.31 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.94 — Fionn Karlsson repousse une occasion de 0.31 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.94 — Fionn Karlsson denies a 0.31 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.94 — Fionn Karlsson niega una ocasión de 0.31 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.94 — Fionn Karlsson repousse une occasion de 0.31 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0019",
+      "headline": "Fionn Karlsson's 56' save denies Riverside Athletic's 0.17 xG chance",
+      "body": "With Northgate United trailing 1–2, Karlsson's intervention prevented a 0.72-difficulty chance from shooter p9, preserving a 0.17 xG opportunity for Riverside Athletic.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "What a save! Difficulty 0.72 — Fionn Karlsson denies a 0.17 xG chance.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Fionn Karlsson's 56' save denies Riverside Athletic's 0.17 xG chance",
+          "body": "With Northgate United trailing 1–2, Karlsson's intervention prevented a 0.72-difficulty chance from shooter p9, preserving a 0.17 xG opportunity for Riverside Athletic."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.72 — Fionn Karlsson niega una ocasión de 0.17 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.72 — Fionn Karlsson repousse une occasion de 0.17 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.72 — Fionn Karlsson denies a 0.17 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.72 — Fionn Karlsson niega una ocasión de 0.17 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.72 — Fionn Karlsson repousse une occasion de 0.17 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.72 — Fionn Karlsson denies a 0.17 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.72 — Fionn Karlsson niega una ocasión de 0.17 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.72 — Fionn Karlsson repousse une occasion de 0.17 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.72 — Fionn Karlsson denies a 0.17 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.72 — Fionn Karlsson niega una ocasión de 0.17 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.72 — Fionn Karlsson repousse une occasion de 0.17 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0020",
+      "headline": "Lucien Keller's 7.6m xG 0.26 chance saved at 66'",
+      "body": "Riverside Athletic's 66' opportunity, 7.6m from goal with 0.26 xG, was denied by Northgate United's defense, preserving their 1–2 lead.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "66' Riverside Athletic",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Keller's 7.6m xG 0.26 chance saved at 66'",
+          "body": "Riverside Athletic's 66' opportunity, 7.6m from goal with 0.26 xG, was denied by Northgate United's defense, preserving their 1–2 lead."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.26 xG desde 7.6 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.26 xG depuis 7.6 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.26 xG look from 7.6 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.26 xG desde 7.6 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.26 xG depuis 7.6 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.26 xG look from 7.6 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.26 xG desde 7.6 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.26 xG depuis 7.6 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.26 xG look from 7.6 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.26 xG desde 7.6 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.26 xG depuis 7.6 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0021",
+      "headline": "66' Fionn Karlsson's 0.9-difficulty save denies Riverside Athletic's 0.26 xG chance",
+      "body": "Karlsson's intervention preserved Northgate United's 1–2 lead, nullifying a high-probability chance from Riverside Athletic's p9, whose 0.26 xG shot represented the game's most dangerous opportunity to date.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "What a save! Difficulty 0.9 — Fionn Karlsson denies a 0.26 xG chance.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "66' Fionn Karlsson's 0.9-difficulty save denies Riverside Athletic's 0.26 xG chance",
+          "body": "Karlsson's intervention preserved Northgate United's 1–2 lead, nullifying a high-probability chance from Riverside Athletic's p9, whose 0.26 xG shot represented the game's most dangerous opportunity to date."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.9 — Fionn Karlsson niega una ocasión de 0.26 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.9 — Fionn Karlsson repousse une occasion de 0.26 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.9 — Fionn Karlsson denies a 0.26 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.9 — Fionn Karlsson niega una ocasión de 0.26 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.9 — Fionn Karlsson repousse une occasion de 0.26 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.9 — Fionn Karlsson denies a 0.26 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.9 — Fionn Karlsson niega una ocasión de 0.26 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.9 — Fionn Karlsson repousse une occasion de 0.26 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.9 — Fionn Karlsson denies a 0.26 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.9 — Fionn Karlsson niega una ocasión de 0.26 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.9 — Fionn Karlsson repousse une occasion de 0.26 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0022",
+      "headline": "Lucien Keller scores 15.5m strike at 82.6 kph to equalize at 2–2",
+      "body": "At 69', Lucien Keller's 0.09 xG effort from 15.5m at 82.6 kph leveled the match, nullifying Northgate United's lead with a high-velocity, low-probability finish.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "69' Goal: Riv 2–2 Nor, xG 0.09, 15.5m, 82.6 km/h",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Keller scores 15.5m strike at 82.6 kph to equalize at 2–2",
+          "body": "At 69', Lucien Keller's 0.09 xG effort from 15.5m at 82.6 kph leveled the match, nullifying Northgate United's lead with a high-velocity, low-probability finish."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "GOL — Lucien Keller pone el RIV 2–2 NOR",
+          "body": "Lucien Keller dispara desde 15.5 metros a 82.6 km/h — una ocasión de 0.09 xG. El marcador queda RIV 2–2 NOR."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "BUT — Lucien Keller porte le score à RIV 2–2 NOR",
+          "body": "Lucien Keller frappe depuis 15.5 mètres à 82.6 km/h — une occasion de 0.09 xG. Le score est de RIV 2–2 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "It's in! Lucien Keller scores and the score is RIV 2–2 NOR. The stadium erupts.",
+          "body": "Lucien Keller strikes from 15.5 metres at 82.6 km/h — a 0.09 xG chance. The scoreline now reads RIV 2–2 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "¡Es gol! Lucien Keller marca y el resultado es RIV 2–2 NOR. Explota el estadio.",
+          "body": "Lucien Keller dispara desde 15.5 metros a 82.6 km/h — una ocasión de 0.09 xG. El marcador queda RIV 2–2 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "C'est but ! Lucien Keller marque et le score est de RIV 2–2 NOR. Le stade explose.",
+          "body": "Lucien Keller frappe depuis 15.5 mètres à 82.6 km/h — une occasion de 0.09 xG. Le score est de RIV 2–2 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "YES! Lucien Keller buries it — RIV 2–2 NOR and this one matters. Come on!",
+          "body": "Lucien Keller strikes from 15.5 metres at 82.6 km/h — a 0.09 xG chance. The scoreline now reads RIV 2–2 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "¡SÍ! Lucien Keller la manda a guardar — RIV 2–2 NOR y esto importa. ¡Vamos!",
+          "body": "Lucien Keller dispara desde 15.5 metros a 82.6 km/h — una ocasión de 0.09 xG. El marcador queda RIV 2–2 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "OUI ! Lucien Keller la met au fond — RIV 2–2 NOR et ça compte. Allez !",
+          "body": "Lucien Keller frappe depuis 15.5 mètres à 82.6 km/h — une occasion de 0.09 xG. Le score est de RIV 2–2 NOR."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "GOAL — Lucien Keller makes it RIV 2–2 NOR",
+          "body": "Watch Lucien Keller here: a clean strike from 15.5 metres, worth 0.09 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "GOL — Lucien Keller pone el RIV 2–2 NOR",
+          "body": "Mira a Lucien Keller: un golpeo limpio desde 15.5 metros, 0.09 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "BUT — Lucien Keller porte le score à RIV 2–2 NOR",
+          "body": "Regardez Lucien Keller : une frappe propre depuis 15.5 mètres, 0.09 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0023",
+      "headline": "Milestone",
+      "body": "Lucien Keller completes a brace — 2 goals today.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "69' Riverside Athletic",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Lucien Keller completes a brace — 2 goals today."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Lucien Keller completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Lucien Keller réalise un brace — 2 buts aujourd'hui."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Lucien Keller completes a brace — 2 goals today."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Lucien Keller completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Lucien Keller réalise un brace — 2 buts aujourd'hui."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Lucien Keller completes a brace — 2 goals today."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Lucien Keller completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Lucien Keller réalise un brace — 2 buts aujourd'hui."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Lucien Keller completes a brace — 2 goals today."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Lucien Keller completa un brace — 2 goles hoy."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Lucien Keller réalise un brace — 2 buts aujourd'hui."
+        }
+      ],
+      "provider": "template"
+    },
+    {
+      "candidateId": "cand-0024",
+      "headline": "Lucien Keller's 80' 0.36 xG chance blocked from 2.7m",
+      "body": "Riverside Athletic's 2–2 equalizer threat at 80' was neutralized by a 2.7m-range shot with 0.36 xG, underscoring high-pressure scoring inefficiency in the final third.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "80' 0.36 xG chance blocked from 2.7m",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Keller's 80' 0.36 xG chance blocked from 2.7m",
+          "body": "Riverside Athletic's 2–2 equalizer threat at 80' was neutralized by a 2.7m-range shot with 0.36 xG, underscoring high-pressure scoring inefficiency in the final third."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.36 xG desde 2.7 metros — blocked."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.36 xG depuis 2.7 mètres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.36 xG look from 2.7 metres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.36 xG desde 2.7 metros — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.36 xG depuis 2.7 mètres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.36 xG look from 2.7 metres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.36 xG desde 2.7 metros — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.36 xG depuis 2.7 mètres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.36 xG look from 2.7 metres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.36 xG desde 2.7 metros — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.36 xG depuis 2.7 mètres — blocked."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0025",
+      "headline": "Lucien Keller's 82' 6.5m effort misses target despite 0.27 xG",
+      "body": "Riverside Athletic's 0.27 xG chance from 6.5m out in the 82' failed to convert, leaving the 2–2 draw intact against Northgate United.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "82' Riverside Athletic",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Keller's 82' 6.5m effort misses target despite 0.27 xG",
+          "body": "Riverside Athletic's 0.27 xG chance from 6.5m out in the 82' failed to convert, leaving the 2–2 draw intact against Northgate United."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.27 xG desde 6.5 metros — off_target."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.27 xG depuis 6.5 mètres — off_target."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 6.5 metres — off_target."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.27 xG desde 6.5 metros — off_target."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.27 xG depuis 6.5 mètres — off_target."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 6.5 metres — off_target."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.27 xG desde 6.5 metros — off_target."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.27 xG depuis 6.5 mètres — off_target."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 6.5 metres — off_target."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Riverside Athletic: Lucien Keller con 0.27 xG desde 6.5 metros — off_target."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Riverside Athletic : Lucien Keller avec 0.27 xG depuis 6.5 mètres — off_target."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0026",
+      "headline": "Lucien Keller scores 85' goal, 17.3m, 85.9kph, xG 0.06",
+      "body": "Riverside Athletic's 3–2 lead at 85' is secured by Lucien Keller's 17.3m strike at 85.9kph, a low-xG (0.06) finish that capitalizes on Northgate United's defensive lapse in the final minutes.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "85' Goal: Riv 3–2 Nor, xG 0.06, 17.3m, 85.9km/h",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Keller scores 85' goal, 17.3m, 85.9kph, xG 0.06",
+          "body": "Riverside Athletic's 3–2 lead at 85' is secured by Lucien Keller's 17.3m strike at 85.9kph, a low-xG (0.06) finish that capitalizes on Northgate United's defensive lapse in the final minutes."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "GOL — Lucien Keller pone el RIV 3–2 NOR",
+          "body": "Lucien Keller dispara desde 17.3 metros a 85.9 km/h — una ocasión de 0.06 xG. El marcador queda RIV 3–2 NOR."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "BUT — Lucien Keller porte le score à RIV 3–2 NOR",
+          "body": "Lucien Keller frappe depuis 17.3 mètres à 85.9 km/h — une occasion de 0.06 xG. Le score est de RIV 3–2 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "It's in! Lucien Keller scores and the score is RIV 3–2 NOR. The stadium erupts.",
+          "body": "Lucien Keller strikes from 17.3 metres at 85.9 km/h — a 0.06 xG chance. The scoreline now reads RIV 3–2 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "¡Es gol! Lucien Keller marca y el resultado es RIV 3–2 NOR. Explota el estadio.",
+          "body": "Lucien Keller dispara desde 17.3 metros a 85.9 km/h — una ocasión de 0.06 xG. El marcador queda RIV 3–2 NOR."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "C'est but ! Lucien Keller marque et le score est de RIV 3–2 NOR. Le stade explose.",
+          "body": "Lucien Keller frappe depuis 17.3 mètres à 85.9 km/h — une occasion de 0.06 xG. Le score est de RIV 3–2 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "YES! Lucien Keller buries it — RIV 3–2 NOR and this one matters. Come on!",
+          "body": "Lucien Keller strikes from 17.3 metres at 85.9 km/h — a 0.06 xG chance. The scoreline now reads RIV 3–2 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "¡SÍ! Lucien Keller la manda a guardar — RIV 3–2 NOR y esto importa. ¡Vamos!",
+          "body": "Lucien Keller dispara desde 17.3 metros a 85.9 km/h — una ocasión de 0.06 xG. El marcador queda RIV 3–2 NOR."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "OUI ! Lucien Keller la met au fond — RIV 3–2 NOR et ça compte. Allez !",
+          "body": "Lucien Keller frappe depuis 17.3 mètres à 85.9 km/h — une occasion de 0.06 xG. Le score est de RIV 3–2 NOR."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "GOAL — Lucien Keller makes it RIV 3–2 NOR",
+          "body": "Watch Lucien Keller here: a clean strike from 17.3 metres, worth 0.06 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "GOL — Lucien Keller pone el RIV 3–2 NOR",
+          "body": "Mira a Lucien Keller: un golpeo limpio desde 17.3 metros, 0.06 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "BUT — Lucien Keller porte le score à RIV 3–2 NOR",
+          "body": "Regardez Lucien Keller : une frappe propre depuis 17.3 mètres, 0.06 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0027",
+      "headline": "Lucien Keller completes hat-trick in 85'",
+      "body": "Lucien Keller becomes the first player in 85' to score 3 goals for Riverside Athletic, sealing a 3–2 lead against Northgate United.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "85' Riverside Athletic",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Keller completes hat-trick in 85'",
+          "body": "Lucien Keller becomes the first player in 85' to score 3 goals for Riverside Athletic, sealing a 3–2 lead against Northgate United."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Lucien Keller completa un hat-trick — 3 goles hoy."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Lucien Keller réalise un hat-trick — 3 buts aujourd'hui."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Lucien Keller completes a hat-trick — 3 goals today."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Lucien Keller completa un hat-trick — 3 goles hoy."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Lucien Keller réalise un hat-trick — 3 buts aujourd'hui."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Lucien Keller completes a hat-trick — 3 goals today."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Lucien Keller completa un hat-trick — 3 goles hoy."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Lucien Keller réalise un hat-trick — 3 buts aujourd'hui."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Milestone",
+          "body": "Lucien Keller completes a hat-trick — 3 goals today."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Milestone",
+          "body": "Lucien Keller completa un hat-trick — 3 goles hoy."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Milestone",
+          "body": "Lucien Keller réalise un hat-trick — 3 buts aujourd'hui."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0028",
+      "headline": "Lucien Keller's 85' strike secures 3–2 comeback for Riverside Athletic",
+      "body": "At 85', Lucien Keller's goal transformed a 2–3 deficit into a 3–2 lead, reversing momentum in a high-stakes clash with Northgate United.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "85': 3–2, late drama in full swing",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Keller's 85' strike secures 3–2 comeback for Riverside Athletic",
+          "body": "At 85', Lucien Keller's goal transformed a 2–3 deficit into a 3–2 lead, reversing momentum in a high-stakes clash with Northgate United."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Late drama",
+          "body": "¡DRAMA AL FINAL al 85'! Riverside Athletic golpea con el tiempo casi agotado — 3–2."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Late drama",
+          "body": "DRAME EN FIN DE MATCH à la 85' ! Riverside Athletic frappe à l'ultime moment — 3–2."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Late drama",
+          "body": "LATE DRAMA at 85'! Riverside Athletic strike with the clock nearly out — 3–2."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Late drama",
+          "body": "¡DRAMA AL FINAL al 85'! Riverside Athletic golpea con el tiempo casi agotado — 3–2."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Late drama",
+          "body": "DRAME EN FIN DE MATCH à la 85' ! Riverside Athletic frappe à l'ultime moment — 3–2."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Late drama",
+          "body": "LATE DRAMA at 85'! Riverside Athletic strike with the clock nearly out — 3–2."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Late drama",
+          "body": "¡DRAMA AL FINAL al 85'! Riverside Athletic golpea con el tiempo casi agotado — 3–2."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Late drama",
+          "body": "DRAME EN FIN DE MATCH à la 85' ! Riverside Athletic frappe à l'ultime moment — 3–2."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Late drama",
+          "body": "LATE DRAMA at 85'! Riverside Athletic strike with the clock nearly out — 3–2."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Late drama",
+          "body": "¡DRAMA AL FINAL al 85'! Riverside Athletic golpea con el tiempo casi agotado — 3–2."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Late drama",
+          "body": "DRAME EN FIN DE MATCH à la 85' ! Riverside Athletic frappe à l'ultime moment — 3–2."
+        }
+      ],
+      "provider": "llm"
+    }
+  ]
+}

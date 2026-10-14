@@ -1,0 +1,2415 @@
+{
+  "scenarioId": "siege",
+  "seed": 2026,
+  "provider": "featherless",
+  "model": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "moments": [
+    {
+      "candidateId": "cand-0027",
+      "headline": "Viggo Ortega's 32.7 kph sprint at 3' breaks early rhythm",
+      "body": "At 3 minutes, Viggo Ortega's 32.7 kph burst for Old Tower FC initiated the first high-velocity offensive threat, disrupting Harbour City's defensive setup before the score reached 0–0.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": null,
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Viggo Ortega's 32.7 kph sprint at 3' breaks early rhythm",
+          "body": "At 3 minutes, Viggo Ortega's 32.7 kph burst for Old Tower FC initiated the first high-velocity offensive threat, disrupting Harbour City's defensive setup before the score reached 0–0."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Viggo Ortega: 32.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Viggo Ortega : 32.7 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Viggo Ortega: 32.7 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Viggo Ortega: 32.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Viggo Ortega : 32.7 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Viggo Ortega: 32.7 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Viggo Ortega: 32.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Viggo Ortega : 32.7 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Viggo Ortega: 32.7 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Viggo Ortega: 32.7 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Viggo Ortega : 32.7 km/h — la plus élevée du match jusqu'ici."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0001",
+      "headline": "Viggo Ortega's 5.7m shot at 3' holds 0.27 xG but saved",
+      "body": "A 0.27 expected goal chance from 5.7 meters by Viggo Ortega for Old Tower FC was thwarted at 3', maintaining the 0–0 deadlock against Harbour City.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "3' - 0.27 xG chance saved from 5.7m",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Viggo Ortega's 5.7m shot at 3' holds 0.27 xG but saved",
+          "body": "A 0.27 expected goal chance from 5.7 meters by Viggo Ortega for Old Tower FC was thwarted at 3', maintaining the 0–0 deadlock against Harbour City."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Old Tower FC: Viggo Ortega con 0.27 xG desde 5.7 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Old Tower FC : Viggo Ortega avec 0.27 xG depuis 5.7 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Old Tower FC: Viggo Ortega gets a 0.27 xG look from 5.7 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Old Tower FC: Viggo Ortega con 0.27 xG desde 5.7 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Old Tower FC : Viggo Ortega avec 0.27 xG depuis 5.7 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Old Tower FC: Viggo Ortega gets a 0.27 xG look from 5.7 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Old Tower FC: Viggo Ortega con 0.27 xG desde 5.7 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Old Tower FC : Viggo Ortega avec 0.27 xG depuis 5.7 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Old Tower FC: Viggo Ortega gets a 0.27 xG look from 5.7 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Old Tower FC: Viggo Ortega con 0.27 xG desde 5.7 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Old Tower FC : Viggo Ortega avec 0.27 xG depuis 5.7 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0002",
+      "headline": "Valentin Heikkila's 3' save denies Old Tower FC's 0.27 xG chance",
+      "body": "Heikkila's intervention at 3' prevented a 0.79-difficulty shot from Old Tower FC's player 11, preserving Harbour City's 0–0 lead with a 0.27 xG threat neutralized.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "3' - 0.79 difficulty save, 0.27 xG, 0–0",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Valentin Heikkila's 3' save denies Old Tower FC's 0.27 xG chance",
+          "body": "Heikkila's intervention at 3' prevented a 0.79-difficulty shot from Old Tower FC's player 11, preserving Harbour City's 0–0 lead with a 0.27 xG threat neutralized."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.79 — Valentin Heikkila niega una ocasión de 0.27 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.79 — Valentin Heikkila repousse une occasion de 0.27 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.79 — Valentin Heikkila denies a 0.27 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.79 — Valentin Heikkila niega una ocasión de 0.27 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.79 — Valentin Heikkila repousse une occasion de 0.27 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.79 — Valentin Heikkila denies a 0.27 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.79 — Valentin Heikkila niega una ocasión de 0.27 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.79 — Valentin Heikkila repousse une occasion de 0.27 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.79 — Valentin Heikkila denies a 0.27 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.79 — Valentin Heikkila niega una ocasión de 0.27 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.79 — Valentin Heikkila repousse une occasion de 0.27 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0028",
+      "headline": "Viggo Ortega's 36 kph sprint at 6'",
+      "body": "The fastest recorded burst of the match, 36 kph by Viggo Ortega, initiated Old Tower FC's first sustained offensive pressure in the opening six minutes, disrupting Harbour City's defensive line early.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": null,
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Viggo Ortega's 36 kph sprint at 6'",
+          "body": "The fastest recorded burst of the match, 36 kph by Viggo Ortega, initiated Old Tower FC's first sustained offensive pressure in the opening six minutes, disrupting Harbour City's defensive line early."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Viggo Ortega: 36 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Viggo Ortega : 36 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Viggo Ortega: 36 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Viggo Ortega: 36 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Viggo Ortega : 36 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Viggo Ortega: 36 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Viggo Ortega: 36 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Viggo Ortega : 36 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Viggo Ortega: 36 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Viggo Ortega: 36 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Viggo Ortega : 36 km/h — la plus élevée du match jusqu'ici."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0029",
+      "headline": "Dario Lombardi's 33.3 kph sprint at 9'",
+      "body": "Lombardi's 33.3 kph burst in the 9th minute marked the fastest recorded speed of the match, initiating Harbour City's early attacking pressure against Old Tower FC at 0–0.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": null,
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Dario Lombardi's 33.3 kph sprint at 9'",
+          "body": "Lombardi's 33.3 kph burst in the 9th minute marked the fastest recorded speed of the match, initiating Harbour City's early attacking pressure against Old Tower FC at 0–0."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Dario Lombardi: 33.3 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Dario Lombardi : 33.3 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Dario Lombardi: 33.3 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Dario Lombardi: 33.3 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Dario Lombardi : 33.3 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Dario Lombardi: 33.3 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Dario Lombardi: 33.3 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Dario Lombardi : 33.3 km/h — la plus élevée du match jusqu'ici."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Dario Lombardi: 33.3 km/h — the fastest of the match so far."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Fastest of the match",
+          "body": "Velocidad explosiva de Dario Lombardi: 33.3 km/h — la más alta del partido hasta ahora."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Fastest of the match",
+          "body": "Vitesse fulgurante de Dario Lombardi : 33.3 km/h — la plus élevée du match jusqu'ici."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0003",
+      "headline": "Halvard Tuominen's 6.9m xG 0.3 chance saved at 15'",
+      "body": "Harbour City's 0.3 xG opportunity from 6.9m, converted by Halvard Tuominen, was denied by Old Tower FC's goalkeeper, preserving the 0–0 deadlock.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "15' - 0.3 xG chance, saved from 6.9m, 0-0",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Halvard Tuominen's 6.9m xG 0.3 chance saved at 15'",
+          "body": "Harbour City's 0.3 xG opportunity from 6.9m, converted by Halvard Tuominen, was denied by Old Tower FC's goalkeeper, preserving the 0–0 deadlock."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.3 xG desde 6.9 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.3 xG depuis 6.9 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.3 xG look from 6.9 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.3 xG desde 6.9 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.3 xG depuis 6.9 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.3 xG look from 6.9 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.3 xG desde 6.9 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.3 xG depuis 6.9 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.3 xG look from 6.9 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.3 xG desde 6.9 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.3 xG depuis 6.9 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0004",
+      "headline": "15' Franco Halvorsen denies Harbour City's p11 with 0.86-difficulty save at 0–0",
+      "body": "Halvorsen's intervention prevented a 0.3 xG chance, preserving Old Tower FC's clean sheet against Harbour City's 11th player in a high-pressure 0–0 deadlock.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "What a save! Difficulty 0.86 — Franco Halvorsen denies a 0.3 xG chance.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "15' Franco Halvorsen denies Harbour City's p11 with 0.86-difficulty save at 0–0",
+          "body": "Halvorsen's intervention prevented a 0.3 xG chance, preserving Old Tower FC's clean sheet against Harbour City's 11th player in a high-pressure 0–0 deadlock."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.86 — Franco Halvorsen niega una ocasión de 0.3 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.86 — Franco Halvorsen repousse une occasion de 0.3 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.86 — Franco Halvorsen denies a 0.3 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.86 — Franco Halvorsen niega una ocasión de 0.3 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.86 — Franco Halvorsen repousse une occasion de 0.3 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.86 — Franco Halvorsen denies a 0.3 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.86 — Franco Halvorsen niega una ocasión de 0.3 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.86 — Franco Halvorsen repousse une occasion de 0.3 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.86 — Franco Halvorsen denies a 0.3 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.86 — Franco Halvorsen niega una ocasión de 0.3 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.86 — Franco Halvorsen repousse une occasion de 0.3 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0007",
+      "headline": "Harbour City seizes 55% momentum shift at 15'",
+      "body": "With 0–0 deadlock, Harbour City's 0.55 swing in momentum over 5 minutes establishes 0.467 current momentum, signaling decisive home-side control.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "Momentum has swung to Harbour City — a 0.55 shift over the last five minutes.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Harbour City seizes 55% momentum shift at 15'",
+          "body": "With 0–0 deadlock, Harbour City's 0.55 swing in momentum over 5 minutes establishes 0.467 current momentum, signaling decisive home-side control."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Harbour City — un giro de 0.55 en cinco minutos."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Harbour City — un écart de 0.55 sur cinq minutes."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Harbour City — a 0.55 shift over the last five minutes."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Harbour City — un giro de 0.55 en cinco minutos."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Harbour City — un écart de 0.55 sur cinq minutes."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Harbour City — a 0.55 shift over the last five minutes."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Harbour City — un giro de 0.55 en cinco minutos."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Harbour City — un écart de 0.55 sur cinq minutes."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Harbour City — a 0.55 shift over the last five minutes."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Harbour City — un giro de 0.55 en cinco minutos."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Harbour City — un écart de 0.55 sur cinq minutes."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0005",
+      "headline": "Lucien Eriksen's 8.4m xG 0.22 chance saved at 16'",
+      "body": "Harbour City's 0.22 xG opportunity from 8.4m, generated by Lucien Eriksen, was denied by Old Tower FC's goalkeeper, preserving the 0–0 deadlock.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "16' - 0.22 xG chance saved, 8.4m",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Lucien Eriksen's 8.4m xG 0.22 chance saved at 16'",
+          "body": "Harbour City's 0.22 xG opportunity from 8.4m, generated by Lucien Eriksen, was denied by Old Tower FC's goalkeeper, preserving the 0–0 deadlock."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Lucien Eriksen con 0.22 xG desde 8.4 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Lucien Eriksen avec 0.22 xG depuis 8.4 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Lucien Eriksen gets a 0.22 xG look from 8.4 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Lucien Eriksen con 0.22 xG desde 8.4 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Lucien Eriksen avec 0.22 xG depuis 8.4 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Lucien Eriksen gets a 0.22 xG look from 8.4 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Lucien Eriksen con 0.22 xG desde 8.4 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Lucien Eriksen avec 0.22 xG depuis 8.4 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Lucien Eriksen gets a 0.22 xG look from 8.4 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Lucien Eriksen con 0.22 xG desde 8.4 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Lucien Eriksen avec 0.22 xG depuis 8.4 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0006",
+      "headline": "16' Franco Halvorsen (Old Tower FC) denies harbour-p5 with 0.75 difficulty save at 0.22 xG",
+      "body": "Halvorsen's intervention prevented a 0.22 xG chance from harbour-p5, maintaining the 0–0 deadlock with a high-difficulty stop under pressure.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "What a save! Difficulty 0.75 — Franco Halvorsen denies a 0.22 xG chance.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "16' Franco Halvorsen (Old Tower FC) denies harbour-p5 with 0.75 difficulty save at 0.22 xG",
+          "body": "Halvorsen's intervention prevented a 0.22 xG chance from harbour-p5, maintaining the 0–0 deadlock with a high-difficulty stop under pressure."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.75 — Franco Halvorsen niega una ocasión de 0.22 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.75 — Franco Halvorsen repousse une occasion de 0.22 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.75 — Franco Halvorsen denies a 0.22 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.75 — Franco Halvorsen niega una ocasión de 0.22 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.75 — Franco Halvorsen repousse une occasion de 0.22 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.75 — Franco Halvorsen denies a 0.22 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.75 — Franco Halvorsen niega una ocasión de 0.22 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.75 — Franco Halvorsen repousse une occasion de 0.22 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.75 — Franco Halvorsen denies a 0.22 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.75 — Franco Halvorsen niega una ocasión de 0.22 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.75 — Franco Halvorsen repousse une occasion de 0.22 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0008",
+      "headline": "Emil Rahman's 6.7m shot misses target with 0.3 xG",
+      "body": "At 28', Emil Rahman of Old Tower FC generated 0.3 xG from a 6.7m range attempt, but the effort was off-target, failing to convert a high-probability chance in a 0–0 deadlock against Harbour City.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "28' - 0.3 xG, off target, 6.7m - 0–0",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Emil Rahman's 6.7m shot misses target with 0.3 xG",
+          "body": "At 28', Emil Rahman of Old Tower FC generated 0.3 xG from a 6.7m range attempt, but the effort was off-target, failing to convert a high-probability chance in a 0–0 deadlock against Harbour City."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Old Tower FC: Emil Rahman con 0.3 xG desde 6.7 metros — off_target."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Old Tower FC : Emil Rahman avec 0.3 xG depuis 6.7 mètres — off_target."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Old Tower FC: Emil Rahman gets a 0.3 xG look from 6.7 metres — off_target."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Old Tower FC: Emil Rahman con 0.3 xG desde 6.7 metros — off_target."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Old Tower FC : Emil Rahman avec 0.3 xG depuis 6.7 mètres — off_target."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Old Tower FC: Emil Rahman gets a 0.3 xG look from 6.7 metres — off_target."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Old Tower FC: Emil Rahman con 0.3 xG desde 6.7 metros — off_target."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Old Tower FC : Emil Rahman avec 0.3 xG depuis 6.7 mètres — off_target."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Old Tower FC: Emil Rahman gets a 0.3 xG look from 6.7 metres — off_target."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Old Tower FC: Emil Rahman con 0.3 xG desde 6.7 metros — off_target."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Old Tower FC : Emil Rahman avec 0.3 xG depuis 6.7 mètres — off_target."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0009",
+      "headline": "39' Penalty awarded to Harbour City at 0–0",
+      "body": "A penalty was awarded to Harbour City in the 39th minute during a 0–0 deadlock against Old Tower FC, marking the first major chance of the match.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "Penalty awarded, 39', score 0–0",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "39' Penalty awarded to Harbour City at 0–0",
+          "body": "A penalty was awarded to Harbour City in the 39th minute during a 0–0 deadlock against Old Tower FC, marking the first major chance of the match."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Penalty",
+          "body": "¡Penalti para Harbour City! Una ocasión enorme al 39'."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Penalty",
+          "body": "Penalty pour Harbour City ! Une occasion énorme à la 39'."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Penalty",
+          "body": "Penalty to Harbour City! A huge chance at 39'."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Penalty",
+          "body": "¡Penalti para Harbour City! Una ocasión enorme al 39'."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Penalty",
+          "body": "Penalty pour Harbour City ! Une occasion énorme à la 39'."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Penalty",
+          "body": "Penalty to Harbour City! A huge chance at 39'."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Penalty",
+          "body": "¡Penalti para Harbour City! Una ocasión enorme al 39'."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Penalty",
+          "body": "Penalty pour Harbour City ! Une occasion énorme à la 39'."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Penalty",
+          "body": "Penalty to Harbour City! A huge chance at 39'."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Penalty",
+          "body": "¡Penalti para Harbour City! Una ocasión enorme al 39'."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Penalty",
+          "body": "Penalty pour Harbour City ! Une occasion énorme à la 39'."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0010",
+      "headline": "Duncan Jankovic's 11m xG 0.78 chance saved at 39'",
+      "body": "Harbour City's 39' opportunity, with 0.78 xG from 11m out, was denied by Old Tower FC's goalkeeper, maintaining the 0–0 deadlock.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "39' - 0.78 xG chance, saved from 11m, 0-0",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Duncan Jankovic's 11m xG 0.78 chance saved at 39'",
+          "body": "Harbour City's 39' opportunity, with 0.78 xG from 11m out, was denied by Old Tower FC's goalkeeper, maintaining the 0–0 deadlock."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Duncan Jankovic con 0.78 xG desde 11 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Duncan Jankovic avec 0.78 xG depuis 11 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Duncan Jankovic gets a 0.78 xG look from 11 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Duncan Jankovic con 0.78 xG desde 11 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Duncan Jankovic avec 0.78 xG depuis 11 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Duncan Jankovic gets a 0.78 xG look from 11 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Duncan Jankovic con 0.78 xG desde 11 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Duncan Jankovic avec 0.78 xG depuis 11 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Duncan Jankovic gets a 0.78 xG look from 11 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Duncan Jankovic con 0.78 xG desde 11 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Duncan Jankovic avec 0.78 xG depuis 11 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0011",
+      "headline": "39' - Franco Halvorsen's 0.78 xG stop",
+      "body": "Franco Halvorsen denied Harbour City's p15 a 0.78 xG chance, preserving Old Tower FC's 0–0 lead with a high-difficulty save in the 39th minute.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "What a save! Difficulty 1 — Franco Halvorsen denies a 0.78 xG chance.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "39' - Franco Halvorsen's 0.78 xG stop",
+          "body": "Franco Halvorsen denied Harbour City's p15 a 0.78 xG chance, preserving Old Tower FC's 0–0 lead with a high-difficulty save in the 39th minute."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 1 — Franco Halvorsen niega una ocasión de 0.78 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 1 — Franco Halvorsen repousse une occasion de 0.78 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 1 — Franco Halvorsen denies a 0.78 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 1 — Franco Halvorsen niega una ocasión de 0.78 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 1 — Franco Halvorsen repousse une occasion de 0.78 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 1 — Franco Halvorsen denies a 0.78 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 1 — Franco Halvorsen niega una ocasión de 0.78 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 1 — Franco Halvorsen repousse une occasion de 0.78 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 1 — Franco Halvorsen denies a 0.78 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 1 — Franco Halvorsen niega una ocasión de 0.78 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 1 — Franco Halvorsen repousse une occasion de 0.78 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0012",
+      "headline": "Piotr Ibarra's 5.2m xG 0.34 chance blocked at 48'",
+      "body": "A 5.2m shot from Piotr Ibarra generated 0.34 xG, the highest expected threat of the match to date, but was blocked, preserving the 0–0 deadlock at 48'.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "48' Old Tower FC",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Piotr Ibarra's 5.2m xG 0.34 chance blocked at 48'",
+          "body": "A 5.2m shot from Piotr Ibarra generated 0.34 xG, the highest expected threat of the match to date, but was blocked, preserving the 0–0 deadlock at 48'."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Old Tower FC: Piotr Ibarra con 0.34 xG desde 5.2 metros — blocked."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Old Tower FC : Piotr Ibarra avec 0.34 xG depuis 5.2 mètres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Old Tower FC: Piotr Ibarra gets a 0.34 xG look from 5.2 metres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Old Tower FC: Piotr Ibarra con 0.34 xG desde 5.2 metros — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Old Tower FC : Piotr Ibarra avec 0.34 xG depuis 5.2 mètres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Old Tower FC: Piotr Ibarra gets a 0.34 xG look from 5.2 metres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Old Tower FC: Piotr Ibarra con 0.34 xG desde 5.2 metros — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Old Tower FC : Piotr Ibarra avec 0.34 xG depuis 5.2 mètres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Old Tower FC: Piotr Ibarra gets a 0.34 xG look from 5.2 metres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Old Tower FC: Piotr Ibarra con 0.34 xG desde 5.2 metros — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Old Tower FC : Piotr Ibarra avec 0.34 xG depuis 5.2 mètres — blocked."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0013",
+      "headline": "Halvard Tuominen's 7.9m xG 0.21 effort saved at 55'",
+      "body": "A 0.21 xG chance from 7.9m by Halvard Tuominen for Harbour City was denied, preserving the 0–0 deadlock at 55'.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "55' Harbour City",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Halvard Tuominen's 7.9m xG 0.21 effort saved at 55'",
+          "body": "A 0.21 xG chance from 7.9m by Halvard Tuominen for Harbour City was denied, preserving the 0–0 deadlock at 55'."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.21 xG desde 7.9 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.21 xG depuis 7.9 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.21 xG look from 7.9 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.21 xG desde 7.9 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.21 xG depuis 7.9 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.21 xG look from 7.9 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.21 xG desde 7.9 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.21 xG depuis 7.9 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.21 xG look from 7.9 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.21 xG desde 7.9 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.21 xG depuis 7.9 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0014",
+      "headline": "55' Franco Halvorsen denies Harbour City's p11 with 0.74-difficulty save at 0–0",
+      "body": "Halvorsen's 0.21 xG stop prevented a high-probability chance, maintaining the 0–0 deadlock with a save rated 74% difficulty against Harbour City's p11.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "What a save! Difficulty 0.74 — Franco Halvorsen denies a 0.21 xG chance.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "55' Franco Halvorsen denies Harbour City's p11 with 0.74-difficulty save at 0–0",
+          "body": "Halvorsen's 0.21 xG stop prevented a high-probability chance, maintaining the 0–0 deadlock with a save rated 74% difficulty against Harbour City's p11."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.74 — Franco Halvorsen niega una ocasión de 0.21 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.74 — Franco Halvorsen repousse une occasion de 0.21 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.74 — Franco Halvorsen denies a 0.21 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.74 — Franco Halvorsen niega una ocasión de 0.21 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.74 — Franco Halvorsen repousse une occasion de 0.21 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.74 — Franco Halvorsen denies a 0.21 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.74 — Franco Halvorsen niega una ocasión de 0.21 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.74 — Franco Halvorsen repousse une occasion de 0.21 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.74 — Franco Halvorsen denies a 0.21 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.74 — Franco Halvorsen niega una ocasión de 0.21 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.74 — Franco Halvorsen repousse une occasion de 0.21 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0015",
+      "headline": "62' Dario Lombardi's 75.8m xG 0.34 chance saved",
+      "body": "Harbour City's 0–0 deadlock persists as Dario Lombardi's 75.8m strike, valued at 0.34 xG, is denied by Old Tower FC's goalkeeper, preserving the stalemate.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "62' Harbour City",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "62' Dario Lombardi's 75.8m xG 0.34 chance saved",
+          "body": "Harbour City's 0–0 deadlock persists as Dario Lombardi's 75.8m strike, valued at 0.34 xG, is denied by Old Tower FC's goalkeeper, preserving the stalemate."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Dario Lombardi con 0.34 xG desde 75.8 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Dario Lombardi avec 0.34 xG depuis 75.8 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Dario Lombardi gets a 0.34 xG look from 75.8 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Dario Lombardi con 0.34 xG desde 75.8 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Dario Lombardi avec 0.34 xG depuis 75.8 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Dario Lombardi gets a 0.34 xG look from 75.8 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Dario Lombardi con 0.34 xG desde 75.8 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Dario Lombardi avec 0.34 xG depuis 75.8 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Dario Lombardi gets a 0.34 xG look from 75.8 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Dario Lombardi con 0.34 xG desde 75.8 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Dario Lombardi avec 0.34 xG depuis 75.8 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0016",
+      "headline": "62' Franco Halvorsen denies harbour-p7 with 0.78-difficulty save at 0.34 xG",
+      "body": "Halvorsen's intervention prevented a 0.34 xG chance from harbour-p7, maintaining the 0–0 deadlock with a save rated at 0.78 difficulty.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "What a save! Difficulty 0.78 — Franco Halvorsen denies a 0.34 xG chance.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "62' Franco Halvorsen denies harbour-p7 with 0.78-difficulty save at 0.34 xG",
+          "body": "Halvorsen's intervention prevented a 0.34 xG chance from harbour-p7, maintaining the 0–0 deadlock with a save rated at 0.78 difficulty."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.78 — Franco Halvorsen niega una ocasión de 0.34 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.78 — Franco Halvorsen repousse une occasion de 0.34 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.78 — Franco Halvorsen denies a 0.34 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.78 — Franco Halvorsen niega una ocasión de 0.34 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.78 — Franco Halvorsen repousse une occasion de 0.34 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.78 — Franco Halvorsen denies a 0.34 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.78 — Franco Halvorsen niega una ocasión de 0.34 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.78 — Franco Halvorsen repousse une occasion de 0.34 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.78 — Franco Halvorsen denies a 0.34 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.78 — Franco Halvorsen niega una ocasión de 0.34 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.78 — Franco Halvorsen repousse une occasion de 0.34 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0017",
+      "headline": "74' Halvard Tuominen's 7.4m xG 0.28 chance saved",
+      "body": "At 74', Halvard Tuominen's 7.4m shot from a 0.28 xG opportunity was denied, preserving Old Tower FC's 0–0 lead and maintaining Harbour City's 0.28 expected goal threat at that moment.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "74' - 0.28 xG chance saved from 7.4m, 0-0",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "74' Halvard Tuominen's 7.4m xG 0.28 chance saved",
+          "body": "At 74', Halvard Tuominen's 7.4m shot from a 0.28 xG opportunity was denied, preserving Old Tower FC's 0–0 lead and maintaining Harbour City's 0.28 expected goal threat at that moment."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.28 xG desde 7.4 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.28 xG depuis 7.4 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.28 xG look from 7.4 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.28 xG desde 7.4 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.28 xG depuis 7.4 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.28 xG look from 7.4 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.28 xG desde 7.4 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.28 xG depuis 7.4 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.28 xG look from 7.4 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.28 xG desde 7.4 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.28 xG depuis 7.4 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0018",
+      "headline": "74' Franco Halvorsen denies Harbour City's p11 with 0.83-difficulty save at 0–0",
+      "body": "Halvorsen's 0.83-difficulty stop prevented a 0.28 xG chance, preserving Old Tower FC's 0–0 deadlock against Harbour City's p11 in the 74th minute.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "What a save! Difficulty 0.83 — Franco Halvorsen denies a 0.28 xG chance.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "74' Franco Halvorsen denies Harbour City's p11 with 0.83-difficulty save at 0–0",
+          "body": "Halvorsen's 0.83-difficulty stop prevented a 0.28 xG chance, preserving Old Tower FC's 0–0 deadlock against Harbour City's p11 in the 74th minute."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.83 — Franco Halvorsen niega una ocasión de 0.28 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.83 — Franco Halvorsen repousse une occasion de 0.28 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.83 — Franco Halvorsen denies a 0.28 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.83 — Franco Halvorsen niega una ocasión de 0.28 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.83 — Franco Halvorsen repousse une occasion de 0.28 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.83 — Franco Halvorsen denies a 0.28 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.83 — Franco Halvorsen niega una ocasión de 0.28 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.83 — Franco Halvorsen repousse une occasion de 0.28 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.83 — Franco Halvorsen denies a 0.28 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.83 — Franco Halvorsen niega una ocasión de 0.28 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.83 — Franco Halvorsen repousse une occasion de 0.28 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0019",
+      "headline": "81' Halvard Tuominen's 9.5m xG 0.2 chance blocked for Harbour City",
+      "body": "At 81', Halvard Tuominen's 9.5m shot with 0.2 xG was blocked, preserving Old Tower FC's 0–0 lead and denying Harbour City a high-probability chance in a tightly contested match.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "81' Harbour City",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "81' Halvard Tuominen's 9.5m xG 0.2 chance blocked for Harbour City",
+          "body": "At 81', Halvard Tuominen's 9.5m shot with 0.2 xG was blocked, preserving Old Tower FC's 0–0 lead and denying Harbour City a high-probability chance in a tightly contested match."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.2 xG desde 9.5 metros — blocked."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.2 xG depuis 9.5 mètres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.2 xG look from 9.5 metres — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.2 xG desde 9.5 metros — blocked."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.2 xG depuis 9.5 mètres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.2 xG look from 9.5 metres — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.2 xG desde 9.5 metros — blocked."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.2 xG depuis 9.5 mètres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.2 xG look from 9.5 metres — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.2 xG desde 9.5 metros — blocked."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.2 xG depuis 9.5 mètres — blocked."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0020",
+      "headline": "88' Valentin Heikkila denies Old Tower FC's p11 with 0.6 difficulty save at 0–0",
+      "body": "0.13 xG shot by Old Tower FC's p11 faced a 0.6 difficulty stop, preserving Harbour City's 0–0 deadlock in the 88th minute.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "88' - 0.6 diff save, 0.13 xG, 0–0",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "88' Valentin Heikkila denies Old Tower FC's p11 with 0.6 difficulty save at 0–0",
+          "body": "0.13 xG shot by Old Tower FC's p11 faced a 0.6 difficulty stop, preserving Harbour City's 0–0 deadlock in the 88th minute."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.6 — Valentin Heikkila niega una ocasión de 0.13 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.6 — Valentin Heikkila repousse une occasion de 0.13 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.6 — Valentin Heikkila denies a 0.13 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.6 — Valentin Heikkila niega una ocasión de 0.13 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.6 — Valentin Heikkila repousse une occasion de 0.13 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.6 — Valentin Heikkila denies a 0.13 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.6 — Valentin Heikkila niega una ocasión de 0.13 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.6 — Valentin Heikkila repousse une occasion de 0.13 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.6 — Valentin Heikkila denies a 0.13 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.6 — Valentin Heikkila niega una ocasión de 0.13 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.6 — Valentin Heikkila repousse une occasion de 0.13 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0021",
+      "headline": "Tuominen's 27.2m strike at 102kph seals 1–0 win in 89'",
+      "body": "At 89', Halvard Tuominen's 27.2m shot at 102kph delivered 0.02 xG, securing HAR 1–0 OLD with 1.00 xG differential and 100% shot efficiency in the final minute.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "HAR 1–0 OLD: 89' goal, 27.2m, 102kph, xG 0.02",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "Tuominen's 27.2m strike at 102kph seals 1–0 win in 89'",
+          "body": "At 89', Halvard Tuominen's 27.2m shot at 102kph delivered 0.02 xG, securing HAR 1–0 OLD with 1.00 xG differential and 100% shot efficiency in the final minute."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "GOL — Halvard Tuominen pone el HAR 1–0 OLD",
+          "body": "Halvard Tuominen dispara desde 27.2 metros a 102 km/h — una ocasión de 0.02 xG. El marcador queda HAR 1–0 OLD."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "BUT — Halvard Tuominen porte le score à HAR 1–0 OLD",
+          "body": "Halvard Tuominen frappe depuis 27.2 mètres à 102 km/h — une occasion de 0.02 xG. Le score est de HAR 1–0 OLD."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "It's in! Halvard Tuominen scores and the score is HAR 1–0 OLD. The stadium erupts.",
+          "body": "Halvard Tuominen strikes from 27.2 metres at 102 km/h — a 0.02 xG chance. The scoreline now reads HAR 1–0 OLD."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "¡Es gol! Halvard Tuominen marca y el resultado es HAR 1–0 OLD. Explota el estadio.",
+          "body": "Halvard Tuominen dispara desde 27.2 metros a 102 km/h — una ocasión de 0.02 xG. El marcador queda HAR 1–0 OLD."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "C'est but ! Halvard Tuominen marque et le score est de HAR 1–0 OLD. Le stade explose.",
+          "body": "Halvard Tuominen frappe depuis 27.2 mètres à 102 km/h — une occasion de 0.02 xG. Le score est de HAR 1–0 OLD."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "YES! Halvard Tuominen buries it — HAR 1–0 OLD and this one matters. Come on!",
+          "body": "Halvard Tuominen strikes from 27.2 metres at 102 km/h — a 0.02 xG chance. The scoreline now reads HAR 1–0 OLD."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "¡SÍ! Halvard Tuominen la manda a guardar — HAR 1–0 OLD y esto importa. ¡Vamos!",
+          "body": "Halvard Tuominen dispara desde 27.2 metros a 102 km/h — una ocasión de 0.02 xG. El marcador queda HAR 1–0 OLD."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "OUI ! Halvard Tuominen la met au fond — HAR 1–0 OLD et ça compte. Allez !",
+          "body": "Halvard Tuominen frappe depuis 27.2 mètres à 102 km/h — une occasion de 0.02 xG. Le score est de HAR 1–0 OLD."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "GOAL — Halvard Tuominen makes it HAR 1–0 OLD",
+          "body": "Watch Halvard Tuominen here: a clean strike from 27.2 metres, worth 0.02 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "GOL — Halvard Tuominen pone el HAR 1–0 OLD",
+          "body": "Mira a Halvard Tuominen: un golpeo limpio desde 27.2 metros, 0.02 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "BUT — Halvard Tuominen porte le score à HAR 1–0 OLD",
+          "body": "Regardez Halvard Tuominen : une frappe propre depuis 27.2 mètres, 0.02 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0022",
+      "headline": "89' - Tuominen seals 1–0 win for Harbour City",
+      "body": "At 89', Halvard Tuominen's decisive strike maintains Harbour City's 1–0 lead over Old Tower FC, securing a narrow victory with no further scoring in the final minutes.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "89' - 1-0, late drama unfolding",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "89' - Tuominen seals 1–0 win for Harbour City",
+          "body": "At 89', Halvard Tuominen's decisive strike maintains Harbour City's 1–0 lead over Old Tower FC, securing a narrow victory with no further scoring in the final minutes."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Late drama",
+          "body": "¡DRAMA AL FINAL al 89'! Harbour City golpea con el tiempo casi agotado — 1–0."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Late drama",
+          "body": "DRAME EN FIN DE MATCH à la 89' ! Harbour City frappe à l'ultime moment — 1–0."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Late drama",
+          "body": "LATE DRAMA at 89'! Harbour City strike with the clock nearly out — 1–0."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Late drama",
+          "body": "¡DRAMA AL FINAL al 89'! Harbour City golpea con el tiempo casi agotado — 1–0."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Late drama",
+          "body": "DRAME EN FIN DE MATCH à la 89' ! Harbour City frappe à l'ultime moment — 1–0."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Late drama",
+          "body": "LATE DRAMA at 89'! Harbour City strike with the clock nearly out — 1–0."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Late drama",
+          "body": "¡DRAMA AL FINAL al 89'! Harbour City golpea con el tiempo casi agotado — 1–0."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Late drama",
+          "body": "DRAME EN FIN DE MATCH à la 89' ! Harbour City frappe à l'ultime moment — 1–0."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Late drama",
+          "body": "LATE DRAMA at 89'! Harbour City strike with the clock nearly out — 1–0."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Late drama",
+          "body": "¡DRAMA AL FINAL al 89'! Harbour City golpea con el tiempo casi agotado — 1–0."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Late drama",
+          "body": "DRAME EN FIN DE MATCH à la 89' ! Harbour City frappe à l'ultime moment — 1–0."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0023",
+      "headline": "91' Valentin Heikkila denies Old Tower FC's p11 with 0.56-difficulty save, preserving 1–0 lead",
+      "body": "0.14 xG shot by Old Tower FC's p11 faced a 56% difficulty save, maintaining Harbour City's 1–0 advantage in the 91st minute.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "91' - Save, 56% difficulty, 0.14 xG, 1–0",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "91' Valentin Heikkila denies Old Tower FC's p11 with 0.56-difficulty save, preserving 1–0 lead",
+          "body": "0.14 xG shot by Old Tower FC's p11 faced a 56% difficulty save, maintaining Harbour City's 1–0 advantage in the 91st minute."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.56 — Valentin Heikkila niega una ocasión de 0.14 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.56 — Valentin Heikkila repousse une occasion de 0.14 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.56 — Valentin Heikkila denies a 0.14 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.56 — Valentin Heikkila niega una ocasión de 0.14 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.56 — Valentin Heikkila repousse une occasion de 0.14 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.56 — Valentin Heikkila denies a 0.14 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.56 — Valentin Heikkila niega una ocasión de 0.14 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.56 — Valentin Heikkila repousse une occasion de 0.14 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.56 — Valentin Heikkila denies a 0.14 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.56 — Valentin Heikkila niega una ocasión de 0.14 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.56 — Valentin Heikkila repousse une occasion de 0.14 xG."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0026",
+      "headline": "96' Harbour City 1–0 Old Tower FC: Momentum drops to 0.308 after 5 minutes of swing",
+      "body": "Harbour City's 0.47 momentum swing in the final 5 minutes of the match stabilizes at 0.308, reflecting a critical shift in control despite maintaining a 1–0 lead.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "Momentum has swung to Harbour City — a 0.47 shift over the last five minutes.",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "96' Harbour City 1–0 Old Tower FC: Momentum drops to 0.308 after 5 minutes of swing",
+          "body": "Harbour City's 0.47 momentum swing in the final 5 minutes of the match stabilizes at 0.308, reflecting a critical shift in control despite maintaining a 1–0 lead."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Harbour City — un giro de 0.47 en cinco minutos."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Harbour City — un écart de 0.47 sur cinq minutes."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Harbour City — a 0.47 shift over the last five minutes."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Harbour City — un giro de 0.47 en cinco minutos."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Harbour City — un écart de 0.47 sur cinq minutes."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Harbour City — a 0.47 shift over the last five minutes."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Harbour City — un giro de 0.47 en cinco minutos."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Harbour City — un écart de 0.47 sur cinq minutes."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Momentum shift",
+          "body": "Momentum has swung to Harbour City — a 0.47 shift over the last five minutes."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Momentum shift",
+          "body": "El momento cambió hacia Harbour City — un giro de 0.47 en cinco minutos."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Momentum shift",
+          "body": "Le momentum a basculé vers Harbour City — un écart de 0.47 sur cinq minutes."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0024",
+      "headline": "97' Halvard Tuominen's 6.2m xG 0.31 effort saved",
+      "body": "At 97', Harbour City's Halvard Tuominen delivered a 6.2m shot with 0.31 xG, the highest-value chance of the match, but it was denied, preserving Old Tower FC's 1–0 lead.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "97' Harbour City",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "97' Halvard Tuominen's 6.2m xG 0.31 effort saved",
+          "body": "At 97', Harbour City's Halvard Tuominen delivered a 6.2m shot with 0.31 xG, the highest-value chance of the match, but it was denied, preserving Old Tower FC's 1–0 lead."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.31 xG desde 6.2 metros — saved."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.31 xG depuis 6.2 mètres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.31 xG look from 6.2 metres — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.31 xG desde 6.2 metros — saved."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.31 xG depuis 6.2 mètres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.31 xG look from 6.2 metres — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.31 xG desde 6.2 metros — saved."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.31 xG depuis 6.2 mètres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big chance",
+          "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.31 xG look from 6.2 metres — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big chance",
+          "body": "Ocasión clarísima para Harbour City: Halvard Tuominen con 0.31 xG desde 6.2 metros — saved."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big chance",
+          "body": "Grosse occasion pour Harbour City : Halvard Tuominen avec 0.31 xG depuis 6.2 mètres — saved."
+        }
+      ],
+      "provider": "llm"
+    },
+    {
+      "candidateId": "cand-0025",
+      "headline": "97' Franco Halvorsen denies Harbour City's p11 with 0.94-difficulty save",
+      "body": "At 97', Franco Halvorsen's 0.94-difficulty stop against Harbour City's p11 prevented a 0.31 xG chance, preserving Old Tower FC's 1–0 lead in a high-pressure finale.",
+      "lang": "en",
+      "persona": "analyst",
+      "ticker": "97' Harbour saves 0.31 xG chance, 94% difficulty",
+      "variants": [
+        {
+          "persona": "analyst",
+          "lang": "en",
+          "headline": "97' Franco Halvorsen denies Harbour City's p11 with 0.94-difficulty save",
+          "body": "At 97', Franco Halvorsen's 0.94-difficulty stop against Harbour City's p11 prevented a 0.31 xG chance, preserving Old Tower FC's 1–0 lead in a high-pressure finale."
+        },
+        {
+          "persona": "analyst",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.94 — Franco Halvorsen niega una ocasión de 0.31 xG."
+        },
+        {
+          "persona": "analyst",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.94 — Franco Halvorsen repousse une occasion de 0.31 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.94 — Franco Halvorsen denies a 0.31 xG chance."
+        },
+        {
+          "persona": "casual",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.94 — Franco Halvorsen niega una ocasión de 0.31 xG."
+        },
+        {
+          "persona": "casual",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.94 — Franco Halvorsen repousse une occasion de 0.31 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.94 — Franco Halvorsen denies a 0.31 xG chance."
+        },
+        {
+          "persona": "club",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.94 — Franco Halvorsen niega una ocasión de 0.31 xG."
+        },
+        {
+          "persona": "club",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.94 — Franco Halvorsen repousse une occasion de 0.31 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "en",
+          "headline": "Big save",
+          "body": "What a save! Difficulty 0.94 — Franco Halvorsen denies a 0.31 xG chance."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "es",
+          "headline": "Big save",
+          "body": "¡Qué parada! Dificultad 0.94 — Franco Halvorsen niega una ocasión de 0.31 xG."
+        },
+        {
+          "persona": "player_focus",
+          "lang": "fr",
+          "headline": "Big save",
+          "body": "Quel arrêt ! Difficulté 0.94 — Franco Halvorsen repousse une occasion de 0.31 xG."
+        }
+      ],
+      "provider": "llm"
+    }
+  ]
+}
