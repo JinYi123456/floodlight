@@ -6,8 +6,8 @@
   "moments": [
     {
       "candidateId": "cand-0036",
-      "headline": "Fionn Christou's 32.7 kph sprint at 3' breaks early rhythm",
-      "body": "The fastest recorded burst of the match, 32.7 kph by Fionn Christou, disrupted Ironworks FC's defensive setup within the opening three minutes, establishing immediate pressure in a 0–0 contest.",
+      "headline": "Dario Stankovic's 33.3 kph sprint at 3' breaks Westerly Wanderers' early rhythm",
+      "body": "The 33.3 kph burst by Dario Stankovic in the 3rd minute marked the fastest recorded pace of the match, disrupting Ironworks FC's defensive structure before the first shot.",
       "lang": "en",
       "persona": "analyst",
       "ticker": null,
@@ -15,82 +15,82 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Fionn Christou's 32.7 kph sprint at 3' breaks early rhythm",
-          "body": "The fastest recorded burst of the match, 32.7 kph by Fionn Christou, disrupted Ironworks FC's defensive setup within the opening three minutes, establishing immediate pressure in a 0–0 contest."
+          "headline": "Dario Stankovic's 33.3 kph sprint at 3' breaks Westerly Wanderers' early rhythm",
+          "body": "The 33.3 kph burst by Dario Stankovic in the 3rd minute marked the fastest recorded pace of the match, disrupting Ironworks FC's defensive structure before the first shot."
         },
         {
           "persona": "analyst",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Fionn Christou: 32.7 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Dario Stankovic: 33.3 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "analyst",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Fionn Christou : 32.7 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Dario Stankovic : 33.3 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "casual",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Fionn Christou: 32.7 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Dario Stankovic: 33.3 km/h — the fastest of the match so far."
         },
         {
           "persona": "casual",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Fionn Christou: 32.7 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Dario Stankovic: 33.3 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "casual",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Fionn Christou : 32.7 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Dario Stankovic : 33.3 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "club",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Fionn Christou: 32.7 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Dario Stankovic: 33.3 km/h — the fastest of the match so far."
         },
         {
           "persona": "club",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Fionn Christou: 32.7 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Dario Stankovic: 33.3 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "club",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Fionn Christou : 32.7 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Dario Stankovic : 33.3 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "player_focus",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Fionn Christou: 32.7 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Dario Stankovic: 33.3 km/h — the fastest of the match so far."
         },
         {
           "persona": "player_focus",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Fionn Christou: 32.7 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Dario Stankovic: 33.3 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "player_focus",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Fionn Christou : 32.7 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Dario Stankovic : 33.3 km/h — la plus élevée du match jusqu'ici."
         }
       ],
       "provider": "llm"
     },
     {
       "candidateId": "cand-0001",
-      "headline": "4' - Halvard Petrov's 0.62-difficulty save denies Ironworks FC's p11 at 0.15 xG",
-      "body": "Petrov's intervention prevented a 0.15 xG chance, maintaining a 0–0 deadlock after a high-probability shot from Ironworks FC's p11.",
+      "headline": "Halvard Petrov's 4' save denies Ironworks FC's 0.15 xG chance",
+      "body": "Petrov's intervention prevented a 0.62-difficulty shot from Ironworks FC's player 11, preserving a 0–0 deadlock at 4'.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "4' - 0.62 difficulty save, 0.15 xG, 0–0",
@@ -98,8 +98,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "4' - Halvard Petrov's 0.62-difficulty save denies Ironworks FC's p11 at 0.15 xG",
-          "body": "Petrov's intervention prevented a 0.15 xG chance, maintaining a 0–0 deadlock after a high-probability shot from Ironworks FC's p11."
+          "headline": "Halvard Petrov's 4' save denies Ironworks FC's 0.15 xG chance",
+          "body": "Petrov's intervention prevented a 0.62-difficulty shot from Ironworks FC's player 11, preserving a 0–0 deadlock at 4'."
         },
         {
           "persona": "analyst",
@@ -172,8 +172,8 @@
     },
     {
       "candidateId": "cand-0037",
-      "headline": "Elias Pereira's 33.7 kph sprint at 6' breaks defensive line",
-      "body": "At 6', Elias Pereira's 33.7 kph burst created the first high-pressure transition opportunity, disrupting Westerly Wanderers' build-up at 0–0.",
+      "headline": "Elias Pereira's 33.7 kph sprint at 6'",
+      "body": "The fastest recorded burst of the match, 33.7 kph by Elias Pereira, marked the first significant attacking threat in a 0–0 contest, disrupting Westerly Wanderers' defensive structure at the 6-minute mark.",
       "lang": "en",
       "persona": "analyst",
       "ticker": null,
@@ -181,8 +181,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Elias Pereira's 33.7 kph sprint at 6' breaks defensive line",
-          "body": "At 6', Elias Pereira's 33.7 kph burst created the first high-pressure transition opportunity, disrupting Westerly Wanderers' build-up at 0–0."
+          "headline": "Elias Pereira's 33.7 kph sprint at 6'",
+          "body": "The fastest recorded burst of the match, 33.7 kph by Elias Pereira, marked the first significant attacking threat in a 0–0 contest, disrupting Westerly Wanderers' defensive structure at the 6-minute mark."
         },
         {
           "persona": "analyst",
@@ -255,8 +255,8 @@
     },
     {
       "candidateId": "cand-0003",
-      "headline": "6' Ironworks FC 0–0 Westerly Wanderers: Momentum shifts to home side with 0.45 swing",
-      "body": "Ironworks FC's 0.45 momentum swing in 5 minutes elevates their control to 0.327, marking a decisive shift in phase dominance at 0–0.",
+      "headline": "6' Ironworks FC 0–0 Westerly Wanderers: Momentum shift to home side after 0.45 swing",
+      "body": "Ironworks FC's 0.45 momentum swing in 5 minutes elevates their advantage to 0.327, marking a decisive shift in control at 0–0.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "Momentum has swung to Ironworks FC — a 0.45 shift over the last five minutes.",
@@ -264,8 +264,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "6' Ironworks FC 0–0 Westerly Wanderers: Momentum shifts to home side with 0.45 swing",
-          "body": "Ironworks FC's 0.45 momentum swing in 5 minutes elevates their control to 0.327, marking a decisive shift in phase dominance at 0–0."
+          "headline": "6' Ironworks FC 0–0 Westerly Wanderers: Momentum shift to home side after 0.45 swing",
+          "body": "Ironworks FC's 0.45 momentum swing in 5 minutes elevates their advantage to 0.327, marking a decisive shift in control at 0–0."
         },
         {
           "persona": "analyst",
@@ -338,8 +338,8 @@
     },
     {
       "candidateId": "cand-0002",
-      "headline": "7' Halvard Petrov denies Ironworks FC's p13 with 0.6 difficulty save at 0.13 xG",
-      "body": "Petrov's intervention prevented a 0.13 xG chance, maintaining 0–0 after a high-probability shot from Ironworks FC's p13.",
+      "headline": "Halvard Petrov's 7' save denies Ironworks FC's 0.13 xG chance",
+      "body": "Petrov's intervention prevented a 0.6-difficulty shot from Ironworks FC's player 13, preserving a 0–0 deadlock with 0.13 expected goals at risk.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "7' - 0.6 diff save, 0.13 xG, 0–0",
@@ -347,8 +347,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "7' Halvard Petrov denies Ironworks FC's p13 with 0.6 difficulty save at 0.13 xG",
-          "body": "Petrov's intervention prevented a 0.13 xG chance, maintaining 0–0 after a high-probability shot from Ironworks FC's p13."
+          "headline": "Halvard Petrov's 7' save denies Ironworks FC's 0.13 xG chance",
+          "body": "Petrov's intervention prevented a 0.6-difficulty shot from Ironworks FC's player 13, preserving a 0–0 deadlock with 0.13 expected goals at risk."
         },
         {
           "persona": "analyst",
@@ -421,8 +421,8 @@
     },
     {
       "candidateId": "cand-0038",
-      "headline": "Yusuf Giordano's 33.1 kph sprint at 10'",
-      "body": "The fastest recorded burst of the match, 33.1 kph by Yusuf Giordano, signaled immediate attacking intent from Westerly Wanderers in a 0–0 contest, disrupting Ironworks FC's defensive setup before the 10-minute mark.",
+      "headline": "Valentin Weiss triggers counterattack at 36 kph",
+      "body": "At 10', Valentin Weiss recorded 36 kph during a transition phase, establishing the fastest recorded player movement in the match's opening 10 minutes, directly influencing Ironworks FC's early pressing intensity.",
       "lang": "en",
       "persona": "analyst",
       "ticker": null,
@@ -430,74 +430,74 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Yusuf Giordano's 33.1 kph sprint at 10'",
-          "body": "The fastest recorded burst of the match, 33.1 kph by Yusuf Giordano, signaled immediate attacking intent from Westerly Wanderers in a 0–0 contest, disrupting Ironworks FC's defensive setup before the 10-minute mark."
+          "headline": "Valentin Weiss triggers counterattack at 36 kph",
+          "body": "At 10', Valentin Weiss recorded 36 kph during a transition phase, establishing the fastest recorded player movement in the match's opening 10 minutes, directly influencing Ironworks FC's early pressing intensity."
         },
         {
           "persona": "analyst",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Yusuf Giordano: 33.1 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Valentin Weiss: 36 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "analyst",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Yusuf Giordano : 33.1 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Valentin Weiss : 36 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "casual",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Yusuf Giordano: 33.1 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Valentin Weiss: 36 km/h — the fastest of the match so far."
         },
         {
           "persona": "casual",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Yusuf Giordano: 33.1 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Valentin Weiss: 36 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "casual",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Yusuf Giordano : 33.1 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Valentin Weiss : 36 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "club",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Yusuf Giordano: 33.1 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Valentin Weiss: 36 km/h — the fastest of the match so far."
         },
         {
           "persona": "club",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Yusuf Giordano: 33.1 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Valentin Weiss: 36 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "club",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Yusuf Giordano : 33.1 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Valentin Weiss : 36 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "player_focus",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Yusuf Giordano: 33.1 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Valentin Weiss: 36 km/h — the fastest of the match so far."
         },
         {
           "persona": "player_focus",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Yusuf Giordano: 33.1 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Valentin Weiss: 36 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "player_focus",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Yusuf Giordano : 33.1 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Valentin Weiss : 36 km/h — la plus élevée du match jusqu'ici."
         }
       ],
       "provider": "llm"
@@ -505,7 +505,7 @@
     {
       "candidateId": "cand-0004",
       "headline": "Valentin Weiss scores 13' opener for Ironworks FC",
-      "body": "13' goal by Valentin Weiss (xG 0.08, 14.4m, 81.1km/h) establishes IRN 1–0 WES lead; non-penalty finish from 14.4m at 81.1km/h marks first shot on target in match.",
+      "body": "13' goal by Valentin Weiss (xG 0.08, 14.4m, 81.1kph) establishes 1–0 lead; Ironworks FC's first shot on target in 13 minutes, 0.08 xG reflects low expected threat, 14.4m distance indicates central zone strike, 81.1kph ball speed confirms moderate velocity, non-penalty finish.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "GOAL — Valentin Weiss makes it IRN 1–0 WES",
@@ -514,7 +514,7 @@
           "persona": "analyst",
           "lang": "en",
           "headline": "Valentin Weiss scores 13' opener for Ironworks FC",
-          "body": "13' goal by Valentin Weiss (xG 0.08, 14.4m, 81.1km/h) establishes IRN 1–0 WES lead; non-penalty finish from 14.4m at 81.1km/h marks first shot on target in match."
+          "body": "13' goal by Valentin Weiss (xG 0.08, 14.4m, 81.1kph) establishes 1–0 lead; Ironworks FC's first shot on target in 13 minutes, 0.08 xG reflects low expected threat, 14.4m distance indicates central zone strike, 81.1kph ball speed confirms moderate velocity, non-penalty finish."
         },
         {
           "persona": "analyst",
@@ -588,16 +588,16 @@
     {
       "candidateId": "cand-0005",
       "headline": "Halvard Petrov's 20' save denies Ironworks FC's 0.16 xG chance",
-      "body": "Petrov's 0.65-difficulty stop preserved Westerly Wanderers' 1–0 lead, nullifying Ironworks FC's 0.16 xG opportunity from player p11.",
+      "body": "Petrov's 0.65-difficulty stop preserved Westerly Wanderers' 1–0 lead, nullifying Ironworks FC's 0.16 xG opportunity from shooter ironworks-p11.",
       "lang": "en",
       "persona": "analyst",
-      "ticker": "20' - 0.65 diff save, 0.16 xG, 1-0",
+      "ticker": "20' - 0.65 difficulty save, 0.16 xG, 1-0",
       "variants": [
         {
           "persona": "analyst",
           "lang": "en",
           "headline": "Halvard Petrov's 20' save denies Ironworks FC's 0.16 xG chance",
-          "body": "Petrov's 0.65-difficulty stop preserved Westerly Wanderers' 1–0 lead, nullifying Ironworks FC's 0.16 xG opportunity from player p11."
+          "body": "Petrov's 0.65-difficulty stop preserved Westerly Wanderers' 1–0 lead, nullifying Ironworks FC's 0.16 xG opportunity from shooter ironworks-p11."
         },
         {
           "persona": "analyst",
@@ -670,8 +670,8 @@
     },
     {
       "candidateId": "cand-0006",
-      "headline": "Jamal Zander scores 23' equaliser from 20.4m at 79.3kph",
-      "body": "Zander's 0.03 xG strike from 20.4m at 79.3kph restored parity at 1–1, neutralising Ironworks FC's early lead with a clinically efficient finish.",
+      "headline": "Jamal Zander scores 23' equaliser from 20.4m at 79.3km/h",
+      "body": "Zander's 0.03 xG strike from 20.4m at 79.3km/h restored parity at 1–1, neutralising Ironworks FC's lead with a clinically efficient finish.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "GOAL — Jamal Zander makes it IRN 1–1 WES",
@@ -679,8 +679,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Jamal Zander scores 23' equaliser from 20.4m at 79.3kph",
-          "body": "Zander's 0.03 xG strike from 20.4m at 79.3kph restored parity at 1–1, neutralising Ironworks FC's early lead with a clinically efficient finish."
+          "headline": "Jamal Zander scores 23' equaliser from 20.4m at 79.3km/h",
+          "body": "Zander's 0.03 xG strike from 20.4m at 79.3km/h restored parity at 1–1, neutralising Ironworks FC's lead with a clinically efficient finish."
         },
         {
           "persona": "analyst",
@@ -754,7 +754,7 @@
     {
       "candidateId": "cand-0007",
       "headline": "Theo Quintero's 8.6m xG 0.22 chance saved at 24'",
-      "body": "A 24' 8.6m shot by Theo Quintero for Ironworks FC carried 0.22 xG, the highest expected threat of the match to date, but was denied by a save, preserving the 1–1 draw against Westerly Wanderers.",
+      "body": "A 24' 8.6m shot by Theo Quintero for Ironworks FC, valued at 0.22 xG, was denied, preserving the 1–1 draw against Westerly Wanderers.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "24' Ironworks FC",
@@ -763,7 +763,7 @@
           "persona": "analyst",
           "lang": "en",
           "headline": "Theo Quintero's 8.6m xG 0.22 chance saved at 24'",
-          "body": "A 24' 8.6m shot by Theo Quintero for Ironworks FC carried 0.22 xG, the highest expected threat of the match to date, but was denied by a save, preserving the 1–1 draw against Westerly Wanderers."
+          "body": "A 24' 8.6m shot by Theo Quintero for Ironworks FC, valued at 0.22 xG, was denied, preserving the 1–1 draw against Westerly Wanderers."
         },
         {
           "persona": "analyst",
@@ -837,7 +837,7 @@
     {
       "candidateId": "cand-0008",
       "headline": "Halvard Petrov's 24' save denies Ironworks FC's 0.22 xG chance",
-      "body": "Petrov's intervention at 24' prevented a 0.79-difficulty chance, preserving Westerly Wanderers' 1–1 draw after shooter p8's 0.22 xG effort.",
+      "body": "Petrov's intervention at 24' prevented a 0.79-difficulty chance, preserving Westerly Wanderers' 1–1 draw after Ironworks FC's p8 shooter generated 0.22 xG.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "24' - 0.79 difficulty save, 0.22 xG chance denied",
@@ -846,7 +846,7 @@
           "persona": "analyst",
           "lang": "en",
           "headline": "Halvard Petrov's 24' save denies Ironworks FC's 0.22 xG chance",
-          "body": "Petrov's intervention at 24' prevented a 0.79-difficulty chance, preserving Westerly Wanderers' 1–1 draw after shooter p8's 0.22 xG effort."
+          "body": "Petrov's intervention at 24' prevented a 0.79-difficulty chance, preserving Westerly Wanderers' 1–1 draw after Ironworks FC's p8 shooter generated 0.22 xG."
         },
         {
           "persona": "analyst",
@@ -920,7 +920,7 @@
     {
       "candidateId": "cand-0009",
       "headline": "Theo Quintero's 8.6m xG 0.22 chance saved at 24'",
-      "body": "A 24' 8.6m shot by Theo Quintero for Ironworks FC, valued at 0.22 xG, was denied by Westerly Wanderers' goalkeeper, preserving the 1–1 draw.",
+      "body": "A 0.22 xG opportunity from 8.6m out for Ironworks FC's Theo Quintero was denied, preserving Westerly Wanderers' 1–1 draw at 24'.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "24' Ironworks FC",
@@ -929,7 +929,7 @@
           "persona": "analyst",
           "lang": "en",
           "headline": "Theo Quintero's 8.6m xG 0.22 chance saved at 24'",
-          "body": "A 24' 8.6m shot by Theo Quintero for Ironworks FC, valued at 0.22 xG, was denied by Westerly Wanderers' goalkeeper, preserving the 1–1 draw."
+          "body": "A 0.22 xG opportunity from 8.6m out for Ironworks FC's Theo Quintero was denied, preserving Westerly Wanderers' 1–1 draw at 24'."
         },
         {
           "persona": "analyst",
@@ -1003,16 +1003,16 @@
     {
       "candidateId": "cand-0010",
       "headline": "Halvard Petrov's 24' save denies Ironworks FC's 0.22 xG chance",
-      "body": "Petrov's intervention at 24' prevented a 0.72-difficulty conversion, preserving Westerly Wanderers' 1–1 draw after Ironworks FC's p8 shooter generated 0.22 expected goals.",
+      "body": "Petrov's intervention at 24' prevented a 0.72-difficulty, 0.22 xG opportunity for Ironworks FC's p8, preserving Westerly Wanderers' 1–1 draw.",
       "lang": "en",
       "persona": "analyst",
-      "ticker": "What a save! Difficulty 0.72 — Halvard Petrov denies a 0.22 xG chance.",
+      "ticker": "24' - 0.72 difficulty save, 0.22 xG chance denied",
       "variants": [
         {
           "persona": "analyst",
           "lang": "en",
           "headline": "Halvard Petrov's 24' save denies Ironworks FC's 0.22 xG chance",
-          "body": "Petrov's intervention at 24' prevented a 0.72-difficulty conversion, preserving Westerly Wanderers' 1–1 draw after Ironworks FC's p8 shooter generated 0.22 expected goals."
+          "body": "Petrov's intervention at 24' prevented a 0.72-difficulty, 0.22 xG opportunity for Ironworks FC's p8, preserving Westerly Wanderers' 1–1 draw."
         },
         {
           "persona": "analyst",
@@ -1085,8 +1085,8 @@
     },
     {
       "candidateId": "cand-0011",
-      "headline": "Valentin Weiss' 8m xG 0.21 effort strikes crossbar at 34'",
-      "body": "The 0.21 xG chance from 8m distance represents Ironworks FC's highest expected threat in the match, with the post outcome underscoring a critical missed opportunity to lead at 1–1.",
+      "headline": "Valentin Weiss misses 0.21 xG chance from 8m out",
+      "body": "34' opportunity for Ironworks FC: 0.21 xG, 8m shot post, 1–1 scoreline, Westerly Wanderers' defense holds firm.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "34' Ironworks FC",
@@ -1094,8 +1094,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Valentin Weiss' 8m xG 0.21 effort strikes crossbar at 34'",
-          "body": "The 0.21 xG chance from 8m distance represents Ironworks FC's highest expected threat in the match, with the post outcome underscoring a critical missed opportunity to lead at 1–1."
+          "headline": "Valentin Weiss misses 0.21 xG chance from 8m out",
+          "body": "34' opportunity for Ironworks FC: 0.21 xG, 8m shot post, 1–1 scoreline, Westerly Wanderers' defense holds firm."
         },
         {
           "persona": "analyst",
@@ -1168,8 +1168,8 @@
     },
     {
       "candidateId": "cand-0012",
-      "headline": "Theo Quintero's 8.9m xG 0.2 chance saved at 34'",
-      "body": "A 0.2 xG opportunity from 8.9m out for Ironworks FC's Theo Quintero was denied, preserving Westerly Wanderers' 1–1 draw at 34'.",
+      "headline": "Theo Quintero's 8.9m xG 0.2 effort saved at 34'",
+      "body": "A 34' chance for Ironworks FC, 8.9m from goal, 0.2 xG, saved by Westerly Wanderers, maintaining 1–1 deadlock.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "34' Ironworks FC",
@@ -1177,8 +1177,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Theo Quintero's 8.9m xG 0.2 chance saved at 34'",
-          "body": "A 0.2 xG opportunity from 8.9m out for Ironworks FC's Theo Quintero was denied, preserving Westerly Wanderers' 1–1 draw at 34'."
+          "headline": "Theo Quintero's 8.9m xG 0.2 effort saved at 34'",
+          "body": "A 34' chance for Ironworks FC, 8.9m from goal, 0.2 xG, saved by Westerly Wanderers, maintaining 1–1 deadlock."
         },
         {
           "persona": "analyst",
@@ -1251,8 +1251,8 @@
     },
     {
       "candidateId": "cand-0013",
-      "headline": "34' - Halvard Petrov's 0.76-difficulty save denies Ironworks FC's p8 from converting 0.2 xG chance",
-      "body": "The intervention preserved Westerly Wanderers' 1–1 draw, neutralizing a high-probability chance with a 76% difficulty stop on a 0.2 xG shot from Ironworks FC's p8.",
+      "headline": "34' - Halvard Petrov's 0.76-difficulty save denies Ironworks FC's p8 with 0.2 xG chance",
+      "body": "Petrov's intervention preserved Westerly Wanderers' 1–1 draw, nullifying a high-probability chance (0.2 xG) from Ironworks FC's p8, whose shot carried 76% difficulty due to positioning and angle.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "34' - 0.76 difficulty save, 0.2 xG, 1–1",
@@ -1260,8 +1260,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "34' - Halvard Petrov's 0.76-difficulty save denies Ironworks FC's p8 from converting 0.2 xG chance",
-          "body": "The intervention preserved Westerly Wanderers' 1–1 draw, neutralizing a high-probability chance with a 76% difficulty stop on a 0.2 xG shot from Ironworks FC's p8."
+          "headline": "34' - Halvard Petrov's 0.76-difficulty save denies Ironworks FC's p8 with 0.2 xG chance",
+          "body": "Petrov's intervention preserved Westerly Wanderers' 1–1 draw, nullifying a high-probability chance (0.2 xG) from Ironworks FC's p8, whose shot carried 76% difficulty due to positioning and angle."
         },
         {
           "persona": "analyst",
@@ -1338,7 +1338,7 @@
       "body": "RED CARD — Valentin Weiss is off (reckless). Ironworks FC are down to ten.",
       "lang": "en",
       "persona": "analyst",
-      "ticker": "35' Valentin Weiss sent off, reckless foul, 1–1",
+      "ticker": "35' Valentin Weiss shown red card for reckless challenge, 1–1.",
       "variants": [
         {
           "persona": "analyst",
@@ -1417,8 +1417,8 @@
     },
     {
       "candidateId": "cand-0015",
-      "headline": "Jamal Zander scores 37' goal from 2.5m at 102.7kph, xG 0.38",
-      "body": "Westerly Wanderers' 1–2 lead at 37' reflects a high-efficiency finish: 102.7kph ball speed from 2.5m distance, 0.38 xG, non-penalty, sealing momentum shift.",
+      "headline": "Jamal Zander scores 37' goal from 2.5m with 102.7kph ball speed",
+      "body": "Westerly Wanderers' 0.38 xG strike from 2.5m at 102.7kph secures 1–2 lead, overturning Ironworks FC's earlier advantage.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "37' IRN 1–2 WES: 0.38 xG, 2.5m, 102.7 kph, no penalty",
@@ -1426,8 +1426,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Jamal Zander scores 37' goal from 2.5m at 102.7kph, xG 0.38",
-          "body": "Westerly Wanderers' 1–2 lead at 37' reflects a high-efficiency finish: 102.7kph ball speed from 2.5m distance, 0.38 xG, non-penalty, sealing momentum shift."
+          "headline": "Jamal Zander scores 37' goal from 2.5m with 102.7kph ball speed",
+          "body": "Westerly Wanderers' 0.38 xG strike from 2.5m at 102.7kph secures 1–2 lead, overturning Ironworks FC's earlier advantage."
         },
         {
           "persona": "analyst",
@@ -1501,7 +1501,7 @@
     {
       "candidateId": "cand-0016",
       "headline": "Jamal Zander scores brace in 37' to equalize for Westerly Wanderers",
-      "body": "Zander's 2nd goal of the match at 37' completes a brace, making him the first player to score two goals in the game and leveling the score at 2–2 against Ironworks FC.",
+      "body": "Zander's 2nd goal of the match at 37' completes a brace, making him the first player to score two goals in this fixture and bringing Westerly Wanderers level at 2–2 against Ironworks FC.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "37' Westerly Wanderers",
@@ -1510,7 +1510,7 @@
           "persona": "analyst",
           "lang": "en",
           "headline": "Jamal Zander scores brace in 37' to equalize for Westerly Wanderers",
-          "body": "Zander's 2nd goal of the match at 37' completes a brace, making him the first player to score two goals in the game and leveling the score at 2–2 against Ironworks FC."
+          "body": "Zander's 2nd goal of the match at 37' completes a brace, making him the first player to score two goals in this fixture and bringing Westerly Wanderers level at 2–2 against Ironworks FC."
         },
         {
           "persona": "analyst",
@@ -1583,8 +1583,8 @@
     },
     {
       "candidateId": "cand-0019",
-      "headline": "Westerly Wanderers' momentum shifts after 40' with -0.52 swing",
-      "body": "The away team's momentum dropped by 0.52 over 5 minutes, settling at -0.372 after conceding a goal, marking a critical shift in control during the match.",
+      "headline": "Westerly Wanderers' momentum drops to -0.372 after 40' despite trailing 1–2",
+      "body": "A 0.52 swing in momentum over 5 minutes reflects a decisive shift in control, with Westerly Wanderers' away status amplifying the pressure as their momentum stabilizes at -0.372.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "Momentum has swung to Westerly Wanderers — a -0.52 shift over the last five minutes.",
@@ -1592,8 +1592,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Westerly Wanderers' momentum shifts after 40' with -0.52 swing",
-          "body": "The away team's momentum dropped by 0.52 over 5 minutes, settling at -0.372 after conceding a goal, marking a critical shift in control during the match."
+          "headline": "Westerly Wanderers' momentum drops to -0.372 after 40' despite trailing 1–2",
+          "body": "A 0.52 swing in momentum over 5 minutes reflects a decisive shift in control, with Westerly Wanderers' away status amplifying the pressure as their momentum stabilizes at -0.372."
         },
         {
           "persona": "analyst",
@@ -1666,8 +1666,8 @@
     },
     {
       "candidateId": "cand-0017",
-      "headline": "41' Jamal Zander's 3.9m xG 0.37 effort saved for Westerly Wanderers",
-      "body": "A 3.9m shot with 0.37 xG from Jamal Zander was denied, maintaining Ironworks FC's 1–2 lead and highlighting a high-value chance missed in the 41st minute.",
+      "headline": "41' Jamal Zander's 3.9m xG 0.37 chance saved",
+      "body": "Westerly Wanderers' Jamal Zander's 3.9m shot, valued at 0.37 xG, was denied by Ironworks FC's goalkeeper, preserving their 1–2 lead in a high-value opportunity.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "41' Westerly Wanderers",
@@ -1675,8 +1675,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "41' Jamal Zander's 3.9m xG 0.37 effort saved for Westerly Wanderers",
-          "body": "A 3.9m shot with 0.37 xG from Jamal Zander was denied, maintaining Ironworks FC's 1–2 lead and highlighting a high-value chance missed in the 41st minute."
+          "headline": "41' Jamal Zander's 3.9m xG 0.37 chance saved",
+          "body": "Westerly Wanderers' Jamal Zander's 3.9m shot, valued at 0.37 xG, was denied by Ironworks FC's goalkeeper, preserving their 1–2 lead in a high-value opportunity."
         },
         {
           "persona": "analyst",
@@ -1749,17 +1749,17 @@
     },
     {
       "candidateId": "cand-0018",
-      "headline": "41' - Ezra Bianchi's 0.98-difficulty save denies Westerly Wanderers' p13 with 0.37 xG chance",
-      "body": "The save prevented a 0.37 expected goal threat from Westerly's p13, maintaining Ironworks FC's 1–2 deficit under high-pressure conditions.",
+      "headline": "41' - Ezra Bianchi's 0.98-difficulty save denies Westerly Wanderers' p13 with 0.37 xG threat",
+      "body": "The 0.98 difficulty rating underscores the precision required to stop a 0.37 xG chance, preserving Ironworks FC's 1–2 lead against Westerly Wanderers' p13 shooter.",
       "lang": "en",
       "persona": "analyst",
-      "ticker": "41' - 0.98 difficulty save, 0.37 xG, 1–2",
+      "ticker": "41' - 0.98 difficulty save, 0.37 xG chance denied",
       "variants": [
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "41' - Ezra Bianchi's 0.98-difficulty save denies Westerly Wanderers' p13 with 0.37 xG chance",
-          "body": "The save prevented a 0.37 expected goal threat from Westerly's p13, maintaining Ironworks FC's 1–2 deficit under high-pressure conditions."
+          "headline": "41' - Ezra Bianchi's 0.98-difficulty save denies Westerly Wanderers' p13 with 0.37 xG threat",
+          "body": "The 0.98 difficulty rating underscores the precision required to stop a 0.37 xG chance, preserving Ironworks FC's 1–2 lead against Westerly Wanderers' p13 shooter."
         },
         {
           "persona": "analyst",
@@ -1833,7 +1833,7 @@
     {
       "candidateId": "cand-0021",
       "headline": "44' - Ironworks FC trail 1–2 as goal under review",
-      "body": "At 44', Ironworks FC's goal attempt is under review, maintaining Westerly Wanderers' 1–2 lead with no change in score or player involvement.",
+      "body": "At 44', Ironworks FC's 1–2 deficit is under review following a goal decision, with the outcome potentially altering the match's momentum and scoring balance.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "Goal under review, 44', score 1–2",
@@ -1842,7 +1842,7 @@
           "persona": "analyst",
           "lang": "en",
           "headline": "44' - Ironworks FC trail 1–2 as goal under review",
-          "body": "At 44', Ironworks FC's goal attempt is under review, maintaining Westerly Wanderers' 1–2 lead with no change in score or player involvement."
+          "body": "At 44', Ironworks FC's 1–2 deficit is under review following a goal decision, with the outcome potentially altering the match's momentum and scoring balance."
         },
         {
           "persona": "analyst",
@@ -1998,8 +1998,8 @@
     },
     {
       "candidateId": "cand-0023",
-      "headline": "48' Jamal Zander's 9.2m xG 0.21 chance blocked for Westerly Wanderers",
-      "body": "A 9.2m shot with 0.21 xG was blocked, representing a 21% expected goal probability lost at 48', crucial in a 1–2 deficit to Ironworks FC.",
+      "headline": "Jamal Zander's 9.2m xG 0.21 chance blocked at 48'",
+      "body": "Westerly Wanderers' 48' opportunity, valued at 0.21 xG from 9.2m, was neutralized by Ironworks FC, maintaining the 1–2 deficit.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "48' Westerly Wanderers",
@@ -2007,8 +2007,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "48' Jamal Zander's 9.2m xG 0.21 chance blocked for Westerly Wanderers",
-          "body": "A 9.2m shot with 0.21 xG was blocked, representing a 21% expected goal probability lost at 48', crucial in a 1–2 deficit to Ironworks FC."
+          "headline": "Jamal Zander's 9.2m xG 0.21 chance blocked at 48'",
+          "body": "Westerly Wanderers' 48' opportunity, valued at 0.21 xG from 9.2m, was neutralized by Ironworks FC, maintaining the 1–2 deficit."
         },
         {
           "persona": "analyst",
@@ -2082,7 +2082,7 @@
     {
       "candidateId": "cand-0024",
       "headline": "Zane Pereira scores 22.4m strike at 88.5km/h to equalize at 2–2",
-      "body": "Pereira's 0.02 xG goal from 22.4m at 88.5km/h restored parity in a 2–2 draw, marking the 51st minute's decisive offensive intervention.",
+      "body": "Pereira's 0.02 xG goal from 22.4m at 88.5km/h restored parity in a 2–2 draw, marking the 51st minute's decisive offensive action.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "GOAL — Zane Pereira makes it IRN 2–2 WES",
@@ -2091,7 +2091,7 @@
           "persona": "analyst",
           "lang": "en",
           "headline": "Zane Pereira scores 22.4m strike at 88.5km/h to equalize at 2–2",
-          "body": "Pereira's 0.02 xG goal from 22.4m at 88.5km/h restored parity in a 2–2 draw, marking the 51st minute's decisive offensive intervention."
+          "body": "Pereira's 0.02 xG goal from 22.4m at 88.5km/h restored parity in a 2–2 draw, marking the 51st minute's decisive offensive action."
         },
         {
           "persona": "analyst",
@@ -2164,8 +2164,8 @@
     },
     {
       "candidateId": "cand-0025",
-      "headline": "53' Theo Quintero's 0.23 xG effort strikes post at 8.7m",
-      "body": "Theo Quintero's 0.23 xG chance from 8.7m out hits the woodwork, preserving the 2–2 draw and denying Ironworks FC a potential lead in the 53rd minute.",
+      "headline": "Theo Quintero's 8.7m xG 0.23 effort strikes post at 53'",
+      "body": "Ironworks FC's 2–2 equalizer chance at 53' missed by 0.23 xG after Theo Quintero's 8.7m shot struck the woodwork, denying a 53' lead.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "53' Ironworks FC",
@@ -2173,8 +2173,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "53' Theo Quintero's 0.23 xG effort strikes post at 8.7m",
-          "body": "Theo Quintero's 0.23 xG chance from 8.7m out hits the woodwork, preserving the 2–2 draw and denying Ironworks FC a potential lead in the 53rd minute."
+          "headline": "Theo Quintero's 8.7m xG 0.23 effort strikes post at 53'",
+          "body": "Ironworks FC's 2–2 equalizer chance at 53' missed by 0.23 xG after Theo Quintero's 8.7m shot struck the woodwork, denying a 53' lead."
         },
         {
           "persona": "analyst",
@@ -2248,7 +2248,7 @@
     {
       "candidateId": "cand-0026",
       "headline": "59' Jamal Zander's 2.9m xG 0.34 chance blocked at 2–2",
-      "body": "Westerly Wanderers' 0.34 xG opportunity from 2.9m by Jamal Zander was thwarted, preserving Ironworks FC's 2–2 draw at the 59' mark.",
+      "body": "Westerly Wanderers' 0.34 xG opportunity from 2.9m by Jamal Zander was thwarted, maintaining the 2–2 deadlock with Ironworks FC.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "59' 0.34 xG chance blocked from 2.9m",
@@ -2257,7 +2257,7 @@
           "persona": "analyst",
           "lang": "en",
           "headline": "59' Jamal Zander's 2.9m xG 0.34 chance blocked at 2–2",
-          "body": "Westerly Wanderers' 0.34 xG opportunity from 2.9m by Jamal Zander was thwarted, preserving Ironworks FC's 2–2 draw at the 59' mark."
+          "body": "Westerly Wanderers' 0.34 xG opportunity from 2.9m by Jamal Zander was thwarted, maintaining the 2–2 deadlock with Ironworks FC."
         },
         {
           "persona": "analyst",
@@ -2414,7 +2414,7 @@
     {
       "candidateId": "cand-0028",
       "headline": "63' Jamal Zander's 7.4m xG 0.26 chance saved at 2–2",
-      "body": "Westerly Wanderers' 26% expected goal opportunity from 7.4m out was thwarted, preserving Ironworks FC's 2–2 draw at 63'.",
+      "body": "Westerly Wanderers' 26% expected goal opportunity from 7.4 meters was thwarted, preserving Ironworks FC's 2–2 draw at 63'.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "63' Westerly Wanderers",
@@ -2423,7 +2423,7 @@
           "persona": "analyst",
           "lang": "en",
           "headline": "63' Jamal Zander's 7.4m xG 0.26 chance saved at 2–2",
-          "body": "Westerly Wanderers' 26% expected goal opportunity from 7.4m out was thwarted, preserving Ironworks FC's 2–2 draw at 63'."
+          "body": "Westerly Wanderers' 26% expected goal opportunity from 7.4 meters was thwarted, preserving Ironworks FC's 2–2 draw at 63'."
         },
         {
           "persona": "analyst",
@@ -2579,8 +2579,8 @@
     },
     {
       "candidateId": "cand-0030",
-      "headline": "64': Ironworks FC scores penalty to extend lead to 3–2",
-      "body": "The penalty, awarded at 64', increased Ironworks FC's lead to 3–2 against Westerly Wanderers, marking the first goal in the match for Ironworks FC after the 60' mark.",
+      "headline": "64' Ironworks FC penalty secures 3–2 lead",
+      "body": "The 64' penalty by Ironworks FC capitalizes on a 3–2 scoreline, converting a decisive set-piece opportunity to maintain momentum in a tightly contested match against Westerly Wanderers.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "64' Penalty awarded, 3–2.",
@@ -2588,8 +2588,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "64': Ironworks FC scores penalty to extend lead to 3–2",
-          "body": "The penalty, awarded at 64', increased Ironworks FC's lead to 3–2 against Westerly Wanderers, marking the first goal in the match for Ironworks FC after the 60' mark."
+          "headline": "64' Ironworks FC penalty secures 3–2 lead",
+          "body": "The 64' penalty by Ironworks FC capitalizes on a 3–2 scoreline, converting a decisive set-piece opportunity to maintain momentum in a tightly contested match against Westerly Wanderers."
         },
         {
           "persona": "analyst",
@@ -2663,16 +2663,16 @@
     {
       "candidateId": "cand-0031",
       "headline": "Piotr Iversen's 64' penalty boosts Ironworks FC to 3–2 lead",
-      "body": "Iversen's 11m strike at 91.7 kph, with 0.78 xG, converted from a penalty to extend Ironworks FC's advantage, sealing a high-precision, high-impact moment in a 3–2 contest.",
+      "body": "Iversen's 11m strike at 91.7km/h, with 0.78 xG, secured a critical lead after Westerly Wanderers' 2–2 equalizer, amplifying Ironworks FC's offensive efficiency in the 64th minute.",
       "lang": "en",
       "persona": "analyst",
-      "ticker": "64' IRN 3–2 WES: Penalty scored, xG 0.78, 11m, 91.7 km/h",
+      "ticker": "64' IRN 3–2 WES: Penalty goal, 11m, 91.7 kph, xG 0.78",
       "variants": [
         {
           "persona": "analyst",
           "lang": "en",
           "headline": "Piotr Iversen's 64' penalty boosts Ironworks FC to 3–2 lead",
-          "body": "Iversen's 11m strike at 91.7 kph, with 0.78 xG, converted from a penalty to extend Ironworks FC's advantage, sealing a high-precision, high-impact moment in a 3–2 contest."
+          "body": "Iversen's 11m strike at 91.7km/h, with 0.78 xG, secured a critical lead after Westerly Wanderers' 2–2 equalizer, amplifying Ironworks FC's offensive efficiency in the 64th minute."
         },
         {
           "persona": "analyst",
@@ -2745,8 +2745,8 @@
     },
     {
       "candidateId": "cand-0032",
-      "headline": "Oscar Iversen scores 25.1m strike at 74.4kph to equalize at 3–3",
-      "body": "Iversen's 0.01 xG effort from 25.1m at 74.4kph in the 82' minute forces a draw, capping a high-intensity finish with minimal expected threat but maximum impact.",
+      "headline": "GOAL — Oscar Iversen makes it IRN 3–3 WES",
+      "body": "Oscar Iversen strikes from 25.1 metres at 74.4 km/h — a 0.01 xG chance. The scoreline now reads IRN 3–3 WES.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "82' IRN 3–3 WES: 25.1m, 74.4km/h, xG 0.01",
@@ -2754,8 +2754,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Oscar Iversen scores 25.1m strike at 74.4kph to equalize at 3–3",
-          "body": "Iversen's 0.01 xG effort from 25.1m at 74.4kph in the 82' minute forces a draw, capping a high-intensity finish with minimal expected threat but maximum impact."
+          "headline": "GOAL — Oscar Iversen makes it IRN 3–3 WES",
+          "body": "Oscar Iversen strikes from 25.1 metres at 74.4 km/h — a 0.01 xG chance. The scoreline now reads IRN 3–3 WES."
         },
         {
           "persona": "analyst",
@@ -2824,7 +2824,7 @@
           "body": "Regardez Oscar Iversen : une frappe propre depuis 25.1 mètres, 0.01 xG."
         }
       ],
-      "provider": "llm"
+      "provider": "template"
     },
     {
       "candidateId": "cand-0033",
@@ -2911,8 +2911,8 @@
     },
     {
       "candidateId": "cand-0034",
-      "headline": "Piotr Iversen scores 2nd goal in 92' to complete brace",
-      "body": "Iversen's 2nd goal at 92' confirms his brace, making Ironworks FC's 4–3 lead definitive against Westerly Wanderers.",
+      "headline": "Milestone",
+      "body": "Piotr Iversen completes a brace — 2 goals today.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "92' Ironworks FC",
@@ -2920,8 +2920,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Piotr Iversen scores 2nd goal in 92' to complete brace",
-          "body": "Iversen's 2nd goal at 92' confirms his brace, making Ironworks FC's 4–3 lead definitive against Westerly Wanderers."
+          "headline": "Milestone",
+          "body": "Piotr Iversen completes a brace — 2 goals today."
         },
         {
           "persona": "analyst",
@@ -2990,12 +2990,12 @@
           "body": "Piotr Iversen réalise un brace — 2 buts aujourd'hui."
         }
       ],
-      "provider": "llm"
+      "provider": "template"
     },
     {
       "candidateId": "cand-0035",
-      "headline": "92' Piotr Iversen seals 4–3 comeback for Ironworks FC",
-      "body": "At 92', Piotr Iversen's decisive goal transformed a 3–3 deadlock into a 4–3 lead, securing Ironworks FC's dramatic late victory over Westerly Wanderers after trailing in the final minutes.",
+      "headline": "Piotr Iversen's 92' winner seals Ironworks FC's 4–3 comeback",
+      "body": "The 92' goal by Piotr Iversen transformed a 3–3 deadlock into a 4–3 victory, with Ironworks FC overcoming Westerly Wanderers after trailing in the final minutes.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "92': 4–3 – late drama unfolds",
@@ -3003,8 +3003,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "92' Piotr Iversen seals 4–3 comeback for Ironworks FC",
-          "body": "At 92', Piotr Iversen's decisive goal transformed a 3–3 deadlock into a 4–3 lead, securing Ironworks FC's dramatic late victory over Westerly Wanderers after trailing in the final minutes."
+          "headline": "Piotr Iversen's 92' winner seals Ironworks FC's 4–3 comeback",
+          "body": "The 92' goal by Piotr Iversen transformed a 3–3 deadlock into a 4–3 victory, with Ironworks FC overcoming Westerly Wanderers after trailing in the final minutes."
         },
         {
           "persona": "analyst",

@@ -6,8 +6,8 @@
   "moments": [
     {
       "candidateId": "cand-0015",
-      "headline": "Rafael Moreau's 32.3 kph sprint at 3' breaks early rhythm",
-      "body": "At 3 minutes, Rafael Moreau's 32.3 kph burst for Northgate United initiated the first high-velocity offensive threat, disrupting Harbour City's defensive setup before the score reached 0–0.",
+      "headline": "Nils Lombardi's 32.3 kph burst at 3'",
+      "body": "Lombardi's 32.3 kph sprint in the 3rd minute established early pace, signaling Harbour City's intent to dominate possession and pressure Northgate United's defensive line.",
       "lang": "en",
       "persona": "analyst",
       "ticker": null,
@@ -15,91 +15,91 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Rafael Moreau's 32.3 kph sprint at 3' breaks early rhythm",
-          "body": "At 3 minutes, Rafael Moreau's 32.3 kph burst for Northgate United initiated the first high-velocity offensive threat, disrupting Harbour City's defensive setup before the score reached 0–0."
+          "headline": "Nils Lombardi's 32.3 kph burst at 3'",
+          "body": "Lombardi's 32.3 kph sprint in the 3rd minute established early pace, signaling Harbour City's intent to dominate possession and pressure Northgate United's defensive line."
         },
         {
           "persona": "analyst",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Rafael Moreau: 32.3 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Nils Lombardi: 32.3 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "analyst",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Rafael Moreau : 32.3 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Nils Lombardi : 32.3 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "casual",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Rafael Moreau: 32.3 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Nils Lombardi: 32.3 km/h — the fastest of the match so far."
         },
         {
           "persona": "casual",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Rafael Moreau: 32.3 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Nils Lombardi: 32.3 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "casual",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Rafael Moreau : 32.3 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Nils Lombardi : 32.3 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "club",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Rafael Moreau: 32.3 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Nils Lombardi: 32.3 km/h — the fastest of the match so far."
         },
         {
           "persona": "club",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Rafael Moreau: 32.3 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Nils Lombardi: 32.3 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "club",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Rafael Moreau : 32.3 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Nils Lombardi : 32.3 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "player_focus",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Rafael Moreau: 32.3 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Nils Lombardi: 32.3 km/h — the fastest of the match so far."
         },
         {
           "persona": "player_focus",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Rafael Moreau: 32.3 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Nils Lombardi: 32.3 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "player_focus",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Rafael Moreau : 32.3 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Nils Lombardi : 32.3 km/h — la plus élevée du match jusqu'ici."
         }
       ],
       "provider": "llm"
     },
     {
       "candidateId": "cand-0001",
-      "headline": "Theo Escobar's 3.7m xG 0.38 chance blocked at 5'",
-      "body": "Northgate United's 0.38 xG opportunity from 3.7m, generated by Theo Escobar in the 5th minute, was blocked, representing a 38% expected goal probability lost at the start of the match.",
+      "headline": "Theo Escobar's 3.7m shot blocked at 5'",
+      "body": "0.38 xG chance from 3.7m distance blocked, representing 38% expected goal probability for Northgate United in the opening 5 minutes.",
       "lang": "en",
       "persona": "analyst",
-      "ticker": "5' Northgate United",
+      "ticker": "5' - 0.38 xG chance blocked from 3.7m",
       "variants": [
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Theo Escobar's 3.7m xG 0.38 chance blocked at 5'",
-          "body": "Northgate United's 0.38 xG opportunity from 3.7m, generated by Theo Escobar in the 5th minute, was blocked, representing a 38% expected goal probability lost at the start of the match."
+          "headline": "Theo Escobar's 3.7m shot blocked at 5'",
+          "body": "0.38 xG chance from 3.7m distance blocked, representing 38% expected goal probability for Northgate United in the opening 5 minutes."
         },
         {
           "persona": "analyst",
@@ -172,8 +172,8 @@
     },
     {
       "candidateId": "cand-0016",
-      "headline": "Aron Tavares hits 34.7 kph in 6th minute",
-      "body": "Northgate United's Aron Tavares achieves peak speed of 34.7 kph during a 0–0 first-half phase, signaling early attacking intent against Harbour City.",
+      "headline": "Gabriel Kovac's 32.4 kph sprint at 6'",
+      "body": "The fastest recorded pace in the match, 32.4 kph, highlights Gabriel Kovac's explosive acceleration during Northgate United's early phase, disrupting Harbour City's defensive setup at 0–0.",
       "lang": "en",
       "persona": "analyst",
       "ticker": null,
@@ -181,91 +181,91 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Aron Tavares hits 34.7 kph in 6th minute",
-          "body": "Northgate United's Aron Tavares achieves peak speed of 34.7 kph during a 0–0 first-half phase, signaling early attacking intent against Harbour City."
+          "headline": "Gabriel Kovac's 32.4 kph sprint at 6'",
+          "body": "The fastest recorded pace in the match, 32.4 kph, highlights Gabriel Kovac's explosive acceleration during Northgate United's early phase, disrupting Harbour City's defensive setup at 0–0."
         },
         {
           "persona": "analyst",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Aron Tavares: 34.7 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Gabriel Kovac: 32.4 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "analyst",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Aron Tavares : 34.7 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Gabriel Kovac : 32.4 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "casual",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Aron Tavares: 34.7 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Gabriel Kovac: 32.4 km/h — the fastest of the match so far."
         },
         {
           "persona": "casual",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Aron Tavares: 34.7 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Gabriel Kovac: 32.4 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "casual",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Aron Tavares : 34.7 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Gabriel Kovac : 32.4 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "club",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Aron Tavares: 34.7 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Gabriel Kovac: 32.4 km/h — the fastest of the match so far."
         },
         {
           "persona": "club",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Aron Tavares: 34.7 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Gabriel Kovac: 32.4 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "club",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Aron Tavares : 34.7 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Gabriel Kovac : 32.4 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "player_focus",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Aron Tavares: 34.7 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Gabriel Kovac: 32.4 km/h — the fastest of the match so far."
         },
         {
           "persona": "player_focus",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Aron Tavares: 34.7 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Gabriel Kovac: 32.4 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "player_focus",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Aron Tavares : 34.7 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Gabriel Kovac : 32.4 km/h — la plus élevée du match jusqu'ici."
         }
       ],
       "provider": "llm"
     },
     {
       "candidateId": "cand-0002",
-      "headline": "Halvard Tuominen scores 8' goal from 7.5m at 85.5kph, xG 0.27, HAR 1–0 NOR",
-      "body": "Tuominen's 7.5m strike at 85.5kph generated 0.27 xG, securing HAR's 1–0 lead in the 8th minute with no penalty involvement.",
+      "headline": "Halvard Tuominen scores 8' goal from 7.5m at 85.5kph, 0.27 xG",
+      "body": "Harbour City leads Northgate United 1–0 with a 0.27 xG strike from 7.5m, ball speed 85.5kph, non-penalty, opening the scoring in the 8th minute.",
       "lang": "en",
       "persona": "analyst",
-      "ticker": "HAR lead 1–0, 8', xG 0.27, 7.5m, 85.5km/h",
+      "ticker": "8' HAR 1–0 NOR: 0.27 xG, 7.5m, 85.5 km/h, no penalty",
       "variants": [
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Halvard Tuominen scores 8' goal from 7.5m at 85.5kph, xG 0.27, HAR 1–0 NOR",
-          "body": "Tuominen's 7.5m strike at 85.5kph generated 0.27 xG, securing HAR's 1–0 lead in the 8th minute with no penalty involvement."
+          "headline": "Halvard Tuominen scores 8' goal from 7.5m at 85.5kph, 0.27 xG",
+          "body": "Harbour City leads Northgate United 1–0 with a 0.27 xG strike from 7.5m, ball speed 85.5kph, non-penalty, opening the scoring in the 8th minute."
         },
         {
           "persona": "analyst",
@@ -338,8 +338,8 @@
     },
     {
       "candidateId": "cand-0017",
-      "headline": "Leon Reyes breaks 36 kph in 9th minute",
-      "body": "Northgate United's Leon Reyes achieves 36 kph during a 9th-minute run, establishing early pace and contributing to the 1–0 lead against Harbour City.",
+      "headline": "Fastest of the match",
+      "body": "Blistering pace from Rafael Moreau: 33.5 km/h — the fastest of the match so far.",
       "lang": "en",
       "persona": "analyst",
       "ticker": null,
@@ -347,82 +347,82 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Leon Reyes breaks 36 kph in 9th minute",
-          "body": "Northgate United's Leon Reyes achieves 36 kph during a 9th-minute run, establishing early pace and contributing to the 1–0 lead against Harbour City."
+          "headline": "Fastest of the match",
+          "body": "Blistering pace from Rafael Moreau: 33.5 km/h — the fastest of the match so far."
         },
         {
           "persona": "analyst",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Leon Reyes: 36 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Rafael Moreau: 33.5 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "analyst",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Leon Reyes : 36 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Rafael Moreau : 33.5 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "casual",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Leon Reyes: 36 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Rafael Moreau: 33.5 km/h — the fastest of the match so far."
         },
         {
           "persona": "casual",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Leon Reyes: 36 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Rafael Moreau: 33.5 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "casual",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Leon Reyes : 36 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Rafael Moreau : 33.5 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "club",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Leon Reyes: 36 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Rafael Moreau: 33.5 km/h — the fastest of the match so far."
         },
         {
           "persona": "club",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Leon Reyes: 36 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Rafael Moreau: 33.5 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "club",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Leon Reyes : 36 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Rafael Moreau : 33.5 km/h — la plus élevée du match jusqu'ici."
         },
         {
           "persona": "player_focus",
           "lang": "en",
           "headline": "Fastest of the match",
-          "body": "Blistering pace from Leon Reyes: 36 km/h — the fastest of the match so far."
+          "body": "Blistering pace from Rafael Moreau: 33.5 km/h — the fastest of the match so far."
         },
         {
           "persona": "player_focus",
           "lang": "es",
           "headline": "Fastest of the match",
-          "body": "Velocidad explosiva de Leon Reyes: 36 km/h — la más alta del partido hasta ahora."
+          "body": "Velocidad explosiva de Rafael Moreau: 33.5 km/h — la más alta del partido hasta ahora."
         },
         {
           "persona": "player_focus",
           "lang": "fr",
           "headline": "Fastest of the match",
-          "body": "Vitesse fulgurante de Leon Reyes : 36 km/h — la plus élevée du match jusqu'ici."
+          "body": "Vitesse fulgurante de Rafael Moreau : 33.5 km/h — la plus élevée du match jusqu'ici."
         }
       ],
-      "provider": "llm"
+      "provider": "template"
     },
     {
       "candidateId": "cand-0003",
-      "headline": "Northgate United seize momentum after 21' goal, shifting swing from -0.001 to -0.289",
-      "body": "The away team's 1–0 lead at 21' triggers a 0.59 momentum swing, stabilizing at -0.289 over the next 5 minutes, signaling sustained control despite early pressure.",
+      "headline": "Northgate United seize momentum with 1–0 lead at 21'",
+      "body": "A 0.59 swing in momentum over 5 minutes shifts the balance to Northgate United, whose 1–0 away lead stabilizes at -0.289, signaling a decisive early advantage.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "Momentum has swung to Northgate United — a -0.59 shift over the last five minutes.",
@@ -430,8 +430,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Northgate United seize momentum after 21' goal, shifting swing from -0.001 to -0.289",
-          "body": "The away team's 1–0 lead at 21' triggers a 0.59 momentum swing, stabilizing at -0.289 over the next 5 minutes, signaling sustained control despite early pressure."
+          "headline": "Northgate United seize momentum with 1–0 lead at 21'",
+          "body": "A 0.59 swing in momentum over 5 minutes shifts the balance to Northgate United, whose 1–0 away lead stabilizes at -0.289, signaling a decisive early advantage."
         },
         {
           "persona": "analyst",
@@ -504,8 +504,8 @@
     },
     {
       "candidateId": "cand-0004",
-      "headline": "Fionn Karlsson's 27' save denies harbour-p9's 0.03 xG chance",
-      "body": "The 0.41 difficulty save preserved Northgate United's 1–0 lead, nullifying a 0.03 xG opportunity from Harbour City's harbour-p9 at 27'.",
+      "headline": "Fionn Karlsson's 27' save denies Harbour City's 0.03 xG chance",
+      "body": "At 27', Fionn Karlsson's intervention prevented a 0.41-difficulty chance from harbour-p9, preserving Northgate United's 1–0 lead with a 0.03 xG threat neutralized.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "27' - 0.41 difficulty save, 0.03 xG, 1-0",
@@ -513,8 +513,8 @@
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "Fionn Karlsson's 27' save denies harbour-p9's 0.03 xG chance",
-          "body": "The 0.41 difficulty save preserved Northgate United's 1–0 lead, nullifying a 0.03 xG opportunity from Harbour City's harbour-p9 at 27'."
+          "headline": "Fionn Karlsson's 27' save denies Harbour City's 0.03 xG chance",
+          "body": "At 27', Fionn Karlsson's intervention prevented a 0.41-difficulty chance from harbour-p9, preserving Northgate United's 1–0 lead with a 0.03 xG threat neutralized."
         },
         {
           "persona": "analyst",
@@ -588,16 +588,16 @@
     {
       "candidateId": "cand-0005",
       "headline": "Valentin Heikkila's 29' save denies Northgate United's 0.15 xG chance",
-      "body": "Heikkila's 0.66-difficulty stop preserved Harbour City's 1–0 lead, nullifying Northgate United's 0.15 xG opportunity from shooter northgate-p14.",
+      "body": "Heikkila's intervention prevented a 0.66-difficulty shot from Northgate United's player 14, preserving Harbour City's 1–0 lead with 29 minutes played.",
       "lang": "en",
       "persona": "analyst",
-      "ticker": "29' - Save by keeper, 0.15 xG, 66% difficulty",
+      "ticker": "29' - 0.66 diff save, 0.15 xG, 1-0",
       "variants": [
         {
           "persona": "analyst",
           "lang": "en",
           "headline": "Valentin Heikkila's 29' save denies Northgate United's 0.15 xG chance",
-          "body": "Heikkila's 0.66-difficulty stop preserved Harbour City's 1–0 lead, nullifying Northgate United's 0.15 xG opportunity from shooter northgate-p14."
+          "body": "Heikkila's intervention prevented a 0.66-difficulty shot from Northgate United's player 14, preserving Harbour City's 1–0 lead with 29 minutes played."
         },
         {
           "persona": "analyst",
@@ -671,16 +671,16 @@
     {
       "candidateId": "cand-0006",
       "headline": "Theo Escobar's 3.1m xG 0.4 miss at 32'",
-      "body": "Northgate United's 0.4 xG chance from 3.1m out, converted to post, left Harbour City unscathed at 1–0.",
+      "body": "Northgate United's 0.4 xG chance from 3.1m out, converted to post, maintained 1–0 lead at 32'.",
       "lang": "en",
       "persona": "analyst",
-      "ticker": "32' - 0.4 xG chance hits post from 3.1m",
+      "ticker": "32' - 0.4 xG, strikes post from 3.1m, 1-0",
       "variants": [
         {
           "persona": "analyst",
           "lang": "en",
           "headline": "Theo Escobar's 3.1m xG 0.4 miss at 32'",
-          "body": "Northgate United's 0.4 xG chance from 3.1m out, converted to post, left Harbour City unscathed at 1–0."
+          "body": "Northgate United's 0.4 xG chance from 3.1m out, converted to post, maintained 1–0 lead at 32'."
         },
         {
           "persona": "analyst",
@@ -837,7 +837,7 @@
     {
       "candidateId": "cand-0008",
       "headline": "35' Halvard Tuominen's 8.4m xG 0.22 chance saved",
-      "body": "Harbour City's 1–0 lead at 35' was tested by Halvard Tuominen's 8.4m shot with 0.22 xG, saved by Northgate United, preserving the narrow advantage.",
+      "body": "Harbour City's 1–0 lead at 35' was tested by Halvard Tuominen's 8.4m shot, registering 0.22 xG, but Northgate United's goalkeeper preserved the advantage with a decisive save.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "35' - 0.22 xG chance saved from 8.4m, 1-0",
@@ -846,7 +846,7 @@
           "persona": "analyst",
           "lang": "en",
           "headline": "35' Halvard Tuominen's 8.4m xG 0.22 chance saved",
-          "body": "Harbour City's 1–0 lead at 35' was tested by Halvard Tuominen's 8.4m shot with 0.22 xG, saved by Northgate United, preserving the narrow advantage."
+          "body": "Harbour City's 1–0 lead at 35' was tested by Halvard Tuominen's 8.4m shot, registering 0.22 xG, but Northgate United's goalkeeper preserved the advantage with a decisive save."
         },
         {
           "persona": "analyst",
@@ -920,7 +920,7 @@
     {
       "candidateId": "cand-0009",
       "headline": "Fionn Karlsson's 35' save denies Harbour City's 0.22 xG chance",
-      "body": "At 35', Karlsson's intervention prevented a 0.74-difficulty chance from harbour-p11, preserving Northgate United's 1–0 lead with a 0.22 xG threat neutralized.",
+      "body": "The 0.74 difficulty save preserved Northgate United's 1–0 lead, preventing a 0.22 xG opportunity from Harbour City's P11.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "35' - 0.74 diff save, 0.22 xG, 1-0",
@@ -929,7 +929,7 @@
           "persona": "analyst",
           "lang": "en",
           "headline": "Fionn Karlsson's 35' save denies Harbour City's 0.22 xG chance",
-          "body": "At 35', Karlsson's intervention prevented a 0.74-difficulty chance from harbour-p11, preserving Northgate United's 1–0 lead with a 0.22 xG threat neutralized."
+          "body": "The 0.74 difficulty save preserved Northgate United's 1–0 lead, preventing a 0.22 xG opportunity from Harbour City's P11."
         },
         {
           "persona": "analyst",
@@ -1006,7 +1006,7 @@
       "body": "RED CARD — Theo Escobar is off (reckless). Northgate United are down to ten.",
       "lang": "en",
       "persona": "analyst",
-      "ticker": "55' Theo Escobar sent off, reckless foul, 1–0",
+      "ticker": "55' Theo Escobar shown red card, reckless foul, 1–0",
       "variants": [
         {
           "persona": "analyst",
@@ -1085,17 +1085,17 @@
     },
     {
       "candidateId": "cand-0011",
-      "headline": "63' Fionn Karlsson's 0.73-difficulty save denies Harbour City's 0.19 xG chance",
-      "body": "Northgate United's 1–0 lead preserved as Fionn Karlsson thwarted harbour-p11's high-probability effort, preventing a 0.19 xG conversion in a 73% difficulty scenario.",
+      "headline": "Fionn Karlsson's 63' save denies Harbour City's 0.19 xG chance",
+      "body": "At 63', Fionn Karlsson's intervention prevented a 0.73-difficulty chance from harbour-p11, preserving Northgate United's 1–0 lead with a 0.19 xG threat neutralized.",
       "lang": "en",
       "persona": "analyst",
-      "ticker": "63' - 0.73 diff, 0.19 xG save by goalkeeper",
+      "ticker": "63' - 0.73 diff, 0.19 xG save by keeper",
       "variants": [
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "63' Fionn Karlsson's 0.73-difficulty save denies Harbour City's 0.19 xG chance",
-          "body": "Northgate United's 1–0 lead preserved as Fionn Karlsson thwarted harbour-p11's high-probability effort, preventing a 0.19 xG conversion in a 73% difficulty scenario."
+          "headline": "Fionn Karlsson's 63' save denies Harbour City's 0.19 xG chance",
+          "body": "At 63', Fionn Karlsson's intervention prevented a 0.73-difficulty chance from harbour-p11, preserving Northgate United's 1–0 lead with a 0.19 xG threat neutralized."
         },
         {
           "persona": "analyst",
@@ -1169,7 +1169,7 @@
     {
       "candidateId": "cand-0012",
       "headline": "87' Fionn Karlsson's 0.58-difficulty save denies Harbour City's 0.11 xG chance",
-      "body": "Northgate United's 1–0 lead preserved as Fionn Karlsson thwarted a high-probability shot from Harbour City's player 11, preventing a 0.11 xG opportunity with a save rated at 0.58 difficulty.",
+      "body": "Northgate United's 1–0 lead preserved as Fionn Karlsson thwarted harbour-p11's high-probability effort, preventing a 0.11 xG conversion in the 87th minute.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "What a save! Difficulty 0.58 — Fionn Karlsson denies a 0.11 xG chance.",
@@ -1178,7 +1178,7 @@
           "persona": "analyst",
           "lang": "en",
           "headline": "87' Fionn Karlsson's 0.58-difficulty save denies Harbour City's 0.11 xG chance",
-          "body": "Northgate United's 1–0 lead preserved as Fionn Karlsson thwarted a high-probability shot from Harbour City's player 11, preventing a 0.11 xG opportunity with a save rated at 0.58 difficulty."
+          "body": "Northgate United's 1–0 lead preserved as Fionn Karlsson thwarted harbour-p11's high-probability effort, preventing a 0.11 xG conversion in the 87th minute."
         },
         {
           "persona": "analyst",
@@ -1252,7 +1252,7 @@
     {
       "candidateId": "cand-0013",
       "headline": "98' Halvard Tuominen's 8.7m xG 0.22 chance blocked for Harbour City",
-      "body": "At 98', Halvard Tuominen's 8.7m shot with 0.22 xG was blocked, denying Harbour City a potential 2–0 lead against Northgate United in a high-leverage moment.",
+      "body": "At 98', Halvard Tuominen's 8.7m shot with 0.22 xG was blocked, denying Harbour City a decisive 2–0 lead against Northgate United in a high-leverage moment.",
       "lang": "en",
       "persona": "analyst",
       "ticker": "98' Harbour City",
@@ -1261,7 +1261,7 @@
           "persona": "analyst",
           "lang": "en",
           "headline": "98' Halvard Tuominen's 8.7m xG 0.22 chance blocked for Harbour City",
-          "body": "At 98', Halvard Tuominen's 8.7m shot with 0.22 xG was blocked, denying Harbour City a potential 2–0 lead against Northgate United in a high-leverage moment."
+          "body": "At 98', Halvard Tuominen's 8.7m shot with 0.22 xG was blocked, denying Harbour City a decisive 2–0 lead against Northgate United in a high-leverage moment."
         },
         {
           "persona": "analyst",
@@ -1334,17 +1334,17 @@
     },
     {
       "candidateId": "cand-0014",
-      "headline": "98' Fionn Karlsson's 0.53-difficulty save denies Harbour City's 0.07 xG chance",
-      "body": "A 98' stoppage-time intervention by Northgate United's Fionn Karlsson preserved a 1–0 lead, neutralizing a 0.07 xG opportunity from Harbour City's player 11 with a 53% difficulty save.",
+      "headline": "98' Fionn Karlsson denies Harbour City's P11 with 0.53 difficulty save, preserving 1–0 lead",
+      "body": "A 0.07 xG chance converted into a 0.53 difficulty stop by Fionn Karlsson at 98', preventing Harbour City from equalizing and maintaining Northgate United's 1–0 advantage.",
       "lang": "en",
       "persona": "analyst",
-      "ticker": "What a save! Difficulty 0.53 — Fionn Karlsson denies a 0.07 xG chance.",
+      "ticker": "98' Harbour saves 0.07 xG chance, 53% difficulty",
       "variants": [
         {
           "persona": "analyst",
           "lang": "en",
-          "headline": "98' Fionn Karlsson's 0.53-difficulty save denies Harbour City's 0.07 xG chance",
-          "body": "A 98' stoppage-time intervention by Northgate United's Fionn Karlsson preserved a 1–0 lead, neutralizing a 0.07 xG opportunity from Harbour City's player 11 with a 53% difficulty save."
+          "headline": "98' Fionn Karlsson denies Harbour City's P11 with 0.53 difficulty save, preserving 1–0 lead",
+          "body": "A 0.07 xG chance converted into a 0.53 difficulty stop by Fionn Karlsson at 98', preventing Harbour City from equalizing and maintaining Northgate United's 1–0 advantage."
         },
         {
           "persona": "analyst",
