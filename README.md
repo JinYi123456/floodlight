@@ -121,6 +121,14 @@ curl -N "http://localhost:8787/matches/stream?scenario=derby&seed=2026"
 A `Dockerfile` ships it as a single container (`docker build -t floodlight-api .`
 from the repo root).
 
+**It is also live on Azure** (Container Apps, consumption plan, scale-to-zero):
+
+https://floodlight-api.lemonsmoke-f1226dd0.southeastasia.azurecontainerapps.io/
+
+```bash
+curl -N "https://floodlight-api.lemonsmoke-f1226dd0.southeastasia.azurecontainerapps.io/matches/stream?scenario=comeback&seed=2026"
+```
+
 ## MCP — the studio as tools
 
 The whole studio is exposed as a typed **Model Context Protocol** tool
@@ -218,7 +226,8 @@ on the same pushes.
 For **Azure Container Apps**, the whole runbook is
 [`docs/deploy-azure.md`](./docs/deploy-azure.md): three `az` commands put the
 API + MCP endpoint live on HTTPS with scale-to-zero inside the service's
-free monthly grant.
+free monthly grant. The reference deployment from this repo runs at
+`floodlight-api.lemonsmoke-f1226dd0.southeastasia.azurecontainerapps.io`.
 
 ## License
 
