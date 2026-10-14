@@ -6,6 +6,8 @@
 import type { AddressInfo } from 'node:net';
 import type { Server } from 'node:http';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { Client } from '@modelcontextprotocol/sdk/client/index.js';
+import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 import { createApiServer } from '../src/server';
 
 let server: Server;
@@ -93,4 +95,23 @@ describe('floodlight api', () => {
     const route = await fetch(`${base}/nonsense`);
     expect(route.status).toBe(404);
   });
+
+  it('serves the studio tools over MCP Streamable HTTP', async () => {
+    const client = new Client({ name: 'api-test-host', version: '1.0.0' });
+    const transport = new StreamableHTTPClientTransport(new URL(`${base}/mcp`));
+    await client.connect(transport);
+
+    const tools = await client.listTools();
+    const names = tools.tools.map((tool) => tool.name);
+    expect(names).toContain('prepare_match');
+    expect(names).toContain('run_vision_pass');
+    expect(names).toHaveLength(9);
+
+    const result = await client.callTool({ name: 'list_scenarios', arguments: {} });
+    const text = (result.content as Array<{ type: string; text?: string }>).find((part) => part.type === 'text')?.text ?? '[]';
+    const scenarios = JSON.parse(text) as Array<{ id: string }>;
+    expect(scenarios.map((scenario) => scenario.id)).toEqual(['comeback', 'siege', 'derby', 'freeplay']);
+
+    await client.close();
+  }, 60_000);
 });

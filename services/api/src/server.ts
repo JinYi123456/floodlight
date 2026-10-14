@@ -15,6 +15,7 @@
  *   GET /matches/events.jsonl?scenario=&seed= NDJSON event stream
  *   GET /matches/moments.csv?scenario=&seed=  stories as CSV
  *   GET /matches/data-card?scenario=&seed=    generated data card
+ *   POST /mcp                                 the studio as MCP tools (Streamable HTTP)
  */
 
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from 'node:http';
@@ -30,6 +31,7 @@ import {
   toJsonl,
   type ExportedMatch,
 } from '@floodlight/dataset';
+import { handleMcp } from './mcp-endpoint';
 
 const PORT = Number(process.env['PORT'] ?? '8787');
 
@@ -128,12 +130,21 @@ async function handle(req: IncomingMessage, res: ServerResponse): Promise<void> 
   if (req.method === 'OPTIONS') {
     res.writeHead(204, {
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Accept, Mcp-Session-Id, Mcp-Protocol-Version',
+      'Access-Control-Expose-Headers': 'Mcp-Session-Id',
     });
     res.end();
     return;
   }
+
+  // The MCP tool surface over Streamable HTTP — the same nine tools the
+  // stdio server exposes, attachable by any remote MCP host.
+  if (path === '/mcp') {
+    await handleMcp(req, res);
+    return;
+  }
+
   if (req.method !== 'GET') {
     json(res, 405, { error: 'only GET is served' });
     return;
@@ -154,6 +165,7 @@ async function handle(req: IncomingMessage, res: ServerResponse): Promise<void> 
           '/matches/events.jsonl?scenario=comeback&seed=2026',
           '/matches/moments.csv?scenario=comeback&seed=2026',
           '/matches/data-card?scenario=comeback&seed=2026',
+          '/mcp (POST — MCP tools over Streamable HTTP)',
         ],
       });
       return;
@@ -235,7 +247,7 @@ async function handle(req: IncomingMessage, res: ServerResponse): Promise<void> 
     default:
       json(res, 404, {
         error: `no route for ${path}`,
-        endpoints: ['/health', '/scenarios', '/matches/prepare', '/matches/stream', '/matches/vision', '/matches/events.jsonl', '/matches/moments.csv', '/matches/data-card'],
+        endpoints: ['/health', '/scenarios', '/matches/prepare', '/matches/stream', '/matches/vision', '/matches/events.jsonl', '/matches/moments.csv', '/matches/data-card', '/mcp'],
       });
   }
 }
