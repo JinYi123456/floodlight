@@ -10,7 +10,7 @@
 import type { MatchEvent, TeamSide } from '@floodlight/core';
 import { CLUBS, SCENARIOS, type SimulationResult } from '@floodlight/simulator';
 import type { InsightCandidate, MatchState, PlayerMatchStats, WindowFeatures } from '@floodlight/engine';
-import type { NarratedMoment } from '@floodlight/agents';
+import type { FactsSource, NarratedMoment } from '@floodlight/agents';
 import type { CueSheet } from '@floodlight/cuesheet';
 import { prepareMatch } from '@floodlight/dataset';
 import { runVisionPass, type VisionReport } from '@floodlight/vision';
@@ -24,11 +24,7 @@ export type { MatchState, PlayerMatchStats, WindowFeatures, VisionReport };
  * MCP client implements this over tool calls; a plain object over a live
  * engine implements it in-process. Same numbers either way.
  */
-export interface MatchFacts {
-  snapshot(): Promise<MatchState>;
-  scoreAt(t: number): Promise<{ home: number; away: number }>;
-  windowFeatures(t0: number, t1: number): Promise<WindowFeatures>;
-}
+export { liveFacts, type MatchFacts, type FactsSource } from '@floodlight/agents';
 
 /* ------------------------------ the service ------------------------------ */
 
@@ -86,7 +82,7 @@ export interface ScenarioRow {
 interface Prepared {
   summary: PreparedSummary;
   simulation: SimulationResult;
-  engine: LiveEngine;
+  engine: FactsSource;
   candidates: InsightCandidate[];
   moments: NarratedMoment[];
   cues: CueSheet;
@@ -279,26 +275,4 @@ export class MatchService {
       goals,
     };
   }
-}
-
-/** The live engine surface the pipeline's crew keeps advancing. */
-export interface LiveEngine {
-  snapshot(): MatchState;
-  scoreAt(t: number): { home: number; away: number };
-  windowFeatures(t0: number, t1: number): WindowFeatures;
-}
-
-/** Facts over a live engine — the in-process implementation of MatchFacts. */
-export function liveFacts(engine: LiveEngine): MatchFacts {
-  return {
-    async snapshot() {
-      return engine.snapshot();
-    },
-    async scoreAt(t: number) {
-      return engine.scoreAt(t);
-    },
-    async windowFeatures(t0: number, t1: number) {
-      return engine.windowFeatures(t0, t1);
-    },
-  };
 }

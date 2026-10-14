@@ -15,6 +15,7 @@
 import type { InsightCandidate, MatchEngine, MomentKind } from '@floodlight/engine';
 import { CrewRuntime, type TaskTrace } from './runtime';
 import { ProviderGateway } from './providers';
+import { liveFacts, type MatchFacts } from './facts';
 import { buildEvidencePack, verifyDraft, type VerifierVerdict } from './verifier';
 import { LANGUAGES, PERSONAS, templateNarrative, tickerLine, type Lang, type NarrativeContext, type Persona } from './templates';
 
@@ -66,6 +67,9 @@ export interface CrewOptions {
   gateway?: ProviderGateway;
   runtime?: CrewRuntime;
   profile?: ViewerProfile;
+  /** Fact source the crew verifies against — an MCP tool client in the live
+   *  pipeline; defaults to reading the engine directly. */
+  facts?: MatchFacts;
   /** Generate all persona × language variants (recording mode). */
   generateVariants?: boolean;
   /** Allow model-written ticker lines (recording mode). */
@@ -145,22 +149,26 @@ export class ProductionCrew {
     }
   }
 
-  /** Build the per-candidate brief once; every agent reads from it. */
-  briefFor(candidate: InsightCandidate, engine: MatchEngine): MomentBrief {
-    const state = engine.snapshot();
+  /** Build the per-candidate brief once; every agent reads from it. The
+   *  match reads go through the configured fact source — engine-direct by
+   *  default, MCP tool calls in the live pipeline. */
+  async briefFor(candidate: InsightCandidate, engine: MatchEngine): Promise<MomentBrief> {
+    const facts = this.options.facts ?? liveFacts(engine);
+    const state = await facts.snapshot();
     const meta = state.meta;
     const side = candidate.team === 'away' ? 'away' : 'home';
     const team = meta[side];
     const opponent = meta[side === 'home' ? 'away' : 'home'];
     const player = candidate.playerId ? state.players.find((p) => p.playerId === candidate.playerId)?.name ?? null : null;
-    const score = typeof candidate.facts['score'] === 'string'
-      ? (candidate.facts['score'] as string)
-      : (() => {
-          const at = engine.scoreAt(candidate.t);
-          return `${at.home}–${at.away}`;
-        })();
+    let score: string;
+    if (typeof candidate.facts['score'] === 'string') {
+      score = candidate.facts['score'] as string;
+    } else {
+      const at = await facts.scoreAt(candidate.t);
+      score = `${at.home}–${at.away}`;
+    }
     const window = candidate.window ?? { t0: Math.max(0, candidate.t - 300), t1: candidate.t };
-    const features = engine.windowFeatures(window.t0, window.t1);
+    const features = await facts.windowFeatures(window.t0, window.t1);
     const context: NarrativeContext = {
       kind: candidate.kind,
       minute: candidate.minuteLabel,
@@ -172,7 +180,7 @@ export class ProductionCrew {
       score,
       facts: candidate.facts,
     };
-    const atTime = engine.scoreAt(candidate.t);
+    const atTime = await facts.scoreAt(candidate.t);
     const evidenceNumbers: number[] = [
       atTime.home,
       atTime.away,
@@ -221,7 +229,7 @@ export class ProductionCrew {
     if (!air.air) return null;
 
     const profile = this.options.profile ?? DEFAULT_PROFILE;
-    const brief = this.briefFor(candidate, engine);
+    const brief = await this.briefFor(candidate, engine);
     const pack = buildEvidencePack(candidate, brief.evidenceNumbers, brief.vocabulary);
 
     // --- Analyst: model draft first, then a guided rewrite, then template.

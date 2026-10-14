@@ -9,7 +9,7 @@
 
 import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import type { MatchService, AtTimeState, MatchFacts, MatchState } from '@floodlight/dataservice';
+import type { MatchService, AtTimeState, FactsSource, MatchFacts, MatchState } from '@floodlight/dataservice';
 import type { WindowFeatures } from '@floodlight/engine';
 import type { Client } from '@modelcontextprotocol/sdk/client/index.js';
 
@@ -123,11 +123,8 @@ export function registerStudioTools(server: McpServer, service: MatchService): v
 
 /* --------------------------- the live match feed -------------------------- */
 
-export interface LiveEngineLike {
-  snapshot(): MatchState;
-  scoreAt(t: number): { home: number; away: number };
-  windowFeatures(t0: number, t1: number): WindowFeatures;
-}
+/** The engine the live tools read — structurally, the crew's fact source. */
+export type LiveEngineLike = FactsSource;
 
 /** Register the live-match tools the production crew consults mid-write. */
 export function registerLiveTools(server: McpServer, engine: LiveEngineLike): void {

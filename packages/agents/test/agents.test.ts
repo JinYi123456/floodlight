@@ -5,6 +5,7 @@ import { MatchEngine, type InsightCandidate } from '@floodlight/engine';
 import {
   buildEvidencePack,
   CrewRuntime,
+  liveFacts,
   mockProvider,
   parseNarration,
   PERSONAS,
@@ -13,6 +14,7 @@ import {
   ProductionCrew,
   templateNarrative,
   verifyDraft,
+  type MatchFacts,
   type NarrativeContext,
 } from '@floodlight/agents';
 
@@ -206,5 +208,33 @@ describe('production crew end to end', () => {
     // The overturned goal itself must never have been selected for air in
     // the final feed (its candidate is flagged as overturned).
     expect(production.moments.some((m) => m.candidate.kind === 'goal' && m.candidate.overturned)).toBe(false);
+  });
+
+  it('reads the match through the configured fact source, numbers unchanged', async () => {
+    const { engine, candidates } = runEngine(12345, 'comeback');
+    const base = new ProductionCrew({});
+    const direct = await base.runMatch(candidates, engine);
+
+    let reads = 0;
+    const enginePath = liveFacts(engine);
+    const spy: MatchFacts = {
+      snapshot: async () => {
+        reads++;
+        return enginePath.snapshot();
+      },
+      scoreAt: async (t) => {
+        reads++;
+        return enginePath.scoreAt(t);
+      },
+      windowFeatures: async (t0, t1) => {
+        reads++;
+        return enginePath.windowFeatures(t0, t1);
+      },
+    };
+    const viaFacts = new ProductionCrew({ facts: spy });
+    const routed = await viaFacts.runMatch(candidates, engine);
+
+    expect(reads).toBeGreaterThan(0);
+    expect(stableHash(routed.moments)).toBe(stableHash(direct.moments));
   });
 });
