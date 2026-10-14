@@ -38,3 +38,12 @@ jobs:
           file: services/api/Dockerfile
           push: true
           tags: ghcr.io/jinyi123456/floodlight-api:latest
+
+      - name: Try to make the image publicly pullable
+        continue-on-error: true
+        run: |
+          curl -sS -X PATCH \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/user/packages/container/floodlight-api \
+            -d '{"visibility":"public"}' | head -c 400
