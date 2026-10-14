@@ -16,8 +16,8 @@ interface HitEvent {
 }
 
 const MASTER_GAIN = 0.9;
-const CROWD_BASE = 0.075;
-const CROWD_PEAK = 0.34;
+const CROWD_BASE = 0.03;
+const CROWD_PEAK = 0.12;
 
 export class BroadcastAudio {
   private ctx: AudioContext | null = null;
@@ -34,6 +34,10 @@ export class BroadcastAudio {
   private pending: string[] = [];
   private speaking = false;
   private voice: SpeechSynthesisVoice | null = null;
+  private queueCount = 0;
+  private sayCount = 0;
+  private cancelCount = 0;
+  private lastText = '';
   enabled = false;
 
   /** Create the graph (needs a user gesture) and fade the crowd in. */
@@ -63,7 +67,7 @@ export class BroadcastAudio {
       source.loop = true;
       const lowpass = ctx.createBiquadFilter();
       lowpass.type = 'lowpass';
-      lowpass.frequency.value = 720;
+      lowpass.frequency.value = 640;
       this.crowd = ctx.createGain();
       this.crowd.gain.value = 0.0001;
       source.connect(lowpass);
@@ -101,27 +105,36 @@ export class BroadcastAudio {
   }
 
   /** Advance the audio clock: fire the sounds of events crossed since the
-   *  last call, decay excitement, and keep the pointer honest on scrubs. */
+   *  last call, decay excitement, and keep the pointer honest on scrubs.
+   *  Paused means silent: the bed fades out and the commentary desk stops
+   *  mid-sentence — resuming picks the match up where the viewer left it. */
   update(events: HitEvent[], t: number, playing: boolean): void {
     if (!this.ctx || !this.enabled) return;
     const wall = performance.now();
     const dt = this.lastWall > 0 ? Math.min(1, (wall - this.lastWall) / 1000) : 0.1;
     this.lastWall = wall;
-    this.excitement *= Math.exp(-dt / 5.5);
-    if (this.crowd && this.ctx) {
-      const level = Math.min(CROWD_PEAK, CROWD_BASE + this.excitement * (CROWD_PEAK - CROWD_BASE));
-      this.crowd.gain.setTargetAtTime(level, this.ctx.currentTime, 0.35);
-    }
+    this.excitement *= Math.exp(-dt / 4.2);
     this.kickCooldown = Math.max(0, this.kickCooldown - dt);
     this.whistleCooldown = Math.max(0, this.whistleCooldown - dt);
+
+    if (!playing) {
+      if (this.speaking || this.pending.length > 0) {
+        if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel();
+        this.speaking = false;
+        this.pending = [];
+        this.cancelCount++;
+      }
+      this.crowd?.gain.setTargetAtTime(0.0001, this.ctx.currentTime, 0.12);
+      this.prevT = t;
+      return;
+    }
+
+    const level = Math.min(CROWD_PEAK, CROWD_BASE + this.excitement * (CROWD_PEAK - CROWD_BASE));
+    this.crowd?.gain.setTargetAtTime(level, this.ctx.currentTime, 0.35);
 
     if (Number.isNaN(this.prevT) || t < this.prevT || t - this.prevT > 2.5) {
       // A scrub or a big jump — resynchronise without firing a burst.
       this.pointer = seek(events, this.pointer, t);
-      this.prevT = t;
-      return;
-    }
-    if (!playing) {
       this.prevT = t;
       return;
     }
@@ -133,12 +146,22 @@ export class BroadcastAudio {
     this.prevT = t;
   }
 
-  /** Read a new cue headline aloud (deduplicated by cue id). */
-  speak(id: string, text: string): void {
+  /** Read a commentary line aloud (deduplicated by id). Goals and other
+   *  turning points interrupt the current line, the way a commentator
+   *  cuts himself off. */
+  speak(id: string, text: string, interrupt = false): void {
     if (!this.enabled || typeof speechSynthesis === 'undefined' || !text) return;
     if (this.spoken.has(id)) return;
     this.spoken.add(id);
+    this.queueCount++;
     if (this.spoken.size > 400) this.spoken.clear();
+    if (interrupt) {
+      this.pending = [];
+      if (this.speaking && typeof speechSynthesis !== 'undefined') speechSynthesis.cancel();
+      this.speaking = false;
+      this.say(text);
+      return;
+    }
     if (this.speaking) {
       if (this.pending.length >= 2) this.pending.shift();
       this.pending.push(text);
@@ -162,13 +185,15 @@ export class BroadcastAudio {
       this.speaking = false;
     };
     this.speaking = true;
+    this.sayCount++;
+    this.lastText = text.slice(0, 80);
     speechSynthesis.speak(utterance);
   }
 
   private hit(event: HitEvent): void {
     switch (event.type) {
       case 'pass':
-        this.kick(Math.min(1, (event.ballSpeedKph ?? 30) / 80) * 0.35);
+        this.kick(Math.min(1, (event.ballSpeedKph ?? 30) / 80) * 0.22);
         break;
       case 'clearance':
         this.kick(0.7);
@@ -217,11 +242,11 @@ export class BroadcastAudio {
     burst.buffer = this.noise;
     const filter = ctx.createBiquadFilter();
     filter.type = 'bandpass';
-    filter.frequency.value = 900 + strength * 900;
+    filter.frequency.value = 650 + strength * 550;
     filter.Q.value = 0.9;
     const gain = ctx.createGain();
     gain.gain.setValueAtTime(0.0001, now);
-    gain.gain.exponentialRampToValueAtTime(0.4 * strength, now + 0.006);
+    gain.gain.exponentialRampToValueAtTime(0.3 * strength, now + 0.006);
     gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.09);
     burst.connect(filter);
     filter.connect(gain);
@@ -250,7 +275,7 @@ export class BroadcastAudio {
       const at = start + i * 0.28;
       const osc = ctx.createOscillator();
       osc.type = 'square';
-      osc.frequency.value = 2350;
+      osc.frequency.value = 2150;
       const warble = ctx.createOscillator();
       warble.frequency.value = 24;
       const warbleGain = ctx.createGain();
@@ -260,7 +285,7 @@ export class BroadcastAudio {
       const gain = ctx.createGain();
       const duration = count === 3 ? 0.5 : 0.16;
       gain.gain.setValueAtTime(0.0001, at);
-      gain.gain.exponentialRampToValueAtTime(0.14, at + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.095, at + 0.02);
       gain.gain.setTargetAtTime(0.0001, at + duration, 0.03);
       osc.connect(gain);
       gain.connect(this.master);
@@ -279,25 +304,44 @@ export class BroadcastAudio {
     swell.buffer = this.noise;
     const filter = ctx.createBiquadFilter();
     filter.type = 'bandpass';
-    filter.frequency.value = 480;
+    filter.frequency.value = 430;
     filter.Q.value = 0.5;
     const gain = ctx.createGain();
     gain.gain.setValueAtTime(0.0001, now);
-    gain.gain.exponentialRampToValueAtTime(0.5, now + 0.25);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + 4.2);
+    gain.gain.exponentialRampToValueAtTime(0.42, now + 0.25);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 3.8);
     swell.connect(filter);
     filter.connect(gain);
     gain.connect(this.master);
-    swell.start(now, 0, 4.4);
+    swell.start(now, 0, 4.0);
   }
 
   /** Development probe for the running page. */
-  debugState(): { enabled: boolean; state: string | null; excitement: number; voices: number } {
+  debugState(): {
+    enabled: boolean;
+    state: string | null;
+    excitement: number;
+    voices: number;
+    spoken: number;
+    queued: number;
+    said: number;
+    cancels: number;
+    speaking: boolean;
+    lastText: string;
+    bed: number | null;
+  } {
     return {
       enabled: this.enabled,
       state: this.ctx ? this.ctx.state : null,
       excitement: Math.round(this.excitement * 100) / 100,
       voices: typeof speechSynthesis === 'undefined' ? 0 : speechSynthesis.getVoices().length,
+      spoken: this.spoken.size,
+      queued: this.queueCount,
+      said: this.sayCount,
+      cancels: this.cancelCount,
+      speaking: this.speaking,
+      lastText: this.lastText,
+      bed: this.crowd ? Math.round(this.crowd.gain.value * 10000) / 10000 : null,
     };
   }
 }

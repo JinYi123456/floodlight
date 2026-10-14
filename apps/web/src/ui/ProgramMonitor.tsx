@@ -17,6 +17,7 @@ import { useAppStore, trackingCache } from '../state/store';
 import { createPitchTexture } from './pitchTexture';
 import { createGoalFrames, createPlayerFigure, type PlayerFigure } from './players3d';
 import { broadcast } from './audio';
+import { PlayByPlay } from './commentary';
 
 type CameraMode = 'tactical' | 'follow' | 'player';
 
@@ -34,6 +35,8 @@ export function ProgramMonitor() {
   const [mode, setMode] = useState<CameraMode>('tactical');
   const modeRef = useRef(mode);
   const [audioOn, setAudioOn] = useState(false);
+  const playByPlayRef = useRef<PlayByPlay | null>(null);
+  if (!playByPlayRef.current) playByPlayRef.current = new PlayByPlay();
 
   // The crowd, the whistles and the commentary desk. Browsers only start
   // audio after a gesture — the last gesture was entering the studio, so a
@@ -300,14 +303,22 @@ export function ProgramMonitor() {
       const telestration = cueForSlot(active, 'telestration');
 
       // Sound follows the clock: kick thumps, whistles and the goal roar,
-      // plus the commentary desk reading the marquee cues aloud.
+      // plus the two commentary voices — play-by-play reads the live event
+      // stream, and every story that goes to air is read aloud as the clock
+      // crosses it, goals cutting in mid-sentence.
       broadcast.update(currentMatch.events, time, state.playing);
       if (state.playing) {
-        const flash = cueForSlot(active, 'goal_flash');
-        if (flash) broadcast.speak(flash.id, String(flash.payload.headline ?? 'Goal!'));
-        const line = cueForSlot(active, 'lower_third');
-        if (line) {
-          broadcast.speak(line.id, `${String(line.payload.headline ?? '')}. ${String(line.payload.body ?? '')}`);
+        const line = playByPlayRef.current?.feed(currentMatch, time) ?? null;
+        if (line) broadcast.speak(line.id, line.text);
+        for (const moment of currentMatch.moments) {
+          if (!moment.air.air) continue;
+          const mt = moment.candidate.t;
+          if (mt <= time && mt > time - 2.5) {
+            const kind = moment.candidate.kind;
+            const interrupt =
+              kind === 'goal' || kind === 'penalty' || kind === 'red_card' || kind === 'var_overturn';
+            broadcast.speak(moment.candidate.id, spokenLine(moment.headline), interrupt);
+          }
         }
       }
 
@@ -582,6 +593,13 @@ export function ProgramMonitor() {
       </div>
     </div>
   );
+}
+
+/** Commentary reads the headline trimmed to its first clause — a
+ *  commentator's line, not a paragraph. */
+function spokenLine(headline: string): string {
+  const first = headline.split(',')[0]?.trim() ?? headline;
+  return first.length >= 12 ? first : headline;
 }
 
 function teamColor(match: NonNullable<ReturnType<typeof useAppStore.getState>['match']>, team: string): string {
