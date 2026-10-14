@@ -303,13 +303,18 @@ export function ProgramMonitor() {
       const telestration = cueForSlot(active, 'telestration');
 
       // Sound follows the clock: kick thumps, whistles and the goal roar,
-      // plus the two commentary voices — play-by-play reads the live event
-      // stream, and every story that goes to air is read aloud as the clock
-      // crosses it, goals cutting in mid-sentence.
+      // plus the two commentary voices — story moments play the recorded
+      // commentator clip (falling back to the platform voice), and the
+      // play-by-play mic reads the live event stream, goals cutting in
+      // mid-sentence.
       broadcast.update(currentMatch.events, time, state.playing);
       if (state.playing) {
         const line = playByPlayRef.current?.feed(currentMatch, time) ?? null;
         if (line) broadcast.speak(line.id, line.text);
+        const clipScenario =
+          state.recordingId && currentMatch.providerSummary.recorded && currentMatch.meta.scenario === state.recordingId
+            ? state.recordingId
+            : null;
         for (const moment of currentMatch.moments) {
           if (!moment.air.air) continue;
           const mt = moment.candidate.t;
@@ -317,7 +322,10 @@ export function ProgramMonitor() {
             const kind = moment.candidate.kind;
             const interrupt =
               kind === 'goal' || kind === 'penalty' || kind === 'red_card' || kind === 'var_overturn';
-            broadcast.speak(moment.candidate.id, spokenLine(moment.headline), interrupt);
+            const clipUrl = clipScenario
+              ? new URL(`recordings/audio/${clipScenario}/${moment.candidate.id}.mp3`, document.baseURI).href
+              : null;
+            broadcast.moment(moment.candidate.id, spokenLine(moment.headline), clipUrl, interrupt);
           }
         }
       }

@@ -3,9 +3,12 @@
  *
  * A low crowd bed breathes with the match and swells when something nearly
  * happens, kicks and whistles punctuate the event stream as the clock
- * crosses each one, goals get the roar, and the commentary desk reads cue
- * headlines aloud through the platform's speech synthesis. No assets, no
- * network — every sound is generated from oscillators and shaped noise.
+ * crosses each one, goals get the roar. The commentary desk has two voices:
+ * story moments play pre-rendered commentator clips (a real neural voice,
+ * delivered with pace), while the play-by-play mic reads the live event
+ * stream through the platform's speech synthesis. No keys, no services in
+ * the browser — clips are static assets, everything else is oscillators and
+ * shaped noise.
  */
 
 interface HitEvent {
@@ -13,6 +16,13 @@ interface HitEvent {
   type: string;
   outcome?: string | null;
   ballSpeedKph?: number;
+}
+
+interface VoiceLine {
+  text: string;
+  url?: string;
+  /** Big moments cut in louder and faster — the commentator raising his voice. */
+  urgent?: boolean;
 }
 
 const MASTER_GAIN = 0.9;
@@ -23,6 +33,7 @@ export class BroadcastAudio {
   private ctx: AudioContext | null = null;
   private master: GainNode | null = null;
   private crowd: GainNode | null = null;
+  private speechGain: GainNode | null = null;
   private noise: AudioBuffer | null = null;
   private pointer = 0;
   private prevT = Number.NaN;
@@ -31,12 +42,18 @@ export class BroadcastAudio {
   private kickCooldown = 0;
   private whistleCooldown = 0;
   private spoken = new Set<string>();
-  private pending: string[] = [];
+  private pending: VoiceLine[] = [];
   private speaking = false;
+  private clip: AudioBufferSourceNode | null = null;
+  private clipCache = new Map<string, AudioBuffer>();
+  private clipMisses = new Set<string>();
+  private lastPlaying = false;
   private voice: SpeechSynthesisVoice | null = null;
   private queueCount = 0;
   private sayCount = 0;
   private cancelCount = 0;
+  private clipCount = 0;
+  private clipStopCount = 0;
   private lastText = '';
   enabled = false;
 
@@ -74,17 +91,37 @@ export class BroadcastAudio {
       lowpass.connect(this.crowd);
       this.crowd.connect(this.master);
       source.start();
+
+      this.speechGain = ctx.createGain();
+      this.speechGain.gain.value = 0.95;
+      this.speechGain.connect(this.master);
     }
     void this.ctx.resume().catch(() => undefined);
     if (this.voice === null && typeof speechSynthesis !== 'undefined') {
+      // Pick the most engaging voice on offer: natural/neural first, then
+      // the livelier named voices, English before the rest.
+      const score = (candidate: SpeechSynthesisVoice): number => {
+        const name = candidate.name.toLowerCase();
+        if (!candidate.lang.toLowerCase().startsWith('en')) return -1;
+        let value = candidate.lang === 'en-GB' || candidate.lang === 'en-US' ? 6 : 3;
+        if (/natural|online|neural/.test(name)) value += 5;
+        if (/guy|ryan|george|christopher|daniel|alex|brian/.test(name)) value += 3;
+        if (/aria|jenny|sonia|libby/.test(name)) value += 2;
+        if (/david|mark|zira/.test(name)) value += 1;
+        return value;
+      };
       const pick = () => {
         const voices = speechSynthesis.getVoices();
-        this.voice =
-          voices.find((v) => v.lang === 'en-GB' && /male|daniel|george/i.test(v.name)) ??
-          voices.find((v) => v.lang === 'en-GB') ??
-          voices.find((v) => v.lang.startsWith('en')) ??
-          voices[0] ??
-          null;
+        let best: SpeechSynthesisVoice | null = null;
+        let bestScore = 0;
+        for (const candidate of voices) {
+          const value = score(candidate);
+          if (value > bestScore) {
+            best = candidate;
+            bestScore = value;
+          }
+        }
+        this.voice = best;
       };
       pick();
       speechSynthesis.onvoiceschanged = pick;
@@ -96,12 +133,14 @@ export class BroadcastAudio {
 
   disable(): void {
     this.enabled = false;
+    this.lastPlaying = false;
     if (this.ctx && this.crowd) {
       this.crowd.gain.setTargetAtTime(0.0001, this.ctx.currentTime, 0.25);
     }
     if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel();
     this.speaking = false;
     this.pending = [];
+    this.stopClip();
   }
 
   /** Advance the audio clock: fire the sounds of events crossed since the
@@ -109,7 +148,11 @@ export class BroadcastAudio {
    *  Paused means silent: the bed fades out and the commentary desk stops
    *  mid-sentence — resuming picks the match up where the viewer left it. */
   update(events: HitEvent[], t: number, playing: boolean): void {
-    if (!this.ctx || !this.enabled) return;
+    if (!this.ctx || !this.enabled) {
+      this.lastPlaying = false;
+      return;
+    }
+    this.lastPlaying = playing;
     const wall = performance.now();
     const dt = this.lastWall > 0 ? Math.min(1, (wall - this.lastWall) / 1000) : 0.1;
     this.lastWall = wall;
@@ -118,10 +161,11 @@ export class BroadcastAudio {
     this.whistleCooldown = Math.max(0, this.whistleCooldown - dt);
 
     if (!playing) {
-      if (this.speaking || this.pending.length > 0) {
+      if (this.speaking || this.pending.length > 0 || this.clip) {
         if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel();
         this.speaking = false;
         this.pending = [];
+        this.stopClip();
         this.cancelCount++;
       }
       this.crowd?.gain.setTargetAtTime(0.0001, this.ctx.currentTime, 0.12);
@@ -146,9 +190,33 @@ export class BroadcastAudio {
     this.prevT = t;
   }
 
-  /** Read a commentary line aloud (deduplicated by id). Goals and other
-   *  turning points interrupt the current line, the way a commentator
-   *  cuts himself off. */
+  /** Read a story moment aloud — the recorded commentator clip when one is
+   *  available, the platform voice otherwise. Goals and other turning points
+   *  interrupt the current line, the way a commentator cuts himself off. */
+  moment(id: string, text: string, clipUrl: string | null, interrupt = false): void {
+    if (!this.enabled || !text) return;
+    if (this.spoken.has(id)) return;
+    this.spoken.add(id);
+    this.queueCount++;
+    if (this.spoken.size > 400) this.spoken.clear();
+    const line: VoiceLine =
+      clipUrl && !this.clipMisses.has(clipUrl) ? { text, url: clipUrl, urgent: interrupt } : { text, urgent: interrupt };
+    if (interrupt) {
+      this.pending = [];
+      this.cancelSpeech();
+      this.stopClip();
+      this.play(line);
+      return;
+    }
+    if (this.busy()) {
+      if (this.pending.length >= 2) this.pending.shift();
+      this.pending.push(line);
+      return;
+    }
+    this.play(line);
+  }
+
+  /** Read a line through the platform voice (the play-by-play mic). */
   speak(id: string, text: string, interrupt = false): void {
     if (!this.enabled || typeof speechSynthesis === 'undefined' || !text) return;
     if (this.spoken.has(id)) return;
@@ -157,29 +225,97 @@ export class BroadcastAudio {
     if (this.spoken.size > 400) this.spoken.clear();
     if (interrupt) {
       this.pending = [];
-      if (this.speaking && typeof speechSynthesis !== 'undefined') speechSynthesis.cancel();
-      this.speaking = false;
-      this.say(text);
+      this.cancelSpeech();
+      this.stopClip();
+      this.say(text, true);
       return;
     }
-    if (this.speaking) {
+    if (this.busy()) {
       if (this.pending.length >= 2) this.pending.shift();
-      this.pending.push(text);
+      this.pending.push({ text });
       return;
     }
     this.say(text);
   }
 
-  private say(text: string): void {
+  private busy(): boolean {
+    return this.speaking || this.clip !== null;
+  }
+
+  private play(line: VoiceLine): void {
+    if (line.url) {
+      void this.playClip(line.url, line);
+      return;
+    }
+    this.say(line.text, line.urgent ?? false);
+  }
+
+  private async playClip(url: string, line: VoiceLine): Promise<void> {
+    const ctx = this.ctx;
+    if (!ctx) return;
+    let buffer = this.clipCache.get(url);
+    if (!buffer) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(String(response.status));
+        buffer = await ctx.decodeAudioData(await response.arrayBuffer());
+        this.clipCache.set(url, buffer);
+      } catch {
+        // Missing or undecodable clip — fall back to the platform voice.
+        this.clipMisses.add(url);
+        if (this.enabled && this.lastPlaying) this.say(line.text, line.urgent ?? false);
+        return;
+      }
+    }
+    if (!this.enabled || !this.lastPlaying) return;
+    this.stopClip();
+    const source = ctx.createBufferSource();
+    source.buffer = buffer;
+    source.connect(this.speechGain ?? this.master!);
+    source.onended = () => {
+      if (this.clip === source) {
+        this.clip = null;
+        this.drainPending();
+      }
+    };
+    this.clip = source;
+    this.clipCount++;
+    this.lastText = line.text.slice(0, 80);
+    source.start();
+  }
+
+  private stopClip(): void {
+    if (!this.clip) return;
+    const source = this.clip;
+    this.clip = null;
+    try {
+      source.stop();
+    } catch {
+      /* already stopped */
+    }
+    this.clipStopCount++;
+  }
+
+  private cancelSpeech(): void {
+    if (typeof speechSynthesis !== 'undefined' && this.speaking) speechSynthesis.cancel();
+    this.speaking = false;
+  }
+
+  private drainPending(): void {
+    const next = this.pending.shift();
+    if (next && this.enabled && this.lastPlaying) this.play(next);
+  }
+
+  private say(text: string, urgent = false): void {
     if (typeof speechSynthesis === 'undefined') return;
     const utterance = new SpeechSynthesisUtterance(text);
     if (this.voice) utterance.voice = this.voice;
-    utterance.rate = 1.04;
-    utterance.pitch = 0.98;
+    utterance.rate = urgent ? 1.22 : 1.07;
+    utterance.pitch = urgent ? 1.07 : 0.99;
+    utterance.volume = urgent ? 1 : 0.95;
     utterance.onend = () => {
       this.speaking = false;
-      const next = this.pending.shift();
-      if (next) this.say(next);
+      this.drainPending();
     };
     utterance.onerror = () => {
       this.speaking = false;
@@ -329,6 +465,9 @@ export class BroadcastAudio {
     speaking: boolean;
     lastText: string;
     bed: number | null;
+    clips: number;
+    clipStops: number;
+    clipCache: number;
   } {
     return {
       enabled: this.enabled,
@@ -342,6 +481,9 @@ export class BroadcastAudio {
       speaking: this.speaking,
       lastText: this.lastText,
       bed: this.crowd ? Math.round(this.crowd.gain.value * 10000) / 10000 : null,
+      clips: this.clipCount,
+      clipStops: this.clipStopCount,
+      clipCache: this.clipCache.size,
     };
   }
 }

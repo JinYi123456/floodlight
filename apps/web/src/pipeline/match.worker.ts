@@ -97,7 +97,10 @@ async function prepare(request: { scenarioId: string | null; seed: number; recor
   progress('Directing the show', 0.72);
   candidates.sort((a, b) => a.t - b.t || a.id.localeCompare(b.id));
 
-  const recording = request.recording ? await loadRecording(request.recording, request.recordingsBase ?? null) : null;
+  const loaded = request.recording ? await loadRecording(request.recording, request.recordingsBase ?? null) : null;
+  // The studio voice is recorded against the canonical seed — replaying it on
+  // another seed would put verified copy on unrelated moments.
+  const recording = loaded && loaded.seed === request.seed ? loaded : null;
   const recordedById = new Map<string, RecordedMoment>();
   if (recording) for (const m of recording.moments) recordedById.set(m.candidateId, m);
 
