@@ -313,6 +313,20 @@ export function trackingWindow(
     return null;
   };
 
+  /** The next pass in the stream — who it is for, where it lands, when. */
+  const nextPass = (): { recipientId: string | null; endAt: Vec2 | null; t: number } | null => {
+    for (let k = eventPointer + 1; k < events.length; k++) {
+      const next = events[k]!;
+      if (next.type === 'pass') {
+        const pass = next as MatchEvent & { recipientId: string | null; endAt: Vec2 | null };
+        return { recipientId: pass.recipientId, endAt: pass.endAt, t: pass.t };
+      }
+      if (next.type === 'carry' || next.type === 'shot') return null;
+      if (ballMoves(next)) return null;
+    }
+    return null;
+  };
+
   /* ---------------- player integration ---------------- */
 
   const runtime = new Map<string, PlayerRuntime>();
@@ -344,10 +358,10 @@ export function trackingWindow(
 
   const frames: TrackingFrame[] = [];
   const frameCount = Math.max(0, Math.floor((t1 - t0) / dt));
-  const maxSpeed = (player: SquadPlayer, t: number, chasing: boolean): number => {
+  const maxSpeed = (player: SquadPlayer, t: number, chasing: boolean, sprint = false): number => {
     const base = player.role === 'GK' ? 21 : 23.5 + player.ability.pace * 9.5;
     const fatigue = 1 - 0.1 * (t / 5400);
-    const burst = chasing ? 1.12 : 1;
+    const burst = (chasing ? 1.12 : 1) * (sprint ? 1.18 : 1);
     return base * fatigue * burst * (1000 / 3600);
   };
 
@@ -361,6 +375,12 @@ export function trackingWindow(
     const ball = ballAt(t);
     const owner = ownerAt(t);
     const actor = nextActorId();
+    const upcoming = nextPass();
+    // The future receiver starts their run early enough to meet the pass —
+    // the lead grows with the distance the ball must cover.
+    const receiverLead = upcoming?.endAt
+      ? clamp(Math.hypot(upcoming.endAt.x - ball.pos.x, upcoming.endAt.y - ball.pos.y) / 7.5 + 1.0, 2.0, 6.5)
+      : 0;
     const second = Math.floor(t);
     const frac = t - second;
     const currentEvent = events[eventPointer];
@@ -396,27 +416,43 @@ export function trackingWindow(
 
       const isOwner = owner.playerId === id;
       const isActor = actor === id;
+      const isReceiver = Boolean(
+        passInFlight && passInFlight.outcome === 'complete' && passInFlight.recipientId === id,
+      );
       // A player who just released the ball (pass or shot) is no longer on
       // it: he follows through and recovers shape instead of sprinting
       // after his own ball — that lunge-and-return was the giveaway.
       const released = (passInFlight?.playerId === id) || (shotInFlight?.playerId === id);
       if (isOwner && !released) {
         target = { x: ball.pos.x, y: ball.pos.y };
-      } else if (passInFlight && passInFlight.recipientId === id && passInFlight.outcome === 'complete') {
-        // The intended recipient runs onto the arrival point — a burst onto
-        // the pass that arrives with the ball, instead of reacting late.
-        const arrival = passInFlight.endAt ?? ball.pos;
+      } else if (isReceiver) {
+        // The intended recipient runs onto the arrival point — and gets
+        // there on time: with teams holding a real shape, the receiver is
+        // often metres from where the pass lands, so he sprints onto it.
+        const arrival = passInFlight!.endAt ?? ball.pos;
         target = { x: arrival.x, y: arrival.y };
-      } else if (isActor && !isOwner && ball.speedKph > 5) {
-        // The next actor goes to the ball — a positional drift while someone
-        // owns it, a committed fetch when the ball is loose and nobody has
-        // it (a ball spilled out of play or rolling to a restart).
-        if (owner.playerId === null) {
+      } else if (
+        upcoming &&
+        upcoming.endAt &&
+        id === upcoming.recipientId &&
+        upcoming.t - t <= receiverLead &&
+        upcoming.t > t
+      ) {
+        // The future receiver makes his run into the space the pass will
+        // find — timed so he arrives with the ball, the way a forward
+        // attacks a long ball instead of waiting for it.
+        target = { x: upcoming.endAt.x, y: upcoming.endAt.y };
+      } else if (isActor && !isOwner && !released) {
+        // The next actor goes to the ball — a committed fetch when the ball
+        // is loose and nobody has it, a full step-on in the last second
+        // before he plays it, and a strong drift through the holds in
+        // between so pass chains hand over at the ball.
+        if (owner.playerId === null || (upcoming && upcoming.t - t <= 1.2)) {
           target = { x: ball.pos.x, y: ball.pos.y };
         } else {
           target = {
-            x: target.x + (ball.pos.x - target.x) * 0.45,
-            y: target.y + (ball.pos.y - target.y) * 0.45,
+            x: target.x + (ball.pos.x - target.x) * 0.7,
+            y: target.y + (ball.pos.y - target.y) * 0.7,
           };
         }
       }
@@ -431,8 +467,8 @@ export function trackingWindow(
       let desiredVx = 0;
       let desiredVy = 0;
       if (dist > 0.02) {
-        const tau = isOwner ? 0.4 : isActor ? 1.1 : 2.2;
-        const speedCap = maxSpeed(rt.player, t, dist > 10);
+        const tau = isOwner ? 0.4 : isReceiver ? 0.9 : isActor ? 1.1 : 2.2;
+        const speedCap = maxSpeed(rt.player, t, dist > 10 || isReceiver, isReceiver);
         desiredMag = Math.min(dist / tau, speedCap);
         desiredVx = (dx / dist) * desiredMag;
         desiredVy = (dy / dist) * desiredMag;
@@ -464,9 +500,10 @@ export function trackingWindow(
       active.push({ id, rt, speedKph: clamp((step / dt) * 3.6, 0, 36) });
     }
 
-    // Separation: nobody stands inside anybody. Two relaxation passes —
-    // teammates keep more space than opponents (duels may get close).
-    for (let iter = 0; iter < 2; iter++) {
+    // Separation: nobody stands inside anybody, and teammates keep real
+    // spacing — a broadcast pair closer than ~2.5 m reads as one blob.
+    // Three relaxation passes; duels with opponents may close to ~1.4 m.
+    for (let iter = 0; iter < 3; iter++) {
       for (let i = 0; i < active.length; i++) {
         for (let j = i + 1; j < active.length; j++) {
           const a = active[i]!.rt;
@@ -474,7 +511,7 @@ export function trackingWindow(
           let dx = b.pos.x - a.pos.x;
           let dy = b.pos.y - a.pos.y;
           let d = Math.hypot(dx, dy);
-          const min = a.team === b.team ? 1.8 : 1.0;
+          const min = a.team === b.team ? 2.6 : 1.4;
           if (d >= min) continue;
           if (d < 1e-3) {
             // Exactly stacked: a deterministic nudge keeps runs seeded.
