@@ -7,6 +7,7 @@
 import { SCENARIOS, simulateMatch, trackingWindow, formationSlotFor, type SimulationResult } from '@floodlight/simulator';
 import { MatchEngine } from '@floodlight/engine';
 import { ProductionCrew, type NarratedMoment } from '@floodlight/agents';
+import { createLiveFactsClient } from '@floodlight/mcp/live';
 import { compileCues } from '@floodlight/cuesheet';
 import {
   detectEntities,
@@ -104,7 +105,11 @@ async function prepare(request: { scenarioId: string | null; seed: number; recor
   const recordedById = new Map<string, RecordedMoment>();
   if (recording) for (const m of recording.moments) recordedById.set(m.candidateId, m);
 
-  const crew = new ProductionCrew({ generateVariants: true });
+  // The crew verifies mid-write through the MCP tool surface — the same
+  // handshake an external host performs, linked in-process off the main
+  // thread. Numbers arrive over tool calls, not direct engine reads.
+  const facts = await createLiveFactsClient(engine);
+  const crew = new ProductionCrew({ generateVariants: true, facts });
   const moments: NarratedMoment[] = [];
   for (const candidate of candidates) {
     const moment = await crew.processCandidate(candidate, engine);
