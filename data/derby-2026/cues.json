@@ -4,20 +4,20 @@
   "cues": [
     {
       "id": "cue-0001",
-      "t0": 157,
-      "t1": 162,
+      "t0": 132,
+      "t1": 137,
       "slot": "player_tag",
       "priority": 52,
       "animation": "pinned",
       "payload": {
         "headline": "Fastest of the match",
-        "body": "Blistering pace from Fionn Christou: 32.7 km/h — the fastest of the match so far.",
+        "body": "Blistering pace from Dario Stankovic: 33.3 km/h — the fastest of the match so far.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
         "minuteLabel": "3'",
-        "playerId": "westerly-p5",
-        "speedKph": 32.7
+        "playerId": "westerly-p4",
+        "speedKph": 33.3
       },
       "source": {
         "momentId": "cand-0036",
@@ -25,7 +25,7 @@
         "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 169
+      "expiresAt": 144
     },
     {
       "id": "cue-0002",
@@ -68,8 +68,8 @@
     },
     {
       "id": "cue-0003",
-      "t0": 343.5,
-      "t1": 348.5,
+      "t0": 341.5,
+      "t1": 346.5,
       "slot": "player_tag",
       "priority": 52,
       "animation": "pinned",
@@ -89,7 +89,7 @@
         "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 355.5
+      "expiresAt": 353.5
     },
     {
       "id": "cue-0005",
@@ -182,20 +182,20 @@
     },
     {
       "id": "cue-0007",
-      "t0": 592,
-      "t1": 597,
+      "t0": 561,
+      "t1": 566,
       "slot": "player_tag",
       "priority": 52,
       "animation": "pinned",
       "payload": {
         "headline": "Fastest of the match",
-        "body": "Blistering pace from Yusuf Giordano: 33.1 km/h — the fastest of the match so far.",
+        "body": "Blistering pace from Valentin Weiss: 36 km/h — the fastest of the match so far.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
         "minuteLabel": "10'",
-        "playerId": "westerly-p17",
-        "speedKph": 33.1
+        "playerId": "ironworks-p11",
+        "speedKph": 36
       },
       "source": {
         "momentId": "cand-0038",
@@ -203,7 +203,7 @@
         "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 604
+      "expiresAt": 573
     },
     {
       "id": "cue-0008",

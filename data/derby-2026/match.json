@@ -73,9 +73,9 @@
       "possessionShare": 0.5352856694785145,
       "defensiveActions": 22,
       "ppda": 24.636363636363637,
-      "topSpeedKph": 34.7,
-      "distanceCoveredKm": 84.43978841132915,
-      "sprints": 1459,
+      "topSpeedKph": 36,
+      "distanceCoveredKm": 68.90563312055478,
+      "sprints": 576,
       "touchesInBox": 14
     },
     "away": {
@@ -105,9 +105,9 @@
       "possessionShare": 0.4647143305214854,
       "defensiveActions": 16,
       "ppda": 39.875,
-      "topSpeedKph": 33.7,
-      "distanceCoveredKm": 89.27145828182005,
-      "sprints": 1625,
+      "topSpeedKph": 36,
+      "distanceCoveredKm": 70.50418704448327,
+      "sprints": 576,
       "touchesInBox": 5
     }
   },

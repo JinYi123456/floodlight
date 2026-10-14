@@ -4,20 +4,20 @@
   "cues": [
     {
       "id": "cue-0001",
-      "t0": 129,
-      "t1": 134,
+      "t0": 122.5,
+      "t1": 127.5,
       "slot": "player_tag",
       "priority": 52,
       "animation": "pinned",
       "payload": {
         "headline": "Fastest of the match",
-        "body": "Blistering pace from Emil Rahman: 33.1 km/h — the fastest of the match so far.",
+        "body": "Blistering pace from Viggo Ortega: 32.7 km/h — the fastest of the match so far.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
         "minuteLabel": "3'",
-        "playerId": "oldtower-p12",
-        "speedKph": 33.1
+        "playerId": "oldtower-p11",
+        "speedKph": 32.7
       },
       "source": {
         "momentId": "cand-0027",
@@ -25,7 +25,7 @@
         "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 141
+      "expiresAt": 134.5
     },
     {
       "id": "cue-0004",
@@ -101,20 +101,20 @@
     },
     {
       "id": "cue-0005",
-      "t0": 752,
-      "t1": 757,
+      "t0": 313,
+      "t1": 318,
       "slot": "player_tag",
       "priority": 52,
       "animation": "pinned",
       "payload": {
         "headline": "Fastest of the match",
-        "body": "Blistering pace from Wim Bouchard: 34 km/h — the fastest of the match so far.",
+        "body": "Blistering pace from Viggo Ortega: 36 km/h — the fastest of the match so far.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "13'",
-        "playerId": "oldtower-p16",
-        "speedKph": 34
+        "minuteLabel": "6'",
+        "playerId": "oldtower-p11",
+        "speedKph": 36
       },
       "source": {
         "momentId": "cand-0028",
@@ -122,10 +122,35 @@
         "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 764
+      "expiresAt": 325
     },
     {
-      "id": "cue-0008",
+      "id": "cue-0006",
+      "t0": 513.5,
+      "t1": 518.5,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Fastest of the match",
+        "body": "Blistering pace from Dario Lombardi: 33.3 km/h — the fastest of the match so far.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "9'",
+        "playerId": "harbour-p7",
+        "speedKph": 33.3
+      },
+      "source": {
+        "momentId": "cand-0029",
+        "candidateId": "cand-0029",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 525.5
+    },
+    {
+      "id": "cue-0009",
       "t0": 878.8,
       "t1": 884.8,
       "slot": "stat_bumper",
@@ -164,7 +189,7 @@
       "expiresAt": 903.8
     },
     {
-      "id": "cue-0006",
+      "id": "cue-0007",
       "t0": 878.8,
       "t1": 885.8,
       "slot": "telestration",
@@ -197,7 +222,7 @@
       "expiresAt": 903.8
     },
     {
-      "id": "cue-0010",
+      "id": "cue-0011",
       "t0": 900,
       "t1": 908,
       "slot": "lower_third",
@@ -222,7 +247,7 @@
       "expiresAt": 1140
     },
     {
-      "id": "cue-0009",
+      "id": "cue-0010",
       "t0": 900,
       "t1": 912,
       "slot": "momentum_ribbon",
@@ -247,7 +272,7 @@
       "expiresAt": 1140
     },
     {
-      "id": "cue-0013",
+      "id": "cue-0014",
       "t0": 930.3,
       "t1": 936.3,
       "slot": "stat_bumper",
@@ -286,7 +311,7 @@
       "expiresAt": 955.3
     },
     {
-      "id": "cue-0011",
+      "id": "cue-0012",
       "t0": 930.3,
       "t1": 937.3,
       "slot": "telestration",
@@ -319,7 +344,7 @@
       "expiresAt": 955.3
     },
     {
-      "id": "cue-0015",
+      "id": "cue-0016",
       "t0": 1640.9,
       "t1": 1646.9,
       "slot": "stat_bumper",
@@ -358,7 +383,7 @@
       "expiresAt": 1665.9
     },
     {
-      "id": "cue-0014",
+      "id": "cue-0015",
       "t0": 1640.9,
       "t1": 1647.9,
       "slot": "telestration",
@@ -391,7 +416,7 @@
       "expiresAt": 1665.9
     },
     {
-      "id": "cue-0016",
+      "id": "cue-0017",
       "t0": 2336.2,
       "t1": 2344.2,
       "slot": "lower_third",
@@ -418,7 +443,7 @@
       "expiresAt": 2426.2
     },
     {
-      "id": "cue-0017",
+      "id": "cue-0018",
       "t0": 2336.2,
       "t1": 2342.2,
       "slot": "stat_bumper",
@@ -449,7 +474,7 @@
       "expiresAt": 2426.2
     },
     {
-      "id": "cue-0018",
+      "id": "cue-0019",
       "t0": 2336.2,
       "t1": 2343.2,
       "slot": "telestration",
@@ -482,7 +507,7 @@
       "expiresAt": 2361.2
     },
     {
-      "id": "cue-0019",
+      "id": "cue-0020",
       "t0": 2342.2,
       "t1": 2348.2,
       "slot": "stat_bumper",
@@ -521,7 +546,7 @@
       "expiresAt": 2361.2
     },
     {
-      "id": "cue-0020",
+      "id": "cue-0021",
       "t0": 2348.2,
       "t1": 2354.2,
       "slot": "stat_bumper",
@@ -560,7 +585,7 @@
       "expiresAt": 2361.2
     },
     {
-      "id": "cue-0022",
+      "id": "cue-0023",
       "t0": 2833.1,
       "t1": 2839.1,
       "slot": "stat_bumper",
@@ -599,7 +624,7 @@
       "expiresAt": 2858.1
     },
     {
-      "id": "cue-0021",
+      "id": "cue-0022",
       "t0": 2833.1,
       "t1": 2840.1,
       "slot": "telestration",
@@ -632,7 +657,7 @@
       "expiresAt": 2858.1
     },
     {
-      "id": "cue-0025",
+      "id": "cue-0026",
       "t0": 3259.9,
       "t1": 3265.9,
       "slot": "stat_bumper",
@@ -671,7 +696,7 @@
       "expiresAt": 3284.9
     },
     {
-      "id": "cue-0023",
+      "id": "cue-0024",
       "t0": 3259.9,
       "t1": 3266.9,
       "slot": "telestration",
@@ -704,7 +729,7 @@
       "expiresAt": 3284.9
     },
     {
-      "id": "cue-0028",
+      "id": "cue-0029",
       "t0": 3709,
       "t1": 3715,
       "slot": "stat_bumper",
@@ -743,7 +768,7 @@
       "expiresAt": 3734
     },
     {
-      "id": "cue-0026",
+      "id": "cue-0027",
       "t0": 3709,
       "t1": 3716,
       "slot": "telestration",
@@ -776,7 +801,7 @@
       "expiresAt": 3734
     },
     {
-      "id": "cue-0031",
+      "id": "cue-0032",
       "t0": 4380.5,
       "t1": 4386.5,
       "slot": "stat_bumper",
@@ -815,7 +840,7 @@
       "expiresAt": 4405.5
     },
     {
-      "id": "cue-0029",
+      "id": "cue-0030",
       "t0": 4380.5,
       "t1": 4387.5,
       "slot": "telestration",
@@ -848,7 +873,7 @@
       "expiresAt": 4405.5
     },
     {
-      "id": "cue-0033",
+      "id": "cue-0034",
       "t0": 4849.7,
       "t1": 4855.7,
       "slot": "stat_bumper",
@@ -887,7 +912,7 @@
       "expiresAt": 4874.7
     },
     {
-      "id": "cue-0032",
+      "id": "cue-0033",
       "t0": 4849.7,
       "t1": 4856.7,
       "slot": "telestration",
@@ -920,7 +945,7 @@
       "expiresAt": 4874.7
     },
     {
-      "id": "cue-0034",
+      "id": "cue-0035",
       "t0": 5248.9,
       "t1": 5254.9,
       "slot": "stat_bumper",
@@ -959,7 +984,7 @@
       "expiresAt": 5273.9
     },
     {
-      "id": "cue-0035",
+      "id": "cue-0036",
       "t0": 5325,
       "t1": 5328,
       "slot": "goal_flash",
@@ -980,7 +1005,7 @@
       "expiresAt": 5505
     },
     {
-      "id": "cue-0038",
+      "id": "cue-0039",
       "t0": 5325,
       "t1": 5328,
       "slot": "goal_flash",
@@ -1001,7 +1026,7 @@
       "expiresAt": 5505
     },
     {
-      "id": "cue-0036",
+      "id": "cue-0037",
       "t0": 5325,
       "t1": 5333,
       "slot": "lower_third",
@@ -1028,7 +1053,7 @@
       "expiresAt": 5505
     },
     {
-      "id": "cue-0037",
+      "id": "cue-0038",
       "t0": 5325,
       "t1": 5331,
       "slot": "stat_bumper",
@@ -1067,7 +1092,7 @@
       "expiresAt": 5505
     },
     {
-      "id": "cue-0039",
+      "id": "cue-0040",
       "t0": 5333,
       "t1": 5341,
       "slot": "lower_third",
@@ -1094,7 +1119,7 @@
       "expiresAt": 5505
     },
     {
-      "id": "cue-0040",
+      "id": "cue-0041",
       "t0": 5415.8,
       "t1": 5421.8,
       "slot": "stat_bumper",
@@ -1133,7 +1158,7 @@
       "expiresAt": 5440.8
     },
     {
-      "id": "cue-0042",
+      "id": "cue-0043",
       "t0": 5760,
       "t1": 5768,
       "slot": "lower_third",
@@ -1158,7 +1183,7 @@
       "expiresAt": 6000
     },
     {
-      "id": "cue-0041",
+      "id": "cue-0042",
       "t0": 5760,
       "t1": 5772,
       "slot": "momentum_ribbon",
@@ -1183,7 +1208,7 @@
       "expiresAt": 6000
     },
     {
-      "id": "cue-0045",
+      "id": "cue-0046",
       "t0": 5805,
       "t1": 5811,
       "slot": "stat_bumper",
@@ -1222,7 +1247,7 @@
       "expiresAt": 5830
     },
     {
-      "id": "cue-0043",
+      "id": "cue-0044",
       "t0": 5805,
       "t1": 5812,
       "slot": "telestration",

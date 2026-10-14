@@ -28,11 +28,11 @@ npm run export:dataset -- --scenario siege --seed 2026 --out data
 | `match.json` | JSON | 1 | meta, timing, final score, team stats, record counts |
 | `events.jsonl` | JSONL | 2194 | the raw match event stream, every field as produced |
 | `events.csv` | CSV | 2194 | flat view of the same stream; type-specific columns are empty where they do not apply |
-| `candidates.jsonl` | JSONL | 28 | the insight feed after interpretation — one candidate per line, with supporting evidence ids |
-| `moments.jsonl` | JSONL | 28 | candidates that passed direction, with verified story copy |
-| `moments.csv` | CSV | 28 | flat view of the same stories |
+| `candidates.jsonl` | JSONL | 29 | the insight feed after interpretation — one candidate per line, with supporting evidence ids |
+| `moments.jsonl` | JSONL | 29 | candidates that passed direction, with verified story copy |
+| `moments.csv` | CSV | 29 | flat view of the same stories |
 | `players.csv` | CSV | 36 | per-player match stats (distance, top speed, sprints, xG, xT) |
-| `cues.json` | JSON | 38 | the compiled cue sheet — timed broadcast graphics with slots and expiry |
+| `cues.json` | JSON | 39 | the compiled cue sheet — timed broadcast graphics with slots and expiry |
 | `DATA_CARD.md` | MD | 1 | this file |
 
 ## Conventions
@@ -71,8 +71,8 @@ npm run export:dataset -- --scenario siege --seed 2026 --out data
 | --- | ---: |
 | big_chance | 11 |
 | big_save | 10 |
+| speed_flash | 3 |
 | momentum_shift | 2 |
-| speed_flash | 2 |
 | goal | 1 |
 | late_drama | 1 |
 | penalty | 1 |
@@ -84,9 +84,9 @@ npm run export:dataset -- --scenario siege --seed 2026 --out data
 | stat_bumper | 16 |
 | telestration | 11 |
 | lower_third | 5 |
+| player_tag | 3 |
 | goal_flash | 2 |
 | momentum_ribbon | 2 |
-| player_tag | 2 |
 
 ## Usage
 

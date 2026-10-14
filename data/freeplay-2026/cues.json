@@ -4,19 +4,19 @@
   "cues": [
     {
       "id": "cue-0001",
-      "t0": 122.5,
-      "t1": 127.5,
+      "t0": 131,
+      "t1": 136,
       "slot": "player_tag",
       "priority": 52,
       "animation": "pinned",
       "payload": {
         "headline": "Fastest of the match",
-        "body": "Blistering pace from Rafael Moreau: 32.3 km/h — the fastest of the match so far.",
+        "body": "Blistering pace from Nils Lombardi: 32.3 km/h — the fastest of the match so far.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
         "minuteLabel": "3'",
-        "playerId": "northgate-p5",
+        "playerId": "harbour-p3",
         "speedKph": 32.3
       },
       "source": {
@@ -25,7 +25,7 @@
         "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 134.5
+      "expiresAt": 143
     },
     {
       "id": "cue-0003",
@@ -101,20 +101,20 @@
     },
     {
       "id": "cue-0004",
-      "t0": 306,
-      "t1": 311,
+      "t0": 324,
+      "t1": 329,
       "slot": "player_tag",
       "priority": 52,
       "animation": "pinned",
       "payload": {
         "headline": "Fastest of the match",
-        "body": "Blistering pace from Aron Tavares: 34.7 km/h — the fastest of the match so far.",
+        "body": "Blistering pace from Gabriel Kovac: 32.4 km/h — the fastest of the match so far.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
         "minuteLabel": "6'",
-        "playerId": "northgate-p8",
-        "speedKph": 34.7
+        "playerId": "northgate-p3",
+        "speedKph": 32.4
       },
       "source": {
         "momentId": "cand-0016",
@@ -122,7 +122,7 @@
         "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 318
+      "expiresAt": 336
     },
     {
       "id": "cue-0005",
@@ -213,20 +213,20 @@
     },
     {
       "id": "cue-0008",
-      "t0": 497,
-      "t1": 502,
+      "t0": 535,
+      "t1": 540,
       "slot": "player_tag",
       "priority": 52,
       "animation": "pinned",
       "payload": {
         "headline": "Fastest of the match",
-        "body": "Blistering pace from Leon Reyes: 36 km/h — the fastest of the match so far.",
+        "body": "Blistering pace from Rafael Moreau: 33.5 km/h — the fastest of the match so far.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
         "minuteLabel": "9'",
-        "playerId": "northgate-p9",
-        "speedKph": 36
+        "playerId": "northgate-p5",
+        "speedKph": 33.5
       },
       "source": {
         "momentId": "cand-0017",
@@ -234,7 +234,7 @@
         "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 509
+      "expiresAt": 547
     },
     {
       "id": "cue-0010",

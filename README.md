@@ -61,7 +61,7 @@ committed exports under `data/` are the byte-identical output of scenario
 
 ```
 data/comeback-2026/   3–2 · 2118 events · 31 stories · 53 cues
-data/siege-2026/      1–0 · 2194 events · 28 stories · 38 cues
+data/siege-2026/      1–0 · 2194 events · 29 stories · 39 cues
 data/derby-2026/      4–3 · 2144 events · 37 stories · 61 cues (VAR overturn)
 data/freeplay-2026/   1–0 · 2205 events · 17 stories · 25 cues
 ```
