@@ -66,4 +66,18 @@ describe('tracking generation', () => {
     // Somebody should be reasonably close to the ball most of the time.
     expect(avg).toBeLessThan(14);
   });
+
+  it('goalkeepers guard the end their team defends', () => {
+    const homeGk = result.lineups.home.starters.find((p) => p.role === 'GK')!;
+    const awayGk = result.lineups.away.starters.find((p) => p.role === 'GK')!;
+    // Home attacks +x (goals are scored at positive x in the event stream), so
+    // the home keeper defends the negative end — and vice versa for away.
+    const frames = trackingWindow(result, 2400, 2460);
+    for (const frame of frames) {
+      const home = frame.players.find((p) => p.playerId === homeGk.id)!;
+      const away = frame.players.find((p) => p.playerId === awayGk.id)!;
+      expect(home.pos.x).toBeLessThan(-40);
+      expect(away.pos.x).toBeGreaterThan(40);
+    }
+  });
 });

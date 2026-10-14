@@ -465,6 +465,14 @@ export function ProgramMonitor() {
         audio: () => broadcast.debugState(),
         visibleCount: () => [...playerObjects.values()].filter((o) => o.figure.group.visible).length,
         positions: () => [...playerObjects.values()].map((o) => [Math.round(o.figure.group.position.x), Math.round(o.figure.group.position.z)]),
+        players: () =>
+          [...playerObjects.entries()].map(([id, o]) => ({
+            id,
+            x: Math.round(o.figure.group.position.x * 10) / 10,
+            z: Math.round(o.figure.group.position.z * 10) / 10,
+            visible: o.figure.group.visible,
+          })),
+        frame: () => frameRef.current,
         camera: () => [Math.round(camera.position.x), Math.round(camera.position.y), Math.round(camera.position.z)],
         screen: () => {
           const canvas = canvasRef.current;

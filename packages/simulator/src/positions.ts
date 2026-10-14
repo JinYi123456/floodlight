@@ -102,9 +102,11 @@ export function anchorPosition(
 
 /** Goalkeeper anchor: on the goal line, shuffling with the ball's y. */
 export function goalkeeperAnchor(team: TeamSide, ball: Vec2): Vec2 {
+  // The keeper guards the goal his team defends — the opposite end from the
+  // one it attacks, matching the event stream's own save/shot coordinates.
   const sign = attackingDirection[team];
   return {
-    x: sign * (PITCH.halfLength - 2.5),
+    x: -sign * (PITCH.halfLength - 2.5),
     y: clamp(ball.y * 0.06, -3.5, 3.5),
   };
 }
