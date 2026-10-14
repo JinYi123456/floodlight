@@ -1,7 +1,7 @@
 /**
  * The rendered feed — a software rasterizer that draws the match to RGBA
  * pixels the way a tactical camera would see it: mow stripes, lines, kit
- * coloured players, a white ball, sensor noise and the odd dead pixel.
+ * coloured players, a white ball and faint fixed-pattern sensor grain.
  *
  * The rasterizer consumes precomputed tracking frames, so both the batch
  * analyser and the live vision lab render exactly the same pixels. Nothing
@@ -76,13 +76,13 @@ function parseHex(hex: string): [number, number, number] {
 }
 
 /**
- * Fixed-pattern sensor grain: the same speck sits on the same pixel every
- * frame, like a real sensor defect — per-frame random specks made the feed
- * look like it was snowing.
+ * Fixed-pattern sensor grain: the same faint speck sits on the same pixel
+ * every frame, like a real sensor — per-frame random specks made the feed
+ * look like it was snowing. Dark specks read as dirty pixels on a projector
+ * feed, so the grain only ever *brightens* a pixel slightly.
  */
 interface SensorMap {
   noise: Array<{ index: number; jitter: number }>;
-  dead: number[];
 }
 
 const sensorMaps = new Map<string, SensorMap>();
@@ -93,16 +93,11 @@ function sensorMapFor(width: number, height: number): SensorMap {
   if (cached) return cached;
   const rng = createRng(0x5e05_eed);
   const noise: Array<{ index: number; jitter: number }> = [];
-  const noiseCount = Math.round(width * height * 0.0035);
+  const noiseCount = Math.round(width * height * 0.0016);
   for (let n = 0; n < noiseCount; n++) {
-    noise.push({ index: (rng.int(0, height - 1) * width + rng.int(0, width - 1)) * 4, jitter: rng.int(-9, 9) });
+    noise.push({ index: (rng.int(0, height - 1) * width + rng.int(0, width - 1)) * 4, jitter: rng.int(2, 7) });
   }
-  const dead: number[] = [];
-  const deadCount = Math.round(width * height * 0.0008);
-  for (let n = 0; n < deadCount; n++) {
-    dead.push((rng.int(0, height - 1) * width + rng.int(0, width - 1)) * 4);
-  }
-  const map = { noise, dead };
+  const map = { noise };
   sensorMaps.set(key, map);
   return map;
 }
@@ -193,26 +188,21 @@ export function renderPixels(current: TrackingFrame, trail: TrackingFrame[], opt
     drawLine(PX(s * 52.5), PY(-3.66), PX(s * 52.5), PY(3.66));
   }
 
-  // Fixed-pattern sensor grain + dead pixels (same pixels every frame).
+  // Fixed-pattern sensor grain (same pixels every frame, brightening only).
   const sensor = sensorMapFor(width, height);
   for (const { index, jitter } of sensor.noise) {
     rgba[index] = rgba[index]! + jitter;
     rgba[index + 1] = rgba[index + 1]! + jitter;
     rgba[index + 2] = rgba[index + 2]! + jitter;
   }
-  for (const index of sensor.dead) {
-    rgba[index] = 6;
-    rgba[index + 1] = 8;
-    rgba[index + 2] = 10;
-    rgba[index + 3] = 255;
-  }
 
   // Ball trail (a short smear, dimmer than the ball).
+  const trailDot = Math.max(1, Math.round(proj.scale * 0.4));
   for (const past of trail) {
     const bx = Math.round(PX(past.ball.pos.x));
     const by = Math.round(PY(past.ball.pos.y));
-    for (let dy = -1; dy <= 1; dy++) {
-      for (let dx = -1; dx <= 1; dx++) put(bx + dx, by + dy, 202, 208, 208);
+    for (let dy = -trailDot; dy <= trailDot; dy++) {
+      for (let dx = -trailDot; dx <= trailDot; dx++) put(bx + dx, by + dy, 202, 208, 208);
     }
   }
 
@@ -234,8 +224,9 @@ export function renderPixels(current: TrackingFrame, trail: TrackingFrame[], opt
     }
   }
 
-  // Ball: white disc on top of everything.
-  const ballRadius = Math.max(1.6, 0.34 * proj.scale);
+  // Ball: white disc on top of everything (scales with the sensor so it
+  // stays visible at higher resolutions).
+  const ballRadius = Math.max(1.6, 0.5 * proj.scale);
   const bx = Math.round(PX(current.ball.pos.x));
   const by = Math.round(PY(current.ball.pos.y));
   const br = Math.ceil(ballRadius);

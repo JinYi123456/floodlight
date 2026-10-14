@@ -40,7 +40,20 @@ interface Blob {
   slices?: Array<[number, number, number, number, number]>;
 }
 
-const MAX_BLOBS = 400;
+const MAX_BLOBS = 700;
+
+/**
+ * The detector's size thresholds were tuned on a 320×208 sensor. Every
+ * threshold that compares against pixel areas or widths is expressed
+ * relative to that reference so the live feed can run at a higher
+ * resolution without retuning the algorithms.
+ */
+const REF_SCALE = projection(320, 208).scale;
+
+/** Player-blob area ceiling at resolution scale S (S = 1 at the 320×208 reference). */
+function maxAreaFor(S: number): number {
+  return Math.round(420 * S * S);
+}
 
 function isGrass(r: number, g: number, b: number): boolean {
   return g > r + 12 && g > b + 8 && g > 45;
@@ -73,8 +86,9 @@ export function learnPalettes(frame: { width: number; height: number; rgba: Uint
   // Player-sized blobs only. The pitch surround and its fragments are also
   // "neither grass nor white" and would otherwise seed the clustering on the
   // background colour instead of the two shirts.
+  const S = projection(frame.width, frame.height).scale / REF_SCALE;
   const colors = collectBlobs(frame)
-    .filter((blob) => blob.area >= 12 && blob.area <= 420)
+    .filter((blob) => blob.area >= 12 && blob.area <= maxAreaFor(S))
     .map((blob) => blobColor(blob));
   if (colors.length < 2) {
     return { home: [214, 38, 61], away: [31, 78, 156] };
@@ -131,6 +145,9 @@ function collectBlobs(frame: { width: number; height: number; rgba: Uint8Clamped
   // The dark surround outside the pitch is "neither grass nor white" too —
   // never flood it, or its fragments become kit-colour candidates.
   const proj = projection(width, height);
+  const S = proj.scale / REF_SCALE;
+  const sliceMaxArea = Math.round(460 * S * S);
+  const breakArea = Math.round(600 * S * S);
   const left = Math.max(0, Math.floor(proj.ox) - 1);
   const right = Math.min(width - 1, Math.ceil(proj.ox + 105 * proj.scale) + 1);
   const top = Math.max(0, Math.floor(proj.oy) - 1);
@@ -184,7 +201,7 @@ function collectBlobs(frame: { width: number; height: number; rgba: Uint8Clamped
       sumB += pb;
       sumX += x;
       sumY += y;
-      if (slices.length < 600 && area <= 460) slices.push([x, y, pr, pg, pb]);
+      if (slices.length < 1800 && area <= sliceMaxArea) slices.push([x, y, pr, pg, pb]);
       if (x < minX) minX = x;
       if (x > maxX) maxX = x;
       if (y < minY) minY = y;
@@ -207,7 +224,7 @@ function collectBlobs(frame: { width: number; height: number; rgba: Uint8Clamped
         visited[np] = 1;
         stack.push(np);
       }
-      if (area > 600) break; // region way too big to be entities
+      if (area > breakArea) break; // region way too big to be entities
     }
     if (area >= 4) {
       blobs.push({
@@ -221,7 +238,7 @@ function collectBlobs(frame: { width: number; height: number; rgba: Uint8Clamped
         maxY,
         sumX,
         sumY,
-        slices: area <= 460 ? slices : undefined,
+        slices: area <= sliceMaxArea ? slices : undefined,
       });
       if (blobs.length >= MAX_BLOBS) break;
     }
@@ -232,6 +249,8 @@ function collectBlobs(frame: { width: number; height: number; rgba: Uint8Clamped
 /** Ball-bright blobs: the ball itself, never markings. */
 function collectWhiteBlobs(frame: { width: number; height: number; rgba: Uint8ClampedArray }): Blob[] {
   const { width, height, rgba } = frame;
+  const S = projection(width, height).scale / REF_SCALE;
+  const capArea = Math.round(4000 * S * S);
   const visited = new Uint8Array(width * height);
   const blobs: Blob[] = [];
   const stack: number[] = [];
@@ -281,7 +300,7 @@ function collectWhiteBlobs(frame: { width: number; height: number; rgba: Uint8Cl
         visited[np] = 1;
         stack.push(np);
       }
-      if (area > 4000) break; // sanity cap
+      if (area > capArea) break; // sanity cap
     }
     if (area >= 2) {
       blobs.push({ area, sumR, sumG, sumB, minX, maxX, minY, maxY, sumX, sumY });
@@ -301,16 +320,19 @@ export function detectEntities(
   frame: { width: number; height: number; rgba: Uint8ClampedArray },
   options: DetectOptions,
 ): DetectedEntity[] {
-  const { projection, palettes, ballHint } = options;
+  const { projection: proj, palettes, ballHint } = options;
   const entities: DetectedEntity[] = [];
+  const S = proj.scale / REF_SCALE;
 
   // Ball: small, round white blobs only — line fragments are rejected by
   // fill ratio. Among survivors prefer the one nearest the last known spot.
+  const ballMaxArea = Math.round(42 * S * S);
+  const ballMaxDim = Math.round(9 * S);
   const whiteBlobs = collectWhiteBlobs(frame).filter((blob) => {
     const w = blob.maxX - blob.minX + 1;
     const h = blob.maxY - blob.minY + 1;
-    if (blob.area < 4 || blob.area > 42) return false;
-    if (w > 9 || h > 9) return false;
+    if (blob.area < 4 || blob.area > ballMaxArea) return false;
+    if (w > ballMaxDim || h > ballMaxDim) return false;
     if (blob.area / (w * h) < 0.5) return false;
     return true;
   });
@@ -319,7 +341,7 @@ export function detectEntities(
   for (const blob of whiteBlobs) {
     const cx = blob.sumX / blob.area;
     const cy = blob.sumY / blob.area;
-    const pitchPos = toPitch(projection, cx, cy);
+    const pitchPos = toPitch(proj, cx, cy);
     let score = blob.area * 0.5;
     if (ballHint) {
       const d = Math.hypot(pitchPos.x - ballHint.x, pitchPos.y - ballHint.y);
@@ -331,7 +353,7 @@ export function detectEntities(
     }
   }
   if (ball) {
-    const pitchPos = toPitch(projection, ball.sumX / ball.area, ball.sumY / ball.area);
+    const pitchPos = toPitch(proj, ball.sumX / ball.area, ball.sumY / ball.area);
     entities.push({
       cls: 'ball',
       x: pitchPos.x,
@@ -343,15 +365,18 @@ export function detectEntities(
 
   // Players: non-grass, non-white blobs. Players in contact merge into one
   // blob — split those into roughly one entity per shirt area.
-  const PLAYER_AREA = 58;
+  const PLAYER_AREA = Math.round(58 * S * S);
+  const playerMaxArea = maxAreaFor(S);
+  const singleMaxDim = Math.round(17 * S);
+  const bucketMinPixels = Math.round(10 * S * S);
   for (const blob of collectBlobs(frame)) {
-    if (blob.area < 12 || blob.area > 420) continue;
+    if (blob.area < 12 || blob.area > playerMaxArea) continue;
     const w = blob.maxX - blob.minX + 1;
     const h = blob.maxY - blob.minY + 1;
     const count = Math.max(1, Math.round(blob.area / PLAYER_AREA));
     if (count === 1) {
-      if (w > 17 || h > 17) continue;
-      entities.push(blobEntity(blob, blob.sumX / blob.area, blob.sumY / blob.area, blobColor(blob), palettes, projection));
+      if (w > singleMaxDim || h > singleMaxDim) continue;
+      entities.push(blobEntity(blob, blob.sumX / blob.area, blob.sumY / blob.area, blobColor(blob), palettes, proj));
       continue;
     }
     // Split along the longer axis into `count` equal-width slices.
@@ -375,14 +400,14 @@ export function detectEntities(
       bucket.sumB += b;
     }
     for (const bucket of buckets) {
-      if (bucket.count < 10) continue;
+      if (bucket.count < bucketMinPixels) continue;
       const color: [number, number, number] = [
         bucket.sumR / bucket.count,
         bucket.sumG / bucket.count,
         bucket.sumB / bucket.count,
       ];
       entities.push(
-        blobEntity(blob, bucket.sumX / bucket.count, bucket.sumY / bucket.count, color, palettes, projection),
+        blobEntity(blob, bucket.sumX / bucket.count, bucket.sumY / bucket.count, color, palettes, proj),
       );
     }
   }

@@ -14,8 +14,8 @@ import { projection, px, py } from '@floodlight/vision';
 import { useAppStore, pipeline } from '../state/store';
 import type { VisionFrameMessage } from '../pipeline/client';
 
-const W = 320;
-const H = 208;
+const W = 640;
+const H = 416;
 
 interface LiveEvent {
   t: number;

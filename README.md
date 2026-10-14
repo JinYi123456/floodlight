@@ -68,20 +68,21 @@ data/freeplay-2026/   1–0 · 2205 events · 17 stories · 25 cues
 
 ## Auto-eventing (vision)
 
-`packages/vision` renders the match to a 320×208 sensor image — mow stripes,
+`packages/vision` renders the match to a sensor image — mow stripes,
 markings, kit-coloured discs, a bright ball — and then forgets everything it
 knows. A blob detector learns both kits' palettes, finds the ball and the
 players; a velocity-predicted tracker follows them; a state machine derives
 passes, shots, possession and speeds with no access to ground truth. The
-report card scores the result against the simulator's own stream:
+report card scores the result against the simulator's own stream (the
+scored pass runs a 320×208 sensor; the live vision lab renders at 640×416):
 
 | metric | measured on the marquee window |
 | --- | --- |
-| pass precision / recall / F1 | 100% / 40% / 57% |
+| pass precision / recall / F1 | 100% / 50% / 67% |
 | shots | 1 of 1 detected |
-| ball speed error | 2.3 km/h |
-| player speed error | 1.5 km/h |
-| possession agreement | 85% |
+| ball speed error | 3.6 km/h |
+| player speed error | 2.1 km/h |
+| possession agreement | 88% |
 | frames processed | 901 (90 s clip at 10 Hz) |
 
 The vision lab in the web app plays the same feed live, draws its detections
