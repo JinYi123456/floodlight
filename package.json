@@ -20,6 +20,7 @@
     "dev": "npm --workspace @floodlight/web run dev",
     "build:web": "npm --workspace @floodlight/web run build",
     "api": "npm --workspace @floodlight/api run start",
+    "mcp": "tsx services/mcp/src/stdio.ts",
     "export:dataset": "tsx packages/dataset/src/cli.ts",
     "record:voice": "tsx tools/record-studio-voice.ts"
   },
