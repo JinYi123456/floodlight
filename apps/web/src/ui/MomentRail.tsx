@@ -12,13 +12,19 @@ import { kindStyle } from './kinds';
 export function MomentRail() {
   const match = useAppStore((state) => state.match);
   const t = useAppStore((state) => state.t);
+  const maxT = useAppStore((state) => state.maxT);
+  const spoilerFree = useAppStore((state) => state.spoilerFree);
   const selectedMomentId = useAppStore((state) => state.selectedMomentId);
   const selectMoment = useAppStore((state) => state.selectMoment);
   const scrub = useAppStore((state) => state.scrub);
   const liveRef = useRef<HTMLLIElement | null>(null);
 
   const feed = match ? buildFeed(match, t) : [];
-  const liveId = feed.filter((item) => item.state === 'live').at(-1)?.candidateId ?? null;
+  // The watermark, not the playhead: scrubbing back never re-hides what the
+  // viewer has already been past.
+  const visible = spoilerFree ? feed.filter((item) => item.t <= maxT) : feed;
+  const hidden = feed.length - visible.length;
+  const liveId = visible.filter((item) => item.state === 'live').at(-1)?.candidateId ?? null;
 
   useEffect(() => {
     liveRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
@@ -33,7 +39,7 @@ export function MomentRail() {
         <span className="rail-count">{feed.filter((i) => i.state !== 'upcoming').length} aired</span>
       </header>
       <ol className="moment-list">
-        {feed.map((item) => {
+        {visible.map((item) => {
           const style = item.badge ?? kindStyle(item.kind as MomentKind);
           const isLive = item.candidateId === liveId;
           const isSelected = item.candidateId === selectedMomentId;
@@ -64,6 +70,11 @@ export function MomentRail() {
           );
         })}
       </ol>
+      {hidden > 0 && (
+        <p className="rail-hidden">
+          Spoiler-free — {hidden} upcoming {hidden === 1 ? 'entry' : 'entries'} hidden until you get there.
+        </p>
+      )}
     </aside>
   );
 }

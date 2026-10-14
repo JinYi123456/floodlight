@@ -68,6 +68,8 @@ export function ControlRoom() {
 
   const match = useAppStore((state) => state.match);
   const t = useAppStore((state) => state.t);
+  const maxT = useAppStore((state) => state.maxT);
+  const spoilerFree = useAppStore((state) => state.spoilerFree);
   const playing = useAppStore((state) => state.playing);
   const rate = useAppStore((state) => state.rate);
   const view = useAppStore((state) => state.view);
@@ -171,14 +173,17 @@ export function ControlRoom() {
             <div className="scrubber">
               <div className="scrub-track">
                 <div className="scrub-progress" style={{ width: `${progressPct}%` }} />
-                {match.scoreTimeline.slice(1).map((goal, index) => (
-                  <span
-                    key={`${goal.t}-${index}`}
-                    className="goal-marker"
-                    style={{ left: `${(goal.t / match.timing.fullTimeT) * 100}%` }}
-                    title={`Goal at ${formatMinute(goal.t)} — ${goal.home}–${goal.away}`}
-                  />
-                ))}
+                {match.scoreTimeline
+                  .slice(1)
+                  .filter((goal) => !spoilerFree || goal.t <= maxT)
+                  .map((goal, index) => (
+                    <span
+                      key={`${goal.t}-${index}`}
+                      className="goal-marker"
+                      style={{ left: `${(goal.t / match.timing.fullTimeT) * 100}%` }}
+                      title={`Goal at ${formatMinute(goal.t)} — ${goal.home}–${goal.away}`}
+                    />
+                  ))}
               </div>
               <input
                 type="range"

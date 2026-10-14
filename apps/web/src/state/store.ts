@@ -44,8 +44,14 @@ interface AppState {
 
   /** Theater clock, in match seconds. */
   t: number;
+  /** High-water mark — the furthest the viewer has ever reached. */
+  maxT: number;
   playing: boolean;
   rate: number;
+
+  /** Catch-up guard: hide everything past the watermark (rundown rows,
+   *  scrubber goal markers) so a late viewer is never spoiled. */
+  spoilerFree: boolean;
 
   /** The moment the insight panel is drilled into. */
   selectedMomentId: string | null;
@@ -61,6 +67,7 @@ interface AppState {
   setRate: (rate: number) => void;
   selectMoment: (id: string | null) => void;
   setPrefs: (partial: Partial<ViewerPrefs>) => void;
+  setSpoilerFree: (on: boolean) => void;
   setView: (view: View) => void;
   enterVision: () => Promise<void>;
   backToLaunch: () => void;
@@ -77,8 +84,11 @@ export const useAppStore = create<AppState>((set, get) => ({
   vision: { phase: 'idle', progressLabel: '', progressFraction: 0, window: null, report: null, error: null },
 
   t: 0,
+  maxT: 0,
   playing: false,
   rate: 1,
+
+  spoilerFree: false,
 
   selectedMomentId: null,
 
@@ -109,6 +119,7 @@ export const useAppStore = create<AppState>((set, get) => ({
         match,
         recordingId: recording ?? null,
         t: 0,
+        maxT: 0,
         playing: true,
         rate: 1,
         selectedMomentId: null,
@@ -123,10 +134,11 @@ export const useAppStore = create<AppState>((set, get) => ({
   setT: (t) => {
     const match = get().match;
     const max = match ? match.timing.fullTimeT : t;
-    set({ t: Math.max(0, Math.min(max, t)) });
+    const clamped = Math.max(0, Math.min(max, t));
+    set((state) => ({ t: clamped, maxT: Math.max(state.maxT, clamped) }));
   },
   scrub: (t) => {
-    set({ t });
+    set((state) => ({ t, maxT: Math.max(state.maxT, t) }));
     void trackingCache.ensure(t - 3, t + 40);
   },
   play: () => set({ playing: true }),
@@ -135,6 +147,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   setRate: (rate) => set({ rate }),
   selectMoment: (id) => set({ selectedMomentId: id }),
   setPrefs: (partial) => set((state) => ({ prefs: { ...state.prefs, ...partial } })),
+  setSpoilerFree: (on) => set({ spoilerFree: on }),
   setView: (view) => set({ view }),
 
   enterVision: async () => {
@@ -171,7 +184,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   },
 
   backToLaunch: () =>
-    set({ phase: 'launch', match: null, playing: false, t: 0, selectedMomentId: null, view: 'room' }),
+    set({ phase: 'launch', match: null, playing: false, t: 0, maxT: 0, selectedMomentId: null, view: 'room' }),
 }));
 
 // Dev-only inspection hook (stripped from production builds).

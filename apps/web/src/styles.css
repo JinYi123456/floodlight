@@ -505,6 +505,17 @@ button {
   flex: 1;
 }
 
+.rail-hidden {
+  margin: 0 8px 10px;
+  padding: 8px 10px;
+  border: 1px dashed var(--line);
+  border-radius: 9px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #55637e;
+  font-family: var(--mono);
+}
+
 .moment-item {
   display: grid;
   grid-template-columns: 40px auto 1fr;

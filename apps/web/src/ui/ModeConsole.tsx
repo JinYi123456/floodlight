@@ -32,6 +32,8 @@ export function ModeConsole() {
   const match = useAppStore((state) => state.match);
   const prefs = useAppStore((state) => state.prefs);
   const setPrefs = useAppStore((state) => state.setPrefs);
+  const spoilerFree = useAppStore((state) => state.spoilerFree);
+  const setSpoilerFree = useAppStore((state) => state.setSpoilerFree);
 
   if (!match) return null;
   const players = [...match.lineups.home, ...match.lineups.away];
@@ -123,6 +125,23 @@ export function ModeConsole() {
               {metric.label}
             </button>
           ))}
+        </div>
+      </div>
+
+      <div className="console-row">
+        <span className="console-label">Catch-up</span>
+        <div className="segmented">
+          <button type="button" className={!spoilerFree ? 'active' : ''} onClick={() => setSpoilerFree(false)}>
+            Open
+          </button>
+          <button
+            type="button"
+            className={spoilerFree ? 'active' : ''}
+            onClick={() => setSpoilerFree(true)}
+            title="Hide everything past your playhead — no spoilers from the rundown or the scrubber"
+          >
+            Spoiler-free
+          </button>
         </div>
       </div>
 
