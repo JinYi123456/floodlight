@@ -32,6 +32,9 @@ interface PackModel {
   usedOn: Set<string>;
   score: { home: number; away: number };
   winCurve: Array<{ t: number; home: number }>;
+  /** Average action position per player — the tracking vocabulary's
+   *  "average position map", built from where each player acted. */
+  avgPos: Record<Side, Map<string, { x: number; y: number; count: number }>>;
 }
 
 const EMPTY_AGGREGATE: TeamAggregate = {
@@ -68,11 +71,20 @@ function buildModel(match: PreparedMatch, t: number): PackModel {
   const score = { home: 0, away: 0 };
   const xgSoFar: Record<Side, number> = { home: 0, away: 0 };
   const xgTimeline: Array<{ t: number; xgHome: number; xgAway: number }> = [];
+  const avgPos: PackModel['avgPos'] = { home: new Map(), away: new Map() };
 
   for (const event of match.events) {
     if (event.t > t) break;
     const side = event.team === 'home' || event.team === 'away' ? (event.team as Side) : null;
     if (!side) continue;
+    if (event.playerId) {
+      const map = avgPos[side];
+      const entry = map.get(event.playerId) ?? { x: 0, y: 0, count: 0 };
+      entry.x += event.at.x;
+      entry.y += event.at.y;
+      entry.count++;
+      map.set(event.playerId, entry);
+    }
     const xg = (event as { xg?: number }).xg ?? 0;
     switch (event.type) {
       case 'pass': {
@@ -132,7 +144,7 @@ function buildModel(match: PreparedMatch, t: number): PackModel {
     winCurve.push({ t: at, home: poissonWin(h - a, xgH, xgA, at, full) });
   }
   winCurve.push({ t, home: poissonWin(score.home - score.away, xgSoFar.home, xgSoFar.away, t, full) });
-  return { aggregates, shots, subs, usedOn, score, winCurve };
+  return { aggregates, shots, subs, usedOn, score, winCurve, avgPos };
 }
 
 function poissonPmf(k: number, lambda: number): number {
@@ -179,7 +191,7 @@ export function MatchPack() {
     <div className="match-pack">
       <div className="pack-grid pack-xi">
         {(['home', 'away'] as const).map((side) => (
-          <FormationCard key={side} match={match} side={side} usedOn={model.usedOn} />
+          <FormationCard key={side} match={match} side={side} usedOn={model.usedOn} avg={model.avgPos[side]} />
         ))}
         <div className="pack-card">
           <h3>Substitutions</h3>
@@ -218,10 +230,23 @@ export function MatchPack() {
   );
 }
 
-function FormationCard({ match, side, usedOn }: { match: PreparedMatch; side: Side; usedOn: Set<string> }) {
+function FormationCard({
+  match,
+  side,
+  usedOn,
+  avg,
+}: {
+  match: PreparedMatch;
+  side: Side;
+  usedOn: Set<string>;
+  avg: Map<string, { x: number; y: number; count: number }>;
+}) {
   const club = side === 'home' ? match.meta.home : match.meta.away;
   const xi = match.lineups[side];
   const bench = match.bench[side];
+  // World → card: the card is drawn right-facing for both teams.
+  const cardX = (worldX: number) => (side === 'home' ? worldX + 52.5 : 52.5 - worldX);
+  const cardY = (worldY: number) => 34 + worldY * 0.88;
   return (
     <div className="pack-card">
       <h3>
@@ -234,19 +259,25 @@ function FormationCard({ match, side, usedOn }: { match: PreparedMatch; side: Si
         <rect x="0.5" y="13.85" width="16.5" height="40.3" className="xi-line" />
         <rect x="88" y="13.85" width="16.5" height="40.3" className="xi-line" />
         {xi.map((player) => {
-          const x = (player.slotX ?? 0.1) * 105;
-          const y = 34 + (player.slotY ?? 0) * 30;
+          const ax = (player.slotX ?? 0.1) * 105;
+          const ay = 34 + (player.slotY ?? 0) * 30;
+          const entry = avg.get(player.id);
+          const hasAvg = Boolean(entry && entry.count >= 3);
+          const px = hasAvg && entry ? cardX(entry.x / entry.count) : ax;
+          const py = hasAvg && entry ? cardY(entry.y / entry.count) : ay;
           const isKeeper = player.role === 'GK';
           return (
             <g key={player.id}>
-              <circle cx={x} cy={y} r={3.4} fill={isKeeper ? club.secondary : club.primary} />
-              <text x={x} y={y + 1.2} textAnchor="middle" className="xi-number">
+              {hasAvg && <circle cx={ax} cy={ay} r={2.1} fill="none" stroke={club.primary} strokeOpacity={0.4} strokeWidth={0.45} />}
+              <circle cx={px} cy={py} r={3.4} fill={isKeeper ? club.secondary : club.primary} />
+              <text x={px} y={py + 1.2} textAnchor="middle" className="xi-number">
                 {player.shirt}
               </text>
             </g>
           );
         })}
       </svg>
+      <p className="pack-foot">Solid dots: average position of each player's actions. Rings: the formation station.</p>
       <ul className="bench-list">
         {bench.map((player) => (
           <li key={player.id} className={usedOn.has(player.id) ? 'used' : ''}>
@@ -261,6 +292,8 @@ function FormationCard({ match, side, usedOn }: { match: PreparedMatch; side: Si
 }
 
 function StatsCard({ match, aggregates }: { match: PreparedMatch; aggregates: Record<Side, TeamAggregate> }) {
+  const ftTotal = aggregates.home.thirdEntries + aggregates.away.thirdEntries;
+  const tiltHome = ftTotal > 0 ? aggregates.home.thirdEntries / ftTotal : 0.5;
   const rows: Array<{ label: string; home: string; away: string; h: number; a: number }> = [
     { label: 'Possession', home: `${Math.round(aggregates.home.possession * 100)}%`, away: `${Math.round(aggregates.away.possession * 100)}%`, h: aggregates.home.possession, a: aggregates.away.possession },
     {
@@ -276,6 +309,13 @@ function StatsCard({ match, aggregates }: { match: PreparedMatch; aggregates: Re
       away: String(aggregates.away.thirdEntries),
       h: aggregates.home.thirdEntries,
       a: aggregates.away.thirdEntries,
+    },
+    {
+      label: 'Field tilt',
+      home: `${Math.round(tiltHome * 100)}%`,
+      away: `${Math.round((1 - tiltHome) * 100)}%`,
+      h: tiltHome,
+      a: 1 - tiltHome,
     },
     {
       label: 'Shots (on target)',
