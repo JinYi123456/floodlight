@@ -31,6 +31,7 @@ const CTX: NarrativeContext = {
   kind: 'goal',
   minute: "70'",
   team: 'Riverside Athletic',
+  teamSide: 'home',
   opponent: 'Northgate United',
   teamAbbr: 'RIV',
   opponentAbbr: 'NOR',
@@ -69,6 +70,24 @@ describe('templates and verifier', () => {
     expect(verdict.issues).toEqual([]);
     expect(verdict.approved).toBe(true);
     expect(verdict.basis).toBe('evidence_bound');
+  });
+
+  it('writes the score from the story team\'s side', () => {
+    const home = templateNarrative(CTX, 'analyst', 'en');
+    expect(home.body).toContain('Riverside Athletic 2–1 Northgate United');
+    const away = templateNarrative({
+      ...CTX,
+      team: 'Northgate United',
+      teamSide: 'away',
+      opponent: 'Riverside Athletic',
+      teamAbbr: 'NOR',
+      opponentAbbr: 'RIV',
+      player: 'Cassian Anselm',
+      score: '0–2',
+      scoreAt: { home: 0, away: 2 },
+    }, 'analyst', 'en');
+    expect(away.body).toContain('Northgate United 2–0 Riverside Athletic');
+    expect(away.body).not.toContain('Northgate United 0–2 Riverside Athletic');
   });
 
   it('rejects fabricated numbers, unsupported claims and unbound copy', () => {
