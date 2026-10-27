@@ -32,27 +32,31 @@ seed and is fully reproducible.
 | --- | --- | --- |
 | **Ingest** | A seeded simulator plays a full 90 minutes as typed events (passes with difficulty & outcomes, carries, duels, shots with xG, set pieces, cards, substitutions, VAR) plus a 10 Hz positional feed. | `packages/simulator` |
 | **Interpret** | A deterministic engine reduces the stream to live states — time-weighted possession, expected threat, control-vs-chaos, tactical pressure, rhythm, momentum — and lifts out insight candidates with evidence ids. | `packages/engine` |
-| **Explain** | The production crew directs, drafts, verifies and rewrites. The verifier rejects unverifiable numbers, unknown names and claims about records, seasons or history; templates are the deterministic floor. Verified copy can come from a recorded studio voice. | `packages/agents` |
+| **Explain** | The production crew directs, drafts, verifies and rewrites. The verifier rejects unverifiable numbers, unknown names and claims about records, seasons or history; templates are the deterministic floor. Verified copy is rendered from that evidence floor; an optional recorded layer can replace it only when its fingerprint matches. | `packages/agents` |
 | **Render** | Approved stories compile into a versioned cue sheet — lower thirds, stat bumpers, momentum ribbon, telestration, player tags, goal flashes — with priorities, slot exclusivity and expiry. | `packages/cuesheet` |
-| **Personalize** | The same verified story reaches an analyst, a casual fan, a club supporter or a player-focus viewer — in English, Spanish or French, from recorded or template variants. | `packages/agents` |
+| **Personalize** | The same verified story reaches an analyst, a casual fan, a club supporter or a player-focus viewer — in English, Spanish or French, from evidence-bound template variants (and a valid recorded layer when one is bundled). | `packages/agents` |
+
+The full pipeline, its failure behaviour and its limits are documented in
+[docs/architecture.md](./docs/architecture.md).
 
 The web app runs the whole pipeline **in a worker**: matches precompute, then
-play back against a theatre clock — a 3D broadcast monitor with three camera
-presets, a retraction-aware rundown (a VAR-overturned goal pulls its story
-off air), an insight desk with the evidence trail, and the cue sheet driving
-the on-screen graphics. A **catch-up** viewer mode is spoiler-safe: the
-rundown and the scrubber keep everything past the viewer's high-water mark
-hidden until they actually get there — watch it late, see it fresh.
+play back against a theatre clock — a 3D night-match monitor with four camera
+presets (broadcast, tactical, follow-ball, player), a retraction-aware rundown
+(a VAR-overturned goal pulls its story off air), an insight desk with the
+evidence trail, and the cue sheet driving the on-screen graphics. A **catch-up**
+viewer mode is spoiler-safe: the rundown, the scrubber and the vision lab keep
+everything past the current playhead hidden until the viewer gets there — watch
+it late, see it fresh.
 
 ## Data & assets
 
 The simulation is football-realistic and checked as such: a 20-match test
-fixture asserts aggregate texture on every run (~3.4 goals, ~26 shots, ~82%
-pass accuracy, ~17 fouls, ~8 corners per match), seeded so the same seed
-yields the byte-identical event stream on any machine. Scripted storylines
-(`comeback`, `siege`, `derby`) choreograph dramatic matches — including a
-VAR overturn — so the pipeline always has a real story to discover, explain
-and retract.
+fixture asserts aggregate texture on every run (~3.6 goals, ~25 shots, ~82%
+pass accuracy, ~25 fouls, ~9 corners and 0.05 red cards per match), seeded so
+the same seed yields the byte-identical event stream on any machine. Scripted
+storylines (`comeback`, `siege`, `derby`) choreograph dramatic matches —
+including a VAR overturn — so the pipeline always has a real story to discover,
+explain and retract.
 
 `npm run export:dataset` writes a full, portable record of every scenario to
 `data/`: the raw event stream and the insight feed (JSONL), stories with
@@ -62,10 +66,10 @@ committed exports under `data/` are the byte-identical output of scenario
 + seed — no timestamps, no machine-dependent values.
 
 ```
-data/comeback-2026/   3–2 · 2118 events · 31 stories · 53 cues
-data/siege-2026/      1–0 · 2194 events · 29 stories · 39 cues
-data/derby-2026/      4–3 · 2144 events · 37 stories · 61 cues (VAR overturn)
-data/freeplay-2026/   1–0 · 2205 events · 17 stories · 25 cues
+data/comeback-2026/   3–2 · 2144 events · 32 stories · 53 cues
+data/siege-2026/      1–1 · 2136 events · 27 stories · 39 cues
+data/derby-2026/      4–3 · 1997 events · 48 stories · 74 cues (VAR overturn)
+data/freeplay-2026/   1–3 · 2151 events · 28 stories · 48 cues
 ```
 
 ## Auto-eventing (vision)
@@ -80,26 +84,28 @@ scored pass runs a 320×208 sensor; the live vision lab renders at 640×416):
 
 | metric | measured on the marquee window |
 | --- | --- |
-| pass precision / recall / F1 | 100% / 50% / 67% |
-| shots | 1 of 1 detected |
-| ball speed error | 3.6 km/h |
-| player speed error | 2.1 km/h |
-| possession agreement | 88% |
+| pass precision / recall / F1 | 93% / 72% / 81% |
+| shots | 1 of 2 detected |
+| ball speed error | 3.9 km/h |
+| player speed error | 1.4 km/h |
+| possession agreement | 83% |
 | frames processed | 901 (90 s clip at 10 Hz) |
 
-The vision lab in the web app plays the same feed live, draws its detections
-over the pixels and shows the accuracy report next to it. Misses are shown
-as misses — the report is scored, not staged.
+The window is a clean second-half build-up ending on a goal, not a clip that
+spends half its length on a stoppage. The vision lab in the web app plays the
+same feed live, draws its detections over the pixels and shows the accuracy
+report next to it. Misses are shown as misses — the report is scored, not staged.
 
-## Studio voice
+## Studio voice (optional)
 
-`npm run record:voice` runs the real crew against an OpenAI-compatible
+`npm run record:voice` can run the real crew against an OpenAI-compatible
 gateway (Featherless by default; `FEATHERLESS_API_KEY` in `.env.local`),
-verifies every draft, and freezes the output into
-`apps/web/public/recordings/*.json`. The deployed app plays that studio
-voice for the story scenarios — **no key ever reaches the browser** — and
-falls back to the deterministic template floor for anything unrecorded or
-for a different seed.
+verify every draft, and freeze the output into
+`apps/web/public/recordings/*.json`. A recording pack is fingerprinted to the
+exact scenario, seed and evidence; the app rejects a pack whose evidence has
+changed and falls back to the verified template floor. **No pack is bundled
+with the deployed demo**, so the live app always uses the evidence templates;
+no key ever reaches the browser.
 
 ## API
 
@@ -155,13 +161,13 @@ audience sees is the verification the tools serve.
 
 ```bash
 npm install
-npm test            # deterministic suite: simulator, engine, agents, cues,
-                    # vision, dataset, api, mcp
+npm test            # 160 deterministic tests: simulator, engine, agents, cues,
+                    # vision, dataset, api, mcp and browser state
 npm run dev         # the web app (Vite dev server)
 npm run api         # the HTTP/SSE service (and POST /mcp on the same port)
 npm run mcp         # the studio as an MCP server over stdio
 npm run export:dataset    # regenerate data/
-npm run record:voice      # refresh the studio-voice recordings
+npm run record:voice      # optional studio pack; needs FEATHERLESS_API_KEY
 ```
 
 ```ts

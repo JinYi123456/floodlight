@@ -610,7 +610,8 @@ export class MatchSimulator {
     // Booked defenders and defenders in their own box pull out of challenges
     // rather than risk a second yellow or concede a penalty.
     const winP = clamp(0.38 + (attackerSkill - defenderSkill) * 0.7, 0.2, 0.8);
-    const foulP = 0.4 * (booked ? 0.35 : 1) * (inBox ? 0.15 : 1) + clamp(defenderSkill - attackerSkill, -0.2, 0.3) * 0.3;
+    const foulP = 0.34 * (booked ? 0.1 : 1) * (inBox ? 0.15 : 1)
+      + clamp(defenderSkill - attackerSkill, -0.2, 0.3) * (booked ? 0.12 : 0.3);
 
     if (this.rng.chance(foulP)) {
       this.foul(flip(attackTeam), defender, carrier);
@@ -650,18 +651,21 @@ export class MatchSimulator {
     });
 
     const record = this.cards.get(offender.id) ?? { yellow: 0, red: false };
+    // A player already on a booking is careful, and referees are reluctant to
+    // produce a second yellow for the same soft challenge.
+    const caution = record.yellow >= 1 ? 0.18 : 1;
     let card: 'none' | 'yellow' | 'red' = 'none';
     if (this.pendingRed === team) {
       card = 'red';
       this.pendingRed = null;
     } else if (inBox) {
       // A penalty is already the sanction; a card on top of it is rare.
-      card = this.rng.chance(0.04) ? 'red' : this.rng.chance(0.12) ? 'yellow' : 'none';
-    } else if (reason === 'reckless' && this.rng.chance(0.3)) {
+      card = this.rng.chance(0.04 * caution) ? 'red' : this.rng.chance(0.12 * caution) ? 'yellow' : 'none';
+    } else if (reason === 'reckless' && this.rng.chance(0.26 * caution)) {
       card = 'yellow';
-    } else if (reason === 'dissent' && this.rng.chance(0.24)) {
+    } else if (reason === 'dissent' && this.rng.chance(0.15 * caution)) {
       card = 'yellow';
-    } else if (reason === 'tactical' && this.rng.chance(0.1)) {
+    } else if (reason === 'tactical' && this.rng.chance(0.08 * caution)) {
       card = 'yellow';
     }
 

@@ -4,55 +4,94 @@
   "cues": [
     {
       "id": "cue-0001",
-      "t0": 122.5,
-      "t1": 127.5,
-      "slot": "player_tag",
-      "priority": 52,
-      "animation": "pinned",
-      "payload": {
-        "headline": "Fastest of the match",
-        "body": "Blistering pace from Viggo Ortega: 32.7 km/h — the fastest of the match so far.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "3'",
-        "playerId": "oldtower-p11",
-        "speedKph": 32.7
-      },
-      "source": {
-        "momentId": "cand-0027",
-        "candidateId": "cand-0027",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 134.5
-    },
-    {
-      "id": "cue-0004",
-      "t0": 174.1,
-      "t1": 180.1,
+      "t0": 107.8,
+      "t1": 113.8,
       "slot": "stat_bumper",
       "priority": 65,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.79 — Valentin Heikkila denies a 0.27 xG chance.",
+        "headline": "Save · Franco Halvorsen",
+        "body": "2' — Old Tower FC 0–0 Harbour City. The keeper denied a 0.15 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "2'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.69
+          },
+          {
+            "label": "xg",
+            "value": 0.15
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p16"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0001",
+        "candidateId": "cand-0001",
+        "evidenceEventIds": [
+          "e00041"
+        ],
+        "verified": true
+      },
+      "expiresAt": 132.8
+    },
+    {
+      "id": "cue-0002",
+      "t0": 156,
+      "t1": 161,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Speed check · Hugo Halvorsen",
+        "body": "3' — Old Tower FC 0–0 Harbour City. Hugo Halvorsen was clocked at 32.7 km/h.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
         "minuteLabel": "3'",
+        "playerId": "oldtower-p18",
+        "speedKph": 32.7
+      },
+      "source": {
+        "momentId": "cand-0025",
+        "candidateId": "cand-0025",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 168
+    },
+    {
+      "id": "cue-0003",
+      "t0": 240.6,
+      "t1": 246.6,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Valentin Heikkila",
+        "body": "5' — Harbour City 0–0 Old Tower FC. The keeper denied a 0.03 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "5'",
         "stats": [
           {
             "label": "difficulty",
-            "value": 0.79
+            "value": 0.42
           },
           {
             "label": "xg",
-            "value": 0.27
+            "value": 0.03
           },
           {
             "label": "shooterId",
-            "value": "oldtower-p11"
+            "value": "oldtower-p16"
           }
         ]
       },
@@ -60,764 +99,30 @@
         "momentId": "cand-0002",
         "candidateId": "cand-0002",
         "evidenceEventIds": [
-          "e00064"
+          "e00091"
         ],
         "verified": true
       },
-      "expiresAt": 199.1
-    },
-    {
-      "id": "cue-0002",
-      "t0": 174.1,
-      "t1": 181.1,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Old Tower FC: Viggo Ortega gets a 0.27 xG look from 5.7 metres — saved.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "3'",
-        "from": {
-          "x": -49,
-          "y": 4.54
-        },
-        "to": {
-          "x": -52.5,
-          "y": 1.36
-        }
-      },
-      "source": {
-        "momentId": "cand-0001",
-        "candidateId": "cand-0001",
-        "evidenceEventIds": [
-          "e00063"
-        ],
-        "verified": true
-      },
-      "expiresAt": 199.1
-    },
-    {
-      "id": "cue-0005",
-      "t0": 313,
-      "t1": 318,
-      "slot": "player_tag",
-      "priority": 52,
-      "animation": "pinned",
-      "payload": {
-        "headline": "Fastest of the match",
-        "body": "Blistering pace from Viggo Ortega: 36 km/h — the fastest of the match so far.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "6'",
-        "playerId": "oldtower-p11",
-        "speedKph": 36
-      },
-      "source": {
-        "momentId": "cand-0028",
-        "candidateId": "cand-0028",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 325
+      "expiresAt": 265.6
     },
     {
       "id": "cue-0006",
-      "t0": 513.5,
-      "t1": 518.5,
-      "slot": "player_tag",
-      "priority": 52,
-      "animation": "pinned",
-      "payload": {
-        "headline": "Fastest of the match",
-        "body": "Blistering pace from Dario Lombardi: 33.3 km/h — the fastest of the match so far.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "9'",
-        "playerId": "harbour-p7",
-        "speedKph": 33.3
-      },
-      "source": {
-        "momentId": "cand-0029",
-        "candidateId": "cand-0029",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 525.5
-    },
-    {
-      "id": "cue-0009",
-      "t0": 878.8,
-      "t1": 884.8,
+      "t0": 382.4,
+      "t1": 388.4,
       "slot": "stat_bumper",
       "priority": 65,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.86 — Franco Halvorsen denies a 0.3 xG chance.",
+        "headline": "Save · Franco Halvorsen",
+        "body": "7' — Old Tower FC 0–0 Harbour City. The keeper denied a 0.28 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "15'",
+        "minuteLabel": "7'",
         "stats": [
           {
             "label": "difficulty",
-            "value": 0.86
-          },
-          {
-            "label": "xg",
-            "value": 0.3
-          },
-          {
-            "label": "shooterId",
-            "value": "harbour-p11"
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0004",
-        "candidateId": "cand-0004",
-        "evidenceEventIds": [
-          "e00328"
-        ],
-        "verified": true
-      },
-      "expiresAt": 903.8
-    },
-    {
-      "id": "cue-0007",
-      "t0": 878.8,
-      "t1": 885.8,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.3 xG look from 6.9 metres — saved.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "15'",
-        "from": {
-          "x": 45.82,
-          "y": -1.82
-        },
-        "to": {
-          "x": 52.5,
-          "y": -0.55
-        }
-      },
-      "source": {
-        "momentId": "cand-0003",
-        "candidateId": "cand-0003",
-        "evidenceEventIds": [
-          "e00327"
-        ],
-        "verified": true
-      },
-      "expiresAt": 903.8
-    },
-    {
-      "id": "cue-0011",
-      "t0": 900,
-      "t1": 908,
-      "slot": "lower_third",
-      "priority": 58,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Momentum shift",
-        "body": "Momentum has swung to Harbour City — a 0.55 shift over the last five minutes.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "15'",
-        "team": "home",
-        "kind": "momentum_shift"
-      },
-      "source": {
-        "momentId": "cand-0007",
-        "candidateId": "cand-0007",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 1140
-    },
-    {
-      "id": "cue-0010",
-      "t0": 900,
-      "t1": 912,
-      "slot": "momentum_ribbon",
-      "priority": 58,
-      "animation": "pulse",
-      "payload": {
-        "direction": "home",
-        "swing": 0.55,
-        "headline": "Momentum shift",
-        "body": "Momentum has swung to Harbour City — a 0.55 shift over the last five minutes.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "15'"
-      },
-      "source": {
-        "momentId": "cand-0007",
-        "candidateId": "cand-0007",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 1140
-    },
-    {
-      "id": "cue-0014",
-      "t0": 930.3,
-      "t1": 936.3,
-      "slot": "stat_bumper",
-      "priority": 65,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.75 — Franco Halvorsen denies a 0.22 xG chance.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "16'",
-        "stats": [
-          {
-            "label": "difficulty",
-            "value": 0.75
-          },
-          {
-            "label": "xg",
-            "value": 0.22
-          },
-          {
-            "label": "shooterId",
-            "value": "harbour-p5"
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0006",
-        "candidateId": "cand-0006",
-        "evidenceEventIds": [
-          "e00351"
-        ],
-        "verified": true
-      },
-      "expiresAt": 955.3
-    },
-    {
-      "id": "cue-0012",
-      "t0": 930.3,
-      "t1": 937.3,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Harbour City: Lucien Eriksen gets a 0.22 xG look from 8.4 metres — saved.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "16'",
-        "from": {
-          "x": 44.65,
-          "y": 2.95
-        },
-        "to": {
-          "x": 52.5,
-          "y": 0.88
-        }
-      },
-      "source": {
-        "momentId": "cand-0005",
-        "candidateId": "cand-0005",
-        "evidenceEventIds": [
-          "e00350"
-        ],
-        "verified": true
-      },
-      "expiresAt": 955.3
-    },
-    {
-      "id": "cue-0016",
-      "t0": 1640.9,
-      "t1": 1646.9,
-      "slot": "stat_bumper",
-      "priority": 55,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Old Tower FC: Emil Rahman gets a 0.3 xG look from 6.7 metres — off_target.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "28'",
-        "stats": [
-          {
-            "label": "xg",
-            "value": 0.3
-          },
-          {
-            "label": "outcome",
-            "value": "off_target"
-          },
-          {
-            "label": "distanceM",
-            "value": 6.7
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0008",
-        "candidateId": "cand-0008",
-        "evidenceEventIds": [
-          "e00613"
-        ],
-        "verified": true
-      },
-      "expiresAt": 1665.9
-    },
-    {
-      "id": "cue-0015",
-      "t0": 1640.9,
-      "t1": 1647.9,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Old Tower FC: Emil Rahman gets a 0.3 xG look from 6.7 metres — off_target.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "28'",
-        "from": {
-          "x": -45.95,
-          "y": -1.59
-        },
-        "to": {
-          "x": -52.5,
-          "y": -0.48
-        }
-      },
-      "source": {
-        "momentId": "cand-0008",
-        "candidateId": "cand-0008",
-        "evidenceEventIds": [
-          "e00613"
-        ],
-        "verified": true
-      },
-      "expiresAt": 1665.9
-    },
-    {
-      "id": "cue-0017",
-      "t0": 2336.2,
-      "t1": 2344.2,
-      "slot": "lower_third",
-      "priority": 85,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Penalty",
-        "body": "Penalty to Harbour City! A huge chance at 39'.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "39'",
-        "team": "home",
-        "kind": "penalty"
-      },
-      "source": {
-        "momentId": "cand-0009",
-        "candidateId": "cand-0009",
-        "evidenceEventIds": [
-          "e00861"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2426.2
-    },
-    {
-      "id": "cue-0018",
-      "t0": 2336.2,
-      "t1": 2342.2,
-      "slot": "stat_bumper",
-      "priority": 85,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Penalty",
-        "body": "Penalty to Harbour City! A huge chance at 39'.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "39'",
-        "stats": [
-          {
-            "label": "minute",
-            "value": "39'"
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0009",
-        "candidateId": "cand-0009",
-        "evidenceEventIds": [
-          "e00861"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2426.2
-    },
-    {
-      "id": "cue-0019",
-      "t0": 2336.2,
-      "t1": 2343.2,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Harbour City: Duncan Jankovic gets a 0.78 xG look from 11 metres — saved.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "39'",
-        "from": {
-          "x": 41.5,
-          "y": 0
-        },
-        "to": {
-          "x": 52.5,
-          "y": 0
-        }
-      },
-      "source": {
-        "momentId": "cand-0010",
-        "candidateId": "cand-0010",
-        "evidenceEventIds": [
-          "e00862"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2361.2
-    },
-    {
-      "id": "cue-0020",
-      "t0": 2342.2,
-      "t1": 2348.2,
-      "slot": "stat_bumper",
-      "priority": 55,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Harbour City: Duncan Jankovic gets a 0.78 xG look from 11 metres — saved.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "39'",
-        "stats": [
-          {
-            "label": "xg",
-            "value": 0.78
-          },
-          {
-            "label": "outcome",
-            "value": "saved"
-          },
-          {
-            "label": "distanceM",
-            "value": 11
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0010",
-        "candidateId": "cand-0010",
-        "evidenceEventIds": [
-          "e00862"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2361.2
-    },
-    {
-      "id": "cue-0021",
-      "t0": 2348.2,
-      "t1": 2354.2,
-      "slot": "stat_bumper",
-      "priority": 65,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 1 — Franco Halvorsen denies a 0.78 xG chance.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "39'",
-        "stats": [
-          {
-            "label": "difficulty",
-            "value": 1
-          },
-          {
-            "label": "xg",
-            "value": 0.78
-          },
-          {
-            "label": "shooterId",
-            "value": "harbour-p15"
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0011",
-        "candidateId": "cand-0011",
-        "evidenceEventIds": [
-          "e00863"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2361.2
-    },
-    {
-      "id": "cue-0023",
-      "t0": 2833.1,
-      "t1": 2839.1,
-      "slot": "stat_bumper",
-      "priority": 55,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Old Tower FC: Piotr Ibarra gets a 0.34 xG look from 5.2 metres — blocked.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "48'",
-        "stats": [
-          {
-            "label": "xg",
-            "value": 0.34
-          },
-          {
-            "label": "outcome",
-            "value": "blocked"
-          },
-          {
-            "label": "distanceM",
-            "value": 5.2
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0012",
-        "candidateId": "cand-0012",
-        "evidenceEventIds": [
-          "e01039"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2858.1
-    },
-    {
-      "id": "cue-0022",
-      "t0": 2833.1,
-      "t1": 2840.1,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Old Tower FC: Piotr Ibarra gets a 0.34 xG look from 5.2 metres — blocked.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "48'",
-        "from": {
-          "x": -47.55,
-          "y": -1.58
-        },
-        "to": {
-          "x": -52.5,
-          "y": -0.47
-        }
-      },
-      "source": {
-        "momentId": "cand-0012",
-        "candidateId": "cand-0012",
-        "evidenceEventIds": [
-          "e01039"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2858.1
-    },
-    {
-      "id": "cue-0026",
-      "t0": 3259.9,
-      "t1": 3265.9,
-      "slot": "stat_bumper",
-      "priority": 65,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.74 — Franco Halvorsen denies a 0.21 xG chance.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "55'",
-        "stats": [
-          {
-            "label": "difficulty",
-            "value": 0.74
-          },
-          {
-            "label": "xg",
-            "value": 0.21
-          },
-          {
-            "label": "shooterId",
-            "value": "harbour-p11"
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0014",
-        "candidateId": "cand-0014",
-        "evidenceEventIds": [
-          "e01207"
-        ],
-        "verified": true
-      },
-      "expiresAt": 3284.9
-    },
-    {
-      "id": "cue-0024",
-      "t0": 3259.9,
-      "t1": 3266.9,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.21 xG look from 7.9 metres — saved.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "55'",
-        "from": {
-          "x": 46.85,
-          "y": 5.45
-        },
-        "to": {
-          "x": 52.5,
-          "y": 1.64
-        }
-      },
-      "source": {
-        "momentId": "cand-0013",
-        "candidateId": "cand-0013",
-        "evidenceEventIds": [
-          "e01206"
-        ],
-        "verified": true
-      },
-      "expiresAt": 3284.9
-    },
-    {
-      "id": "cue-0029",
-      "t0": 3709,
-      "t1": 3715,
-      "slot": "stat_bumper",
-      "priority": 65,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.78 — Franco Halvorsen denies a 0.34 xG chance.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "62'",
-        "stats": [
-          {
-            "label": "difficulty",
-            "value": 0.78
-          },
-          {
-            "label": "xg",
-            "value": 0.34
-          },
-          {
-            "label": "shooterId",
-            "value": "harbour-p7"
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0016",
-        "candidateId": "cand-0016",
-        "evidenceEventIds": [
-          "e01356"
-        ],
-        "verified": true
-      },
-      "expiresAt": 3734
-    },
-    {
-      "id": "cue-0027",
-      "t0": 3709,
-      "t1": 3716,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Harbour City: Dario Lombardi gets a 0.34 xG look from 75.8 metres — saved.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "62'",
-        "from": {
-          "x": -18.48,
-          "y": 26.57
-        },
-        "to": {
-          "x": 52.5,
-          "y": 3
-        }
-      },
-      "source": {
-        "momentId": "cand-0015",
-        "candidateId": "cand-0015",
-        "evidenceEventIds": [
-          "e01355"
-        ],
-        "verified": true
-      },
-      "expiresAt": 3734
-    },
-    {
-      "id": "cue-0032",
-      "t0": 4380.5,
-      "t1": 4386.5,
-      "slot": "stat_bumper",
-      "priority": 65,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.83 — Franco Halvorsen denies a 0.28 xG chance.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "74'",
-        "stats": [
-          {
-            "label": "difficulty",
-            "value": 0.83
+            "value": 0.9
           },
           {
             "label": "xg",
@@ -825,71 +130,271 @@
           },
           {
             "label": "shooterId",
-            "value": "harbour-p11"
+            "value": "harbour-p16"
           }
         ]
       },
       "source": {
-        "momentId": "cand-0018",
-        "candidateId": "cand-0018",
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
         "evidenceEventIds": [
-          "e01609"
+          "e00139"
         ],
         "verified": true
       },
-      "expiresAt": 4405.5
+      "expiresAt": 407.4
     },
     {
-      "id": "cue-0030",
-      "t0": 4380.5,
-      "t1": 4387.5,
+      "id": "cue-0004",
+      "t0": 382.4,
+      "t1": 389.4,
       "slot": "telestration",
       "priority": 55,
       "animation": "draw",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.28 xG look from 7.4 metres — saved.",
+        "headline": "Chance · Noel Bouchard",
+        "body": "7' — Harbour City 0–0 Old Tower FC. Noel Bouchard had a chance from 6 m worth 0.28.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "74'",
+        "minuteLabel": "7'",
         "from": {
-          "x": 45.76,
-          "y": -2.95
+          "x": 48.68,
+          "y": 4.09
         },
         "to": {
           "x": 52.5,
-          "y": -0.89
+          "y": 1.23
         }
       },
       "source": {
-        "momentId": "cand-0017",
-        "candidateId": "cand-0017",
+        "momentId": "cand-0003",
+        "candidateId": "cand-0003",
         "evidenceEventIds": [
-          "e01608"
+          "e00138"
         ],
         "verified": true
       },
-      "expiresAt": 4405.5
+      "expiresAt": 407.4
     },
     {
-      "id": "cue-0034",
-      "t0": 4849.7,
-      "t1": 4855.7,
+      "id": "cue-0007",
+      "t0": 435,
+      "t1": 440,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Speed check · Duncan Jankovic",
+        "body": "8' — Harbour City 0–0 Old Tower FC. Duncan Jankovic was clocked at 32.3 km/h.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "8'",
+        "playerId": "harbour-p15",
+        "speedKph": 32.3
+      },
+      "source": {
+        "momentId": "cand-0026",
+        "candidateId": "cand-0026",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 447
+    },
+    {
+      "id": "cue-0008",
+      "t0": 740,
+      "t1": 745,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Speed check · Duncan Jankovic",
+        "body": "13' — Harbour City 0–0 Old Tower FC. Duncan Jankovic was clocked at 32.9 km/h.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "13'",
+        "playerId": "harbour-p15",
+        "speedKph": 32.9
+      },
+      "source": {
+        "momentId": "cand-0027",
+        "candidateId": "cand-0027",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 752
+    },
+    {
+      "id": "cue-0011",
+      "t0": 1498.3,
+      "t1": 1504.3,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Franco Halvorsen",
+        "body": "25' — Old Tower FC 0–0 Harbour City. The keeper denied a 0.24 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "25'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.84
+          },
+          {
+            "label": "xg",
+            "value": 0.24
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p16"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
+        "evidenceEventIds": [
+          "e00539"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1523.3
+    },
+    {
+      "id": "cue-0009",
+      "t0": 1498.3,
+      "t1": 1505.3,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Noel Bouchard",
+        "body": "25' — Harbour City 0–0 Old Tower FC. Noel Bouchard had a chance from 7 m worth 0.24.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "25'",
+        "from": {
+          "x": 46.82,
+          "y": -3.97
+        },
+        "to": {
+          "x": 52.5,
+          "y": -1.19
+        }
+      },
+      "source": {
+        "momentId": "cand-0005",
+        "candidateId": "cand-0005",
+        "evidenceEventIds": [
+          "e00538"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1523.3
+    },
+    {
+      "id": "cue-0012",
+      "t0": 2459.4,
+      "t1": 2465.4,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Valentin Heikkila",
+        "body": "41' — Harbour City 0–0 Old Tower FC. The keeper denied a 0.11 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "41'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.58
+          },
+          {
+            "label": "xg",
+            "value": 0.11
+          },
+          {
+            "label": "shooterId",
+            "value": "oldtower-p16"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0007",
+        "candidateId": "cand-0007",
+        "evidenceEventIds": [
+          "e00883"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2484.4
+    },
+    {
+      "id": "cue-0013",
+      "t0": 2465.4,
+      "t1": 2471.4,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Valentin Heikkila",
+        "body": "41' — Harbour City 0–0 Old Tower FC. The keeper denied a 0.17 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "41'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.73
+          },
+          {
+            "label": "xg",
+            "value": 0.17
+          },
+          {
+            "label": "shooterId",
+            "value": "oldtower-p12"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0008",
+        "candidateId": "cand-0008",
+        "evidenceEventIds": [
+          "e00886"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2484.4
+    },
+    {
+      "id": "cue-0015",
+      "t0": 3433.5,
+      "t1": 3439.5,
       "slot": "stat_bumper",
       "priority": 55,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.2 xG look from 9.5 metres — blocked.",
+        "headline": "Chance · Hugo Halvorsen",
+        "body": "58' — Old Tower FC 0–0 Harbour City. Hugo Halvorsen had a chance from 7 m worth 0.21.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "81'",
+        "minuteLabel": "58'",
         "stats": [
           {
             "label": "xg",
-            "value": 0.2
+            "value": 0.21
           },
           {
             "label": "outcome",
@@ -897,7 +402,526 @@
           },
           {
             "label": "distanceM",
-            "value": 9.5
+            "value": 6.9
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0009",
+        "candidateId": "cand-0009",
+        "evidenceEventIds": [
+          "e01247"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3458.5
+    },
+    {
+      "id": "cue-0014",
+      "t0": 3433.5,
+      "t1": 3440.5,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Hugo Halvorsen",
+        "body": "58' — Old Tower FC 0–0 Harbour City. Hugo Halvorsen had a chance from 7 m worth 0.21.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "58'",
+        "from": {
+          "x": -47.16,
+          "y": 4.34
+        },
+        "to": {
+          "x": -52.5,
+          "y": 1.3
+        }
+      },
+      "source": {
+        "momentId": "cand-0009",
+        "candidateId": "cand-0009",
+        "evidenceEventIds": [
+          "e01247"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3458.5
+    },
+    {
+      "id": "cue-0018",
+      "t0": 3661.5,
+      "t1": 3667.5,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Franco Halvorsen",
+        "body": "62' — Old Tower FC 0–0 Harbour City. The keeper denied a 0.24 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "62'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.77
+          },
+          {
+            "label": "xg",
+            "value": 0.24
+          },
+          {
+            "label": "shooterId",
+            "value": "harbour-p17"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0011",
+        "candidateId": "cand-0011",
+        "evidenceEventIds": [
+          "e01335"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3686.5
+    },
+    {
+      "id": "cue-0016",
+      "t0": 3661.5,
+      "t1": 3668.5,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Xavier Palmgren",
+        "body": "62' — Harbour City 0–0 Old Tower FC. Xavier Palmgren had a chance from 7 m worth 0.24.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "62'",
+        "from": {
+          "x": 45.52,
+          "y": 2.55
+        },
+        "to": {
+          "x": 52.5,
+          "y": 0.77
+        }
+      },
+      "source": {
+        "momentId": "cand-0010",
+        "candidateId": "cand-0010",
+        "evidenceEventIds": [
+          "e01334"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3686.5
+    },
+    {
+      "id": "cue-0020",
+      "t0": 3861.4,
+      "t1": 3867.4,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Chance · Noel Bouchard",
+        "body": "65' — Harbour City 0–0 Old Tower FC. Noel Bouchard had a chance from 6 m worth 0.28.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "65'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.28
+          },
+          {
+            "label": "outcome",
+            "value": "off_target"
+          },
+          {
+            "label": "distanceM",
+            "value": 6.2
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0012",
+        "candidateId": "cand-0012",
+        "evidenceEventIds": [
+          "e01418"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3886.4
+    },
+    {
+      "id": "cue-0019",
+      "t0": 3861.4,
+      "t1": 3868.4,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Noel Bouchard",
+        "body": "65' — Harbour City 0–0 Old Tower FC. Noel Bouchard had a chance from 6 m worth 0.28.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "65'",
+        "from": {
+          "x": 46.31,
+          "y": 0.5
+        },
+        "to": {
+          "x": 52.5,
+          "y": 0.15
+        }
+      },
+      "source": {
+        "momentId": "cand-0012",
+        "candidateId": "cand-0012",
+        "evidenceEventIds": [
+          "e01418"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3886.4
+    },
+    {
+      "id": "cue-0022",
+      "t0": 4594.5,
+      "t1": 4600.5,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Chance · Noel Bouchard",
+        "body": "77' — Harbour City 0–0 Old Tower FC. Noel Bouchard had a chance from 8 m worth 0.21.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "77'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.21
+          },
+          {
+            "label": "outcome",
+            "value": "blocked"
+          },
+          {
+            "label": "distanceM",
+            "value": 7.8
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0013",
+        "candidateId": "cand-0013",
+        "evidenceEventIds": [
+          "e01681"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4619.5
+    },
+    {
+      "id": "cue-0021",
+      "t0": 4594.5,
+      "t1": 4601.5,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Noel Bouchard",
+        "body": "77' — Harbour City 0–0 Old Tower FC. Noel Bouchard had a chance from 8 m worth 0.21.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "77'",
+        "from": {
+          "x": 46.65,
+          "y": 5.13
+        },
+        "to": {
+          "x": 52.5,
+          "y": 1.54
+        }
+      },
+      "source": {
+        "momentId": "cand-0013",
+        "candidateId": "cand-0013",
+        "evidenceEventIds": [
+          "e01681"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4619.5
+    },
+    {
+      "id": "cue-0024",
+      "t0": 4860,
+      "t1": 4868,
+      "slot": "lower_third",
+      "priority": 58,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Momentum swing · Old Tower FC",
+        "body": "81' — Old Tower FC 0–0 Harbour City. The momentum index moved -0.57 over the window.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "81'",
+        "team": "away",
+        "kind": "momentum_shift"
+      },
+      "source": {
+        "momentId": "cand-0017",
+        "candidateId": "cand-0017",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 5100
+    },
+    {
+      "id": "cue-0026",
+      "t0": 4860,
+      "t1": 4872,
+      "slot": "momentum_ribbon",
+      "priority": 60,
+      "animation": "pulse",
+      "payload": {
+        "direction": "away",
+        "swing": null,
+        "headline": "Sustained pressure · Old Tower FC",
+        "body": "81' — Old Tower FC 0–0 Harbour City. Over the last ten minutes Old Tower FC had 5 shots to 1 with 59% of the ball.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "81'"
+      },
+      "source": {
+        "momentId": "cand-0018",
+        "candidateId": "cand-0018",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 5160
+    },
+    {
+      "id": "cue-0025",
+      "t0": 4860,
+      "t1": 4866,
+      "slot": "stat_bumper",
+      "priority": 60,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Sustained pressure · Old Tower FC",
+        "body": "81' — Old Tower FC 0–0 Harbour City. Over the last ten minutes Old Tower FC had 5 shots to 1 with 59% of the ball.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "81'",
+        "stats": [
+          {
+            "label": "shotsLast10",
+            "value": 5
+          },
+          {
+            "label": "opponentShotsLast10",
+            "value": 1
+          },
+          {
+            "label": "possessionShare",
+            "value": 0.59
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0018",
+        "candidateId": "cand-0018",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 5160
+    },
+    {
+      "id": "cue-0031",
+      "t0": 4867.1,
+      "t1": 4873.1,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Valentin Heikkila",
+        "body": "82' — Harbour City 0–0 Old Tower FC. The keeper denied a 0.24 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "82'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.83
+          },
+          {
+            "label": "xg",
+            "value": 0.24
+          },
+          {
+            "label": "shooterId",
+            "value": "oldtower-p12"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0016",
+        "candidateId": "cand-0016",
+        "evidenceEventIds": [
+          "e01778"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4892.1
+    },
+    {
+      "id": "cue-0027",
+      "t0": 4867.1,
+      "t1": 4874.1,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Emil Rahman",
+        "body": "82' — Old Tower FC 0–0 Harbour City. Emil Rahman had a chance from 7 m worth 0.21.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "82'",
+        "from": {
+          "x": -45.27,
+          "y": 1.31
+        },
+        "to": {
+          "x": -52.5,
+          "y": 0.39
+        }
+      },
+      "source": {
+        "momentId": "cand-0014",
+        "candidateId": "cand-0014",
+        "evidenceEventIds": [
+          "e01775"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4892.1
+    },
+    {
+      "id": "cue-0030",
+      "t0": 4873.1,
+      "t1": 4879.1,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Chance · Emil Rahman",
+        "body": "82' — Old Tower FC 0–0 Harbour City. Emil Rahman had a chance from 7 m worth 0.24.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "82'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.24
+          },
+          {
+            "label": "outcome",
+            "value": "saved"
+          },
+          {
+            "label": "distanceM",
+            "value": 6.6
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0015",
+        "candidateId": "cand-0015",
+        "evidenceEventIds": [
+          "e01777"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4892.1
+    },
+    {
+      "id": "cue-0029",
+      "t0": 4874.1,
+      "t1": 4881.1,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Emil Rahman",
+        "body": "82' — Old Tower FC 0–0 Harbour City. Emil Rahman had a chance from 7 m worth 0.24.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "82'",
+        "from": {
+          "x": -46,
+          "y": 0.93
+        },
+        "to": {
+          "x": -52.5,
+          "y": 0.28
+        }
+      },
+      "source": {
+        "momentId": "cand-0015",
+        "candidateId": "cand-0015",
+        "evidenceEventIds": [
+          "e01777"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4892.1
+    },
+    {
+      "id": "cue-0033",
+      "t0": 5013.8,
+      "t1": 5019.8,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Chance · Noel Bouchard",
+        "body": "84' — Harbour City 0–0 Old Tower FC. Noel Bouchard had a chance from 6 m worth 0.27.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "84'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.27
+          },
+          {
+            "label": "outcome",
+            "value": "off_target"
+          },
+          {
+            "label": "distanceM",
+            "value": 5.8
           }
         ]
       },
@@ -905,167 +929,128 @@
         "momentId": "cand-0019",
         "candidateId": "cand-0019",
         "evidenceEventIds": [
-          "e01776"
+          "e01834"
         ],
         "verified": true
       },
-      "expiresAt": 4874.7
+      "expiresAt": 5038.8
     },
     {
-      "id": "cue-0033",
-      "t0": 4849.7,
-      "t1": 4856.7,
+      "id": "cue-0032",
+      "t0": 5013.8,
+      "t1": 5020.8,
       "slot": "telestration",
       "priority": 55,
       "animation": "draw",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.2 xG look from 9.5 metres — blocked.",
+        "headline": "Chance · Noel Bouchard",
+        "body": "84' — Harbour City 0–0 Old Tower FC. Noel Bouchard had a chance from 6 m worth 0.27.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "81'",
+        "minuteLabel": "84'",
         "from": {
-          "x": 44.25,
-          "y": -4.63
+          "x": 48.19,
+          "y": 3.93
         },
         "to": {
           "x": 52.5,
-          "y": -1.39
+          "y": 1.18
         }
       },
       "source": {
         "momentId": "cand-0019",
         "candidateId": "cand-0019",
         "evidenceEventIds": [
-          "e01776"
+          "e01834"
         ],
         "verified": true
       },
-      "expiresAt": 4874.7
+      "expiresAt": 5038.8
     },
     {
-      "id": "cue-0035",
-      "t0": 5248.9,
-      "t1": 5254.9,
-      "slot": "stat_bumper",
-      "priority": 65,
-      "animation": "slide_in",
+      "id": "cue-0034",
+      "t0": 5140.7,
+      "t1": 5143.7,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
       "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.6 — Valentin Heikkila denies a 0.13 xG chance.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "88'",
-        "stats": [
-          {
-            "label": "difficulty",
-            "value": 0.6
-          },
-          {
-            "label": "xg",
-            "value": 0.13
-          },
-          {
-            "label": "shooterId",
-            "value": "oldtower-p11"
-          }
-        ]
+        "team": "home",
+        "headline": "Goal · Noel Bouchard"
       },
       "source": {
         "momentId": "cand-0020",
         "candidateId": "cand-0020",
         "evidenceEventIds": [
-          "e01921"
+          "e01885"
         ],
         "verified": true
       },
-      "expiresAt": 5273.9
+      "expiresAt": 5320.7
     },
     {
-      "id": "cue-0036",
-      "t0": 5325,
-      "t1": 5328,
-      "slot": "goal_flash",
-      "priority": 100,
-      "animation": "flash",
-      "payload": {
-        "team": "home",
-        "headline": "GOAL — Halvard Tuominen makes it HAR 1–0 OLD"
-      },
-      "source": {
-        "momentId": "cand-0021",
-        "candidateId": "cand-0021",
-        "evidenceEventIds": [
-          "e01946"
-        ],
-        "verified": true
-      },
-      "expiresAt": 5505
-    },
-    {
-      "id": "cue-0039",
-      "t0": 5325,
-      "t1": 5328,
+      "id": "cue-0037",
+      "t0": 5140.7,
+      "t1": 5143.7,
       "slot": "goal_flash",
       "priority": 92,
       "animation": "flash",
       "payload": {
         "team": "home",
-        "headline": "Late drama"
-      },
-      "source": {
-        "momentId": "cand-0022",
-        "candidateId": "cand-0022",
-        "evidenceEventIds": [
-          "e01946"
-        ],
-        "verified": true
-      },
-      "expiresAt": 5505
-    },
-    {
-      "id": "cue-0037",
-      "t0": 5325,
-      "t1": 5333,
-      "slot": "lower_third",
-      "priority": 100,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "GOAL — Halvard Tuominen makes it HAR 1–0 OLD",
-        "body": "Halvard Tuominen strikes from 27.2 metres at 102 km/h — a 0.02 xG chance. The scoreline now reads HAR 1–0 OLD.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "89'",
-        "team": "home",
-        "kind": "goal"
+        "headline": "Late goal · Noel Bouchard"
       },
       "source": {
         "momentId": "cand-0021",
         "candidateId": "cand-0021",
         "evidenceEventIds": [
-          "e01946"
+          "e01885"
         ],
         "verified": true
       },
-      "expiresAt": 5505
+      "expiresAt": 5320.7
     },
     {
-      "id": "cue-0038",
-      "t0": 5325,
-      "t1": 5331,
+      "id": "cue-0035",
+      "t0": 5140.7,
+      "t1": 5148.7,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Goal · Noel Bouchard",
+        "body": "86' — Harbour City 1–0 Old Tower FC. Noel Bouchard finished from 28 m at 100.6 km/h (0.01 expected goals).",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "86'",
+        "team": "home",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0020",
+        "candidateId": "cand-0020",
+        "evidenceEventIds": [
+          "e01885"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5320.7
+    },
+    {
+      "id": "cue-0036",
+      "t0": 5140.7,
+      "t1": 5146.7,
       "slot": "stat_bumper",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Halvard Tuominen makes it HAR 1–0 OLD",
-        "body": "Halvard Tuominen strikes from 27.2 metres at 102 km/h — a 0.02 xG chance. The scoreline now reads HAR 1–0 OLD.",
+        "headline": "Goal · Noel Bouchard",
+        "body": "86' — Harbour City 1–0 Old Tower FC. Noel Bouchard finished from 28 m at 100.6 km/h (0.01 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "89'",
+        "minuteLabel": "86'",
         "stats": [
           {
             "label": "score",
@@ -1073,77 +1058,174 @@
           },
           {
             "label": "xg",
-            "value": 0.02
+            "value": 0.01
           },
           {
             "label": "distanceM",
-            "value": 27.2
+            "value": 27.5
           }
         ]
+      },
+      "source": {
+        "momentId": "cand-0020",
+        "candidateId": "cand-0020",
+        "evidenceEventIds": [
+          "e01885"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5320.7
+    },
+    {
+      "id": "cue-0038",
+      "t0": 5148.7,
+      "t1": 5156.7,
+      "slot": "lower_third",
+      "priority": 92,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Late goal · Noel Bouchard",
+        "body": "86' — Harbour City 1–0 Old Tower FC. A late goal has changed the score to 1–0.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "86'",
+        "team": "home",
+        "kind": "late_drama"
       },
       "source": {
         "momentId": "cand-0021",
         "candidateId": "cand-0021",
         "evidenceEventIds": [
-          "e01946"
+          "e01885"
         ],
         "verified": true
       },
-      "expiresAt": 5505
+      "expiresAt": 5320.7
     },
     {
-      "id": "cue-0040",
-      "t0": 5333,
-      "t1": 5341,
+      "id": "cue-0039",
+      "t0": 5156.7,
+      "t1": 5164.7,
       "slot": "lower_third",
-      "priority": 92,
+      "priority": 80,
       "animation": "slide_in",
       "payload": {
-        "headline": "Late drama",
-        "body": "LATE DRAMA at 89'! Harbour City strike with the clock nearly out — 1–0.",
+        "headline": "Under review · Match",
+        "body": "86' — score 1–0. The goal is under review.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "89'",
-        "team": "home",
-        "kind": "late_drama"
+        "minuteLabel": "86'",
+        "team": "none",
+        "kind": "var_review"
       },
       "source": {
         "momentId": "cand-0022",
         "candidateId": "cand-0022",
         "evidenceEventIds": [
-          "e01946"
+          "e01886",
+          "e01885"
         ],
         "verified": true
       },
-      "expiresAt": 5505
+      "expiresAt": 5230.7
+    },
+    {
+      "id": "cue-0040",
+      "t0": 5703.8,
+      "t1": 5706.8,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "away",
+        "headline": "Goal · Hugo Halvorsen"
+      },
+      "source": {
+        "momentId": "cand-0023",
+        "candidateId": "cand-0023",
+        "evidenceEventIds": [
+          "e02029"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5883.8
+    },
+    {
+      "id": "cue-0043",
+      "t0": 5703.8,
+      "t1": 5706.8,
+      "slot": "goal_flash",
+      "priority": 92,
+      "animation": "flash",
+      "payload": {
+        "team": "away",
+        "headline": "Late goal · Hugo Halvorsen"
+      },
+      "source": {
+        "momentId": "cand-0024",
+        "candidateId": "cand-0024",
+        "evidenceEventIds": [
+          "e02029"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5883.8
     },
     {
       "id": "cue-0041",
-      "t0": 5415.8,
-      "t1": 5421.8,
-      "slot": "stat_bumper",
-      "priority": 65,
+      "t0": 5703.8,
+      "t1": 5711.8,
+      "slot": "lower_third",
+      "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.56 — Valentin Heikkila denies a 0.14 xG chance.",
+        "headline": "Goal · Hugo Halvorsen",
+        "body": "96' — Old Tower FC 1–1 Harbour City. Hugo Halvorsen finished from 5 m at 87.1 km/h (0.22 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "91'",
+        "minuteLabel": "96'",
+        "team": "away",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0023",
+        "candidateId": "cand-0023",
+        "evidenceEventIds": [
+          "e02029"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5883.8
+    },
+    {
+      "id": "cue-0042",
+      "t0": 5703.8,
+      "t1": 5709.8,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Goal · Hugo Halvorsen",
+        "body": "96' — Old Tower FC 1–1 Harbour City. Hugo Halvorsen finished from 5 m at 87.1 km/h (0.22 expected goals).",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "96'",
         "stats": [
           {
-            "label": "difficulty",
-            "value": 0.56
+            "label": "score",
+            "value": "HAR 1–1 OLD"
           },
           {
             "label": "xg",
-            "value": 0.14
+            "value": 0.22
           },
           {
-            "label": "shooterId",
-            "value": "oldtower-p11"
+            "label": "distanceM",
+            "value": 5.3
           }
         ]
       },
@@ -1151,133 +1233,38 @@
         "momentId": "cand-0023",
         "candidateId": "cand-0023",
         "evidenceEventIds": [
-          "e01964"
+          "e02029"
         ],
         "verified": true
       },
-      "expiresAt": 5440.8
+      "expiresAt": 5883.8
     },
     {
-      "id": "cue-0043",
-      "t0": 5760,
-      "t1": 5768,
+      "id": "cue-0044",
+      "t0": 5711.8,
+      "t1": 5719.8,
       "slot": "lower_third",
-      "priority": 58,
+      "priority": 92,
       "animation": "slide_in",
       "payload": {
-        "headline": "Momentum shift",
-        "body": "Momentum has swung to Harbour City — a 0.47 shift over the last five minutes.",
+        "headline": "Late goal · Hugo Halvorsen",
+        "body": "96' — Old Tower FC 1–1 Harbour City. A late goal has changed the score to 1–1.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
         "minuteLabel": "96'",
-        "team": "home",
-        "kind": "momentum_shift"
-      },
-      "source": {
-        "momentId": "cand-0026",
-        "candidateId": "cand-0026",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 6000
-    },
-    {
-      "id": "cue-0042",
-      "t0": 5760,
-      "t1": 5772,
-      "slot": "momentum_ribbon",
-      "priority": 58,
-      "animation": "pulse",
-      "payload": {
-        "direction": "home",
-        "swing": 0.47,
-        "headline": "Momentum shift",
-        "body": "Momentum has swung to Harbour City — a 0.47 shift over the last five minutes.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "96'"
-      },
-      "source": {
-        "momentId": "cand-0026",
-        "candidateId": "cand-0026",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 6000
-    },
-    {
-      "id": "cue-0046",
-      "t0": 5805,
-      "t1": 5811,
-      "slot": "stat_bumper",
-      "priority": 65,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.94 — Franco Halvorsen denies a 0.31 xG chance.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "97'",
-        "stats": [
-          {
-            "label": "difficulty",
-            "value": 0.94
-          },
-          {
-            "label": "xg",
-            "value": 0.31
-          },
-          {
-            "label": "shooterId",
-            "value": "harbour-p11"
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0025",
-        "candidateId": "cand-0025",
-        "evidenceEventIds": [
-          "e02105"
-        ],
-        "verified": true
-      },
-      "expiresAt": 5830
-    },
-    {
-      "id": "cue-0044",
-      "t0": 5805,
-      "t1": 5812,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Harbour City: Halvard Tuominen gets a 0.31 xG look from 6.2 metres — saved.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "97'",
-        "from": {
-          "x": 46.95,
-          "y": -2.66
-        },
-        "to": {
-          "x": 52.5,
-          "y": -0.8
-        }
+        "team": "away",
+        "kind": "late_drama"
       },
       "source": {
         "momentId": "cand-0024",
         "candidateId": "cand-0024",
         "evidenceEventIds": [
-          "e02104"
+          "e02029"
         ],
         "verified": true
       },
-      "expiresAt": 5830
+      "expiresAt": 5883.8
     }
   ],
   "meta": {

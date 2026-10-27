@@ -4,117 +4,20 @@
   "cues": [
     {
       "id": "cue-0001",
-      "t0": 131.5,
-      "t1": 136.5,
+      "t0": 133,
+      "t1": 138,
       "slot": "player_tag",
       "priority": 52,
       "animation": "pinned",
       "payload": {
-        "headline": "Fastest of the match",
-        "body": "Blistering pace from Julian Havlik: 32.7 km/h — the fastest of the match so far.",
+        "headline": "Speed check · Aron Varga",
+        "body": "3' — Northgate United 0–0 Riverside Athletic. Aron Varga was clocked at 32.6 km/h.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
         "minuteLabel": "3'",
-        "playerId": "riverside-p18",
-        "speedKph": 32.7
-      },
-      "source": {
-        "momentId": "cand-0029",
-        "candidateId": "cand-0029",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 143.5
-    },
-    {
-      "id": "cue-0003",
-      "t0": 308.6,
-      "t1": 314.6,
-      "slot": "stat_bumper",
-      "priority": 55,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.22 xG look from 8.7 metres — post.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "6'",
-        "stats": [
-          {
-            "label": "xg",
-            "value": 0.22
-          },
-          {
-            "label": "outcome",
-            "value": "post"
-          },
-          {
-            "label": "distanceM",
-            "value": 8.7
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0001",
-        "candidateId": "cand-0001",
-        "evidenceEventIds": [
-          "e00109"
-        ],
-        "verified": true
-      },
-      "expiresAt": 333.6
-    },
-    {
-      "id": "cue-0002",
-      "t0": 308.6,
-      "t1": 315.6,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.22 xG look from 8.7 metres — post.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "6'",
-        "from": {
-          "x": 44.14,
-          "y": 2.48
-        },
-        "to": {
-          "x": 52.5,
-          "y": 0.74
-        }
-      },
-      "source": {
-        "momentId": "cand-0001",
-        "candidateId": "cand-0001",
-        "evidenceEventIds": [
-          "e00109"
-        ],
-        "verified": true
-      },
-      "expiresAt": 333.6
-    },
-    {
-      "id": "cue-0004",
-      "t0": 323.5,
-      "t1": 328.5,
-      "slot": "player_tag",
-      "priority": 52,
-      "animation": "pinned",
-      "payload": {
-        "headline": "Fastest of the match",
-        "body": "Blistering pace from Aron Weiss: 34.3 km/h — the fastest of the match so far.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "6'",
-        "playerId": "riverside-p6",
-        "speedKph": 34.3
+        "playerId": "northgate-p16",
+        "speedKph": 32.6
       },
       "source": {
         "momentId": "cand-0030",
@@ -122,70 +25,70 @@
         "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 335.5
+      "expiresAt": 145
     },
     {
-      "id": "cue-0005",
-      "t0": 456.5,
-      "t1": 459.5,
+      "id": "cue-0002",
+      "t0": 353.7,
+      "t1": 356.7,
       "slot": "goal_flash",
       "priority": 100,
       "animation": "flash",
       "payload": {
         "team": "away",
-        "headline": "GOAL — Theo Escobar makes it RIV 0–1 NOR"
+        "headline": "Goal · Aron Varga"
       },
       "source": {
-        "momentId": "cand-0002",
-        "candidateId": "cand-0002",
+        "momentId": "cand-0001",
+        "candidateId": "cand-0001",
         "evidenceEventIds": [
-          "e00164"
+          "e00138"
         ],
         "verified": true
       },
-      "expiresAt": 636.5
+      "expiresAt": 533.7
     },
     {
-      "id": "cue-0006",
-      "t0": 456.5,
-      "t1": 464.5,
+      "id": "cue-0003",
+      "t0": 353.7,
+      "t1": 361.7,
       "slot": "lower_third",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Theo Escobar makes it RIV 0–1 NOR",
-        "body": "Theo Escobar strikes from 16.4 metres at 82.7 km/h — a 0.07 xG chance. The scoreline now reads RIV 0–1 NOR.",
+        "headline": "Goal · Aron Varga",
+        "body": "6' — Northgate United 0–1 Riverside Athletic. Aron Varga finished from 12 m at 90.2 km/h (0.14 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "8'",
+        "minuteLabel": "6'",
         "team": "away",
         "kind": "goal"
       },
       "source": {
-        "momentId": "cand-0002",
-        "candidateId": "cand-0002",
+        "momentId": "cand-0001",
+        "candidateId": "cand-0001",
         "evidenceEventIds": [
-          "e00164"
+          "e00138"
         ],
         "verified": true
       },
-      "expiresAt": 636.5
+      "expiresAt": 533.7
     },
     {
-      "id": "cue-0007",
-      "t0": 456.5,
-      "t1": 462.5,
+      "id": "cue-0004",
+      "t0": 353.7,
+      "t1": 359.7,
       "slot": "stat_bumper",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Theo Escobar makes it RIV 0–1 NOR",
-        "body": "Theo Escobar strikes from 16.4 metres at 82.7 km/h — a 0.07 xG chance. The scoreline now reads RIV 0–1 NOR.",
+        "headline": "Goal · Aron Varga",
+        "body": "6' — Northgate United 0–1 Riverside Athletic. Aron Varga finished from 12 m at 90.2 km/h (0.14 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "8'",
+        "minuteLabel": "6'",
         "stats": [
           {
             "label": "score",
@@ -193,552 +96,38 @@
           },
           {
             "label": "xg",
-            "value": 0.07
+            "value": 0.14
           },
           {
             "label": "distanceM",
-            "value": 16.4
+            "value": 11.8
           }
         ]
       },
       "source": {
-        "momentId": "cand-0002",
-        "candidateId": "cand-0002",
+        "momentId": "cand-0001",
+        "candidateId": "cand-0001",
         "evidenceEventIds": [
-          "e00164"
+          "e00138"
         ],
         "verified": true
       },
-      "expiresAt": 636.5
+      "expiresAt": 533.7
     },
     {
-      "id": "cue-0008",
-      "t0": 677.5,
-      "t1": 682.5,
-      "slot": "player_tag",
-      "priority": 52,
-      "animation": "pinned",
-      "payload": {
-        "headline": "Fastest of the match",
-        "body": "Blistering pace from Isaac Grigoryan: 36 km/h — the fastest of the match so far.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "12'",
-        "playerId": "riverside-p10",
-        "speedKph": 36
-      },
-      "source": {
-        "momentId": "cand-0031",
-        "candidateId": "cand-0031",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 689.5
-    },
-    {
-      "id": "cue-0009",
-      "t0": 1388.1,
-      "t1": 1394.1,
-      "slot": "stat_bumper",
-      "priority": 65,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.52 — Hugo Marchetti denies a 0.09 xG chance.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "24'",
-        "stats": [
-          {
-            "label": "difficulty",
-            "value": 0.52
-          },
-          {
-            "label": "xg",
-            "value": 0.09
-          },
-          {
-            "label": "shooterId",
-            "value": "northgate-p14"
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0003",
-        "candidateId": "cand-0003",
-        "evidenceEventIds": [
-          "e00499"
-        ],
-        "verified": true
-      },
-      "expiresAt": 1413.1
-    },
-    {
-      "id": "cue-0010",
-      "t0": 1604.2,
-      "t1": 1607.2,
-      "slot": "goal_flash",
-      "priority": 100,
-      "animation": "flash",
-      "payload": {
-        "team": "away",
-        "headline": "GOAL — Theo Escobar makes it RIV 0–2 NOR"
-      },
-      "source": {
-        "momentId": "cand-0004",
-        "candidateId": "cand-0004",
-        "evidenceEventIds": [
-          "e00576"
-        ],
-        "verified": true
-      },
-      "expiresAt": 1784.2
-    },
-    {
-      "id": "cue-0011",
-      "t0": 1604.2,
-      "t1": 1612.2,
-      "slot": "lower_third",
-      "priority": 100,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "GOAL — Theo Escobar makes it RIV 0–2 NOR",
-        "body": "Theo Escobar strikes from 27.3 metres at 110.3 km/h — a 0.02 xG chance. The scoreline now reads RIV 0–2 NOR.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "27'",
-        "team": "away",
-        "kind": "goal"
-      },
-      "source": {
-        "momentId": "cand-0004",
-        "candidateId": "cand-0004",
-        "evidenceEventIds": [
-          "e00576"
-        ],
-        "verified": true
-      },
-      "expiresAt": 1784.2
-    },
-    {
-      "id": "cue-0012",
-      "t0": 1604.2,
-      "t1": 1610.2,
-      "slot": "stat_bumper",
-      "priority": 100,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "GOAL — Theo Escobar makes it RIV 0–2 NOR",
-        "body": "Theo Escobar strikes from 27.3 metres at 110.3 km/h — a 0.02 xG chance. The scoreline now reads RIV 0–2 NOR.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "27'",
-        "stats": [
-          {
-            "label": "score",
-            "value": "RIV 0–2 NOR"
-          },
-          {
-            "label": "xg",
-            "value": 0.02
-          },
-          {
-            "label": "distanceM",
-            "value": 27.3
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0004",
-        "candidateId": "cand-0004",
-        "evidenceEventIds": [
-          "e00576"
-        ],
-        "verified": true
-      },
-      "expiresAt": 1784.2
-    },
-    {
-      "id": "cue-0013",
-      "t0": 1610.2,
-      "t1": 1616.2,
-      "slot": "stat_bumper",
-      "priority": 70,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Milestone",
-        "body": "Theo Escobar completes a brace — 2 goals today.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "27'",
-        "stats": [
-          {
-            "label": "milestone",
-            "value": "brace"
-          },
-          {
-            "label": "goals",
-            "value": 2
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0005",
-        "candidateId": "cand-0005",
-        "evidenceEventIds": [
-          "e00576"
-        ],
-        "verified": true
-      },
-      "expiresAt": 1724.2
-    },
-    {
-      "id": "cue-0014",
-      "t0": 1946.4,
-      "t1": 1954.4,
-      "slot": "lower_third",
-      "priority": 95,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Red card",
-        "body": "RED CARD — Theo Escobar is off (reckless). Northgate United are down to ten.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "33'",
-        "team": "away",
-        "kind": "red_card"
-      },
-      "source": {
-        "momentId": "cand-0006",
-        "candidateId": "cand-0006",
-        "evidenceEventIds": [
-          "e00682"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2126.4
-    },
-    {
-      "id": "cue-0015",
-      "t0": 1946.4,
-      "t1": 1952.4,
-      "slot": "stat_bumper",
-      "priority": 95,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Red card",
-        "body": "RED CARD — Theo Escobar is off (reckless). Northgate United are down to ten.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "33'",
-        "stats": [
-          {
-            "label": "player",
-            "value": "Theo Escobar"
-          },
-          {
-            "label": "reason",
-            "value": "reckless"
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0006",
-        "candidateId": "cand-0006",
-        "evidenceEventIds": [
-          "e00682"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2126.4
-    },
-    {
-      "id": "cue-0017",
-      "t0": 2040,
-      "t1": 2048,
-      "slot": "lower_third",
-      "priority": 58,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Momentum shift",
-        "body": "Momentum has swung to Riverside Athletic — a 0.57 shift over the last five minutes.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "34'",
-        "team": "home",
-        "kind": "momentum_shift"
-      },
-      "source": {
-        "momentId": "cand-0010",
-        "candidateId": "cand-0010",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 2280
-    },
-    {
-      "id": "cue-0016",
-      "t0": 2040,
-      "t1": 2052,
-      "slot": "momentum_ribbon",
-      "priority": 58,
-      "animation": "pulse",
-      "payload": {
-        "direction": "home",
-        "swing": 0.57,
-        "headline": "Momentum shift",
-        "body": "Momentum has swung to Riverside Athletic — a 0.57 shift over the last five minutes.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "34'"
-      },
-      "source": {
-        "momentId": "cand-0010",
-        "candidateId": "cand-0010",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 2280
-    },
-    {
-      "id": "cue-0020",
-      "t0": 2040.9,
-      "t1": 2046.9,
-      "slot": "stat_bumper",
-      "priority": 65,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.9 — Fionn Karlsson denies a 0.27 xG chance.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "35'",
-        "stats": [
-          {
-            "label": "difficulty",
-            "value": 0.9
-          },
-          {
-            "label": "xg",
-            "value": 0.27
-          },
-          {
-            "label": "shooterId",
-            "value": "riverside-p9"
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0008",
-        "candidateId": "cand-0008",
-        "evidenceEventIds": [
-          "e00718"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2065.9
-    },
-    {
-      "id": "cue-0018",
-      "t0": 2040.9,
-      "t1": 2047.9,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 7.2 metres — saved.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "35'",
-        "from": {
-          "x": 46.42,
-          "y": 3.8
-        },
-        "to": {
-          "x": 52.5,
-          "y": 1.14
-        }
-      },
-      "source": {
-        "momentId": "cand-0007",
-        "candidateId": "cand-0007",
-        "evidenceEventIds": [
-          "e00717"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2065.9
-    },
-    {
-      "id": "cue-0022",
-      "t0": 2046.9,
-      "t1": 2052.9,
+      "id": "cue-0006",
+      "t0": 489.2,
+      "t1": 495.2,
       "slot": "stat_bumper",
       "priority": 55,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.29 xG look from 6.2 metres — blocked.",
+        "headline": "Chance · Aron Varga",
+        "body": "9' — Northgate United 0–1 Riverside Athletic. Aron Varga had a chance from 4 m worth 0.32.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "35'",
-        "stats": [
-          {
-            "label": "xg",
-            "value": 0.29
-          },
-          {
-            "label": "outcome",
-            "value": "blocked"
-          },
-          {
-            "label": "distanceM",
-            "value": 6.2
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0009",
-        "candidateId": "cand-0009",
-        "evidenceEventIds": [
-          "e00720"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2065.9
-    },
-    {
-      "id": "cue-0021",
-      "t0": 2047.9,
-      "t1": 2054.9,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.29 xG look from 6.2 metres — blocked.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "35'",
-        "from": {
-          "x": 46.42,
-          "y": -1.27
-        },
-        "to": {
-          "x": 52.5,
-          "y": -0.38
-        }
-      },
-      "source": {
-        "momentId": "cand-0009",
-        "candidateId": "cand-0009",
-        "evidenceEventIds": [
-          "e00720"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2065.9
-    },
-    {
-      "id": "cue-0024",
-      "t0": 2134,
-      "t1": 2140,
-      "slot": "stat_bumper",
-      "priority": 55,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.28 xG look from 6.4 metres — off_target.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "36'",
-        "stats": [
-          {
-            "label": "xg",
-            "value": 0.28
-          },
-          {
-            "label": "outcome",
-            "value": "off_target"
-          },
-          {
-            "label": "distanceM",
-            "value": 6.4
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0011",
-        "candidateId": "cand-0011",
-        "evidenceEventIds": [
-          "e00759"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2159
-    },
-    {
-      "id": "cue-0023",
-      "t0": 2134,
-      "t1": 2141,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.28 xG look from 6.4 metres — off_target.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "36'",
-        "from": {
-          "x": 47.08,
-          "y": 3.4
-        },
-        "to": {
-          "x": 52.5,
-          "y": 1.02
-        }
-      },
-      "source": {
-        "momentId": "cand-0011",
-        "candidateId": "cand-0011",
-        "evidenceEventIds": [
-          "e00759"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2159
-    },
-    {
-      "id": "cue-0026",
-      "t0": 2462.8,
-      "t1": 2468.8,
-      "slot": "stat_bumper",
-      "priority": 55,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.32 xG look from 4.9 metres — blocked.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "42'",
+        "minuteLabel": "9'",
         "stats": [
           {
             "label": "xg",
@@ -746,232 +135,303 @@
           },
           {
             "label": "outcome",
-            "value": "blocked"
+            "value": "off_target"
           },
           {
             "label": "distanceM",
-            "value": 4.9
+            "value": 4.3
           }
         ]
       },
       "source": {
-        "momentId": "cand-0012",
-        "candidateId": "cand-0012",
+        "momentId": "cand-0002",
+        "candidateId": "cand-0002",
         "evidenceEventIds": [
-          "e00872"
+          "e00167"
         ],
         "verified": true
       },
-      "expiresAt": 2487.8
+      "expiresAt": 514.2
     },
     {
-      "id": "cue-0025",
-      "t0": 2462.8,
-      "t1": 2469.8,
+      "id": "cue-0005",
+      "t0": 489.2,
+      "t1": 496.2,
       "slot": "telestration",
       "priority": 55,
       "animation": "draw",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.32 xG look from 4.9 metres — blocked.",
+        "headline": "Chance · Aron Varga",
+        "body": "9' — Northgate United 0–1 Riverside Athletic. Aron Varga had a chance from 4 m worth 0.32.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "42'",
+        "minuteLabel": "9'",
         "from": {
-          "x": 49.7,
-          "y": -4.01
+          "x": -49.86,
+          "y": 3.45
         },
         "to": {
-          "x": 52.5,
-          "y": -1.2
+          "x": -52.5,
+          "y": 1.03
         }
       },
       "source": {
-        "momentId": "cand-0012",
-        "candidateId": "cand-0012",
+        "momentId": "cand-0002",
+        "candidateId": "cand-0002",
         "evidenceEventIds": [
-          "e00872"
+          "e00167"
         ],
         "verified": true
       },
-      "expiresAt": 2487.8
+      "expiresAt": 514.2
     },
     {
-      "id": "cue-0028",
-      "t0": 2864.1,
-      "t1": 2870.1,
+      "id": "cue-0007",
+      "t0": 572.5,
+      "t1": 577.5,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
+      "payload": {
+        "headline": "Speed check · Theo Escobar",
+        "body": "10' — Northgate United 0–1 Riverside Athletic. Theo Escobar was clocked at 34.6 km/h.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "10'",
+        "playerId": "northgate-p14",
+        "speedKph": 34.6
+      },
+      "source": {
+        "momentId": "cand-0031",
+        "candidateId": "cand-0031",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 584.5
+    },
+    {
+      "id": "cue-0008",
+      "t0": 636.7,
+      "t1": 642.7,
       "slot": "stat_bumper",
-      "priority": 55,
+      "priority": 65,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 5.9 metres — blocked.",
+        "headline": "Save · Fionn Karlsson",
+        "body": "11' — Northgate United 0–1 Riverside Athletic. The keeper denied a 0.19 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "48'",
+        "minuteLabel": "11'",
         "stats": [
           {
+            "label": "difficulty",
+            "value": 0.76
+          },
+          {
             "label": "xg",
-            "value": 0.27
+            "value": 0.19
           },
           {
-            "label": "outcome",
-            "value": "blocked"
-          },
-          {
-            "label": "distanceM",
-            "value": 5.9
+            "label": "shooterId",
+            "value": "riverside-p16"
           }
         ]
       },
       "source": {
-        "momentId": "cand-0013",
-        "candidateId": "cand-0013",
+        "momentId": "cand-0003",
+        "candidateId": "cand-0003",
         "evidenceEventIds": [
-          "e01013"
+          "e00225"
         ],
         "verified": true
       },
-      "expiresAt": 2889.1
+      "expiresAt": 661.7
     },
     {
-      "id": "cue-0027",
-      "t0": 2864.1,
-      "t1": 2871.1,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
+      "id": "cue-0009",
+      "t0": 915,
+      "t1": 920,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 5.9 metres — blocked.",
+        "headline": "Speed check · Duncan Whitlock",
+        "body": "16' — Riverside Athletic 0–1 Northgate United. Duncan Whitlock was clocked at 32.5 km/h.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "48'",
-        "from": {
-          "x": 47.5,
-          "y": 3.09
-        },
-        "to": {
-          "x": 52.5,
-          "y": 0.93
-        }
+        "minuteLabel": "16'",
+        "playerId": "riverside-p15",
+        "speedKph": 32.5
       },
       "source": {
-        "momentId": "cand-0013",
-        "candidateId": "cand-0013",
+        "momentId": "cand-0032",
+        "candidateId": "cand-0032",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 927
+    },
+    {
+      "id": "cue-0010",
+      "t0": 1540.7,
+      "t1": 1543.7,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "away",
+        "headline": "Goal · Cassian Anselm"
+      },
+      "source": {
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
         "evidenceEventIds": [
-          "e01013"
+          "e00549"
         ],
         "verified": true
       },
-      "expiresAt": 2889.1
+      "expiresAt": 1720.7
     },
     {
-      "id": "cue-0030",
-      "t0": 2870.1,
-      "t1": 2876.1,
-      "slot": "stat_bumper",
-      "priority": 55,
+      "id": "cue-0011",
+      "t0": 1540.7,
+      "t1": 1548.7,
+      "slot": "lower_third",
+      "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.24 xG look from 8.7 metres — post.",
+        "headline": "Goal · Cassian Anselm",
+        "body": "26' — Northgate United 0–2 Riverside Athletic. Cassian Anselm finished from 26 m at 107.4 km/h (0.01 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "48'",
+        "minuteLabel": "26'",
+        "team": "away",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
+        "evidenceEventIds": [
+          "e00549"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1720.7
+    },
+    {
+      "id": "cue-0012",
+      "t0": 1540.7,
+      "t1": 1546.7,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Goal · Cassian Anselm",
+        "body": "26' — Northgate United 0–2 Riverside Athletic. Cassian Anselm finished from 26 m at 107.4 km/h (0.01 expected goals).",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "26'",
         "stats": [
           {
-            "label": "xg",
-            "value": 0.24
+            "label": "score",
+            "value": "RIV 0–2 NOR"
           },
           {
-            "label": "outcome",
-            "value": "post"
+            "label": "xg",
+            "value": 0.01
           },
           {
             "label": "distanceM",
-            "value": 8.7
+            "value": 25.7
           }
         ]
       },
       "source": {
-        "momentId": "cand-0014",
-        "candidateId": "cand-0014",
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
         "evidenceEventIds": [
-          "e01016"
+          "e00549"
         ],
         "verified": true
       },
-      "expiresAt": 2889.1
+      "expiresAt": 1720.7
     },
     {
-      "id": "cue-0029",
-      "t0": 2871.1,
-      "t1": 2878.1,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
+      "id": "cue-0013",
+      "t0": 2317.3,
+      "t1": 2323.3,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Clive Dahl gets a 0.24 xG look from 8.7 metres — post.",
+        "headline": "Save · Fionn Karlsson",
+        "body": "39' — Northgate United 0–2 Riverside Athletic. The keeper denied a 0.03 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "48'",
-        "from": {
-          "x": 43.86,
-          "y": 1.27
-        },
-        "to": {
-          "x": 52.5,
-          "y": 0.38
-        }
+        "minuteLabel": "39'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.47
+          },
+          {
+            "label": "xg",
+            "value": 0.03
+          },
+          {
+            "label": "shooterId",
+            "value": "riverside-p16"
+          }
+        ]
       },
       "source": {
-        "momentId": "cand-0014",
-        "candidateId": "cand-0014",
+        "momentId": "cand-0005",
+        "candidateId": "cand-0005",
         "evidenceEventIds": [
-          "e01016"
+          "e00818"
         ],
         "verified": true
       },
-      "expiresAt": 2889.1
+      "expiresAt": 2342.3
     },
     {
-      "id": "cue-0031",
-      "t0": 3050,
-      "t1": 3053,
+      "id": "cue-0014",
+      "t0": 3013.9,
+      "t1": 3016.9,
       "slot": "goal_flash",
       "priority": 100,
       "animation": "flash",
       "payload": {
         "team": "home",
-        "headline": "GOAL — Lucien Keller makes it RIV 1–2 NOR"
+        "headline": "Goal · Tobias Bouchard"
       },
       "source": {
-        "momentId": "cand-0015",
-        "candidateId": "cand-0015",
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
         "evidenceEventIds": [
-          "e01076"
+          "e01069"
         ],
         "verified": true
       },
-      "expiresAt": 3230
+      "expiresAt": 3193.9
     },
     {
-      "id": "cue-0032",
-      "t0": 3050,
-      "t1": 3058,
+      "id": "cue-0015",
+      "t0": 3013.9,
+      "t1": 3021.9,
       "slot": "lower_third",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Lucien Keller makes it RIV 1–2 NOR",
-        "body": "Lucien Keller strikes from 24.9 metres at 74.7 km/h — a 0.02 xG chance. The scoreline now reads RIV 1–2 NOR.",
+        "headline": "Goal · Tobias Bouchard",
+        "body": "51' — Riverside Athletic 1–2 Northgate United. Tobias Bouchard finished from 10 m at 85.8 km/h (0.14 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -980,52 +440,52 @@
         "kind": "goal"
       },
       "source": {
-        "momentId": "cand-0015",
-        "candidateId": "cand-0015",
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
         "evidenceEventIds": [
-          "e01076"
+          "e01069"
         ],
         "verified": true
       },
-      "expiresAt": 3230
+      "expiresAt": 3193.9
     },
     {
-      "id": "cue-0035",
-      "t0": 3050,
-      "t1": 3062,
+      "id": "cue-0018",
+      "t0": 3013.9,
+      "t1": 3025.9,
       "slot": "momentum_ribbon",
       "priority": 88,
       "animation": "pulse",
       "payload": {
         "direction": "home",
         "swing": null,
-        "headline": "Back in it",
-        "body": "They're back in it! Lucien Keller halves the deficit — 1–2.",
+        "headline": "Score update · Tobias Bouchard",
+        "body": "51' — Riverside Athletic 1–2 Northgate United. Riverside Athletic had trailed by 2 before this goal.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
         "minuteLabel": "51'"
       },
       "source": {
-        "momentId": "cand-0016",
-        "candidateId": "cand-0016",
+        "momentId": "cand-0007",
+        "candidateId": "cand-0007",
         "evidenceEventIds": [
-          "e01076"
+          "e01069"
         ],
         "verified": true
       },
-      "expiresAt": 3200
+      "expiresAt": 3163.9
     },
     {
-      "id": "cue-0033",
-      "t0": 3050,
-      "t1": 3056,
+      "id": "cue-0016",
+      "t0": 3013.9,
+      "t1": 3019.9,
       "slot": "stat_bumper",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Lucien Keller makes it RIV 1–2 NOR",
-        "body": "Lucien Keller strikes from 24.9 metres at 74.7 km/h — a 0.02 xG chance. The scoreline now reads RIV 1–2 NOR.",
+        "headline": "Goal · Tobias Bouchard",
+        "body": "51' — Riverside Athletic 1–2 Northgate United. Tobias Bouchard finished from 10 m at 85.8 km/h (0.14 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -1037,34 +497,34 @@
           },
           {
             "label": "xg",
-            "value": 0.02
+            "value": 0.14
           },
           {
             "label": "distanceM",
-            "value": 24.9
+            "value": 10
           }
         ]
       },
       "source": {
-        "momentId": "cand-0015",
-        "candidateId": "cand-0015",
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
         "evidenceEventIds": [
-          "e01076"
+          "e01069"
         ],
         "verified": true
       },
-      "expiresAt": 3230
+      "expiresAt": 3193.9
     },
     {
-      "id": "cue-0034",
-      "t0": 3058,
-      "t1": 3066,
+      "id": "cue-0017",
+      "t0": 3021.9,
+      "t1": 3029.9,
       "slot": "lower_third",
       "priority": 88,
       "animation": "slide_in",
       "payload": {
-        "headline": "Back in it",
-        "body": "They're back in it! Lucien Keller halves the deficit — 1–2.",
+        "headline": "Score update · Tobias Bouchard",
+        "body": "51' — Riverside Athletic 1–2 Northgate United. Riverside Athletic had trailed by 2 before this goal.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -1073,229 +533,118 @@
         "kind": "comeback_trigger"
       },
       "source": {
-        "momentId": "cand-0016",
-        "candidateId": "cand-0016",
+        "momentId": "cand-0007",
+        "candidateId": "cand-0007",
         "evidenceEventIds": [
-          "e01076"
+          "e01069"
         ],
         "verified": true
       },
-      "expiresAt": 3200
+      "expiresAt": 3163.9
     },
     {
-      "id": "cue-0038",
-      "t0": 3217,
-      "t1": 3223,
+      "id": "cue-0020",
+      "t0": 4008.7,
+      "t1": 4014.7,
       "slot": "stat_bumper",
-      "priority": 65,
+      "priority": 55,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.94 — Fionn Karlsson denies a 0.31 xG chance.",
+        "headline": "Chance · Tobias Bouchard",
+        "body": "67' — Riverside Athletic 1–2 Northgate United. Tobias Bouchard had a chance from 7 m worth 0.25.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "54'",
+        "minuteLabel": "67'",
         "stats": [
           {
-            "label": "difficulty",
-            "value": 0.94
-          },
-          {
             "label": "xg",
-            "value": 0.31
+            "value": 0.25
           },
           {
-            "label": "shooterId",
-            "value": "riverside-p9"
+            "label": "outcome",
+            "value": "off_target"
+          },
+          {
+            "label": "distanceM",
+            "value": 6.8
           }
         ]
       },
       "source": {
-        "momentId": "cand-0018",
-        "candidateId": "cand-0018",
+        "momentId": "cand-0008",
+        "candidateId": "cand-0008",
         "evidenceEventIds": [
-          "e01122"
+          "e01403"
         ],
         "verified": true
       },
-      "expiresAt": 3242
+      "expiresAt": 4033.7
     },
     {
-      "id": "cue-0036",
-      "t0": 3217,
-      "t1": 3224,
+      "id": "cue-0019",
+      "t0": 4008.7,
+      "t1": 4015.7,
       "slot": "telestration",
       "priority": 55,
       "animation": "draw",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.31 xG look from 5.9 metres — saved.",
+        "headline": "Chance · Tobias Bouchard",
+        "body": "67' — Riverside Athletic 1–2 Northgate United. Tobias Bouchard had a chance from 7 m worth 0.25.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "54'",
+        "minuteLabel": "67'",
         "from": {
-          "x": 46.74,
-          "y": -1.47
+          "x": 45.9,
+          "y": -1.53
         },
         "to": {
           "x": 52.5,
-          "y": -0.44
+          "y": -0.46
         }
       },
       "source": {
-        "momentId": "cand-0017",
-        "candidateId": "cand-0017",
+        "momentId": "cand-0008",
+        "candidateId": "cand-0008",
         "evidenceEventIds": [
-          "e01121"
+          "e01403"
         ],
         "verified": true
       },
-      "expiresAt": 3242
+      "expiresAt": 4033.7
     },
     {
-      "id": "cue-0039",
-      "t0": 3311,
-      "t1": 3317,
-      "slot": "stat_bumper",
-      "priority": 65,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.72 — Fionn Karlsson denies a 0.17 xG chance.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "56'",
-        "stats": [
-          {
-            "label": "difficulty",
-            "value": 0.72
-          },
-          {
-            "label": "xg",
-            "value": 0.17
-          },
-          {
-            "label": "shooterId",
-            "value": "riverside-p9"
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0019",
-        "candidateId": "cand-0019",
-        "evidenceEventIds": [
-          "e01155"
-        ],
-        "verified": true
-      },
-      "expiresAt": 3336
-    },
-    {
-      "id": "cue-0042",
-      "t0": 3926.6,
-      "t1": 3932.6,
-      "slot": "stat_bumper",
-      "priority": 65,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.9 — Fionn Karlsson denies a 0.26 xG chance.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "66'",
-        "stats": [
-          {
-            "label": "difficulty",
-            "value": 0.9
-          },
-          {
-            "label": "xg",
-            "value": 0.26
-          },
-          {
-            "label": "shooterId",
-            "value": "riverside-p9"
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0021",
-        "candidateId": "cand-0021",
-        "evidenceEventIds": [
-          "e01388"
-        ],
-        "verified": true
-      },
-      "expiresAt": 3951.6
-    },
-    {
-      "id": "cue-0040",
-      "t0": 3926.6,
-      "t1": 3933.6,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.26 xG look from 7.6 metres — saved.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "66'",
-        "from": {
-          "x": 45.65,
-          "y": 3.29
-        },
-        "to": {
-          "x": 52.5,
-          "y": 0.99
-        }
-      },
-      "source": {
-        "momentId": "cand-0020",
-        "candidateId": "cand-0020",
-        "evidenceEventIds": [
-          "e01387"
-        ],
-        "verified": true
-      },
-      "expiresAt": 3951.6
-    },
-    {
-      "id": "cue-0043",
-      "t0": 4113.5,
-      "t1": 4116.5,
+      "id": "cue-0021",
+      "t0": 4087.1,
+      "t1": 4090.1,
       "slot": "goal_flash",
       "priority": 100,
       "animation": "flash",
       "payload": {
         "team": "home",
-        "headline": "GOAL — Lucien Keller makes it RIV 2–2 NOR"
+        "headline": "Goal · Tobias Bouchard"
       },
       "source": {
-        "momentId": "cand-0022",
-        "candidateId": "cand-0022",
+        "momentId": "cand-0009",
+        "candidateId": "cand-0009",
         "evidenceEventIds": [
-          "e01455"
+          "e01430"
         ],
         "verified": true
       },
-      "expiresAt": 4293.5
+      "expiresAt": 4267.1
     },
     {
-      "id": "cue-0044",
-      "t0": 4113.5,
-      "t1": 4121.5,
+      "id": "cue-0022",
+      "t0": 4087.1,
+      "t1": 4095.1,
       "slot": "lower_third",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Lucien Keller makes it RIV 2–2 NOR",
-        "body": "Lucien Keller strikes from 15.5 metres at 82.6 km/h — a 0.09 xG chance. The scoreline now reads RIV 2–2 NOR.",
+        "headline": "Goal · Tobias Bouchard",
+        "body": "69' — Riverside Athletic 2–2 Northgate United. Tobias Bouchard finished from 13 m at 107.0 km/h (0.09 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -1304,25 +653,25 @@
         "kind": "goal"
       },
       "source": {
-        "momentId": "cand-0022",
-        "candidateId": "cand-0022",
+        "momentId": "cand-0009",
+        "candidateId": "cand-0009",
         "evidenceEventIds": [
-          "e01455"
+          "e01430"
         ],
         "verified": true
       },
-      "expiresAt": 4293.5
+      "expiresAt": 4267.1
     },
     {
-      "id": "cue-0045",
-      "t0": 4113.5,
-      "t1": 4119.5,
+      "id": "cue-0023",
+      "t0": 4087.1,
+      "t1": 4093.1,
       "slot": "stat_bumper",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Lucien Keller makes it RIV 2–2 NOR",
-        "body": "Lucien Keller strikes from 15.5 metres at 82.6 km/h — a 0.09 xG chance. The scoreline now reads RIV 2–2 NOR.",
+        "headline": "Goal · Tobias Bouchard",
+        "body": "69' — Riverside Athletic 2–2 Northgate United. Tobias Bouchard finished from 13 m at 107.0 km/h (0.09 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -1338,30 +687,30 @@
           },
           {
             "label": "distanceM",
-            "value": 15.5
+            "value": 13.1
           }
         ]
       },
       "source": {
-        "momentId": "cand-0022",
-        "candidateId": "cand-0022",
+        "momentId": "cand-0009",
+        "candidateId": "cand-0009",
         "evidenceEventIds": [
-          "e01455"
+          "e01430"
         ],
         "verified": true
       },
-      "expiresAt": 4293.5
+      "expiresAt": 4267.1
     },
     {
-      "id": "cue-0046",
-      "t0": 4119.5,
-      "t1": 4125.5,
+      "id": "cue-0024",
+      "t0": 4093.1,
+      "t1": 4099.1,
       "slot": "stat_bumper",
       "priority": 70,
       "animation": "slide_in",
       "payload": {
-        "headline": "Milestone",
-        "body": "Lucien Keller completes a brace — 2 goals today.",
+        "headline": "Scorer update · Tobias Bouchard",
+        "body": "69' — Riverside Athletic 2–2 Northgate United. Tobias Bouchard now has 2 in this match.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -1378,105 +727,367 @@
         ]
       },
       "source": {
-        "momentId": "cand-0023",
-        "candidateId": "cand-0023",
+        "momentId": "cand-0010",
+        "candidateId": "cand-0010",
         "evidenceEventIds": [
-          "e01455"
+          "e01430"
         ],
         "verified": true
       },
-      "expiresAt": 4233.5
+      "expiresAt": 4207.1
     },
     {
-      "id": "cue-0048",
-      "t0": 4772.6,
-      "t1": 4778.6,
-      "slot": "stat_bumper",
-      "priority": 55,
+      "id": "cue-0026",
+      "t0": 4140,
+      "t1": 4148,
+      "slot": "lower_third",
+      "priority": 58,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.36 xG look from 2.7 metres — blocked.",
+        "headline": "Momentum swing · Riverside Athletic",
+        "body": "69' — Riverside Athletic 2–2 Northgate United. The momentum index moved +0.58 over the window.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "80'",
+        "minuteLabel": "69'",
+        "team": "home",
+        "kind": "momentum_shift"
+      },
+      "source": {
+        "momentId": "cand-0012",
+        "candidateId": "cand-0012",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 4380
+    },
+    {
+      "id": "cue-0025",
+      "t0": 4140,
+      "t1": 4152,
+      "slot": "momentum_ribbon",
+      "priority": 58,
+      "animation": "pulse",
+      "payload": {
+        "direction": "home",
+        "swing": 0.58,
+        "headline": "Momentum swing · Riverside Athletic",
+        "body": "69' — Riverside Athletic 2–2 Northgate United. The momentum index moved +0.58 over the window.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "69'"
+      },
+      "source": {
+        "momentId": "cand-0012",
+        "candidateId": "cand-0012",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 4380
+    },
+    {
+      "id": "cue-0027",
+      "t0": 4163.9,
+      "t1": 4169.9,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Fionn Karlsson",
+        "body": "70' — Northgate United 2–2 Riverside Athletic. The keeper denied a 0.13 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "70'",
         "stats": [
           {
+            "label": "difficulty",
+            "value": 0.63
+          },
+          {
             "label": "xg",
-            "value": 0.36
+            "value": 0.13
           },
           {
-            "label": "outcome",
-            "value": "blocked"
-          },
-          {
-            "label": "distanceM",
-            "value": 2.7
+            "label": "shooterId",
+            "value": "riverside-p8"
           }
         ]
       },
       "source": {
-        "momentId": "cand-0024",
-        "candidateId": "cand-0024",
+        "momentId": "cand-0011",
+        "candidateId": "cand-0011",
         "evidenceEventIds": [
-          "e01671"
+          "e01447"
         ],
         "verified": true
       },
-      "expiresAt": 4797.6
+      "expiresAt": 4188.9
     },
     {
-      "id": "cue-0047",
-      "t0": 4772.6,
-      "t1": 4779.6,
+      "id": "cue-0029",
+      "t0": 4200,
+      "t1": 4212,
+      "slot": "momentum_ribbon",
+      "priority": 60,
+      "animation": "pulse",
+      "payload": {
+        "direction": "home",
+        "swing": null,
+        "headline": "Sustained pressure · Riverside Athletic",
+        "body": "70' — Riverside Athletic 2–2 Northgate United. Over the last ten minutes Riverside Athletic had 6 shots to 0 with 51% of the ball.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "70'"
+      },
+      "source": {
+        "momentId": "cand-0013",
+        "candidateId": "cand-0013",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 4500
+    },
+    {
+      "id": "cue-0028",
+      "t0": 4200,
+      "t1": 4206,
+      "slot": "stat_bumper",
+      "priority": 60,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Sustained pressure · Riverside Athletic",
+        "body": "70' — Riverside Athletic 2–2 Northgate United. Over the last ten minutes Riverside Athletic had 6 shots to 0 with 51% of the ball.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "70'",
+        "stats": [
+          {
+            "label": "shotsLast10",
+            "value": 6
+          },
+          {
+            "label": "opponentShotsLast10",
+            "value": 0
+          },
+          {
+            "label": "possessionShare",
+            "value": 0.51
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0013",
+        "candidateId": "cand-0013",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 4500
+    },
+    {
+      "id": "cue-0032",
+      "t0": 4384,
+      "t1": 4390,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Hugo Marchetti",
+        "body": "74' — Riverside Athletic 2–2 Northgate United. The keeper denied a 0.25 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "74'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.92
+          },
+          {
+            "label": "xg",
+            "value": 0.25
+          },
+          {
+            "label": "shooterId",
+            "value": "northgate-p16"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0015",
+        "candidateId": "cand-0015",
+        "evidenceEventIds": [
+          "e01530"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4409
+    },
+    {
+      "id": "cue-0030",
+      "t0": 4384,
+      "t1": 4391,
       "slot": "telestration",
       "priority": 55,
       "animation": "draw",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.36 xG look from 2.7 metres — blocked.",
+        "headline": "Chance · Aron Varga",
+        "body": "74' — Northgate United 2–2 Riverside Athletic. Aron Varga had a chance from 7 m worth 0.25.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "80'",
+        "minuteLabel": "74'",
         "from": {
-          "x": 50.04,
-          "y": 1.12
+          "x": -46.13,
+          "y": 3.07
         },
         "to": {
-          "x": 52.5,
-          "y": 0.34
+          "x": -52.5,
+          "y": 0.92
         }
       },
       "source": {
-        "momentId": "cand-0024",
-        "candidateId": "cand-0024",
+        "momentId": "cand-0014",
+        "candidateId": "cand-0014",
         "evidenceEventIds": [
-          "e01671"
+          "e01529"
         ],
         "verified": true
       },
-      "expiresAt": 4797.6
+      "expiresAt": 4409
     },
     {
-      "id": "cue-0050",
-      "t0": 4874.5,
-      "t1": 4880.5,
+      "id": "cue-0034",
+      "t0": 4390,
+      "t1": 4396,
       "slot": "stat_bumper",
       "priority": 55,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 6.5 metres — off_target.",
+        "headline": "Chance · Leon Reyes",
+        "body": "74' — Northgate United 2–2 Riverside Athletic. Leon Reyes had a chance from 7 m worth 0.25.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "82'",
+        "minuteLabel": "74'",
         "stats": [
           {
             "label": "xg",
-            "value": 0.27
+            "value": 0.25
+          },
+          {
+            "label": "outcome",
+            "value": "saved"
+          },
+          {
+            "label": "distanceM",
+            "value": 7
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0016",
+        "candidateId": "cand-0016",
+        "evidenceEventIds": [
+          "e01532"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4409
+    },
+    {
+      "id": "cue-0033",
+      "t0": 4391,
+      "t1": 4398,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Leon Reyes",
+        "body": "74' — Northgate United 2–2 Riverside Athletic. Leon Reyes had a chance from 7 m worth 0.25.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "74'",
+        "from": {
+          "x": -45.91,
+          "y": 2.5
+        },
+        "to": {
+          "x": -52.5,
+          "y": 0.75
+        }
+      },
+      "source": {
+        "momentId": "cand-0016",
+        "candidateId": "cand-0016",
+        "evidenceEventIds": [
+          "e01532"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4409
+    },
+    {
+      "id": "cue-0035",
+      "t0": 4396,
+      "t1": 4402,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Hugo Marchetti",
+        "body": "74' — Riverside Athletic 2–2 Northgate United. The keeper denied a 0.25 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "74'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.92
+          },
+          {
+            "label": "xg",
+            "value": 0.25
+          },
+          {
+            "label": "shooterId",
+            "value": "northgate-p9"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0017",
+        "candidateId": "cand-0017",
+        "evidenceEventIds": [
+          "e01533"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4409
+    },
+    {
+      "id": "cue-0037",
+      "t0": 4439.8,
+      "t1": 4445.8,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Chance · Aron Varga",
+        "body": "74' — Northgate United 2–2 Riverside Athletic. Aron Varga had a chance from 8 m worth 0.21.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "74'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.21
           },
           {
             "label": "outcome",
@@ -1484,136 +1095,298 @@
           },
           {
             "label": "distanceM",
-            "value": 6.5
+            "value": 8.4
           }
         ]
       },
       "source": {
-        "momentId": "cand-0025",
-        "candidateId": "cand-0025",
+        "momentId": "cand-0018",
+        "candidateId": "cand-0018",
         "evidenceEventIds": [
-          "e01708"
+          "e01550"
         ],
         "verified": true
       },
-      "expiresAt": 4899.5
+      "expiresAt": 4464.8
     },
     {
-      "id": "cue-0049",
-      "t0": 4874.5,
-      "t1": 4881.5,
+      "id": "cue-0036",
+      "t0": 4439.8,
+      "t1": 4446.8,
       "slot": "telestration",
       "priority": 55,
       "animation": "draw",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Riverside Athletic: Lucien Keller gets a 0.27 xG look from 6.5 metres — off_target.",
+        "headline": "Chance · Aron Varga",
+        "body": "74' — Northgate United 2–2 Riverside Athletic. Aron Varga had a chance from 8 m worth 0.21.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "82'",
+        "minuteLabel": "74'",
         "from": {
-          "x": 47.4,
-          "y": 4.06
+          "x": -44.64,
+          "y": -2.95
         },
         "to": {
-          "x": 52.5,
-          "y": 1.22
+          "x": -52.5,
+          "y": -0.88
         }
       },
       "source": {
-        "momentId": "cand-0025",
-        "candidateId": "cand-0025",
+        "momentId": "cand-0018",
+        "candidateId": "cand-0018",
         "evidenceEventIds": [
-          "e01708"
+          "e01550"
         ],
         "verified": true
       },
-      "expiresAt": 4899.5
+      "expiresAt": 4464.8
     },
     {
-      "id": "cue-0051",
-      "t0": 5071,
-      "t1": 5074,
+      "id": "cue-0042",
+      "t0": 4798.7,
+      "t1": 4804.7,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Hugo Marchetti",
+        "body": "80' — Riverside Athletic 2–2 Northgate United. The keeper denied a 0.22 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "80'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.8
+          },
+          {
+            "label": "xg",
+            "value": 0.22
+          },
+          {
+            "label": "shooterId",
+            "value": "northgate-p9"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0021",
+        "candidateId": "cand-0021",
+        "evidenceEventIds": [
+          "e01676"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4823.7
+    },
+    {
+      "id": "cue-0038",
+      "t0": 4798.7,
+      "t1": 4805.7,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Aron Varga",
+        "body": "80' — Northgate United 2–2 Riverside Athletic. Aron Varga had a chance from 7 m worth 0.26.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "80'",
+        "from": {
+          "x": -46.33,
+          "y": 2.7
+        },
+        "to": {
+          "x": -52.5,
+          "y": 0.81
+        }
+      },
+      "source": {
+        "momentId": "cand-0019",
+        "candidateId": "cand-0019",
+        "evidenceEventIds": [
+          "e01673"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4823.7
+    },
+    {
+      "id": "cue-0041",
+      "t0": 4804.7,
+      "t1": 4810.7,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Chance · Leon Reyes",
+        "body": "80' — Northgate United 2–2 Riverside Athletic. Leon Reyes had a chance from 8 m worth 0.22.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "80'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.22
+          },
+          {
+            "label": "outcome",
+            "value": "saved"
+          },
+          {
+            "label": "distanceM",
+            "value": 8.3
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0020",
+        "candidateId": "cand-0020",
+        "evidenceEventIds": [
+          "e01675"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4823.7
+    },
+    {
+      "id": "cue-0040",
+      "t0": 4805.7,
+      "t1": 4812.7,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Leon Reyes",
+        "body": "80' — Northgate United 2–2 Riverside Athletic. Leon Reyes had a chance from 8 m worth 0.22.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "80'",
+        "from": {
+          "x": -44.22,
+          "y": 0.83
+        },
+        "to": {
+          "x": -52.5,
+          "y": 0.25
+        }
+      },
+      "source": {
+        "momentId": "cand-0020",
+        "candidateId": "cand-0020",
+        "evidenceEventIds": [
+          "e01675"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4823.7
+    },
+    {
+      "id": "cue-0043",
+      "t0": 4810.7,
+      "t1": 4816.7,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Hugo Marchetti",
+        "body": "80' — Riverside Athletic 2–2 Northgate United. The keeper denied a 0.13 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "80'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.69
+          },
+          {
+            "label": "xg",
+            "value": 0.13
+          },
+          {
+            "label": "shooterId",
+            "value": "northgate-p9"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0022",
+        "candidateId": "cand-0022",
+        "evidenceEventIds": [
+          "e01679"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4823.7
+    },
+    {
+      "id": "cue-0044",
+      "t0": 4965.7,
+      "t1": 4968.7,
       "slot": "goal_flash",
       "priority": 100,
       "animation": "flash",
       "payload": {
         "team": "home",
-        "headline": "GOAL — Lucien Keller makes it RIV 3–2 NOR"
+        "headline": "Goal · Tobias Bouchard"
       },
       "source": {
-        "momentId": "cand-0026",
-        "candidateId": "cand-0026",
+        "momentId": "cand-0023",
+        "candidateId": "cand-0023",
         "evidenceEventIds": [
-          "e01779"
+          "e01744"
         ],
         "verified": true
       },
-      "expiresAt": 5251
+      "expiresAt": 5145.7
     },
     {
-      "id": "cue-0055",
-      "t0": 5071,
-      "t1": 5074,
-      "slot": "goal_flash",
-      "priority": 92,
-      "animation": "flash",
-      "payload": {
-        "team": "home",
-        "headline": "Late drama"
-      },
-      "source": {
-        "momentId": "cand-0028",
-        "candidateId": "cand-0028",
-        "evidenceEventIds": [
-          "e01779"
-        ],
-        "verified": true
-      },
-      "expiresAt": 5251
-    },
-    {
-      "id": "cue-0052",
-      "t0": 5071,
-      "t1": 5079,
+      "id": "cue-0045",
+      "t0": 4965.7,
+      "t1": 4973.7,
       "slot": "lower_third",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Lucien Keller makes it RIV 3–2 NOR",
-        "body": "Lucien Keller strikes from 17.3 metres at 85.9 km/h — a 0.06 xG chance. The scoreline now reads RIV 3–2 NOR.",
+        "headline": "Goal · Tobias Bouchard",
+        "body": "83' — Riverside Athletic 3–2 Northgate United. Tobias Bouchard finished from 26 m at 86.1 km/h (0.01 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "85'",
+        "minuteLabel": "83'",
         "team": "home",
         "kind": "goal"
       },
       "source": {
-        "momentId": "cand-0026",
-        "candidateId": "cand-0026",
+        "momentId": "cand-0023",
+        "candidateId": "cand-0023",
         "evidenceEventIds": [
-          "e01779"
+          "e01744"
         ],
         "verified": true
       },
-      "expiresAt": 5251
+      "expiresAt": 5145.7
     },
     {
-      "id": "cue-0053",
-      "t0": 5071,
-      "t1": 5077,
+      "id": "cue-0046",
+      "t0": 4965.7,
+      "t1": 4971.7,
       "slot": "stat_bumper",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Lucien Keller makes it RIV 3–2 NOR",
-        "body": "Lucien Keller strikes from 17.3 metres at 85.9 km/h — a 0.06 xG chance. The scoreline now reads RIV 3–2 NOR.",
+        "headline": "Goal · Tobias Bouchard",
+        "body": "83' — Riverside Athletic 3–2 Northgate United. Tobias Bouchard finished from 26 m at 86.1 km/h (0.01 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "85'",
+        "minuteLabel": "83'",
         "stats": [
           {
             "label": "score",
@@ -1621,38 +1394,38 @@
           },
           {
             "label": "xg",
-            "value": 0.06
+            "value": 0.01
           },
           {
             "label": "distanceM",
-            "value": 17.3
+            "value": 25.5
           }
         ]
       },
       "source": {
-        "momentId": "cand-0026",
-        "candidateId": "cand-0026",
+        "momentId": "cand-0023",
+        "candidateId": "cand-0023",
         "evidenceEventIds": [
-          "e01779"
+          "e01744"
         ],
         "verified": true
       },
-      "expiresAt": 5251
+      "expiresAt": 5145.7
     },
     {
-      "id": "cue-0054",
-      "t0": 5077,
-      "t1": 5083,
+      "id": "cue-0047",
+      "t0": 4971.7,
+      "t1": 4977.7,
       "slot": "stat_bumper",
       "priority": 70,
       "animation": "slide_in",
       "payload": {
-        "headline": "Milestone",
-        "body": "Lucien Keller completes a hat-trick — 3 goals today.",
+        "headline": "Scorer update · Tobias Bouchard",
+        "body": "83' — Riverside Athletic 3–2 Northgate United. Tobias Bouchard now has 3 in this match.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "85'",
+        "minuteLabel": "83'",
         "stats": [
           {
             "label": "milestone",
@@ -1665,41 +1438,302 @@
         ]
       },
       "source": {
-        "momentId": "cand-0027",
-        "candidateId": "cand-0027",
+        "momentId": "cand-0024",
+        "candidateId": "cand-0024",
         "evidenceEventIds": [
-          "e01779"
+          "e01744"
         ],
         "verified": true
       },
-      "expiresAt": 5191
+      "expiresAt": 5085.7
     },
     {
-      "id": "cue-0056",
-      "t0": 5079,
-      "t1": 5087,
-      "slot": "lower_third",
-      "priority": 92,
+      "id": "cue-0049",
+      "t0": 5115.1,
+      "t1": 5121.1,
+      "slot": "stat_bumper",
+      "priority": 55,
       "animation": "slide_in",
       "payload": {
-        "headline": "Late drama",
-        "body": "LATE DRAMA at 85'! Riverside Athletic strike with the clock nearly out — 3–2.",
+        "headline": "Chance · Tobias Bouchard",
+        "body": "86' — Riverside Athletic 3–2 Northgate United. Tobias Bouchard had a chance from 6 m worth 0.25.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "85'",
-        "team": "home",
-        "kind": "late_drama"
+        "minuteLabel": "86'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.25
+          },
+          {
+            "label": "outcome",
+            "value": "blocked"
+          },
+          {
+            "label": "distanceM",
+            "value": 6.1
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0025",
+        "candidateId": "cand-0025",
+        "evidenceEventIds": [
+          "e01778"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5140.1
+    },
+    {
+      "id": "cue-0048",
+      "t0": 5115.1,
+      "t1": 5122.1,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Tobias Bouchard",
+        "body": "86' — Riverside Athletic 3–2 Northgate United. Tobias Bouchard had a chance from 6 m worth 0.25.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "86'",
+        "from": {
+          "x": 46.91,
+          "y": 2.45
+        },
+        "to": {
+          "x": 52.5,
+          "y": 0.73
+        }
+      },
+      "source": {
+        "momentId": "cand-0025",
+        "candidateId": "cand-0025",
+        "evidenceEventIds": [
+          "e01778"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5140.1
+    },
+    {
+      "id": "cue-0051",
+      "t0": 5192.4,
+      "t1": 5198.4,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Chance · Aron Varga",
+        "body": "87' — Northgate United 3–2 Riverside Athletic. Aron Varga had a chance from 8 m worth 0.25.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "87'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.25
+          },
+          {
+            "label": "outcome",
+            "value": "off_target"
+          },
+          {
+            "label": "distanceM",
+            "value": 7.7
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0026",
+        "candidateId": "cand-0026",
+        "evidenceEventIds": [
+          "e01810"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5217.4
+    },
+    {
+      "id": "cue-0050",
+      "t0": 5192.4,
+      "t1": 5199.4,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Aron Varga",
+        "body": "87' — Northgate United 3–2 Riverside Athletic. Aron Varga had a chance from 8 m worth 0.25.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "87'",
+        "from": {
+          "x": -44.85,
+          "y": -0.69
+        },
+        "to": {
+          "x": -52.5,
+          "y": -0.21
+        }
+      },
+      "source": {
+        "momentId": "cand-0026",
+        "candidateId": "cand-0026",
+        "evidenceEventIds": [
+          "e01810"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5217.4
+    },
+    {
+      "id": "cue-0054",
+      "t0": 5877.8,
+      "t1": 5883.8,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Hugo Marchetti",
+        "body": "98' — Riverside Athletic 3–2 Northgate United. The keeper denied a 0.26 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "98'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.85
+          },
+          {
+            "label": "xg",
+            "value": 0.26
+          },
+          {
+            "label": "shooterId",
+            "value": "northgate-p16"
+          }
+        ]
       },
       "source": {
         "momentId": "cand-0028",
         "candidateId": "cand-0028",
         "evidenceEventIds": [
-          "e01779"
+          "e02071"
         ],
         "verified": true
       },
-      "expiresAt": 5251
+      "expiresAt": 5902.8
+    },
+    {
+      "id": "cue-0052",
+      "t0": 5877.8,
+      "t1": 5884.8,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Aron Varga",
+        "body": "98' — Northgate United 3–2 Riverside Athletic. Aron Varga had a chance from 7 m worth 0.26.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "98'",
+        "from": {
+          "x": -45.23,
+          "y": -0.77
+        },
+        "to": {
+          "x": -52.5,
+          "y": -0.23
+        }
+      },
+      "source": {
+        "momentId": "cand-0027",
+        "candidateId": "cand-0027",
+        "evidenceEventIds": [
+          "e02070"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5902.8
+    },
+    {
+      "id": "cue-0056",
+      "t0": 6022.6,
+      "t1": 6028.6,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Chance · Tobias Bouchard",
+        "body": "101' — Riverside Athletic 3–2 Northgate United. Tobias Bouchard had a chance from 6 m worth 0.26.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "101'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.26
+          },
+          {
+            "label": "outcome",
+            "value": "post"
+          },
+          {
+            "label": "distanceM",
+            "value": 6.4
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0029",
+        "candidateId": "cand-0029",
+        "evidenceEventIds": [
+          "e02131"
+        ],
+        "verified": true
+      },
+      "expiresAt": 6047.6
+    },
+    {
+      "id": "cue-0055",
+      "t0": 6022.6,
+      "t1": 6029.6,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Tobias Bouchard",
+        "body": "101' — Riverside Athletic 3–2 Northgate United. Tobias Bouchard had a chance from 6 m worth 0.26.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "101'",
+        "from": {
+          "x": 46.65,
+          "y": -2.51
+        },
+        "to": {
+          "x": 52.5,
+          "y": -0.75
+        }
+      },
+      "source": {
+        "momentId": "cand-0029",
+        "candidateId": "cand-0029",
+        "evidenceEventIds": [
+          "e02131"
+        ],
+        "verified": true
+      },
+      "expiresAt": 6047.6
     }
   ],
   "meta": {

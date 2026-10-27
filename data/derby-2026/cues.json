@@ -4,55 +4,55 @@
   "cues": [
     {
       "id": "cue-0001",
-      "t0": 132,
-      "t1": 137,
+      "t0": 241.5,
+      "t1": 246.5,
       "slot": "player_tag",
       "priority": 52,
       "animation": "pinned",
       "payload": {
-        "headline": "Fastest of the match",
-        "body": "Blistering pace from Dario Stankovic: 33.3 km/h — the fastest of the match so far.",
+        "headline": "Speed check · Ravi Moreau",
+        "body": "5' — Westerly Wanderers 0–0 Ironworks FC. Ravi Moreau was clocked at 33.2 km/h.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "3'",
-        "playerId": "westerly-p4",
-        "speedKph": 33.3
+        "minuteLabel": "5'",
+        "playerId": "westerly-p15",
+        "speedKph": 33.2
       },
       "source": {
-        "momentId": "cand-0036",
-        "candidateId": "cand-0036",
+        "momentId": "cand-0049",
+        "candidateId": "cand-0049",
         "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 144
+      "expiresAt": 253.5
     },
     {
       "id": "cue-0002",
-      "t0": 227.7,
-      "t1": 233.7,
+      "t0": 261,
+      "t1": 267,
       "slot": "stat_bumper",
       "priority": 65,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.62 — Halvard Petrov denies a 0.15 xG chance.",
+        "headline": "Save · Ezra Bianchi",
+        "body": "5' — Ironworks FC 0–0 Westerly Wanderers. The keeper denied a 0.03 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "4'",
+        "minuteLabel": "5'",
         "stats": [
           {
             "label": "difficulty",
-            "value": 0.62
+            "value": 0.44
           },
           {
             "label": "xg",
-            "value": 0.15
+            "value": 0.03
           },
           {
             "label": "shooterId",
-            "value": "ironworks-p11"
+            "value": "westerly-p15"
           }
         ]
       },
@@ -60,213 +60,293 @@
         "momentId": "cand-0001",
         "candidateId": "cand-0001",
         "evidenceEventIds": [
-          "e00093"
+          "e00097"
         ],
         "verified": true
       },
-      "expiresAt": 252.7
+      "expiresAt": 286
     },
     {
       "id": "cue-0003",
-      "t0": 341.5,
-      "t1": 346.5,
+      "t0": 483.5,
+      "t1": 488.5,
       "slot": "player_tag",
       "priority": 52,
       "animation": "pinned",
       "payload": {
-        "headline": "Fastest of the match",
-        "body": "Blistering pace from Elias Pereira: 33.7 km/h — the fastest of the match so far.",
+        "headline": "Speed check · Theo Quintero",
+        "body": "9' — Ironworks FC 0–0 Westerly Wanderers. Theo Quintero was clocked at 34.2 km/h.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "6'",
-        "playerId": "ironworks-p3",
-        "speedKph": 33.7
+        "minuteLabel": "9'",
+        "playerId": "ironworks-p8",
+        "speedKph": 34.2
       },
       "source": {
-        "momentId": "cand-0037",
-        "candidateId": "cand-0037",
+        "momentId": "cand-0050",
+        "candidateId": "cand-0050",
         "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 353.5
-    },
-    {
-      "id": "cue-0005",
-      "t0": 360,
-      "t1": 368,
-      "slot": "lower_third",
-      "priority": 58,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Momentum shift",
-        "body": "Momentum has swung to Ironworks FC — a 0.45 shift over the last five minutes.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "6'",
-        "team": "home",
-        "kind": "momentum_shift"
-      },
-      "source": {
-        "momentId": "cand-0003",
-        "candidateId": "cand-0003",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 600
-    },
-    {
-      "id": "cue-0004",
-      "t0": 360,
-      "t1": 372,
-      "slot": "momentum_ribbon",
-      "priority": 58,
-      "animation": "pulse",
-      "payload": {
-        "direction": "home",
-        "swing": 0.45,
-        "headline": "Momentum shift",
-        "body": "Momentum has swung to Ironworks FC — a 0.45 shift over the last five minutes.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "6'"
-      },
-      "source": {
-        "momentId": "cand-0003",
-        "candidateId": "cand-0003",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 600
+      "expiresAt": 495.5
     },
     {
       "id": "cue-0006",
-      "t0": 370.9,
-      "t1": 376.9,
+      "t0": 489.5,
+      "t1": 495.5,
       "slot": "stat_bumper",
       "priority": 65,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.6 — Halvard Petrov denies a 0.13 xG chance.",
+        "headline": "Save · Halvard Petrov",
+        "body": "9' — Westerly Wanderers 0–0 Ironworks FC. The keeper denied a 0.36 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "7'",
+        "minuteLabel": "9'",
         "stats": [
           {
             "label": "difficulty",
-            "value": 0.6
+            "value": 0.92
           },
           {
             "label": "xg",
-            "value": 0.13
+            "value": 0.36
           },
           {
             "label": "shooterId",
-            "value": "ironworks-p13"
+            "value": "ironworks-p16"
           }
         ]
+      },
+      "source": {
+        "momentId": "cand-0003",
+        "candidateId": "cand-0003",
+        "evidenceEventIds": [
+          "e00187"
+        ],
+        "verified": true
+      },
+      "expiresAt": 514.5
+    },
+    {
+      "id": "cue-0004",
+      "t0": 489.5,
+      "t1": 496.5,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Zane Bergqvist",
+        "body": "9' — Ironworks FC 0–0 Westerly Wanderers. Zane Bergqvist had a chance from 3 m worth 0.36.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "9'",
+        "from": {
+          "x": 52,
+          "y": 3.08
+        },
+        "to": {
+          "x": 52.5,
+          "y": 0.92
+        }
       },
       "source": {
         "momentId": "cand-0002",
         "candidateId": "cand-0002",
         "evidenceEventIds": [
-          "e00147"
+          "e00186"
         ],
         "verified": true
       },
-      "expiresAt": 395.9
-    },
-    {
-      "id": "cue-0007",
-      "t0": 561,
-      "t1": 566,
-      "slot": "player_tag",
-      "priority": 52,
-      "animation": "pinned",
-      "payload": {
-        "headline": "Fastest of the match",
-        "body": "Blistering pace from Valentin Weiss: 36 km/h — the fastest of the match so far.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "10'",
-        "playerId": "ironworks-p11",
-        "speedKph": 36
-      },
-      "source": {
-        "momentId": "cand-0038",
-        "candidateId": "cand-0038",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 573
+      "expiresAt": 514.5
     },
     {
       "id": "cue-0008",
-      "t0": 721.9,
-      "t1": 724.9,
+      "t0": 495.5,
+      "t1": 501.5,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Chance · Theo Quintero",
+        "body": "9' — Ironworks FC 0–0 Westerly Wanderers. Theo Quintero had a chance from 7 m worth 0.24.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "9'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.24
+          },
+          {
+            "label": "outcome",
+            "value": "blocked"
+          },
+          {
+            "label": "distanceM",
+            "value": 6.9
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
+        "evidenceEventIds": [
+          "e00189"
+        ],
+        "verified": true
+      },
+      "expiresAt": 514.5
+    },
+    {
+      "id": "cue-0007",
+      "t0": 496.5,
+      "t1": 503.5,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Theo Quintero",
+        "body": "9' — Ironworks FC 0–0 Westerly Wanderers. Theo Quintero had a chance from 7 m worth 0.24.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "9'",
+        "from": {
+          "x": 45.96,
+          "y": 2.35
+        },
+        "to": {
+          "x": 52.5,
+          "y": 0.7
+        }
+      },
+      "source": {
+        "momentId": "cand-0004",
+        "candidateId": "cand-0004",
+        "evidenceEventIds": [
+          "e00189"
+        ],
+        "verified": true
+      },
+      "expiresAt": 514.5
+    },
+    {
+      "id": "cue-0010",
+      "t0": 540,
+      "t1": 548,
+      "slot": "lower_third",
+      "priority": 58,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Momentum swing · Ironworks FC",
+        "body": "9' — Ironworks FC 0–0 Westerly Wanderers. The momentum index moved +0.56 over the window.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "9'",
+        "team": "home",
+        "kind": "momentum_shift"
+      },
+      "source": {
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 780
+    },
+    {
+      "id": "cue-0009",
+      "t0": 540,
+      "t1": 552,
+      "slot": "momentum_ribbon",
+      "priority": 58,
+      "animation": "pulse",
+      "payload": {
+        "direction": "home",
+        "swing": 0.56,
+        "headline": "Momentum swing · Ironworks FC",
+        "body": "9' — Ironworks FC 0–0 Westerly Wanderers. The momentum index moved +0.56 over the window.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "9'"
+      },
+      "source": {
+        "momentId": "cand-0006",
+        "candidateId": "cand-0006",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 780
+    },
+    {
+      "id": "cue-0011",
+      "t0": 587.1,
+      "t1": 590.1,
       "slot": "goal_flash",
       "priority": 100,
       "animation": "flash",
       "payload": {
         "team": "home",
-        "headline": "GOAL — Valentin Weiss makes it IRN 1–0 WES"
+        "headline": "Goal · Felix Anders"
       },
       "source": {
-        "momentId": "cand-0004",
-        "candidateId": "cand-0004",
+        "momentId": "cand-0005",
+        "candidateId": "cand-0005",
         "evidenceEventIds": [
-          "e00281"
+          "e00225"
         ],
         "verified": true
       },
-      "expiresAt": 901.9
+      "expiresAt": 767.1
     },
     {
-      "id": "cue-0009",
-      "t0": 721.9,
-      "t1": 729.9,
+      "id": "cue-0012",
+      "t0": 587.1,
+      "t1": 595.1,
       "slot": "lower_third",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Valentin Weiss makes it IRN 1–0 WES",
-        "body": "Valentin Weiss strikes from 14.4 metres at 81.1 km/h — a 0.08 xG chance. The scoreline now reads IRN 1–0 WES.",
+        "headline": "Goal · Felix Anders",
+        "body": "10' — Ironworks FC 1–0 Westerly Wanderers. Felix Anders finished from 24 m at 80.9 km/h (0.01 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "13'",
+        "minuteLabel": "10'",
         "team": "home",
         "kind": "goal"
       },
       "source": {
-        "momentId": "cand-0004",
-        "candidateId": "cand-0004",
+        "momentId": "cand-0005",
+        "candidateId": "cand-0005",
         "evidenceEventIds": [
-          "e00281"
+          "e00225"
         ],
         "verified": true
       },
-      "expiresAt": 901.9
+      "expiresAt": 767.1
     },
     {
-      "id": "cue-0010",
-      "t0": 721.9,
-      "t1": 727.9,
+      "id": "cue-0013",
+      "t0": 587.1,
+      "t1": 593.1,
       "slot": "stat_bumper",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Valentin Weiss makes it IRN 1–0 WES",
-        "body": "Valentin Weiss strikes from 14.4 metres at 81.1 km/h — a 0.08 xG chance. The scoreline now reads IRN 1–0 WES.",
+        "headline": "Goal · Felix Anders",
+        "body": "10' — Ironworks FC 1–0 Westerly Wanderers. Felix Anders finished from 24 m at 80.9 km/h (0.01 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "13'",
+        "minuteLabel": "10'",
         "stats": [
           {
             "label": "score",
@@ -274,50 +354,11 @@
           },
           {
             "label": "xg",
-            "value": 0.08
+            "value": 0.01
           },
           {
             "label": "distanceM",
-            "value": 14.4
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0004",
-        "candidateId": "cand-0004",
-        "evidenceEventIds": [
-          "e00281"
-        ],
-        "verified": true
-      },
-      "expiresAt": 901.9
-    },
-    {
-      "id": "cue-0011",
-      "t0": 1199.5,
-      "t1": 1205.5,
-      "slot": "stat_bumper",
-      "priority": 65,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.65 — Halvard Petrov denies a 0.16 xG chance.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "20'",
-        "stats": [
-          {
-            "label": "difficulty",
-            "value": 0.65
-          },
-          {
-            "label": "xg",
-            "value": 0.16
-          },
-          {
-            "label": "shooterId",
-            "value": "ironworks-p11"
+            "value": 24.1
           }
         ]
       },
@@ -325,125 +366,38 @@
         "momentId": "cand-0005",
         "candidateId": "cand-0005",
         "evidenceEventIds": [
-          "e00437"
+          "e00225"
         ],
         "verified": true
       },
-      "expiresAt": 1224.5
+      "expiresAt": 767.1
     },
     {
-      "id": "cue-0012",
-      "t0": 1330.2,
-      "t1": 1333.2,
-      "slot": "goal_flash",
-      "priority": 100,
-      "animation": "flash",
-      "payload": {
-        "team": "away",
-        "headline": "GOAL — Jamal Zander makes it IRN 1–1 WES"
-      },
-      "source": {
-        "momentId": "cand-0006",
-        "candidateId": "cand-0006",
-        "evidenceEventIds": [
-          "e00480"
-        ],
-        "verified": true
-      },
-      "expiresAt": 1510.2
-    },
-    {
-      "id": "cue-0013",
-      "t0": 1330.2,
-      "t1": 1338.2,
-      "slot": "lower_third",
-      "priority": 100,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "GOAL — Jamal Zander makes it IRN 1–1 WES",
-        "body": "Jamal Zander strikes from 20.4 metres at 79.3 km/h — a 0.03 xG chance. The scoreline now reads IRN 1–1 WES.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "23'",
-        "team": "away",
-        "kind": "goal"
-      },
-      "source": {
-        "momentId": "cand-0006",
-        "candidateId": "cand-0006",
-        "evidenceEventIds": [
-          "e00480"
-        ],
-        "verified": true
-      },
-      "expiresAt": 1510.2
-    },
-    {
-      "id": "cue-0014",
-      "t0": 1330.2,
-      "t1": 1336.2,
-      "slot": "stat_bumper",
-      "priority": 100,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "GOAL — Jamal Zander makes it IRN 1–1 WES",
-        "body": "Jamal Zander strikes from 20.4 metres at 79.3 km/h — a 0.03 xG chance. The scoreline now reads IRN 1–1 WES.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "23'",
-        "stats": [
-          {
-            "label": "score",
-            "value": "IRN 1–1 WES"
-          },
-          {
-            "label": "xg",
-            "value": 0.03
-          },
-          {
-            "label": "distanceM",
-            "value": 20.4
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0006",
-        "candidateId": "cand-0006",
-        "evidenceEventIds": [
-          "e00480"
-        ],
-        "verified": true
-      },
-      "expiresAt": 1510.2
-    },
-    {
-      "id": "cue-0017",
-      "t0": 1400.2,
-      "t1": 1406.2,
+      "id": "cue-0016",
+      "t0": 802.6,
+      "t1": 808.6,
       "slot": "stat_bumper",
       "priority": 65,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.79 — Halvard Petrov denies a 0.22 xG chance.",
+        "headline": "Save · Ezra Bianchi",
+        "body": "14' — Ironworks FC 1–0 Westerly Wanderers. The keeper denied a 0.31 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "24'",
+        "minuteLabel": "14'",
         "stats": [
           {
             "label": "difficulty",
-            "value": 0.79
+            "value": 0.9
           },
           {
             "label": "xg",
-            "value": 0.22
+            "value": 0.31
           },
           {
             "label": "shooterId",
-            "value": "ironworks-p8"
+            "value": "westerly-p15"
           }
         ]
       },
@@ -451,143 +405,181 @@
         "momentId": "cand-0008",
         "candidateId": "cand-0008",
         "evidenceEventIds": [
-          "e00493"
+          "e00282"
         ],
         "verified": true
       },
-      "expiresAt": 1425.2
+      "expiresAt": 827.6
     },
     {
-      "id": "cue-0015",
-      "t0": 1400.2,
-      "t1": 1407.2,
+      "id": "cue-0014",
+      "t0": 802.6,
+      "t1": 809.6,
       "slot": "telestration",
       "priority": 55,
       "animation": "draw",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.22 xG look from 8.6 metres — saved.",
+        "headline": "Chance · Ravi Moreau",
+        "body": "14' — Westerly Wanderers 1–0 Ironworks FC. Ravi Moreau had a chance from 5 m worth 0.31.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "24'",
+        "minuteLabel": "14'",
         "from": {
-          "x": 45.92,
-          "y": -5.55
+          "x": -47.75,
+          "y": -0.66
         },
         "to": {
-          "x": 52.5,
-          "y": -1.67
+          "x": -52.5,
+          "y": -0.2
         }
       },
       "source": {
         "momentId": "cand-0007",
         "candidateId": "cand-0007",
         "evidenceEventIds": [
-          "e00492"
+          "e00281"
         ],
         "verified": true
       },
-      "expiresAt": 1425.2
+      "expiresAt": 827.6
     },
     {
-      "id": "cue-0019",
-      "t0": 1406.2,
-      "t1": 1412.2,
-      "slot": "stat_bumper",
-      "priority": 55,
-      "animation": "slide_in",
+      "id": "cue-0018",
+      "t0": 840,
+      "t1": 852,
+      "slot": "momentum_ribbon",
+      "priority": 60,
+      "animation": "pulse",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.22 xG look from 8.6 metres — saved.",
+        "direction": "home",
+        "swing": null,
+        "headline": "Sustained pressure · Ironworks FC",
+        "body": "14' — Ironworks FC 1–0 Westerly Wanderers. Over the last ten minutes Ironworks FC had 4 shots to 1 with 64% of the ball.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "24'",
+        "minuteLabel": "14'"
+      },
+      "source": {
+        "momentId": "cand-0009",
+        "candidateId": "cand-0009",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 1140
+    },
+    {
+      "id": "cue-0017",
+      "t0": 840,
+      "t1": 846,
+      "slot": "stat_bumper",
+      "priority": 60,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Sustained pressure · Ironworks FC",
+        "body": "14' — Ironworks FC 1–0 Westerly Wanderers. Over the last ten minutes Ironworks FC had 4 shots to 1 with 64% of the ball.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "14'",
         "stats": [
           {
-            "label": "xg",
-            "value": 0.22
+            "label": "shotsLast10",
+            "value": 4
           },
           {
-            "label": "outcome",
-            "value": "saved"
+            "label": "opponentShotsLast10",
+            "value": 1
           },
           {
-            "label": "distanceM",
-            "value": 8.6
+            "label": "possessionShare",
+            "value": 0.64
           }
         ]
       },
       "source": {
         "momentId": "cand-0009",
         "candidateId": "cand-0009",
-        "evidenceEventIds": [
-          "e00495"
-        ],
+        "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 1425.2
+      "expiresAt": 1140
     },
     {
-      "id": "cue-0018",
-      "t0": 1407.2,
-      "t1": 1414.2,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
+      "id": "cue-0019",
+      "t0": 1312.2,
+      "t1": 1315.2,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.22 xG look from 8.6 metres — saved.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "24'",
-        "from": {
-          "x": 45.1,
-          "y": -4.35
-        },
-        "to": {
-          "x": 52.5,
-          "y": -1.31
-        }
+        "team": "away",
+        "headline": "Goal · Ravi Moreau"
       },
       "source": {
-        "momentId": "cand-0009",
-        "candidateId": "cand-0009",
+        "momentId": "cand-0010",
+        "candidateId": "cand-0010",
         "evidenceEventIds": [
-          "e00495"
+          "e00467"
         ],
         "verified": true
       },
-      "expiresAt": 1425.2
+      "expiresAt": 1492.2
     },
     {
       "id": "cue-0020",
-      "t0": 1412.2,
-      "t1": 1418.2,
-      "slot": "stat_bumper",
-      "priority": 65,
+      "t0": 1312.2,
+      "t1": 1320.2,
+      "slot": "lower_third",
+      "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.72 — Halvard Petrov denies a 0.22 xG chance.",
+        "headline": "Goal · Ravi Moreau",
+        "body": "22' — Westerly Wanderers 1–1 Ironworks FC. Ravi Moreau finished from 11 m at 81.0 km/h (0.15 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "24'",
+        "minuteLabel": "22'",
+        "team": "away",
+        "kind": "goal"
+      },
+      "source": {
+        "momentId": "cand-0010",
+        "candidateId": "cand-0010",
+        "evidenceEventIds": [
+          "e00467"
+        ],
+        "verified": true
+      },
+      "expiresAt": 1492.2
+    },
+    {
+      "id": "cue-0021",
+      "t0": 1312.2,
+      "t1": 1318.2,
+      "slot": "stat_bumper",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Goal · Ravi Moreau",
+        "body": "22' — Westerly Wanderers 1–1 Ironworks FC. Ravi Moreau finished from 11 m at 81.0 km/h (0.15 expected goals).",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "22'",
         "stats": [
           {
-            "label": "difficulty",
-            "value": 0.72
+            "label": "score",
+            "value": "IRN 1–1 WES"
           },
           {
             "label": "xg",
-            "value": 0.22
+            "value": 0.15
           },
           {
-            "label": "shooterId",
-            "value": "ironworks-p8"
+            "label": "distanceM",
+            "value": 10.5
           }
         ]
       },
@@ -595,280 +587,177 @@
         "momentId": "cand-0010",
         "candidateId": "cand-0010",
         "evidenceEventIds": [
-          "e00496"
+          "e00467"
         ],
         "verified": true
       },
-      "expiresAt": 1425.2
+      "expiresAt": 1492.2
     },
     {
-      "id": "cue-0025",
-      "t0": 1982.1,
-      "t1": 1988.1,
+      "id": "cue-0022",
+      "t0": 1533,
+      "t1": 1539,
       "slot": "stat_bumper",
       "priority": 65,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.76 — Halvard Petrov denies a 0.2 xG chance.",
+        "headline": "Save · Halvard Petrov",
+        "body": "26' — Westerly Wanderers 1–1 Ironworks FC. The keeper denied a 0.04 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "34'",
+        "minuteLabel": "26'",
         "stats": [
           {
             "label": "difficulty",
-            "value": 0.76
+            "value": 0.46
           },
           {
             "label": "xg",
-            "value": 0.2
+            "value": 0.04
           },
           {
             "label": "shooterId",
-            "value": "ironworks-p8"
+            "value": "ironworks-p15"
           }
         ]
-      },
-      "source": {
-        "momentId": "cand-0013",
-        "candidateId": "cand-0013",
-        "evidenceEventIds": [
-          "e00715"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2007.1
-    },
-    {
-      "id": "cue-0021",
-      "t0": 1982.1,
-      "t1": 1989.1,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Ironworks FC: Valentin Weiss gets a 0.21 xG look from 8 metres — post.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "34'",
-        "from": {
-          "x": 46.3,
-          "y": 5.04
-        },
-        "to": {
-          "x": 52.5,
-          "y": 1.51
-        }
       },
       "source": {
         "momentId": "cand-0011",
         "candidateId": "cand-0011",
         "evidenceEventIds": [
-          "e00712"
+          "e00532"
         ],
         "verified": true
       },
-      "expiresAt": 2007.1
-    },
-    {
-      "id": "cue-0024",
-      "t0": 1988.1,
-      "t1": 1994.1,
-      "slot": "stat_bumper",
-      "priority": 55,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.2 xG look from 8.9 metres — saved.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "34'",
-        "stats": [
-          {
-            "label": "xg",
-            "value": 0.2
-          },
-          {
-            "label": "outcome",
-            "value": "saved"
-          },
-          {
-            "label": "distanceM",
-            "value": 8.9
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0012",
-        "candidateId": "cand-0012",
-        "evidenceEventIds": [
-          "e00714"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2007.1
+      "expiresAt": 1558
     },
     {
       "id": "cue-0023",
-      "t0": 1989.1,
-      "t1": 1996.1,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
+      "t0": 1804.6,
+      "t1": 1810.6,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.2 xG look from 8.9 metres — saved.",
+        "headline": "Save · Ezra Bianchi",
+        "body": "31' — Ironworks FC 1–1 Westerly Wanderers. The keeper denied a 0.17 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "34'",
-        "from": {
-          "x": 44.94,
-          "y": 4.75
-        },
-        "to": {
-          "x": 52.5,
-          "y": 1.43
-        }
+        "minuteLabel": "31'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.74
+          },
+          {
+            "label": "xg",
+            "value": 0.17
+          },
+          {
+            "label": "shooterId",
+            "value": "westerly-p15"
+          }
+        ]
       },
       "source": {
         "momentId": "cand-0012",
         "candidateId": "cand-0012",
         "evidenceEventIds": [
-          "e00714"
+          "e00629"
         ],
         "verified": true
       },
-      "expiresAt": 2007.1
+      "expiresAt": 1829.6
     },
     {
-      "id": "cue-0026",
-      "t0": 2070.3,
-      "t1": 2078.3,
-      "slot": "lower_third",
-      "priority": 95,
-      "animation": "slide_in",
+      "id": "cue-0024",
+      "t0": 2001.5,
+      "t1": 2006.5,
+      "slot": "player_tag",
+      "priority": 52,
+      "animation": "pinned",
       "payload": {
-        "headline": "Red card",
-        "body": "RED CARD — Valentin Weiss is off (reckless). Ironworks FC are down to ten.",
+        "headline": "Speed check · Yusuf Giordano",
+        "body": "34' — Westerly Wanderers 1–1 Ironworks FC. Yusuf Giordano was clocked at 32.2 km/h.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "35'",
-        "team": "home",
-        "kind": "red_card"
+        "minuteLabel": "34'",
+        "playerId": "westerly-p17",
+        "speedKph": 32.2
       },
       "source": {
-        "momentId": "cand-0014",
-        "candidateId": "cand-0014",
-        "evidenceEventIds": [
-          "e00747"
-        ],
+        "momentId": "cand-0051",
+        "candidateId": "cand-0051",
+        "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 2250.3
+      "expiresAt": 2013.5
     },
     {
-      "id": "cue-0027",
-      "t0": 2070.3,
-      "t1": 2076.3,
-      "slot": "stat_bumper",
-      "priority": 95,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Red card",
-        "body": "RED CARD — Valentin Weiss is off (reckless). Ironworks FC are down to ten.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "35'",
-        "stats": [
-          {
-            "label": "player",
-            "value": "Valentin Weiss"
-          },
-          {
-            "label": "reason",
-            "value": "reckless"
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0014",
-        "candidateId": "cand-0014",
-        "evidenceEventIds": [
-          "e00747"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2250.3
-    },
-    {
-      "id": "cue-0028",
-      "t0": 2192.6,
-      "t1": 2195.6,
+      "id": "cue-0025",
+      "t0": 2152.3,
+      "t1": 2155.3,
       "slot": "goal_flash",
       "priority": 100,
       "animation": "flash",
       "payload": {
         "team": "away",
-        "headline": "GOAL — Jamal Zander makes it IRN 1–2 WES"
+        "headline": "Goal · Ravi Moreau"
       },
       "source": {
-        "momentId": "cand-0015",
-        "candidateId": "cand-0015",
+        "momentId": "cand-0013",
+        "candidateId": "cand-0013",
         "evidenceEventIds": [
-          "e00797"
+          "e00743"
         ],
         "verified": true
       },
-      "expiresAt": 2372.6
+      "expiresAt": 2332.3
     },
     {
-      "id": "cue-0029",
-      "t0": 2192.6,
-      "t1": 2200.6,
+      "id": "cue-0026",
+      "t0": 2152.3,
+      "t1": 2160.3,
       "slot": "lower_third",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Jamal Zander makes it IRN 1–2 WES",
-        "body": "Jamal Zander strikes from 2.5 metres at 102.7 km/h — a 0.38 xG chance. The scoreline now reads IRN 1–2 WES.",
+        "headline": "Goal · Ravi Moreau",
+        "body": "36' — Westerly Wanderers 1–2 Ironworks FC. Ravi Moreau finished from 10 m at 100.7 km/h (0.17 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "37'",
+        "minuteLabel": "36'",
         "team": "away",
         "kind": "goal"
       },
       "source": {
-        "momentId": "cand-0015",
-        "candidateId": "cand-0015",
+        "momentId": "cand-0013",
+        "candidateId": "cand-0013",
         "evidenceEventIds": [
-          "e00797"
+          "e00743"
         ],
         "verified": true
       },
-      "expiresAt": 2372.6
+      "expiresAt": 2332.3
     },
     {
-      "id": "cue-0030",
-      "t0": 2192.6,
-      "t1": 2198.6,
+      "id": "cue-0027",
+      "t0": 2152.3,
+      "t1": 2158.3,
       "slot": "stat_bumper",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Jamal Zander makes it IRN 1–2 WES",
-        "body": "Jamal Zander strikes from 2.5 metres at 102.7 km/h — a 0.38 xG chance. The scoreline now reads IRN 1–2 WES.",
+        "headline": "Goal · Ravi Moreau",
+        "body": "36' — Westerly Wanderers 1–2 Ironworks FC. Ravi Moreau finished from 10 m at 100.7 km/h (0.17 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "37'",
+        "minuteLabel": "36'",
         "stats": [
           {
             "label": "score",
@@ -876,38 +765,38 @@
           },
           {
             "label": "xg",
-            "value": 0.38
+            "value": 0.17
           },
           {
             "label": "distanceM",
-            "value": 2.5
+            "value": 9.7
           }
         ]
       },
       "source": {
-        "momentId": "cand-0015",
-        "candidateId": "cand-0015",
+        "momentId": "cand-0013",
+        "candidateId": "cand-0013",
         "evidenceEventIds": [
-          "e00797"
+          "e00743"
         ],
         "verified": true
       },
-      "expiresAt": 2372.6
+      "expiresAt": 2332.3
     },
     {
-      "id": "cue-0031",
-      "t0": 2198.6,
-      "t1": 2204.6,
+      "id": "cue-0028",
+      "t0": 2158.3,
+      "t1": 2164.3,
       "slot": "stat_bumper",
       "priority": 70,
       "animation": "slide_in",
       "payload": {
-        "headline": "Milestone",
-        "body": "Jamal Zander completes a brace — 2 goals today.",
+        "headline": "Scorer update · Ravi Moreau",
+        "body": "36' — Westerly Wanderers 1–2 Ironworks FC. Ravi Moreau now has 2 in this match.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "37'",
+        "minuteLabel": "36'",
         "stats": [
           {
             "label": "milestone",
@@ -920,226 +809,130 @@
         ]
       },
       "source": {
-        "momentId": "cand-0016",
-        "candidateId": "cand-0016",
+        "momentId": "cand-0014",
+        "candidateId": "cand-0014",
         "evidenceEventIds": [
-          "e00797"
+          "e00743"
         ],
         "verified": true
       },
-      "expiresAt": 2312.6
+      "expiresAt": 2272.3
     },
     {
-      "id": "cue-0033",
-      "t0": 2400,
-      "t1": 2408,
-      "slot": "lower_third",
-      "priority": 58,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Momentum shift",
-        "body": "Momentum has swung to Westerly Wanderers — a -0.52 shift over the last five minutes.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "40'",
-        "team": "away",
-        "kind": "momentum_shift"
-      },
-      "source": {
-        "momentId": "cand-0019",
-        "candidateId": "cand-0019",
-        "evidenceEventIds": [],
-        "verified": true
-      },
-      "expiresAt": 2640
-    },
-    {
-      "id": "cue-0032",
-      "t0": 2400,
-      "t1": 2412,
+      "id": "cue-0030",
+      "t0": 2220,
+      "t1": 2232,
       "slot": "momentum_ribbon",
-      "priority": 58,
+      "priority": 60,
       "animation": "pulse",
       "payload": {
-        "direction": "away",
-        "swing": -0.52,
-        "headline": "Momentum shift",
-        "body": "Momentum has swung to Westerly Wanderers — a -0.52 shift over the last five minutes.",
+        "direction": "home",
+        "swing": null,
+        "headline": "Sustained pressure · Ironworks FC",
+        "body": "37' — Ironworks FC 1–2 Westerly Wanderers. Over the last ten minutes Ironworks FC had 4 shots to 2 with 56% of the ball.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "40'"
+        "minuteLabel": "37'"
       },
       "source": {
-        "momentId": "cand-0019",
-        "candidateId": "cand-0019",
+        "momentId": "cand-0016",
+        "candidateId": "cand-0016",
         "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 2640
+      "expiresAt": 2520
     },
     {
-      "id": "cue-0036",
-      "t0": 2456.9,
-      "t1": 2462.9,
+      "id": "cue-0029",
+      "t0": 2220,
+      "t1": 2226,
       "slot": "stat_bumper",
-      "priority": 65,
+      "priority": 60,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.98 — Ezra Bianchi denies a 0.37 xG chance.",
+        "headline": "Sustained pressure · Ironworks FC",
+        "body": "37' — Ironworks FC 1–2 Westerly Wanderers. Over the last ten minutes Ironworks FC had 4 shots to 2 with 56% of the ball.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "41'",
+        "minuteLabel": "37'",
         "stats": [
           {
-            "label": "difficulty",
-            "value": 0.98
+            "label": "shotsLast10",
+            "value": 4
           },
           {
-            "label": "xg",
-            "value": 0.37
+            "label": "opponentShotsLast10",
+            "value": 2
           },
           {
-            "label": "shooterId",
-            "value": "westerly-p13"
+            "label": "possessionShare",
+            "value": 0.56
           }
         ]
       },
       "source": {
-        "momentId": "cand-0018",
-        "candidateId": "cand-0018",
-        "evidenceEventIds": [
-          "e00874"
-        ],
+        "momentId": "cand-0016",
+        "candidateId": "cand-0016",
+        "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 2481.9
+      "expiresAt": 2520
     },
     {
-      "id": "cue-0034",
-      "t0": 2456.9,
-      "t1": 2463.9,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.37 xG look from 3.9 metres — saved.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "41'",
-        "from": {
-          "x": -48.71,
-          "y": 1.06
-        },
-        "to": {
-          "x": -52.5,
-          "y": 0.32
-        }
-      },
-      "source": {
-        "momentId": "cand-0017",
-        "candidateId": "cand-0017",
-        "evidenceEventIds": [
-          "e00873"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2481.9
-    },
-    {
-      "id": "cue-0037",
-      "t0": 2583.5,
-      "t1": 2591.5,
-      "slot": "lower_third",
-      "priority": 80,
+      "id": "cue-0031",
+      "t0": 2267.8,
+      "t1": 2273.8,
+      "slot": "stat_bumper",
+      "priority": 65,
       "animation": "slide_in",
       "payload": {
-        "headline": "Under review",
-        "body": "The referee is checking... the goal is under review. Hold everything.",
+        "headline": "Save · Halvard Petrov",
+        "body": "38' — Westerly Wanderers 1–2 Ironworks FC. The keeper denied a 0.13 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "44'",
-        "team": "none",
-        "kind": "var_review"
+        "minuteLabel": "38'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.61
+          },
+          {
+            "label": "xg",
+            "value": 0.13
+          },
+          {
+            "label": "shooterId",
+            "value": "ironworks-p8"
+          }
+        ]
       },
       "source": {
-        "momentId": "cand-0021",
-        "candidateId": "cand-0021",
+        "momentId": "cand-0015",
+        "candidateId": "cand-0015",
         "evidenceEventIds": [
-          "e00925"
+          "e00777"
         ],
         "verified": true
       },
-      "expiresAt": 2673.5
+      "expiresAt": 2292.8
     },
     {
-      "id": "cue-0038",
-      "t0": 2674,
-      "t1": 2677,
-      "slot": "goal_flash",
-      "priority": 100,
-      "animation": "flash",
-      "payload": {
-        "team": "none",
-        "headline": "Overturned"
-      },
-      "source": {
-        "momentId": "cand-0022",
-        "candidateId": "cand-0022",
-        "evidenceEventIds": [
-          "e00957"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2794
-    },
-    {
-      "id": "cue-0039",
-      "t0": 2674,
-      "t1": 2682,
-      "slot": "lower_third",
-      "priority": 100,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Overturned",
-        "body": "OVERTURNED. The goal is chalked off and the scoreline rolls back. The insights surrounding that moment are retracted.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "45'",
-        "team": "none",
-        "kind": "var_overturn"
-      },
-      "source": {
-        "momentId": "cand-0022",
-        "candidateId": "cand-0022",
-        "evidenceEventIds": [
-          "e00957"
-        ],
-        "verified": true
-      },
-      "expiresAt": 2794
-    },
-    {
-      "id": "cue-0041",
-      "t0": 2867.2,
-      "t1": 2873.2,
+      "id": "cue-0033",
+      "t0": 2308.9,
+      "t1": 2314.9,
       "slot": "stat_bumper",
       "priority": 55,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.21 xG look from 9.2 metres — blocked.",
+        "headline": "Chance · Rafael Jankovic",
+        "body": "39' — Westerly Wanderers 1–2 Ironworks FC. Rafael Jankovic had a chance from 8 m worth 0.21.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "48'",
+        "minuteLabel": "39'",
         "stats": [
           {
             "label": "xg",
@@ -1147,119 +940,169 @@
           },
           {
             "label": "outcome",
-            "value": "blocked"
+            "value": "off_target"
           },
           {
             "label": "distanceM",
-            "value": 9.2
+            "value": 8.1
           }
         ]
       },
       "source": {
-        "momentId": "cand-0023",
-        "candidateId": "cand-0023",
+        "momentId": "cand-0017",
+        "candidateId": "cand-0017",
         "evidenceEventIds": [
-          "e01029"
+          "e00797"
         ],
         "verified": true
       },
-      "expiresAt": 2892.2
+      "expiresAt": 2333.9
     },
     {
-      "id": "cue-0040",
-      "t0": 2867.2,
-      "t1": 2874.2,
+      "id": "cue-0032",
+      "t0": 2308.9,
+      "t1": 2315.9,
       "slot": "telestration",
       "priority": 55,
       "animation": "draw",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.21 xG look from 9.2 metres — blocked.",
+        "headline": "Chance · Rafael Jankovic",
+        "body": "39' — Westerly Wanderers 1–2 Ironworks FC. Rafael Jankovic had a chance from 8 m worth 0.21.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "48'",
+        "minuteLabel": "39'",
         "from": {
-          "x": -43.87,
-          "y": 3.07
+          "x": -44.43,
+          "y": -0.54
         },
         "to": {
           "x": -52.5,
-          "y": 0.92
+          "y": -0.16
         }
       },
       "source": {
-        "momentId": "cand-0023",
-        "candidateId": "cand-0023",
+        "momentId": "cand-0017",
+        "candidateId": "cand-0017",
         "evidenceEventIds": [
-          "e01029"
+          "e00797"
         ],
         "verified": true
       },
-      "expiresAt": 2892.2
+      "expiresAt": 2333.9
     },
     {
-      "id": "cue-0042",
-      "t0": 3041.6,
-      "t1": 3044.6,
+      "id": "cue-0034",
+      "t0": 2594.3,
+      "t1": 2597.3,
+      "slot": "goal_flash",
+      "priority": 100,
+      "animation": "flash",
+      "payload": {
+        "team": "none",
+        "headline": "Goal overturned · Match"
+      },
+      "source": {
+        "momentId": "cand-0021",
+        "candidateId": "cand-0021",
+        "evidenceEventIds": [
+          "e00878",
+          "e00876"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2714.3
+    },
+    {
+      "id": "cue-0035",
+      "t0": 2594.3,
+      "t1": 2602.3,
+      "slot": "lower_third",
+      "priority": 100,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Goal overturned · Match",
+        "body": "44' — score 1–2. The review has overturned the goal.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "44'",
+        "team": "none",
+        "kind": "var_overturn"
+      },
+      "source": {
+        "momentId": "cand-0021",
+        "candidateId": "cand-0021",
+        "evidenceEventIds": [
+          "e00878",
+          "e00876"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2714.3
+    },
+    {
+      "id": "cue-0036",
+      "t0": 2804.2,
+      "t1": 2807.2,
       "slot": "goal_flash",
       "priority": 100,
       "animation": "flash",
       "payload": {
         "team": "home",
-        "headline": "GOAL — Zane Pereira makes it IRN 2–2 WES"
+        "headline": "Goal · Felix Anders"
       },
       "source": {
-        "momentId": "cand-0024",
-        "candidateId": "cand-0024",
+        "momentId": "cand-0022",
+        "candidateId": "cand-0022",
         "evidenceEventIds": [
-          "e01094"
+          "e00928"
         ],
         "verified": true
       },
-      "expiresAt": 3221.6
+      "expiresAt": 2984.2
     },
     {
-      "id": "cue-0043",
-      "t0": 3041.6,
-      "t1": 3049.6,
+      "id": "cue-0037",
+      "t0": 2804.2,
+      "t1": 2812.2,
       "slot": "lower_third",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Zane Pereira makes it IRN 2–2 WES",
-        "body": "Zane Pereira strikes from 22.4 metres at 88.5 km/h — a 0.02 xG chance. The scoreline now reads IRN 2–2 WES.",
+        "headline": "Goal · Felix Anders",
+        "body": "47' — Ironworks FC 2–2 Westerly Wanderers. Felix Anders finished from 16 m at 93.6 km/h (0.05 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "51'",
+        "minuteLabel": "47'",
         "team": "home",
         "kind": "goal"
       },
       "source": {
-        "momentId": "cand-0024",
-        "candidateId": "cand-0024",
+        "momentId": "cand-0022",
+        "candidateId": "cand-0022",
         "evidenceEventIds": [
-          "e01094"
+          "e00928"
         ],
         "verified": true
       },
-      "expiresAt": 3221.6
+      "expiresAt": 2984.2
     },
     {
-      "id": "cue-0044",
-      "t0": 3041.6,
-      "t1": 3047.6,
+      "id": "cue-0038",
+      "t0": 2804.2,
+      "t1": 2810.2,
       "slot": "stat_bumper",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Zane Pereira makes it IRN 2–2 WES",
-        "body": "Zane Pereira strikes from 22.4 metres at 88.5 km/h — a 0.02 xG chance. The scoreline now reads IRN 2–2 WES.",
+        "headline": "Goal · Felix Anders",
+        "body": "47' — Ironworks FC 2–2 Westerly Wanderers. Felix Anders finished from 16 m at 93.6 km/h (0.05 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "51'",
+        "minuteLabel": "47'",
         "stats": [
           {
             "label": "score",
@@ -1267,50 +1110,113 @@
           },
           {
             "label": "xg",
-            "value": 0.02
+            "value": 0.05
           },
           {
             "label": "distanceM",
-            "value": 22.4
+            "value": 16.1
           }
         ]
+      },
+      "source": {
+        "momentId": "cand-0022",
+        "candidateId": "cand-0022",
+        "evidenceEventIds": [
+          "e00928"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2984.2
+    },
+    {
+      "id": "cue-0039",
+      "t0": 2810.2,
+      "t1": 2816.2,
+      "slot": "stat_bumper",
+      "priority": 70,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Scorer update · Felix Anders",
+        "body": "47' — Ironworks FC 2–2 Westerly Wanderers. Felix Anders now has 2 in this match.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "47'",
+        "stats": [
+          {
+            "label": "milestone",
+            "value": "brace"
+          },
+          {
+            "label": "goals",
+            "value": 2
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0023",
+        "candidateId": "cand-0023",
+        "evidenceEventIds": [
+          "e00928"
+        ],
+        "verified": true
+      },
+      "expiresAt": 2924.2
+    },
+    {
+      "id": "cue-0040",
+      "t0": 2812.2,
+      "t1": 2820.2,
+      "slot": "lower_third",
+      "priority": 80,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Under review · Match",
+        "body": "47' — score 2–2. The goal is under review.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "47'",
+        "team": "none",
+        "kind": "var_review"
       },
       "source": {
         "momentId": "cand-0024",
         "candidateId": "cand-0024",
         "evidenceEventIds": [
-          "e01094"
+          "e00929",
+          "e00928"
         ],
         "verified": true
       },
-      "expiresAt": 3221.6
+      "expiresAt": 2894.2
     },
     {
-      "id": "cue-0046",
-      "t0": 3120.5,
-      "t1": 3126.5,
+      "id": "cue-0041",
+      "t0": 2969.6,
+      "t1": 2975.6,
       "slot": "stat_bumper",
-      "priority": 55,
+      "priority": 65,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.23 xG look from 8.7 metres — post.",
+        "headline": "Save · Ezra Bianchi",
+        "body": "50' — Ironworks FC 2–2 Westerly Wanderers. The keeper denied a 0.10 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "53'",
+        "minuteLabel": "50'",
         "stats": [
           {
+            "label": "difficulty",
+            "value": 0.56
+          },
+          {
             "label": "xg",
-            "value": 0.23
+            "value": 0.1
           },
           {
-            "label": "outcome",
-            "value": "post"
-          },
-          {
-            "label": "distanceM",
-            "value": 8.7
+            "label": "shooterId",
+            "value": "westerly-p15"
           }
         ]
       },
@@ -1318,127 +1224,22 @@
         "momentId": "cand-0025",
         "candidateId": "cand-0025",
         "evidenceEventIds": [
-          "e01111"
+          "e00936"
         ],
         "verified": true
       },
-      "expiresAt": 3145.5
+      "expiresAt": 2994.6
     },
     {
-      "id": "cue-0045",
-      "t0": 3120.5,
-      "t1": 3127.5,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Ironworks FC: Theo Quintero gets a 0.23 xG look from 8.7 metres — post.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "53'",
-        "from": {
-          "x": 44.25,
-          "y": -2.66
-        },
-        "to": {
-          "x": 52.5,
-          "y": -0.8
-        }
-      },
-      "source": {
-        "momentId": "cand-0025",
-        "candidateId": "cand-0025",
-        "evidenceEventIds": [
-          "e01111"
-        ],
-        "verified": true
-      },
-      "expiresAt": 3145.5
-    },
-    {
-      "id": "cue-0048",
-      "t0": 3495.7,
-      "t1": 3501.7,
-      "slot": "stat_bumper",
-      "priority": 55,
-      "animation": "slide_in",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.34 xG look from 2.9 metres — blocked.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "59'",
-        "stats": [
-          {
-            "label": "xg",
-            "value": 0.34
-          },
-          {
-            "label": "outcome",
-            "value": "blocked"
-          },
-          {
-            "label": "distanceM",
-            "value": 2.9
-          }
-        ]
-      },
-      "source": {
-        "momentId": "cand-0026",
-        "candidateId": "cand-0026",
-        "evidenceEventIds": [
-          "e01247"
-        ],
-        "verified": true
-      },
-      "expiresAt": 3520.7
-    },
-    {
-      "id": "cue-0047",
-      "t0": 3495.7,
-      "t1": 3502.7,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
-      "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.34 xG look from 2.9 metres — blocked.",
-        "lang": "en",
-        "persona": "analyst",
-        "provider": "template",
-        "minuteLabel": "59'",
-        "from": {
-          "x": -51.5,
-          "y": -2.75
-        },
-        "to": {
-          "x": -52.5,
-          "y": -0.82
-        }
-      },
-      "source": {
-        "momentId": "cand-0026",
-        "candidateId": "cand-0026",
-        "evidenceEventIds": [
-          "e01247"
-        ],
-        "verified": true
-      },
-      "expiresAt": 3520.7
-    },
-    {
-      "id": "cue-0049",
-      "t0": 3546,
-      "t1": 3554,
+      "id": "cue-0042",
+      "t0": 3540.7,
+      "t1": 3548.7,
       "slot": "lower_third",
       "priority": 95,
       "animation": "slide_in",
       "payload": {
-        "headline": "Red card",
-        "body": "RED CARD — Fionn Jelinek is off (tactical). Westerly Wanderers are down to ten.",
+        "headline": "Red card · Duncan Okonkwo",
+        "body": "60' — Westerly Wanderers 2–2 Ironworks FC. Duncan Okonkwo was shown a red card.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -1447,25 +1248,25 @@
         "kind": "red_card"
       },
       "source": {
-        "momentId": "cand-0027",
-        "candidateId": "cand-0027",
+        "momentId": "cand-0026",
+        "candidateId": "cand-0026",
         "evidenceEventIds": [
-          "e01273"
+          "e01154"
         ],
         "verified": true
       },
-      "expiresAt": 3726
+      "expiresAt": 3720.7
     },
     {
-      "id": "cue-0050",
-      "t0": 3546,
-      "t1": 3552,
+      "id": "cue-0043",
+      "t0": 3540.7,
+      "t1": 3546.7,
       "slot": "stat_bumper",
       "priority": 95,
       "animation": "slide_in",
       "payload": {
-        "headline": "Red card",
-        "body": "RED CARD — Fionn Jelinek is off (tactical). Westerly Wanderers are down to ten.",
+        "headline": "Red card · Duncan Okonkwo",
+        "body": "60' — Westerly Wanderers 2–2 Ironworks FC. Duncan Okonkwo was shown a red card.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -1473,11 +1274,75 @@
         "stats": [
           {
             "label": "player",
-            "value": "Fionn Jelinek"
+            "value": "Duncan Okonkwo"
           },
           {
             "label": "reason",
-            "value": "tactical"
+            "value": "last-man"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0026",
+        "candidateId": "cand-0026",
+        "evidenceEventIds": [
+          "e01154"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3720.7
+    },
+    {
+      "id": "cue-0046",
+      "t0": 3540.7,
+      "t1": 3547.7,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Piotr Iversen",
+        "body": "60' — Ironworks FC 2–2 Westerly Wanderers. Piotr Iversen had a chance from 11 m worth 0.77.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "60'",
+        "from": {
+          "x": 41.5,
+          "y": 0
+        },
+        "to": {
+          "x": 52.5,
+          "y": 0
+        }
+      },
+      "source": {
+        "momentId": "cand-0028",
+        "candidateId": "cand-0028",
+        "evidenceEventIds": [
+          "e01156"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3565.7
+    },
+    {
+      "id": "cue-0045",
+      "t0": 3546.7,
+      "t1": 3552.7,
+      "slot": "stat_bumper",
+      "priority": 85,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Penalty awarded · Ironworks FC",
+        "body": "60' — Ironworks FC 2–2 Westerly Wanderers. A penalty has been awarded.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "60'",
+        "stats": [
+          {
+            "label": "minute",
+            "value": "60'"
           }
         ]
       },
@@ -1485,38 +1350,104 @@
         "momentId": "cand-0027",
         "candidateId": "cand-0027",
         "evidenceEventIds": [
-          "e01273"
+          "e01155"
         ],
         "verified": true
       },
-      "expiresAt": 3726
+      "expiresAt": 3630.7
     },
     {
-      "id": "cue-0053",
-      "t0": 3736.3,
-      "t1": 3742.3,
+      "id": "cue-0044",
+      "t0": 3548.7,
+      "t1": 3556.7,
+      "slot": "lower_third",
+      "priority": 85,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Penalty awarded · Ironworks FC",
+        "body": "60' — Ironworks FC 2–2 Westerly Wanderers. A penalty has been awarded.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "60'",
+        "team": "home",
+        "kind": "penalty"
+      },
+      "source": {
+        "momentId": "cand-0027",
+        "candidateId": "cand-0027",
+        "evidenceEventIds": [
+          "e01155"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3630.7
+    },
+    {
+      "id": "cue-0047",
+      "t0": 3552.7,
+      "t1": 3558.7,
+      "slot": "stat_bumper",
+      "priority": 55,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Chance · Piotr Iversen",
+        "body": "60' — Ironworks FC 2–2 Westerly Wanderers. Piotr Iversen had a chance from 11 m worth 0.77.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "60'",
+        "stats": [
+          {
+            "label": "xg",
+            "value": 0.77
+          },
+          {
+            "label": "outcome",
+            "value": "saved"
+          },
+          {
+            "label": "distanceM",
+            "value": 11
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0028",
+        "candidateId": "cand-0028",
+        "evidenceEventIds": [
+          "e01156"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3565.7
+    },
+    {
+      "id": "cue-0048",
+      "t0": 3552.7,
+      "t1": 3558.7,
       "slot": "stat_bumper",
       "priority": 65,
       "animation": "slide_in",
       "payload": {
-        "headline": "Big save",
-        "body": "What a save! Difficulty 0.83 — Ezra Bianchi denies a 0.26 xG chance.",
+        "headline": "Save · Halvard Petrov",
+        "body": "60' — Westerly Wanderers 2–2 Ironworks FC. The keeper denied a 0.77 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "63'",
+        "minuteLabel": "60'",
         "stats": [
           {
             "label": "difficulty",
-            "value": 0.83
+            "value": 1
           },
           {
             "label": "xg",
-            "value": 0.26
+            "value": 0.77
           },
           {
             "label": "shooterId",
-            "value": "westerly-p13"
+            "value": "ironworks-p14"
           }
         ]
       },
@@ -1524,80 +1455,134 @@
         "momentId": "cand-0029",
         "candidateId": "cand-0029",
         "evidenceEventIds": [
-          "e01344"
+          "e01157"
         ],
         "verified": true
       },
-      "expiresAt": 3761.3
+      "expiresAt": 3565.7
     },
     {
-      "id": "cue-0051",
-      "t0": 3736.3,
-      "t1": 3743.3,
-      "slot": "telestration",
-      "priority": 55,
-      "animation": "draw",
+      "id": "cue-0050",
+      "t0": 3600,
+      "t1": 3608,
+      "slot": "lower_third",
+      "priority": 58,
+      "animation": "slide_in",
       "payload": {
-        "headline": "Big chance",
-        "body": "Big chance for Westerly Wanderers: Jamal Zander gets a 0.26 xG look from 7.4 metres — saved.",
+        "headline": "Momentum swing · Ironworks FC",
+        "body": "60' — Ironworks FC 2–2 Westerly Wanderers. The momentum index moved +0.46 over the window.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "63'",
-        "from": {
-          "x": -45.49,
-          "y": 2.53
-        },
-        "to": {
-          "x": -52.5,
-          "y": 0.76
-        }
+        "minuteLabel": "60'",
+        "team": "home",
+        "kind": "momentum_shift"
       },
       "source": {
-        "momentId": "cand-0028",
-        "candidateId": "cand-0028",
-        "evidenceEventIds": [
-          "e01343"
-        ],
+        "momentId": "cand-0033",
+        "candidateId": "cand-0033",
+        "evidenceEventIds": [],
         "verified": true
       },
-      "expiresAt": 3761.3
+      "expiresAt": 3840
     },
     {
-      "id": "cue-0056",
-      "t0": 3780.3,
-      "t1": 3783.3,
+      "id": "cue-0052",
+      "t0": 3600,
+      "t1": 3612,
+      "slot": "momentum_ribbon",
+      "priority": 60,
+      "animation": "pulse",
+      "payload": {
+        "direction": "home",
+        "swing": null,
+        "headline": "Sustained pressure · Ironworks FC",
+        "body": "60' — Ironworks FC 2–2 Westerly Wanderers. Over the last ten minutes Ironworks FC had 4 shots to 0 with 59% of the ball.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "60'"
+      },
+      "source": {
+        "momentId": "cand-0034",
+        "candidateId": "cand-0034",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 3900
+    },
+    {
+      "id": "cue-0051",
+      "t0": 3600,
+      "t1": 3606,
+      "slot": "stat_bumper",
+      "priority": 60,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Sustained pressure · Ironworks FC",
+        "body": "60' — Ironworks FC 2–2 Westerly Wanderers. Over the last ten minutes Ironworks FC had 4 shots to 0 with 59% of the ball.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "60'",
+        "stats": [
+          {
+            "label": "shotsLast10",
+            "value": 4
+          },
+          {
+            "label": "opponentShotsLast10",
+            "value": 0
+          },
+          {
+            "label": "possessionShare",
+            "value": 0.59
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0034",
+        "candidateId": "cand-0034",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 3900
+    },
+    {
+      "id": "cue-0055",
+      "t0": 3644.9,
+      "t1": 3647.9,
       "slot": "goal_flash",
       "priority": 100,
       "animation": "flash",
       "payload": {
         "team": "home",
-        "headline": "GOAL — Piotr Iversen makes it IRN 3–2 WES"
+        "headline": "Goal · Piotr Iversen"
       },
       "source": {
         "momentId": "cand-0031",
         "candidateId": "cand-0031",
         "evidenceEventIds": [
-          "e01359"
+          "e01198"
         ],
         "verified": true
       },
-      "expiresAt": 3960.3
+      "expiresAt": 3824.9
     },
     {
-      "id": "cue-0057",
-      "t0": 3780.3,
-      "t1": 3788.3,
+      "id": "cue-0056",
+      "t0": 3644.9,
+      "t1": 3652.9,
       "slot": "lower_third",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Piotr Iversen makes it IRN 3–2 WES",
-        "body": "Piotr Iversen strikes from 11 metres at 91.7 km/h — a 0.78 xG chance from the spot. The scoreline now reads IRN 3–2 WES.",
+        "headline": "Goal · Piotr Iversen",
+        "body": "61' — Ironworks FC 3–2 Westerly Wanderers. Piotr Iversen finished from 11 m at 78.7 km/h (0.77 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "64'",
+        "minuteLabel": "61'",
         "team": "home",
         "kind": "goal"
       },
@@ -1605,26 +1590,26 @@
         "momentId": "cand-0031",
         "candidateId": "cand-0031",
         "evidenceEventIds": [
-          "e01359"
+          "e01198"
         ],
         "verified": true
       },
-      "expiresAt": 3960.3
+      "expiresAt": 3824.9
     },
     {
-      "id": "cue-0058",
-      "t0": 3780.3,
-      "t1": 3786.3,
+      "id": "cue-0057",
+      "t0": 3644.9,
+      "t1": 3650.9,
       "slot": "stat_bumper",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Piotr Iversen makes it IRN 3–2 WES",
-        "body": "Piotr Iversen strikes from 11 metres at 91.7 km/h — a 0.78 xG chance from the spot. The scoreline now reads IRN 3–2 WES.",
+        "headline": "Goal · Piotr Iversen",
+        "body": "61' — Ironworks FC 3–2 Westerly Wanderers. Piotr Iversen finished from 11 m at 78.7 km/h (0.77 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "64'",
+        "minuteLabel": "61'",
         "stats": [
           {
             "label": "score",
@@ -1632,7 +1617,7 @@
           },
           {
             "label": "xg",
-            "value": 0.78
+            "value": 0.77
           },
           {
             "label": "distanceM",
@@ -1644,74 +1629,252 @@
         "momentId": "cand-0031",
         "candidateId": "cand-0031",
         "evidenceEventIds": [
-          "e01359"
+          "e01198"
         ],
         "verified": true
       },
-      "expiresAt": 3960.3
+      "expiresAt": 3824.9
+    },
+    {
+      "id": "cue-0058",
+      "t0": 3652.9,
+      "t1": 3660.9,
+      "slot": "lower_third",
+      "priority": 80,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Under review · Match",
+        "body": "61' — score 3–2. The goal is under review.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "61'",
+        "team": "none",
+        "kind": "var_review"
+      },
+      "source": {
+        "momentId": "cand-0032",
+        "candidateId": "cand-0032",
+        "evidenceEventIds": [
+          "e01199",
+          "e01198"
+        ],
+        "verified": true
+      },
+      "expiresAt": 3734.9
     },
     {
       "id": "cue-0059",
-      "t0": 4871.6,
-      "t1": 4874.6,
+      "t0": 4147,
+      "t1": 4153,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Halvard Petrov",
+        "body": "70' — Westerly Wanderers 3–2 Ironworks FC. The keeper denied a 0.13 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "70'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.61
+          },
+          {
+            "label": "xg",
+            "value": 0.13
+          },
+          {
+            "label": "shooterId",
+            "value": "ironworks-p15"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0035",
+        "candidateId": "cand-0035",
+        "evidenceEventIds": [
+          "e01324"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4172
+    },
+    {
+      "id": "cue-0062",
+      "t0": 4313.4,
+      "t1": 4319.4,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Halvard Petrov",
+        "body": "72' — Westerly Wanderers 3–2 Ironworks FC. The keeper denied a 0.20 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "72'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.75
+          },
+          {
+            "label": "xg",
+            "value": 0.2
+          },
+          {
+            "label": "shooterId",
+            "value": "ironworks-p16"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0037",
+        "candidateId": "cand-0037",
+        "evidenceEventIds": [
+          "e01386"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4338.4
+    },
+    {
+      "id": "cue-0060",
+      "t0": 4313.4,
+      "t1": 4320.4,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Zane Bergqvist",
+        "body": "72' — Ironworks FC 3–2 Westerly Wanderers. Zane Bergqvist had a chance from 9 m worth 0.20.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "72'",
+        "from": {
+          "x": 44.06,
+          "y": -1.4
+        },
+        "to": {
+          "x": 52.5,
+          "y": -0.42
+        }
+      },
+      "source": {
+        "momentId": "cand-0036",
+        "candidateId": "cand-0036",
+        "evidenceEventIds": [
+          "e01385"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4338.4
+    },
+    {
+      "id": "cue-0063",
+      "t0": 4319.4,
+      "t1": 4325.4,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Halvard Petrov",
+        "body": "72' — Westerly Wanderers 3–2 Ironworks FC. The keeper denied a 0.18 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "72'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.73
+          },
+          {
+            "label": "xg",
+            "value": 0.18
+          },
+          {
+            "label": "shooterId",
+            "value": "ironworks-p8"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0038",
+        "candidateId": "cand-0038",
+        "evidenceEventIds": [
+          "e01389"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4338.4
+    },
+    {
+      "id": "cue-0064",
+      "t0": 4606.9,
+      "t1": 4609.9,
       "slot": "goal_flash",
       "priority": 100,
       "animation": "flash",
       "payload": {
         "team": "away",
-        "headline": "GOAL — Oscar Iversen makes it IRN 3–3 WES"
+        "headline": "Goal · Ravi Moreau"
       },
       "source": {
-        "momentId": "cand-0032",
-        "candidateId": "cand-0032",
+        "momentId": "cand-0039",
+        "candidateId": "cand-0039",
         "evidenceEventIds": [
-          "e01738"
+          "e01504"
         ],
         "verified": true
       },
-      "expiresAt": 5051.6
+      "expiresAt": 4786.9
     },
     {
-      "id": "cue-0060",
-      "t0": 4871.6,
-      "t1": 4879.6,
+      "id": "cue-0065",
+      "t0": 4606.9,
+      "t1": 4614.9,
       "slot": "lower_third",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Oscar Iversen makes it IRN 3–3 WES",
-        "body": "Oscar Iversen strikes from 25.1 metres at 74.4 km/h — a 0.01 xG chance. The scoreline now reads IRN 3–3 WES.",
+        "headline": "Goal · Ravi Moreau",
+        "body": "77' — Westerly Wanderers 3–3 Ironworks FC. Ravi Moreau finished from 13 m at 80.5 km/h (0.10 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "82'",
+        "minuteLabel": "77'",
         "team": "away",
         "kind": "goal"
       },
       "source": {
-        "momentId": "cand-0032",
-        "candidateId": "cand-0032",
+        "momentId": "cand-0039",
+        "candidateId": "cand-0039",
         "evidenceEventIds": [
-          "e01738"
+          "e01504"
         ],
         "verified": true
       },
-      "expiresAt": 5051.6
+      "expiresAt": 4786.9
     },
     {
-      "id": "cue-0061",
-      "t0": 4871.6,
-      "t1": 4877.6,
+      "id": "cue-0066",
+      "t0": 4606.9,
+      "t1": 4612.9,
       "slot": "stat_bumper",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Oscar Iversen makes it IRN 3–3 WES",
-        "body": "Oscar Iversen strikes from 25.1 metres at 74.4 km/h — a 0.01 xG chance. The scoreline now reads IRN 3–3 WES.",
+        "headline": "Goal · Ravi Moreau",
+        "body": "77' — Westerly Wanderers 3–3 Ironworks FC. Ravi Moreau finished from 13 m at 80.5 km/h (0.10 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "82'",
+        "minuteLabel": "77'",
         "stats": [
           {
             "label": "score",
@@ -1719,107 +1882,204 @@
           },
           {
             "label": "xg",
-            "value": 0.01
+            "value": 0.1
           },
           {
             "label": "distanceM",
-            "value": 25.1
+            "value": 12.8
           }
         ]
       },
       "source": {
-        "momentId": "cand-0032",
-        "candidateId": "cand-0032",
+        "momentId": "cand-0039",
+        "candidateId": "cand-0039",
         "evidenceEventIds": [
-          "e01738"
+          "e01504"
         ],
         "verified": true
       },
-      "expiresAt": 5051.6
+      "expiresAt": 4786.9
     },
     {
-      "id": "cue-0062",
-      "t0": 5484.4,
-      "t1": 5487.4,
+      "id": "cue-0067",
+      "t0": 4612.9,
+      "t1": 4618.9,
+      "slot": "stat_bumper",
+      "priority": 70,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Scorer update · Ravi Moreau",
+        "body": "77' — Westerly Wanderers 3–3 Ironworks FC. Ravi Moreau now has 3 in this match.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "77'",
+        "stats": [
+          {
+            "label": "milestone",
+            "value": "hat-trick"
+          },
+          {
+            "label": "goals",
+            "value": 3
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0040",
+        "candidateId": "cand-0040",
+        "evidenceEventIds": [
+          "e01504"
+        ],
+        "verified": true
+      },
+      "expiresAt": 4726.9
+    },
+    {
+      "id": "cue-0069",
+      "t0": 5040,
+      "t1": 5052,
+      "slot": "momentum_ribbon",
+      "priority": 60,
+      "animation": "pulse",
+      "payload": {
+        "direction": "home",
+        "swing": null,
+        "headline": "Sustained pressure · Ironworks FC",
+        "body": "84' — Ironworks FC 3–3 Westerly Wanderers. Over the last ten minutes Ironworks FC had 4 shots to 1 with 47% of the ball.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "84'"
+      },
+      "source": {
+        "momentId": "cand-0041",
+        "candidateId": "cand-0041",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 5340
+    },
+    {
+      "id": "cue-0068",
+      "t0": 5040,
+      "t1": 5046,
+      "slot": "stat_bumper",
+      "priority": 60,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Sustained pressure · Ironworks FC",
+        "body": "84' — Ironworks FC 3–3 Westerly Wanderers. Over the last ten minutes Ironworks FC had 4 shots to 1 with 47% of the ball.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "84'",
+        "stats": [
+          {
+            "label": "shotsLast10",
+            "value": 4
+          },
+          {
+            "label": "opponentShotsLast10",
+            "value": 1
+          },
+          {
+            "label": "possessionShare",
+            "value": 0.47
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0041",
+        "candidateId": "cand-0041",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 5340
+    },
+    {
+      "id": "cue-0070",
+      "t0": 5445.8,
+      "t1": 5448.8,
       "slot": "goal_flash",
       "priority": 100,
       "animation": "flash",
       "payload": {
         "team": "home",
-        "headline": "GOAL — Piotr Iversen makes it IRN 4–3 WES"
+        "headline": "Goal · Felix Anders"
       },
       "source": {
-        "momentId": "cand-0033",
-        "candidateId": "cand-0033",
+        "momentId": "cand-0042",
+        "candidateId": "cand-0042",
         "evidenceEventIds": [
-          "e01950"
+          "e01797"
         ],
         "verified": true
       },
-      "expiresAt": 5664.4
+      "expiresAt": 5625.8
     },
     {
-      "id": "cue-0066",
-      "t0": 5484.4,
-      "t1": 5487.4,
+      "id": "cue-0074",
+      "t0": 5445.8,
+      "t1": 5448.8,
       "slot": "goal_flash",
       "priority": 92,
       "animation": "flash",
       "payload": {
         "team": "home",
-        "headline": "Late drama"
+        "headline": "Late goal · Felix Anders"
       },
       "source": {
-        "momentId": "cand-0035",
-        "candidateId": "cand-0035",
+        "momentId": "cand-0044",
+        "candidateId": "cand-0044",
         "evidenceEventIds": [
-          "e01950"
+          "e01797"
         ],
         "verified": true
       },
-      "expiresAt": 5664.4
+      "expiresAt": 5625.8
     },
     {
-      "id": "cue-0063",
-      "t0": 5484.4,
-      "t1": 5492.4,
+      "id": "cue-0071",
+      "t0": 5445.8,
+      "t1": 5453.8,
       "slot": "lower_third",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Piotr Iversen makes it IRN 4–3 WES",
-        "body": "Piotr Iversen strikes from 25.7 metres at 75 km/h — a 0.01 xG chance. The scoreline now reads IRN 4–3 WES.",
+        "headline": "Goal · Felix Anders",
+        "body": "91' — Ironworks FC 4–3 Westerly Wanderers. Felix Anders finished from 12 m at 83.9 km/h (0.13 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "92'",
+        "minuteLabel": "91'",
         "team": "home",
         "kind": "goal"
       },
       "source": {
-        "momentId": "cand-0033",
-        "candidateId": "cand-0033",
+        "momentId": "cand-0042",
+        "candidateId": "cand-0042",
         "evidenceEventIds": [
-          "e01950"
+          "e01797"
         ],
         "verified": true
       },
-      "expiresAt": 5664.4
+      "expiresAt": 5625.8
     },
     {
-      "id": "cue-0064",
-      "t0": 5484.4,
-      "t1": 5490.4,
+      "id": "cue-0072",
+      "t0": 5445.8,
+      "t1": 5451.8,
       "slot": "stat_bumper",
       "priority": 100,
       "animation": "slide_in",
       "payload": {
-        "headline": "GOAL — Piotr Iversen makes it IRN 4–3 WES",
-        "body": "Piotr Iversen strikes from 25.7 metres at 75 km/h — a 0.01 xG chance. The scoreline now reads IRN 4–3 WES.",
+        "headline": "Goal · Felix Anders",
+        "body": "91' — Ironworks FC 4–3 Westerly Wanderers. Felix Anders finished from 12 m at 83.9 km/h (0.13 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "92'",
+        "minuteLabel": "91'",
         "stats": [
           {
             "label": "score",
@@ -1827,85 +2087,246 @@
           },
           {
             "label": "xg",
-            "value": 0.01
+            "value": 0.13
           },
           {
             "label": "distanceM",
-            "value": 25.7
+            "value": 12
           }
         ]
       },
       "source": {
-        "momentId": "cand-0033",
-        "candidateId": "cand-0033",
+        "momentId": "cand-0042",
+        "candidateId": "cand-0042",
         "evidenceEventIds": [
-          "e01950"
+          "e01797"
         ],
         "verified": true
       },
-      "expiresAt": 5664.4
+      "expiresAt": 5625.8
     },
     {
-      "id": "cue-0065",
-      "t0": 5490.4,
-      "t1": 5496.4,
+      "id": "cue-0073",
+      "t0": 5451.8,
+      "t1": 5457.8,
       "slot": "stat_bumper",
       "priority": 70,
       "animation": "slide_in",
       "payload": {
-        "headline": "Milestone",
-        "body": "Piotr Iversen completes a brace — 2 goals today.",
+        "headline": "Scorer update · Felix Anders",
+        "body": "91' — Ironworks FC 4–3 Westerly Wanderers. Felix Anders now has 3 in this match.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "92'",
+        "minuteLabel": "91'",
         "stats": [
           {
             "label": "milestone",
-            "value": "brace"
+            "value": "hat-trick"
           },
           {
             "label": "goals",
-            "value": 2
+            "value": 3
           }
         ]
       },
       "source": {
-        "momentId": "cand-0034",
-        "candidateId": "cand-0034",
+        "momentId": "cand-0043",
+        "candidateId": "cand-0043",
         "evidenceEventIds": [
-          "e01950"
+          "e01797"
         ],
         "verified": true
       },
-      "expiresAt": 5604.4
+      "expiresAt": 5565.8
     },
     {
-      "id": "cue-0067",
-      "t0": 5492.4,
-      "t1": 5500.4,
+      "id": "cue-0075",
+      "t0": 5453.8,
+      "t1": 5461.8,
       "slot": "lower_third",
       "priority": 92,
       "animation": "slide_in",
       "payload": {
-        "headline": "Late drama",
-        "body": "LATE DRAMA at 92'! Ironworks FC strike with the clock nearly out — 4–3.",
+        "headline": "Late goal · Felix Anders",
+        "body": "91' — Ironworks FC 4–3 Westerly Wanderers. A late goal has changed the score to 4–3.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
-        "minuteLabel": "92'",
+        "minuteLabel": "91'",
         "team": "home",
         "kind": "late_drama"
       },
       "source": {
-        "momentId": "cand-0035",
-        "candidateId": "cand-0035",
+        "momentId": "cand-0044",
+        "candidateId": "cand-0044",
         "evidenceEventIds": [
-          "e01950"
+          "e01797"
         ],
         "verified": true
       },
-      "expiresAt": 5664.4
+      "expiresAt": 5625.8
+    },
+    {
+      "id": "cue-0077",
+      "t0": 5880,
+      "t1": 5888,
+      "slot": "lower_third",
+      "priority": 58,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Momentum swing · Ironworks FC",
+        "body": "98' — Ironworks FC 4–3 Westerly Wanderers. The momentum index moved +0.56 over the window.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "98'",
+        "team": "home",
+        "kind": "momentum_shift"
+      },
+      "source": {
+        "momentId": "cand-0046",
+        "candidateId": "cand-0046",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 6120
+    },
+    {
+      "id": "cue-0076",
+      "t0": 5880,
+      "t1": 5892,
+      "slot": "momentum_ribbon",
+      "priority": 58,
+      "animation": "pulse",
+      "payload": {
+        "direction": "home",
+        "swing": 0.56,
+        "headline": "Momentum swing · Ironworks FC",
+        "body": "98' — Ironworks FC 4–3 Westerly Wanderers. The momentum index moved +0.56 over the window.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "98'"
+      },
+      "source": {
+        "momentId": "cand-0046",
+        "candidateId": "cand-0046",
+        "evidenceEventIds": [],
+        "verified": true
+      },
+      "expiresAt": 6120
+    },
+    {
+      "id": "cue-0078",
+      "t0": 5928.2,
+      "t1": 5934.2,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Halvard Petrov",
+        "body": "99' — Westerly Wanderers 4–3 Ironworks FC. The keeper denied a 0.10 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "99'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.59
+          },
+          {
+            "label": "xg",
+            "value": 0.1
+          },
+          {
+            "label": "shooterId",
+            "value": "ironworks-p8"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0045",
+        "candidateId": "cand-0045",
+        "evidenceEventIds": [
+          "e01951"
+        ],
+        "verified": true
+      },
+      "expiresAt": 5953.2
+    },
+    {
+      "id": "cue-0081",
+      "t0": 5996.4,
+      "t1": 6002.4,
+      "slot": "stat_bumper",
+      "priority": 65,
+      "animation": "slide_in",
+      "payload": {
+        "headline": "Save · Ezra Bianchi",
+        "body": "100' — Ironworks FC 4–3 Westerly Wanderers. The keeper denied a 0.23 xG chance.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "100'",
+        "stats": [
+          {
+            "label": "difficulty",
+            "value": 0.83
+          },
+          {
+            "label": "xg",
+            "value": 0.23
+          },
+          {
+            "label": "shooterId",
+            "value": "westerly-p15"
+          }
+        ]
+      },
+      "source": {
+        "momentId": "cand-0048",
+        "candidateId": "cand-0048",
+        "evidenceEventIds": [
+          "e01975"
+        ],
+        "verified": true
+      },
+      "expiresAt": 6021.4
+    },
+    {
+      "id": "cue-0079",
+      "t0": 5996.4,
+      "t1": 6003.4,
+      "slot": "telestration",
+      "priority": 55,
+      "animation": "draw",
+      "payload": {
+        "headline": "Chance · Ravi Moreau",
+        "body": "100' — Westerly Wanderers 4–3 Ironworks FC. Ravi Moreau had a chance from 7 m worth 0.23.",
+        "lang": "en",
+        "persona": "analyst",
+        "provider": "template",
+        "minuteLabel": "100'",
+        "from": {
+          "x": -45.42,
+          "y": 1.81
+        },
+        "to": {
+          "x": -52.5,
+          "y": 0.54
+        }
+      },
+      "source": {
+        "momentId": "cand-0047",
+        "candidateId": "cand-0047",
+        "evidenceEventIds": [
+          "e01974"
+        ],
+        "verified": true
+      },
+      "expiresAt": 6021.4
     }
   ],
   "meta": {

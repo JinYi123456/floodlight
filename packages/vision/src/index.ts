@@ -22,13 +22,18 @@ export type { DerivedEvent, AnalyzeOptions, AnalyzeResult, FrameSample, VisionRe
  * Choose the analysis window for a match: a busy stretch around the first
  * goal after minute 40 (or the 20th minute when the match stays goalless).
  */
+/** A 90-second live window ending two seconds after a second-half goal.
+ *  The anchor leaves a full build-up inside the second half, so the clip is
+ *  live play rather than half-time, a review or a restart. */
 export function visionWindowFor(result: SimulationResult): { t0: number; t1: number } {
   const goals = result.events.filter(
-    (e) => e.type === 'shot' && (e as { outcome: string }).outcome === 'goal' && e.t > 40 * 60,
+    (e) => e.type === 'shot' && (e as { outcome: string }).outcome === 'goal',
   );
-  const anchor = goals.length > 0 ? goals[0]!.t : 20 * 60;
-  const t0 = Math.max(0, Math.round(anchor - 55));
-  return { t0, t1: Math.min(result.timing.fullTimeT, t0 + 90) };
+  const half = result.timing.halfTimeT;
+  const clean = goals.find((e) => e.t >= half + 95);
+  const anchor = clean?.t ?? goals.find((e) => e.t > 40 * 60)?.t ?? 20 * 60;
+  const t1 = Math.min(result.timing.fullTimeT, Math.ceil(anchor) + 2);
+  return { t0: Math.max(0, t1 - 90), t1 };
 }
 
 export interface VisionPassResult {

@@ -3,7 +3,7 @@
 Story scenario: **Free Play** (`freeplay`) — No script. Pure seeded simulation — every run tells its own story.
 
 Seed: `2026` · competition: Meridian League · venue: Harbour Bowl, Harbour
-Final score: 1–0 · match id: `m-be9928da`
+Final score: 1–3 · match id: `m-be9928da`
 
 ## Provenance
 
@@ -26,13 +26,13 @@ npm run export:dataset -- --scenario freeplay --seed 2026 --out data
 | file | format | rows | notes |
 | --- | --- | ---: | --- |
 | `match.json` | JSON | 1 | meta, timing, final score, team stats, record counts |
-| `events.jsonl` | JSONL | 2205 | the raw match event stream, every field as produced |
-| `events.csv` | CSV | 2205 | flat view of the same stream; type-specific columns are empty where they do not apply |
-| `candidates.jsonl` | JSONL | 17 | the insight feed after interpretation — one candidate per line, with supporting evidence ids |
-| `moments.jsonl` | JSONL | 17 | candidates that passed direction, with verified story copy |
-| `moments.csv` | CSV | 17 | flat view of the same stories |
+| `events.jsonl` | JSONL | 2151 | the raw match event stream, every field as produced |
+| `events.csv` | CSV | 2151 | flat view of the same stream; type-specific columns are empty where they do not apply |
+| `candidates.jsonl` | JSONL | 28 | the insight feed after interpretation — one candidate per line, with supporting evidence ids |
+| `moments.jsonl` | JSONL | 28 | candidates that passed direction, with verified story copy |
+| `moments.csv` | CSV | 28 | flat view of the same stories |
 | `players.csv` | CSV | 36 | per-player match stats (distance, top speed, sprints, xG, xT) |
-| `cues.json` | JSON | 25 | the compiled cue sheet — timed broadcast graphics with slots and expiry |
+| `cues.json` | JSON | 48 | the compiled cue sheet — timed broadcast graphics with slots and expiry |
 | `DATA_CARD.md` | MD | 1 | this file |
 
 ## Conventions
@@ -46,46 +46,48 @@ npm run export:dataset -- --scenario freeplay --seed 2026 --out data
 
 | value | rows |
 | --- | ---: |
-| pass | 1220 |
-| possession_change | 448 |
-| carry | 263 |
-| throw_in | 110 |
-| tackle | 74 |
-| foul | 24 |
-| shot | 18 |
-| interception | 7 |
-| save | 7 |
-| yellow_card | 7 |
-| corner | 6 |
+| pass | 1119 |
+| possession_change | 435 |
+| carry | 291 |
+| tackle | 111 |
+| throw_in | 79 |
+| foul | 31 |
+| shot | 30 |
+| corner | 11 |
+| interception | 8 |
+| block | 7 |
+| kickoff | 6 |
+| save | 6 |
 | substitution | 6 |
-| block | 5 |
-| kickoff | 3 |
-| offside | 3 |
-| red_card | 2 |
+| yellow_card | 5 |
+| goal_kick | 3 |
 | full_time | 1 |
 | half_time | 1 |
+| penalty | 1 |
 
 ## Stories aired
 
 | value | rows |
 | --- | ---: |
+| big_chance | 9 |
 | big_save | 6 |
-| big_chance | 4 |
+| goal | 4 |
 | speed_flash | 3 |
-| red_card | 2 |
-| goal | 1 |
-| momentum_shift | 1 |
+| momentum_shift | 2 |
+| siege | 2 |
+| milestone | 1 |
+| penalty | 1 |
 
 ## Cue sheet slots
 
 | value | rows |
 | --- | ---: |
-| stat_bumper | 12 |
-| lower_third | 4 |
-| telestration | 4 |
+| stat_bumper | 21 |
+| telestration | 9 |
+| lower_third | 7 |
+| goal_flash | 4 |
+| momentum_ribbon | 4 |
 | player_tag | 3 |
-| goal_flash | 1 |
-| momentum_ribbon | 1 |
 
 ## Usage
 

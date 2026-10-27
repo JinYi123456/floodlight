@@ -26,13 +26,13 @@ npm run export:dataset -- --scenario derby --seed 2026 --out data
 | file | format | rows | notes |
 | --- | --- | ---: | --- |
 | `match.json` | JSON | 1 | meta, timing, final score, team stats, record counts |
-| `events.jsonl` | JSONL | 2144 | the raw match event stream, every field as produced |
-| `events.csv` | CSV | 2144 | flat view of the same stream; type-specific columns are empty where they do not apply |
-| `candidates.jsonl` | JSONL | 38 | the insight feed after interpretation — one candidate per line, with supporting evidence ids |
-| `moments.jsonl` | JSONL | 37 | candidates that passed direction, with verified story copy |
-| `moments.csv` | CSV | 37 | flat view of the same stories |
+| `events.jsonl` | JSONL | 1997 | the raw match event stream, every field as produced |
+| `events.csv` | CSV | 1997 | flat view of the same stream; type-specific columns are empty where they do not apply |
+| `candidates.jsonl` | JSONL | 51 | the insight feed after interpretation — one candidate per line, with supporting evidence ids |
+| `moments.jsonl` | JSONL | 48 | candidates that passed direction, with verified story copy |
+| `moments.csv` | CSV | 48 | flat view of the same stories |
 | `players.csv` | CSV | 36 | per-player match stats (distance, top speed, sprints, xG, xT) |
-| `cues.json` | JSON | 61 | the compiled cue sheet — timed broadcast graphics with slots and expiry |
+| `cues.json` | JSON | 74 | the compiled cue sheet — timed broadcast graphics with slots and expiry |
 | `DATA_CARD.md` | MD | 1 | this file |
 
 ## Conventions
@@ -46,53 +46,54 @@ npm run export:dataset -- --scenario derby --seed 2026 --out data
 
 | value | rows |
 | --- | ---: |
-| pass | 1180 |
-| possession_change | 416 |
-| carry | 335 |
-| throw_in | 101 |
-| shot | 26 |
+| pass | 1106 |
+| possession_change | 354 |
+| carry | 318 |
+| throw_in | 68 |
+| shot | 40 |
 | tackle | 18 |
-| foul | 12 |
+| corner | 17 |
+| save | 15 |
+| interception | 13 |
+| foul | 10 |
+| block | 9 |
 | kickoff | 9 |
-| corner | 8 |
-| interception | 8 |
-| save | 8 |
 | substitution | 6 |
-| block | 4 |
-| offside | 3 |
-| yellow_card | 3 |
-| red_card | 2 |
-| var_check | 2 |
+| var_check | 6 |
+| goal_kick | 2 |
+| penalty | 2 |
 | full_time | 1 |
 | half_time | 1 |
-| penalty | 1 |
+| red_card | 1 |
+| yellow_card | 1 |
 
 ## Stories aired
 
 | value | rows |
 | --- | ---: |
-| big_chance | 9 |
-| big_save | 8 |
+| big_save | 13 |
+| big_chance | 7 |
 | goal | 7 |
+| milestone | 4 |
+| siege | 4 |
+| momentum_shift | 3 |
 | speed_flash | 3 |
-| milestone | 2 |
-| momentum_shift | 2 |
-| red_card | 2 |
+| penalty | 2 |
+| var_review | 2 |
 | late_drama | 1 |
-| penalty | 1 |
+| red_card | 1 |
 | var_overturn | 1 |
-| var_review | 1 |
 
 ## Cue sheet slots
 
 | value | rows |
 | --- | ---: |
-| stat_bumper | 24 |
-| lower_third | 14 |
+| stat_bumper | 33 |
+| lower_third | 16 |
 | goal_flash | 9 |
-| telestration | 9 |
+| telestration | 7 |
+| momentum_ribbon | 6 |
 | player_tag | 3 |
-| momentum_ribbon | 2 |
 
 ## Usage
 

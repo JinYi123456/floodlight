@@ -26,11 +26,11 @@ npm run export:dataset -- --scenario comeback --seed 2026 --out data
 | file | format | rows | notes |
 | --- | --- | ---: | --- |
 | `match.json` | JSON | 1 | meta, timing, final score, team stats, record counts |
-| `events.jsonl` | JSONL | 2118 | the raw match event stream, every field as produced |
-| `events.csv` | CSV | 2118 | flat view of the same stream; type-specific columns are empty where they do not apply |
-| `candidates.jsonl` | JSONL | 31 | the insight feed after interpretation — one candidate per line, with supporting evidence ids |
-| `moments.jsonl` | JSONL | 31 | candidates that passed direction, with verified story copy |
-| `moments.csv` | CSV | 31 | flat view of the same stories |
+| `events.jsonl` | JSONL | 2144 | the raw match event stream, every field as produced |
+| `events.csv` | CSV | 2144 | flat view of the same stream; type-specific columns are empty where they do not apply |
+| `candidates.jsonl` | JSONL | 32 | the insight feed after interpretation — one candidate per line, with supporting evidence ids |
+| `moments.jsonl` | JSONL | 32 | candidates that passed direction, with verified story copy |
+| `moments.csv` | CSV | 32 | flat view of the same stories |
 | `players.csv` | CSV | 36 | per-player match stats (distance, top speed, sprints, xG, xT) |
 | `cues.json` | JSON | 53 | the compiled cue sheet — timed broadcast graphics with slots and expiry |
 | `DATA_CARD.md` | MD | 1 | this file |
@@ -46,49 +46,47 @@ npm run export:dataset -- --scenario comeback --seed 2026 --out data
 
 | value | rows |
 | --- | ---: |
-| pass | 1174 |
-| possession_change | 400 |
-| carry | 313 |
-| throw_in | 87 |
-| tackle | 40 |
-| shot | 27 |
-| foul | 26 |
+| pass | 1103 |
+| possession_change | 453 |
+| carry | 305 |
+| tackle | 86 |
+| throw_in | 76 |
+| foul | 38 |
+| shot | 29 |
+| corner | 12 |
 | interception | 10 |
-| corner | 8 |
+| save | 8 |
 | kickoff | 7 |
-| block | 6 |
 | substitution | 6 |
-| save | 5 |
 | yellow_card | 4 |
-| offside | 2 |
+| block | 3 |
+| goal_kick | 2 |
 | full_time | 1 |
 | half_time | 1 |
-| red_card | 1 |
 
 ## Stories aired
 
 | value | rows |
 | --- | ---: |
 | big_chance | 11 |
-| big_save | 5 |
+| big_save | 8 |
 | goal | 5 |
-| milestone | 3 |
 | speed_flash | 3 |
+| milestone | 2 |
 | comeback_trigger | 1 |
-| late_drama | 1 |
 | momentum_shift | 1 |
-| red_card | 1 |
+| siege | 1 |
 
 ## Cue sheet slots
 
 | value | rows |
 | --- | ---: |
-| stat_bumper | 22 |
+| stat_bumper | 24 |
 | telestration | 11 |
-| lower_third | 9 |
-| goal_flash | 6 |
+| lower_third | 7 |
+| goal_flash | 5 |
+| momentum_ribbon | 3 |
 | player_tag | 3 |
-| momentum_ribbon | 2 |
 
 ## Usage
 
