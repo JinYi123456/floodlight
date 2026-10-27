@@ -120,6 +120,7 @@ function FormationCard({
         })}
       </svg>
       <p className="pack-foot">Solid dots: average position of each player's actions. Rings: the formation station.</p>
+      <p className="pack-foot bench-label">Bench</p>
       <ul className="bench-list">
         {bench.map((player) => (
           <li key={player.id} className={usedOn.has(player.id) ? 'used' : ''}>

@@ -124,25 +124,25 @@ export function ProgramMonitor() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.16;
+    renderer.toneMappingExposure = 1.08;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color('#04070d');
-    scene.fog = new THREE.Fog('#04070d', 155, 330);
+    scene.fog = new THREE.Fog('#04070d', 70, 230);
     const sky = createNightSky();
     scene.add(sky);
 
-    const camera = new THREE.PerspectiveCamera(38, 16 / 9, 0.6, 420);
-    camera.position.set(0, 30, 52);
-    const cameraTarget = new THREE.Vector3(0, 0, 0);
+    const camera = new THREE.PerspectiveCamera(35, 16 / 9, 0.6, 420);
+    camera.position.set(0, 15.5, 42);
+    const cameraTarget = new THREE.Vector3(0, 2.6, 0);
 
     // Night-match lighting. The stadium adds four soft mast lights; these
     // directional/ambient lights carry the shadow and colour separation.
-    scene.add(new THREE.HemisphereLight(0xdfeaff, 0x0a1420, 1.1));
-    scene.add(new THREE.AmbientLight(0x233048, 0.55));
-    const key = new THREE.DirectionalLight(0xfff1d2, 2.7);
+    scene.add(new THREE.HemisphereLight(0xdfeaff, 0x0a1420, 0.9));
+    scene.add(new THREE.AmbientLight(0x233048, 0.35));
+    const key = new THREE.DirectionalLight(0xfff1d2, 2.4);
     key.position.set(55, 95, 40);
     key.castShadow = true;
     key.shadow.mapSize.set(2048, 2048);
@@ -154,7 +154,7 @@ export function ProgramMonitor() {
     key.shadow.camera.far = 260;
     key.shadow.bias = -0.0006;
     scene.add(key);
-    const fill = new THREE.DirectionalLight(0xbfd8ff, 0.75);
+    const fill = new THREE.DirectionalLight(0xbfd8ff, 0.6);
     fill.position.set(-70, 60, -45);
     scene.add(fill);
 
@@ -190,6 +190,7 @@ export function ProgramMonitor() {
       figure: PlayerFigure;
       ring: THREE.Mesh;
       ownerRing: THREE.Mesh;
+      teamRing: THREE.Mesh;
       number: THREE.Sprite;
       lastPos: { x: number; y: number };
     }
@@ -260,6 +261,18 @@ export function ProgramMonitor() {
       );
       ownerRing.rotation.x = -Math.PI / 2;
       ownerRing.position.y = 0.03;
+      const teamRing = new THREE.Mesh(
+        new THREE.RingGeometry(0.55, 0.72, 20),
+        new THREE.MeshBasicMaterial({
+          color: club.primary,
+          side: THREE.DoubleSide,
+          transparent: true,
+          opacity: 0.62,
+          depthWrite: false,
+        }),
+      );
+      teamRing.rotation.x = -Math.PI / 2;
+      teamRing.position.y = 0.015;
       const number = new THREE.Sprite(
         new THREE.SpriteMaterial({
           map: numberTexture(info?.shirt ?? 0, club.primary, club.onPrimary),
@@ -268,10 +281,11 @@ export function ProgramMonitor() {
       );
       number.scale.setScalar(1.72);
       number.position.y = 2.2;
-      const group: PlayerObject = { figure, ring, ownerRing, number, lastPos: { x: 0, y: 0 } };
+      const group: PlayerObject = { figure, ring, ownerRing, teamRing, number, lastPos: { x: 0, y: 0 } };
       scene.add(figure.group);
       scene.add(ring);
       scene.add(ownerRing);
+      scene.add(teamRing);
       scene.add(number);
       playerObjects.set(playerId, group);
       return group;
@@ -325,6 +339,7 @@ export function ProgramMonitor() {
     let raf = 0;
     let lastEpoch: number | undefined;
     let lastTime = Number.NaN;
+    let targetFov = 35;
     const render = () => {
       const state = useAppStore.getState();
       const currentMatch = state.match;
@@ -367,6 +382,7 @@ export function ProgramMonitor() {
         const dt = Math.min(0.1, Math.max(0.001, (now - lastTick) / 1000));
         lastTick = now;
         const seen = new Set<string>();
+        const showNumbers = modeRef.current === 'tactical' || modeRef.current === 'player';
         for (const player of frame.players) {
           seen.add(player.playerId);
           const object = ensurePlayer(player.playerId);
@@ -381,6 +397,9 @@ export function ProgramMonitor() {
           object.ring.position.x = player.pos.x;
           object.ring.position.z = player.pos.y;
           object.ring.visible = sprinting;
+          object.teamRing.position.x = player.pos.x;
+          object.teamRing.position.z = player.pos.y;
+          object.teamRing.visible = true;
           object.number.position.x = player.pos.x;
           object.number.position.z = player.pos.y;
         }
@@ -389,10 +408,11 @@ export function ProgramMonitor() {
             object.figure.group.visible = false;
             object.ring.visible = false;
             object.ownerRing.visible = false;
+            object.teamRing.visible = false;
             object.number.visible = false;
           } else {
             object.figure.group.visible = true;
-            object.number.visible = true;
+            object.number.visible = showNumbers;
           }
         }
 
@@ -435,34 +455,43 @@ export function ProgramMonitor() {
         const focusId = state.prefs.playerId;
         const ballX = frame.ball.pos.x;
         const ballY = frame.ball.pos.y;
-        const desired = new THREE.Vector3(0, 31, 52);
-        const target = new THREE.Vector3(0, 1.2, 0);
+        const desired = new THREE.Vector3(0, 15.5, 42);
+        const target = new THREE.Vector3(0, 2.6, 0);
         if (mode === 'tactical') {
           desired.set(0, 82, 48);
           target.set(0, 0, 0);
+          targetFov = 40;
         } else if (mode === 'broadcast') {
           const bx = THREE.MathUtils.clamp(ballX, -28, 28);
-          desired.set(bx * 0.3, 32, 52 + THREE.MathUtils.clamp(ballY, -12, 12) * 0.18);
-          target.set(bx * 0.72, 1.2, THREE.MathUtils.clamp(ballY, -20, 20) * 0.35);
+          desired.set(bx * 0.28, 15.5, 42 + THREE.MathUtils.clamp(ballY, -12, 12) * 0.12);
+          target.set(bx * 0.72, 2.6, THREE.MathUtils.clamp(ballY, -20, 20) * 0.35);
+          targetFov = 35;
         } else if (mode === 'follow') {
           const bx = THREE.MathUtils.clamp(ballX, -34, 34);
-          desired.set(bx * 0.55, 38, 32 + ballY * 0.25);
-          target.set(bx * 0.85, 1, ballY * 0.55);
+          desired.set(bx * 0.5, 26, 40 + ballY * 0.35);
+          target.set(bx * 0.85, 1.2, ballY * 0.65);
+          targetFov = 32;
         } else if (mode === 'player') {
           const focused = frame.players.find((p) => p.playerId === focusId);
           if (focused) {
-            desired.set(focused.pos.x * 0.55 + 10, 22, 19 + focused.pos.y * 0.3);
-            target.set(focused.pos.x, 1.2, focused.pos.y);
+            desired.set(focused.pos.x + 5, 11, focused.pos.y + 14);
+            target.set(focused.pos.x, 1.35, focused.pos.y);
+            targetFov = 26;
           } else {
             // A substituted/dismissed player is not the ball. Show the wide
             // camera and its real mode; retain the viewer's analysis filter.
             modeRef.current = 'broadcast';
             setMode('broadcast');
+            targetFov = 35;
           }
         }
         const smoothing = modeRef.current === 'tactical' ? 0.045 : 0.07;
         camera.position.lerp(desired, smoothing);
         cameraTarget.lerp(target, smoothing * 1.4);
+        if (Math.abs(camera.fov - targetFov) > 0.01) {
+          camera.fov = THREE.MathUtils.lerp(camera.fov, targetFov, smoothing * 1.2);
+          camera.updateProjectionMatrix();
+        }
         camera.lookAt(cameraTarget);
       }
 
@@ -555,12 +584,14 @@ export function ProgramMonitor() {
       cancelAnimationFrame(raf);
       observer.disconnect();
       for (const object of playerObjects.values()) {
-        scene.remove(object.figure.group, object.ring, object.ownerRing, object.number);
+        scene.remove(object.figure.group, object.ring, object.ownerRing, object.teamRing, object.number);
         object.figure.dispose();
         object.ring.geometry.dispose();
         (object.ring.material as THREE.Material).dispose();
         object.ownerRing.geometry.dispose();
         (object.ownerRing.material as THREE.Material).dispose();
+        object.teamRing.geometry.dispose();
+        (object.teamRing.material as THREE.Material).dispose();
       }
       scene.remove(goals);
       scene.remove(stadium);

@@ -103,6 +103,7 @@ export class ProductionCrew {
     const context: NarrativeContext = {
       kind: candidate.kind, minute: candidate.minuteLabel,
       team: candidate.team === 'none' ? 'Match' : team.name,
+      teamSide: candidate.team === 'none' ? null : candidate.team,
       opponent: opponent.name, teamAbbr: team.abbr, opponentAbbr: opponent.abbr,
       player, score: `${atTime.home}–${atTime.away}`, scoreAt: atTime,
       facts: candidate.facts, asOf: candidate.t, window: candidate.window,

@@ -57,7 +57,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Goal · Aron Varga",
-        "body": "6' — Northgate United 0–1 Riverside Athletic. Aron Varga finished from 12 m at 90.2 km/h (0.14 expected goals).",
+        "body": "6' — Northgate United 1–0 Riverside Athletic. Aron Varga finished from 12 m at 90.2 km/h (0.14 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -84,7 +84,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Goal · Aron Varga",
-        "body": "6' — Northgate United 0–1 Riverside Athletic. Aron Varga finished from 12 m at 90.2 km/h (0.14 expected goals).",
+        "body": "6' — Northgate United 1–0 Riverside Athletic. Aron Varga finished from 12 m at 90.2 km/h (0.14 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -123,7 +123,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Chance · Aron Varga",
-        "body": "9' — Northgate United 0–1 Riverside Athletic. Aron Varga had a chance from 4 m worth 0.32.",
+        "body": "9' — Northgate United 1–0 Riverside Athletic. Aron Varga had a chance from 4 m worth 0.32.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -162,7 +162,7 @@
       "animation": "draw",
       "payload": {
         "headline": "Chance · Aron Varga",
-        "body": "9' — Northgate United 0–1 Riverside Athletic. Aron Varga had a chance from 4 m worth 0.32.",
+        "body": "9' — Northgate United 1–0 Riverside Athletic. Aron Varga had a chance from 4 m worth 0.32.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -195,7 +195,7 @@
       "animation": "pinned",
       "payload": {
         "headline": "Speed check · Theo Escobar",
-        "body": "10' — Northgate United 0–1 Riverside Athletic. Theo Escobar was clocked at 34.6 km/h.",
+        "body": "10' — Northgate United 1–0 Riverside Athletic. Theo Escobar was clocked at 34.6 km/h.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -220,7 +220,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Save · Fionn Karlsson",
-        "body": "11' — Northgate United 0–1 Riverside Athletic. The keeper denied a 0.19 xG chance.",
+        "body": "11' — Northgate United 1–0 Riverside Athletic. The keeper denied a 0.19 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -305,7 +305,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Goal · Cassian Anselm",
-        "body": "26' — Northgate United 0–2 Riverside Athletic. Cassian Anselm finished from 26 m at 107.4 km/h (0.01 expected goals).",
+        "body": "26' — Northgate United 2–0 Riverside Athletic. Cassian Anselm finished from 26 m at 107.4 km/h (0.01 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -332,7 +332,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Goal · Cassian Anselm",
-        "body": "26' — Northgate United 0–2 Riverside Athletic. Cassian Anselm finished from 26 m at 107.4 km/h (0.01 expected goals).",
+        "body": "26' — Northgate United 2–0 Riverside Athletic. Cassian Anselm finished from 26 m at 107.4 km/h (0.01 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -371,7 +371,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Save · Fionn Karlsson",
-        "body": "39' — Northgate United 0–2 Riverside Athletic. The keeper denied a 0.03 xG chance.",
+        "body": "39' — Northgate United 2–0 Riverside Athletic. The keeper denied a 0.03 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -1528,7 +1528,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Chance · Aron Varga",
-        "body": "87' — Northgate United 3–2 Riverside Athletic. Aron Varga had a chance from 8 m worth 0.25.",
+        "body": "87' — Northgate United 2–3 Riverside Athletic. Aron Varga had a chance from 8 m worth 0.25.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -1567,7 +1567,7 @@
       "animation": "draw",
       "payload": {
         "headline": "Chance · Aron Varga",
-        "body": "87' — Northgate United 3–2 Riverside Athletic. Aron Varga had a chance from 8 m worth 0.25.",
+        "body": "87' — Northgate United 2–3 Riverside Athletic. Aron Varga had a chance from 8 m worth 0.25.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -1639,7 +1639,7 @@
       "animation": "draw",
       "payload": {
         "headline": "Chance · Aron Varga",
-        "body": "98' — Northgate United 3–2 Riverside Athletic. Aron Varga had a chance from 7 m worth 0.26.",
+        "body": "98' — Northgate United 2–3 Riverside Athletic. Aron Varga had a chance from 7 m worth 0.26.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",

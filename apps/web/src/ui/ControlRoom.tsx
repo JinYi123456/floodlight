@@ -145,7 +145,9 @@ export function ControlRoom() {
               <ProgramMonitor />
               <div className="ticker-strip">
                 <span className="ticker-label">LIVE</span>
-                <span className="ticker-text">{ticker ?? 'The match is under way — the crew is watching.'}</span>
+                <span className="ticker-text">
+                  {ticker ?? `${match.meta.home.abbr} ${score.home}–${score.away} ${match.meta.away.abbr} · ${formatMinute(t)} — the crew is watching.`}
+                </span>
               </div>
             </main>
             <div className="right-rail">

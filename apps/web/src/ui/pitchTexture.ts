@@ -25,14 +25,14 @@ export function createPitchTexture(): HTMLCanvasElement {
   const ctx = canvas.getContext('2d')!;
   const rand = noise(0xf10d11);
 
-  ctx.fillStyle = '#07140d';
+  ctx.fillStyle = '#06110b';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // Two crossing mow patterns: broad vertical bands plus a faint horizontal
   // break every 20 m, the way a real groundstaff cut reads under lights.
   const stripe = w / 12;
   for (let i = 0; i < 12; i++) {
-    ctx.fillStyle = i % 2 === 0 ? '#1a623c' : '#165634';
+    ctx.fillStyle = i % 2 === 0 ? '#15522f' : '#12482a';
     ctx.fillRect(margin + i * stripe, margin, stripe + 1, h);
   }
   for (let i = 0; i < 5; i++) {
@@ -45,13 +45,13 @@ export function createPitchTexture(): HTMLCanvasElement {
     const x = margin + rand() * w;
     const y = margin + rand() * h;
     const tone = rand();
-    ctx.fillStyle = tone < 0.5 ? `rgba(10, 38, 22, ${0.05 + rand() * 0.12})` : `rgba(150, 210, 150, ${0.025 + rand() * 0.055})`;
+    ctx.fillStyle = tone < 0.5 ? `rgba(6, 30, 16, ${0.05 + rand() * 0.12})` : `rgba(140, 200, 140, ${0.02 + rand() * 0.045})`;
     ctx.fillRect(x, y, 1 + rand() * 1.5, 1);
   }
 
   const glow = ctx.createRadialGradient(margin + w / 2, margin + h / 2, h * 0.08, margin + w / 2, margin + h / 2, w * 0.62);
-  glow.addColorStop(0, 'rgba(255, 250, 220, 0.12)');
-  glow.addColorStop(1, 'rgba(0, 0, 0, 0.28)');
+  glow.addColorStop(0, 'rgba(255, 250, 220, 0.08)');
+  glow.addColorStop(1, 'rgba(0, 0, 0, 0.24)');
   ctx.fillStyle = glow;
   ctx.fillRect(margin, margin, w, h);
 

@@ -1,6 +1,6 @@
 /**
  * Procedural night stadium: four raked stands with an instanced crowd, roof
- * lip lighting, LED perimeter boards, floodlight masts and a jumbotron. No
+ * lip lighting, LED perimeter boards and floodlight masts. No
  * external assets or sponsor marks — every surface is drawn from code.
  */
 
@@ -62,34 +62,6 @@ function adTexture(home: Club, away: Club): THREE.CanvasTexture {
   });
 }
 
-function jumbotronTexture(home: Club, away: Club): THREE.CanvasTexture {
-  return canvasTexture(1024, 384, (ctx) => {
-    ctx.fillStyle = '#030910';
-    ctx.fillRect(0, 0, 1024, 384);
-    ctx.fillStyle = home.primary;
-    ctx.fillRect(0, 0, 512, 384);
-    ctx.fillStyle = away.primary;
-    ctx.fillRect(512, 0, 512, 384);
-    ctx.globalAlpha = 0.78;
-    ctx.fillStyle = '#030910';
-    ctx.fillRect(0, 300, 1024, 84);
-    ctx.globalAlpha = 1;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillStyle = home.onPrimary;
-    ctx.font = '800 138px "Bahnschrift", "Cascadia Code", sans-serif';
-    ctx.fillText(home.abbr, 256, 172);
-    ctx.fillStyle = away.onPrimary;
-    ctx.fillText(away.abbr, 768, 172);
-    ctx.fillStyle = 'rgba(255,255,255,0.72)';
-    ctx.font = '600 34px "Cascadia Code", monospace';
-    ctx.fillText('FLOODLIGHT', 512, 66);
-    ctx.font = '700 42px "Cascadia Code", monospace';
-    ctx.fillStyle = '#dce8f7';
-    ctx.fillText('LIVE', 512, 342);
-  });
-}
-
 export function createNightSky(): THREE.Mesh {
   const material = new THREE.ShaderMaterial({
     side: THREE.BackSide,
@@ -132,8 +104,8 @@ export function createStadium(home: Club, away: Club): THREE.Group {
   const random = seeded(clubSeed(home) ^ clubSeed(away));
   const crowdMatrices: THREE.Matrix4[] = [];
   const crowdColors: THREE.Color[] = [];
-  const homePalette = [home.primary, home.secondary, home.primary, '#d7dde8', '#1a2330'];
-  const awayPalette = [away.primary, away.secondary, away.primary, '#d7dde8', '#1a2330'];
+  const homePalette = [home.primary, home.secondary, home.primary, '#aab5c6', '#1a2330'];
+  const awayPalette = [away.primary, away.secondary, away.primary, '#aab5c6', '#1a2330'];
   const matrix = new THREE.Matrix4();
   const quat = new THREE.Quaternion();
   const scale = new THREE.Vector3(1, 1, 1);
@@ -252,25 +224,6 @@ export function createStadium(home: Club, away: Club): THREE.Group {
   addBoard(69, -56.4, 0, Math.PI / 2);
   addBoard(69, 56.4, 0, -Math.PI / 2);
 
-  // Jumbotron hanging above the far stand.
-  const screenTexture = jumbotronTexture(home, away);
-  const jumbo = new THREE.Group();
-  const frame = new THREE.Mesh(new THREE.BoxGeometry(21, 8.8, 0.8), new THREE.MeshStandardMaterial({ color: '#060b12', roughness: 0.6 }));
-  jumbo.add(frame);
-  const panel = new THREE.Mesh(
-    new THREE.PlaneGeometry(20, 7.9),
-    new THREE.MeshBasicMaterial({ map: screenTexture, toneMapped: false }),
-  );
-  panel.position.z = 0.42;
-  jumbo.add(panel);
-  jumbo.position.set(0, 20.5, -54.5);
-  stadium.add(jumbo);
-  for (const x of [-7, 7]) {
-    const hanger = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 4, 6), roofMaterial);
-    hanger.position.set(x, 23.5, -54.5);
-    stadium.add(hanger);
-  }
-
   // Floodlight masts, panels and soft light cones.
   const mastMaterial = new THREE.MeshStandardMaterial({ color: '#1a2330', roughness: 0.55, metalness: 0.55 });
   const lampMaterial = new THREE.MeshStandardMaterial({
@@ -305,7 +258,7 @@ export function createStadium(home: Club, away: Club): THREE.Group {
       cone.position.copy(top).addScaledVector(toPitch, 0.5);
       cone.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), toPitch.clone().normalize().negate());
       stadium.add(cone);
-      const light = new THREE.SpotLight('#dbeaff', 900, 190, 0.62, 0.7, 1.7);
+      const light = new THREE.SpotLight('#dbeaff', 550, 190, 0.62, 0.7, 1.7);
       light.position.copy(top);
       light.target.position.copy(center);
       stadium.add(light, light.target);
@@ -361,7 +314,6 @@ export function createStadium(home: Club, away: Club): THREE.Group {
     for (const geometry of geometries) geometry.dispose();
     for (const mat of materials) mat.dispose();
     boards.dispose();
-    screenTexture.dispose();
   };
 
   return stadium;

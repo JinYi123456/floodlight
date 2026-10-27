@@ -11,6 +11,8 @@ export interface NarrativeContext {
   minute: string;
   team: string;
   opponent: string;
+  /** The side the story is about; absent on neutral, whole-match frames. */
+  teamSide?: 'home' | 'away' | null;
   teamAbbr: string;
   opponentAbbr: string;
   player: string | null;
@@ -214,8 +216,10 @@ const PHRASES: Record<Lang, Phrase> = {
 const languageIndex = (lang: Lang): number => LANGUAGES.indexOf(lang);
 
 function scoreText(ctx: NarrativeContext): string {
-  if (ctx.scoreAt) return `${ctx.scoreAt.home}–${ctx.scoreAt.away}`;
-  return ctx.score ?? '0–0';
+  if (!ctx.scoreAt) return ctx.score ?? '0–0';
+  return ctx.teamSide === 'away'
+    ? `${ctx.scoreAt.away}–${ctx.scoreAt.home}`
+    : `${ctx.scoreAt.home}–${ctx.scoreAt.away}`;
 }
 
 function factFor(ctx: NarrativeContext, key: string): NumericFact | undefined {

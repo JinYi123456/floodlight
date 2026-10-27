@@ -609,6 +609,14 @@ button {
   box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.9);
   aspect-ratio: 16 / 9;
 }
+.program-monitor::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 44%, transparent 44%, rgba(0, 0, 0, 0.1) 72%, rgba(0, 0, 0, 0.34) 100%);
+}
 .monitor-canvas {
   position: absolute;
   inset: 0;
@@ -622,16 +630,18 @@ button {
   top: 10px;
   left: 12px;
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
-  z-index: 6;
+  max-width: calc(100% - 118px);
+  z-index: 7;
 }
 .monitor-cams button {
   background: rgba(5, 7, 13, 0.72);
   border: 1px solid var(--line);
   color: var(--muted);
   border-radius: 7px;
-  padding: 4px 11px;
-  font-size: 11px;
+  padding: 4px 9px;
+  font-size: 10.5px;
   letter-spacing: 0.05em;
   backdrop-filter: blur(4px);
   transition: all 0.14s ease;
@@ -653,12 +663,14 @@ button {
   inset: 0;
   pointer-events: none;
   overflow: hidden;
+  z-index: 5;
 }
 
 .monitor-tally {
   position: absolute;
   top: 10px;
   right: 12px;
+  z-index: 7;
   display: flex;
   align-items: center;
   gap: 7px;
@@ -1777,6 +1789,7 @@ button {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 14px;
   display: grid;
   gap: 14px;
@@ -1819,6 +1832,14 @@ button {
   font-size: 10.5px;
   line-height: 1.5;
   color: #6b7c99;
+}
+.bench-label {
+  margin: 12px 0 2px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 .xi-pitch,
 .shot-pitch {

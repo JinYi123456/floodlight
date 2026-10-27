@@ -420,7 +420,7 @@
       "animation": "draw",
       "payload": {
         "headline": "Chance · Ravi Moreau",
-        "body": "14' — Westerly Wanderers 1–0 Ironworks FC. Ravi Moreau had a chance from 5 m worth 0.31.",
+        "body": "14' — Westerly Wanderers 0–1 Ironworks FC. Ravi Moreau had a chance from 5 m worth 0.31.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -726,7 +726,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Goal · Ravi Moreau",
-        "body": "36' — Westerly Wanderers 1–2 Ironworks FC. Ravi Moreau finished from 10 m at 100.7 km/h (0.17 expected goals).",
+        "body": "36' — Westerly Wanderers 2–1 Ironworks FC. Ravi Moreau finished from 10 m at 100.7 km/h (0.17 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -753,7 +753,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Goal · Ravi Moreau",
-        "body": "36' — Westerly Wanderers 1–2 Ironworks FC. Ravi Moreau finished from 10 m at 100.7 km/h (0.17 expected goals).",
+        "body": "36' — Westerly Wanderers 2–1 Ironworks FC. Ravi Moreau finished from 10 m at 100.7 km/h (0.17 expected goals).",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -792,7 +792,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Scorer update · Ravi Moreau",
-        "body": "36' — Westerly Wanderers 1–2 Ironworks FC. Ravi Moreau now has 2 in this match.",
+        "body": "36' — Westerly Wanderers 2–1 Ironworks FC. Ravi Moreau now has 2 in this match.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -889,7 +889,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Save · Halvard Petrov",
-        "body": "38' — Westerly Wanderers 1–2 Ironworks FC. The keeper denied a 0.13 xG chance.",
+        "body": "38' — Westerly Wanderers 2–1 Ironworks FC. The keeper denied a 0.13 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -928,7 +928,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Chance · Rafael Jankovic",
-        "body": "39' — Westerly Wanderers 1–2 Ironworks FC. Rafael Jankovic had a chance from 8 m worth 0.21.",
+        "body": "39' — Westerly Wanderers 2–1 Ironworks FC. Rafael Jankovic had a chance from 8 m worth 0.21.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -967,7 +967,7 @@
       "animation": "draw",
       "payload": {
         "headline": "Chance · Rafael Jankovic",
-        "body": "39' — Westerly Wanderers 1–2 Ironworks FC. Rafael Jankovic had a chance from 8 m worth 0.21.",
+        "body": "39' — Westerly Wanderers 2–1 Ironworks FC. Rafael Jankovic had a chance from 8 m worth 0.21.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -1672,7 +1672,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Save · Halvard Petrov",
-        "body": "70' — Westerly Wanderers 3–2 Ironworks FC. The keeper denied a 0.13 xG chance.",
+        "body": "70' — Westerly Wanderers 2–3 Ironworks FC. The keeper denied a 0.13 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -1711,7 +1711,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Save · Halvard Petrov",
-        "body": "72' — Westerly Wanderers 3–2 Ironworks FC. The keeper denied a 0.20 xG chance.",
+        "body": "72' — Westerly Wanderers 2–3 Ironworks FC. The keeper denied a 0.20 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -1783,7 +1783,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Save · Halvard Petrov",
-        "body": "72' — Westerly Wanderers 3–2 Ironworks FC. The keeper denied a 0.18 xG chance.",
+        "body": "72' — Westerly Wanderers 2–3 Ironworks FC. The keeper denied a 0.18 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -2226,7 +2226,7 @@
       "animation": "slide_in",
       "payload": {
         "headline": "Save · Halvard Petrov",
-        "body": "99' — Westerly Wanderers 4–3 Ironworks FC. The keeper denied a 0.10 xG chance.",
+        "body": "99' — Westerly Wanderers 3–4 Ironworks FC. The keeper denied a 0.10 xG chance.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
@@ -2304,7 +2304,7 @@
       "animation": "draw",
       "payload": {
         "headline": "Chance · Ravi Moreau",
-        "body": "100' — Westerly Wanderers 4–3 Ironworks FC. Ravi Moreau had a chance from 7 m worth 0.23.",
+        "body": "100' — Westerly Wanderers 3–4 Ironworks FC. Ravi Moreau had a chance from 7 m worth 0.23.",
         "lang": "en",
         "persona": "analyst",
         "provider": "template",
