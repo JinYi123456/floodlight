@@ -27,6 +27,9 @@ interface LiveEvent {
 export function VisionLab() {
   const match = useAppStore((state) => state.match);
   const vision = useAppStore((state) => state.vision);
+  const spoilerFree = useAppStore((state) => state.spoilerFree);
+  const matchTime = useAppStore((state) => state.t);
+  const locked = vision.phase === 'locked' || (spoilerFree && Boolean(vision.window && vision.window.t1 > matchTime));
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [playing, setPlaying] = useState(true);
   const [cursor, setCursor] = useState(0);
@@ -48,7 +51,7 @@ export function VisionLab() {
   // the render load, and the tracker is told the same dt — derived speeds stay
   // honest at any cadence.
   useEffect(() => {
-    if (vision.phase !== 'ready') return;
+    if (vision.phase !== 'ready' || locked) return;
     let raf = 0;
     let lastRequest = 0;
     const tick = (now: number) => {
@@ -66,7 +69,7 @@ export function VisionLab() {
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [vision.phase]);
+  }, [vision.phase, locked]);
 
   // Draw incoming frames.
   useEffect(() => {
@@ -107,6 +110,19 @@ export function VisionLab() {
   }, []);
 
   if (!match) return null;
+
+  if (locked) {
+    return (
+      <div className="vision-lab loading">
+        <div className="vision-loading-card">
+          <h2>Vision lab · spoiler-free</h2>
+          <p className="vision-stage">This analysis includes action you have not reached yet.</p>
+          <p className="vision-note">Return to the match and watch further, or turn off spoiler-free mode to open the full analysis.</p>
+          <button type="button" className="ghost" onClick={() => useAppStore.getState().setView('room')}>Return to match</button>
+        </div>
+      </div>
+    );
+  }
 
   if (vision.phase === 'idle' || vision.phase === 'preparing' || vision.phase === 'analyzing') {
     const pct = Math.round(vision.progressFraction * 100);
@@ -172,7 +188,7 @@ export function VisionLab() {
           )}
         </div>
         <div className="vision-controls">
-          <button type="button" className="play-button" onClick={() => setPlaying((p) => !p)}>
+          <button type="button" className="play-button" aria-label={playing ? 'Pause vision feed' : 'Play vision feed'} onClick={() => setPlaying((p) => !p)}>
             {playing ? '❚❚' : '▶'}
           </button>
           <div className="vision-legend">

@@ -300,6 +300,13 @@ export class EventDeriver {
    *  with the side that played it — a flight is not a turnover. */
   ownerTeam(): 'home' | 'away' | null {
     if (this.owner.team) return this.owner.team;
+    // Possession stays with the passing side while the ball is in flight.
+    // The new tracking feed no longer makes every off-ball player chase the
+    // ball, so "nearest player to the ball" alone would report long unowned
+    // spells that never happened.
+    if (this.flight && this.lastOwner?.team && this.lastT - this.lastOwner.lastSeen <= 3) {
+      return this.lastOwner.team;
+    }
     if (this.lastOwner && this.lastT - this.lastOwner.lastSeen <= 4) return this.lastOwner.team;
     return null;
   }
@@ -429,6 +436,12 @@ export function analyzeWindow(result: SimulationResult, options: AnalyzeOptions)
     const leftPlay = (event.type === 'shot' && outcome !== 'goal' && wentOut) || (event.type === 'pass' && outcome === 'out');
     if (isGoal || leftPlay) {
       deadIntervals.push({ t0: Math.min(event.t + 1.5, next.t), t1: next.t });
+    }
+    // A VAR review is dead time: the ball is not in play, so it is neither a
+    // possession battle nor a fair test of nearest-player ownership.
+    if (event.type === 'var_check' && /under review/i.test(event.detail)) {
+      const decision = result.events.slice(i + 1).find((e) => e.type === 'var_check');
+      if (decision) deadIntervals.push({ t0: event.t, t1: decision.t });
     }
   }
   let deadPointer = 0;

@@ -78,8 +78,10 @@ describe('cue sheet compiler', () => {
         lang: 'en',
         persona: 'analyst',
         provider: 'template',
+        source: 'template',
         ticker: null,
-        verification: { approved: true, issues: [] },
+        tickerSource: null,
+        verification: { approved: true, issues: [], basis: 'evidence_bound' },
         variants: [],
       }) as NarratedMoment;
 

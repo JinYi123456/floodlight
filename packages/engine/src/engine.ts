@@ -17,6 +17,7 @@ import {
   formatMinute,
   isInAttackingBox,
   roundTo,
+  PITCH,
   SPRINT_THRESHOLD_KPH,
   type MatchEvent,
   type MatchMeta,
@@ -51,7 +52,8 @@ export interface TeamMatchStats {
   possessionSeconds: number;
   possessionShare: number;
   defensiveActions: number;
-  ppda: number;
+  /** Opponent passes in their defensive 60% / actions there; null when no actions. */
+  ppda: number | null;
   topSpeedKph: number;
   distanceCoveredKm: number;
   sprints: number;
@@ -141,6 +143,7 @@ interface MinuteBucket {
   turnovers: number;
   duels: number;
   defActionsHigh: number;
+  finalThirdEntries: number;
   possessionSec: number;
   passSpeedSum: number;
   passSpeedCount: number;
@@ -156,6 +159,7 @@ function emptyBucket(): MinuteBucket {
     turnovers: 0,
     duels: 0,
     defActionsHigh: 0,
+    finalThirdEntries: 0,
     possessionSec: 0,
     passSpeedSum: 0,
     passSpeedCount: 0,
@@ -189,7 +193,7 @@ function emptyTeamStats(side: TeamSide): TeamMatchStats {
     possessionSeconds: 0,
     possessionShare: 0,
     defensiveActions: 0,
-    ppda: 0,
+    ppda: null,
     topSpeedKph: 0,
     distanceCoveredKm: 0,
     sprints: 0,
@@ -239,7 +243,11 @@ export class MatchEngine {
   private eventSeq = 0;
 
   private lastPassBy: Record<TeamSide, { passerId: string; recipientId: string | null; t: number } | null> = { home: null, away: null };
-  private lastGoalCandidate: InsightCandidate | null = null;
+  private readonly goalCandidates = new Map<string, InsightCandidate>();
+  private readonly goalAssists = new Map<string, string>();
+  private activeReviewId: string | null = null;
+  private readonly passesInDefensive60: Record<TeamSide, number> = { home: 0, away: 0 };
+  private readonly highDefensiveActions: Record<TeamSide, number> = { home: 0, away: 0 };
   private lastMomentumShiftT = -Infinity;
   private lastSiegeT = -Infinity;
   private speedFlashCount = 0;
@@ -301,7 +309,7 @@ export class MatchEngine {
 
     // Possession clock: attribute the gap since the last event to the team
     // that had the ball (capped so celebrations don't inflate the total).
-    if (this.lastEvent) {
+    if (this.lastEvent && !this.activeReviewId && this.lastEvent.type !== 'var_check') {
       const gap = clamp(e.t - this.lastEvent.t, 0, 60);
       const bucket = this.bucketFor(previousPossession, e.t);
       bucket.possessionSec += gap;
@@ -336,6 +344,7 @@ export class MatchEngine {
         const bucket = this.bucketFor(team, pass.t);
         stats.passes++;
         bucket.passes++;
+        if (pass.at.x * (team === 'home' ? 1 : -1) <= PITCH.length * 0.1) this.passesInDefensive60[team]++;
         this.passDifficultySum[team] += pass.difficulty;
         this.passDifficultyCount[team]++;
         stats.passDifficultyAvg = this.passDifficultySum[team] / Math.max(1, this.passDifficultyCount[team]);
@@ -346,9 +355,11 @@ export class MatchEngine {
           player.passes++;
           player.touches++;
         }
+        if (pass.endAt && pass.endAt.x * (team === 'home' ? 1 : -1) >= 35) bucket.finalThirdEntries++;
         if (pass.outcome === 'complete') {
           stats.passesCompleted++;
           bucket.completed++;
+          if (player) player.passesCompleted++;
           if (pass.progressive) stats.progressivePasses++;
           if (pass.xtSwing > 0) {
             stats.xtGenerated += pass.xtSwing;
@@ -373,6 +384,9 @@ export class MatchEngine {
         const team = carry.team as TeamSide;
         const stats = this.teamStats[team];
         stats.carries++;
+        if (carry.endAt && carry.endAt.x * (team === 'home' ? 1 : -1) >= 35) {
+          this.bucketFor(team, carry.t).finalThirdEntries++;
+        }
         if (carry.xtSwing > 0) {
           stats.xtGenerated += carry.xtSwing;
           this.bucketFor(team, carry.t).xt += carry.xtSwing;
@@ -415,7 +429,10 @@ export class MatchEngine {
           const passer = this.playerStats.get(last.passerId);
           if (passer) {
             passer.keyPasses++;
-            if (shot.outcome === 'goal') passer.assists++;
+            if (shot.outcome === 'goal') {
+              passer.assists++;
+              this.goalAssists.set(shot.id, passer.playerId);
+            }
           }
         }
         if (isInAttackingBox(shot.at, team === 'home' ? 1 : -1)) stats.touchesInBox += 1;
@@ -440,7 +457,7 @@ export class MatchEngine {
             evidenceEventIds: [shot.id],
             provisional: false,
           });
-          this.lastGoalCandidate = candidate;
+          this.goalCandidates.set(shot.id, candidate);
           emitted.push(candidate);
           this.scoreTimeline.push({ t: shot.t, home: this.score.home, away: this.score.away, eventId: shot.id });
           if (player && (player.goals === 2 || player.goals === 3)) {
@@ -519,7 +536,7 @@ export class MatchEngine {
       case 'interception': {
         const team = e.team as TeamSide;
         this.teamStats[team].interceptions++;
-        this.teamStats[team].defensiveActions++;
+        this.recordDefensiveAction(team, e);
         this.bucketFor(team, e.t).duels++;
         const player = e.playerId ? this.playerStats.get(e.playerId) : undefined;
         if (player) player.interceptions++;
@@ -530,7 +547,7 @@ export class MatchEngine {
         const tackle = e as MatchEvent & { tackleOutcome: string; opponentId: string };
         const team = tackle.team as TeamSide;
         this.teamStats[team].tackles++;
-        this.teamStats[team].defensiveActions++;
+        this.recordDefensiveAction(team, e);
         this.bucketFor(team, tackle.t).duels++;
         const player = tackle.playerId ? this.playerStats.get(tackle.playerId) : undefined;
         if (player) {
@@ -547,7 +564,7 @@ export class MatchEngine {
       case 'foul': {
         const team = e.team as TeamSide;
         this.teamStats[team].fouls++;
-        this.teamStats[team].defensiveActions++;
+        this.recordDefensiveAction(team, e);
         this.playerFoul(e.playerId);
         this.bucketFor(team, e.t).duels++;
         break;
@@ -601,47 +618,53 @@ export class MatchEngine {
         break;
       }
       case 'var_check': {
-        const detail = (e as MatchEvent & { detail: string }).detail;
-        if (detail.includes('under review')) {
-          emitted.push(
-            this.pushCandidate({
-              t: e.t,
-              kind: 'var_review',
-              salience: 0.6,
-              team: 'none',
-              playerId: null,
-              facts: { detail },
-              evidenceEventIds: [e.id],
-              provisional: true,
-            }),
-          );
-        } else if (detail.includes('Overturned')) {
-          // Retract the provisional goal: score comes back off the board.
-          if (this.lastGoalCandidate) {
-            this.lastGoalCandidate.overturned = true;
-            this.lastGoalCandidate.provisional = false;
-            const team = this.lastGoalCandidate.team as TeamSide;
-            this.score[team] = Math.max(0, this.score[team] - 1);
-            this.teamStats[team].goals = Math.max(0, this.teamStats[team].goals - 1);
-            this.teamStats[team].goalsDisallowed++;
-            const scorer = this.lastGoalCandidate.playerId ? this.playerStats.get(this.lastGoalCandidate.playerId) : undefined;
-            if (scorer) scorer.goals = Math.max(0, scorer.goals - 1);
-            this.removeFromTimeline(this.lastGoalCandidate.evidenceEventIds[0] ?? null);
+        const { detail, relatedEventId } = e as MatchEvent & { detail: string; relatedEventId?: string };
+        const starting = detail.includes('under review');
+        // Legacy unlinked streams are accepted only when a review immediately
+        // follows its goal; never retract an arbitrary most-recent goal.
+        const adjacentGoalId = this.lastEvent?.type === 'shot' && this.lastEvent.outcome === 'goal' ? this.lastEvent.id : null;
+        const goalId = relatedEventId ?? (starting ? adjacentGoalId : this.activeReviewId);
+        const goal = goalId ? this.goalCandidates.get(goalId) : undefined;
+        const evidence = goalId ? [e.id, goalId] : [e.id];
+        if (starting) {
+          if (goal && !goal.overturned) {
+            this.activeReviewId = goalId;
+            for (const candidate of this.candidatesList) {
+              if (candidate.evidenceEventIds.includes(goalId!)) candidate.provisional = true;
+            }
           }
-          emitted.push(
-            this.pushCandidate({
-              t: e.t,
-              kind: 'var_overturn',
-              salience: 0.95,
-              team: 'none',
-              playerId: null,
-              facts: { detail },
-              evidenceEventIds: [e.id],
-            }),
-          );
-        } else {
-          // Review resolved without a change.
-          if (this.lastGoalCandidate) this.lastGoalCandidate.provisional = false;
+          emitted.push(this.pushCandidate({
+            t: e.t, kind: 'var_review', salience: 0.6, team: 'none', playerId: null,
+            facts: { detail }, evidenceEventIds: evidence, provisional: true,
+          }));
+        } else if (detail.includes('Overturned') || detail.includes('awarded')) {
+          const overturned = detail.includes('Overturned');
+          if (goal && goalId) {
+            if (overturned && !goal.overturned) {
+              const team = goal.team as TeamSide;
+              this.score[team]--;
+              this.teamStats[team].goals--;
+              this.teamStats[team].goalsDisallowed++;
+              const scorer = goal.playerId ? this.playerStats.get(goal.playerId) : undefined;
+              if (scorer) scorer.goals--;
+              const assisterId = this.goalAssists.get(goalId);
+              const assister = assisterId ? this.playerStats.get(assisterId) : undefined;
+              if (assister) assister.assists--;
+              this.goalAssists.delete(goalId);
+              this.removeFromTimeline(goalId);
+            }
+            for (const candidate of this.candidatesList) {
+              if (candidate.evidenceEventIds.includes(goalId)) {
+                candidate.provisional = false;
+                candidate.overturned ||= overturned;
+              }
+            }
+          }
+          if (this.activeReviewId === goalId) this.activeReviewId = null;
+          if (overturned) emitted.push(this.pushCandidate({
+            t: e.t, kind: 'var_overturn', salience: 0.95, team: 'none', playerId: null,
+            facts: { detail }, evidenceEventIds: evidence,
+          }));
         }
         break;
       }
@@ -720,6 +743,15 @@ export class MatchEngine {
     return this.buckets[team][idx]!;
   }
 
+  private recordDefensiveAction(team: TeamSide, event: MatchEvent): void {
+    this.teamStats[team].defensiveActions++;
+    // Opponent's defensive 60% = this team's attacking 60%, mirrored by side.
+    if (event.at.x * (team === 'home' ? 1 : -1) >= -PITCH.length * 0.1) {
+      this.highDefensiveActions[team]++;
+      this.bucketFor(team, event.t).defActionsHigh++;
+    }
+  }
+
   private playerFoul(playerId: string | null): void {
     if (!playerId) return;
     const player = this.playerStats.get(playerId);
@@ -779,13 +811,19 @@ export class MatchEngine {
       }
     }
 
-    // Siege: one side camped in the final third.
+    // Siege: sustained final-third pressure, not just one lucky shot. Four
+    // shots to two (or better) plus either a big xG edge or a clear run of
+    // final-third entries is enough to call the spell.
     if (minute >= 12 && minute * 60 - this.lastSiegeT > 900) {
-      const lastTwelve = (side: TeamSide) => this.sumRange(side, minute - 11, minute);
-      const h = lastTwelve('home');
-      const a = lastTwelve('away');
-      const homeSiege = h.shots >= 5 && a.shots <= 2 && h.possessionSec > a.possessionSec * 1.4;
-      const awaySiege = a.shots >= 5 && h.shots <= 2 && a.possessionSec > h.possessionSec * 1.4;
+      const lastTen = (side: TeamSide) => this.sumRange(side, minute - 9, minute);
+      const h = lastTen('home');
+      const a = lastTen('away');
+      const homeSiege = h.shots >= 4 && a.shots <= 2 &&
+        (h.xg >= a.xg + 0.35 || h.finalThirdEntries >= a.finalThirdEntries * 1.5) &&
+        h.possessionSec >= a.possessionSec * 0.85;
+      const awaySiege = a.shots >= 4 && h.shots <= 2 &&
+        (a.xg >= h.xg + 0.35 || a.finalThirdEntries >= h.finalThirdEntries * 1.5) &&
+        a.possessionSec >= h.possessionSec * 0.85;
       if (homeSiege || awaySiege) {
         const side: TeamSide = homeSiege ? 'home' : 'away';
         this.lastSiegeT = minute * 60;
@@ -822,6 +860,7 @@ export class MatchEngine {
       result.turnovers += b.turnovers;
       result.duels += b.duels;
       result.defActionsHigh += b.defActionsHigh;
+      result.finalThirdEntries += b.finalThirdEntries;
       result.possessionSec += b.possessionSec;
       result.passSpeedSum += b.passSpeedSum;
       result.passSpeedCount += b.passSpeedCount;
@@ -863,7 +902,8 @@ export class MatchEngine {
       s.passAccuracy = s.passes > 0 ? s.passesCompleted / s.passes : 0;
       s.possessionShare = totalPossession > 0 ? s.possessionSeconds / totalPossession : 0.5;
       const opp = flip(side);
-      s.ppda = s.defensiveActions > 0 ? this.teamStats[opp].passes / s.defensiveActions : this.teamStats[opp].passes;
+      const actions = this.highDefensiveActions[side];
+      s.ppda = actions > 0 ? this.passesInDefensive60[opp] / actions : null;
     }
     return {
       meta: this.meta,

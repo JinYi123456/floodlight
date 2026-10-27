@@ -49,7 +49,7 @@ function useSpaceBar(): void {
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
-      if (target && (target.tagName === 'INPUT' || target.tagName === 'SELECT' || target.tagName === 'TEXTAREA')) {
+      if (target && (['INPUT', 'SELECT', 'TEXTAREA', 'BUTTON', 'A'].includes(target.tagName) || target.isContentEditable)) {
         return;
       }
       if (event.code === 'Space') {
@@ -68,7 +68,7 @@ export function ControlRoom() {
 
   const match = useAppStore((state) => state.match);
   const t = useAppStore((state) => state.t);
-  const maxT = useAppStore((state) => state.maxT);
+  const prefs = useAppStore((state) => state.prefs);
   const spoilerFree = useAppStore((state) => state.spoilerFree);
   const playing = useAppStore((state) => state.playing);
   const rate = useAppStore((state) => state.rate);
@@ -83,8 +83,8 @@ export function ControlRoom() {
   if (!match) return null;
 
   const score = scoreAt(match, t);
-  const ticker = tickerAt(match, t);
-  const period = t >= match.timing.halfTimeT ? '2nd half' : '1st half';
+  const ticker = tickerAt(match, t, 25, prefs);
+  const period = t >= match.timing.fullTimeT ? 'Full time' : t >= match.timing.halfTimeT ? '2nd half' : '1st half';
   const progressPct = (t / match.timing.fullTimeT) * 100;
 
   return (
@@ -175,13 +175,13 @@ export function ControlRoom() {
                 <div className="scrub-progress" style={{ width: `${progressPct}%` }} />
                 {match.scoreTimeline
                   .slice(1)
-                  .filter((goal) => !spoilerFree || goal.t <= maxT)
+                  .filter((goal) => !spoilerFree || goal.t <= t)
                   .map((goal, index) => (
                     <span
                       key={`${goal.t}-${index}`}
                       className="goal-marker"
                       style={{ left: `${(goal.t / match.timing.fullTimeT) * 100}%` }}
-                      title={`Goal at ${formatMinute(goal.t)} — ${goal.home}–${goal.away}`}
+                      title={`Score update at ${formatMinute(goal.t)} — ${goal.home}–${goal.away}`}
                     />
                   ))}
               </div>

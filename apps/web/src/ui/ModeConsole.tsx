@@ -36,7 +36,7 @@ export function ModeConsole() {
   const setSpoilerFree = useAppStore((state) => state.setSpoilerFree);
 
   if (!match) return null;
-  const players = [...match.lineups.home, ...match.lineups.away];
+  const players = [...match.lineups.home, ...match.lineups.away, ...match.bench.home, ...match.bench.away];
 
   return (
     <section className="mode-console">
@@ -100,6 +100,7 @@ export function ModeConsole() {
       <div className="console-row">
         <span className="console-label">Player focus</span>
         <select
+          aria-label="Player focus"
           value={prefs.playerId ?? ''}
           onChange={(event) => setPrefs({ playerId: event.target.value || null })}
         >
@@ -146,14 +147,15 @@ export function ModeConsole() {
       </div>
 
       <div className="console-foot">
-        <span className={`provider-chip ${match.providerSummary.recorded ? 'llm' : 'template'}`}>
-          {match.providerSummary.recorded ? 'studio voice · recorded' : 'template voice'}
+        <span className={`provider-chip ${match.providerSummary.aired.recorded > 0 ? 'llm' : 'template'}`}
+          title={match.providerSummary.recordingIssues.slice(0, 3).join(' · ')}>
+          {match.providerSummary.aired.recorded > 0 ? 'studio voice · recorded' : 'evidence templates'}
         </span>
-        {match.providerSummary.recorded && (
-          <span className="provider-note">
-            {match.providerSummary.completed} model narrations · {match.providerSummary.fallback} template fallbacks
-          </span>
-        )}
+        <span className="provider-note">
+          {match.providerSummary.aired.recorded} recorded · {match.providerSummary.aired.model} model ·{' '}
+          {match.providerSummary.aired.template} template
+          {match.providerSummary.recordingStatus === 'rejected' ? ' · recording rejected' : ''}
+        </span>
       </div>
     </section>
   );

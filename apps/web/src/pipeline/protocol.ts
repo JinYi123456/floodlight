@@ -5,7 +5,7 @@
  */
 
 import type { MatchEvent, MatchMeta, TeamSide, TrackingFrame } from '@floodlight/core';
-import type { NarratedMoment, TaskTrace } from '@floodlight/agents';
+import type { NarratedMoment, ProviderSummary, TaskTrace } from '@floodlight/agents';
 import type { CueSheet } from '@floodlight/cuesheet';
 import type { InsightCandidate, PlayerMatchStats } from '@floodlight/engine';
 import type { DerivedEvent, VisionReport } from '@floodlight/vision';
@@ -39,7 +39,7 @@ export interface PreparedMatch {
   players: PlayerMatchStats[];
   traces: TaskTrace[];
   scoreTimeline: Array<{ t: number; home: number; away: number }>;
-  providerSummary: { completed: number; fallback: number; failed: number; recorded: boolean };
+  providerSummary: ProviderSummary;
 }
 
 export interface VisionFrameEntity {

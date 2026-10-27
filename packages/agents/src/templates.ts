@@ -1,17 +1,8 @@
-/**
- * Template narratives — the crew's deterministic floor.
- *
- * Templates only ever interpolate values from the evidence pack, so a
- * template draft can never contain an unverifiable number. They are the
- * fallback when no model is available and the baseline every model draft is
- * measured against. Three languages ship out of the box.
- */
-
 import type { MomentKind } from '@floodlight/engine';
+import { scopedNumericFacts, type NumericFact } from './evidence';
 
 export type Lang = 'en' | 'es' | 'fr';
 export type Persona = 'analyst' | 'casual' | 'club' | 'player_focus';
-
 export const LANGUAGES: Lang[] = ['en', 'es', 'fr'];
 export const PERSONAS: Persona[] = ['analyst', 'casual', 'club', 'player_focus'];
 
@@ -25,166 +16,285 @@ export interface NarrativeContext {
   player: string | null;
   score: string | null;
   facts: Record<string, string | number | boolean>;
+  asOf?: number;
+  window?: { t0: number; t1: number } | null;
+  scoreAt?: { home: number; away: number };
 }
 
-interface PhraseSet {
-  goalHeadline: (c: NarrativeContext) => string;
-  goalBody: (c: NarrativeContext) => string;
-  goalCasual: (c: NarrativeContext) => string;
-  goalClub: (c: NarrativeContext) => string;
-  goalPlayer: (c: NarrativeContext) => string;
-  varReview: (c: NarrativeContext) => string;
-  varOverturn: (c: NarrativeContext) => string;
-  penalty: (c: NarrativeContext) => string;
-  redCard: (c: NarrativeContext) => string;
-  bigChance: (c: NarrativeContext) => string;
-  bigSave: (c: NarrativeContext) => string;
-  momentum: (c: NarrativeContext) => string;
-  siege: (c: NarrativeContext) => string;
-  comeback: (c: NarrativeContext) => string;
-  lateDrama: (c: NarrativeContext) => string;
-  milestone: (c: NarrativeContext) => string;
-  speedFlash: (c: NarrativeContext) => string;
-  tacticalPressure: (c: NarrativeContext) => string;
+export interface TemplateNarrative { headline: string; body: string }
+
+const TITLES: Record<MomentKind, [string, string, string]> = {
+  goal: ['Goal', 'Gol', 'But'],
+  var_review: ['Under review', 'Bajo revisión', 'En cours de révision'],
+  var_overturn: ['Goal overturned', 'Gol anulado', 'But annulé'],
+  penalty: ['Penalty awarded', 'Penalti concedido', 'Penalty accordé'],
+  red_card: ['Red card', 'Tarjeta roja', 'Carton rouge'],
+  big_chance: ['Chance', 'Ocasión', 'Occasion'],
+  big_save: ['Save', 'Parada', 'Arrêt'],
+  momentum_shift: ['Momentum swing', 'Cambio de impulso', 'Changement de momentum'],
+  siege: ['Sustained pressure', 'Presión sostenida', 'Pression soutenue'],
+  comeback_trigger: ['Score update', 'Marcador actualizado', 'Score actualisé'],
+  late_drama: ['Late goal', 'Gol tardío', 'But tardif'],
+  milestone: ['Scorer update', 'Goleador', 'Buteur'],
+  speed_flash: ['Speed check', 'Velocidad', 'Vitesse'],
+  tactical_pressure: ['Pressure check', 'Presión', 'Pression'],
+};
+
+const METRIC_LABELS: Record<string, [string, string, string]> = {
+  'shot distance': ['distance', 'distancia', 'distance'],
+  'ball speed': ['ball speed', 'velocidad', 'vitesse'],
+  'shot xG': ['xG', 'xG', 'xG'],
+  'opposing shot xG': ['xG faced', 'xG recibido', 'xG concédé'],
+  'save difficulty estimate': ['save difficulty', 'dificultad', 'difficulté'],
+  goals: ['goals', 'goles', 'buts'],
+  'observed speed': ['speed', 'velocidad', 'vitesse'],
+  'deficit before goal': ['deficit', 'desventaja', 'retard'],
+  'momentum index change': ['momentum', 'impulso', 'momentum'],
+  'shots in window': ['shots', 'tiros', 'tirs'],
+  'possession in window': ['possession', 'posesión', 'possession'],
+};
+
+type Phrase = {
+  frame: (ctx: NarrativeContext) => string;
+  goal: (ctx: NarrativeContext, subject: string) => string;
+  bigChance: (ctx: NarrativeContext, subject: string) => string;
+  siege: (ctx: NarrativeContext) => string;
+  momentum: (ctx: NarrativeContext) => string;
+  milestone: (ctx: NarrativeContext, subject: string) => string;
+  speed: (ctx: NarrativeContext, subject: string) => string;
+  comeback: (ctx: NarrativeContext) => string;
+  review: string;
+  overturn: string;
+  penalty: string;
+  red: (ctx: NarrativeContext, subject: string) => string;
+  late: (ctx: NarrativeContext) => string;
+  pressure: (ctx: NarrativeContext) => string;
+};
+
+const PHRASES: Record<Lang, Phrase> = {
+  en: {
+    frame: (ctx) => ctx.team === 'Match'
+      ? `${ctx.minute} — score ${scoreText(ctx)}.`
+      : `${ctx.minute} — ${ctx.team} ${scoreText(ctx)} ${ctx.opponent}.`,
+    goal: (ctx, subject) => {
+      const distance = value(ctx, 'distanceM', 'm');
+      const speed = value(ctx, 'ballSpeedKph', 'km/h');
+      const xg = value(ctx, 'xg', 'xG');
+      const parts = [distance && `${subject} finished from ${distance}`, speed && `at ${speed}`, xg && `(${xg} expected goals)`]
+        .filter(Boolean);
+      return parts.length ? `${parts.join(' ')}.` : `${subject} found the net.`;
+    },
+    bigChance: (ctx, subject) => {
+      const distance = value(ctx, 'distanceM', 'm');
+      const xg = value(ctx, 'xg', 'xG');
+      const parts = [`${subject} had a chance`, distance && `from ${distance}`, xg && `worth ${xg}`].filter(Boolean);
+      return `${parts.join(' ')}.`;
+    },
+    siege: (ctx) => {
+      const shots = value(ctx, 'shotsLast10', '');
+      const oppShots = value(ctx, 'opponentShotsLast10', '');
+      const possession = percent(ctx, 'possessionShare');
+      const parts = [`Over the last ten minutes ${ctx.team} had ${shots ?? 'the better'} shots to ${oppShots ?? 'fewer'}`];
+      if (possession) parts.push(`with ${possession} of the ball`);
+      return `${parts.join(' ')}.`;
+    },
+    momentum: (ctx) => {
+      const swing = value(ctx, 'swing', 'index');
+      return swing ? `The momentum index moved ${swing} over the window.` : `The momentum has shifted toward ${ctx.team}.`;
+    },
+    milestone: (ctx, subject) => {
+      const goals = value(ctx, 'goals', 'goals');
+      return goals ? `${subject} now has ${goals} in this match.` : `${subject} is on the scoresheet again.`;
+    },
+    speed: (ctx, subject) => {
+      const speed = value(ctx, 'speedKph', 'km/h');
+      return speed ? `${subject} was clocked at ${speed}.` : `${subject} produced the standout run.`;
+    },
+    comeback: (ctx) => {
+      const deficit = value(ctx, 'deficitBefore', 'goals');
+      return deficit ? `${ctx.team} had trailed by ${deficit} before this goal.` : `${ctx.team} are back in the game.`;
+    },
+    review: 'The goal is under review.',
+    overturn: 'The review has overturned the goal.',
+    penalty: 'A penalty has been awarded.',
+    red: (_ctx, subject) => `${subject} was shown a red card.`,
+    late: (ctx) => `A late goal has changed the score to ${scoreText(ctx)}.`,
+    pressure: (ctx) => `${ctx.team} are applying pressure.`,
+  },
+  es: {
+    frame: (ctx) => ctx.team === 'Match'
+      ? `${ctx.minute} — marcador ${scoreText(ctx)}.`
+      : `${ctx.minute} — ${ctx.team} ${scoreText(ctx)} ${ctx.opponent}.`,
+    goal: (ctx, subject) => {
+      const distance = value(ctx, 'distanceM', 'm');
+      const speed = value(ctx, 'ballSpeedKph', 'km/h');
+      const xg = value(ctx, 'xg', 'xG');
+      return `${subject} remató${distance ? ` desde ${distance}` : ''}${speed ? ` a ${speed}` : ''}${xg ? ` (${xg} de xG)` : ''}.`;
+    },
+    bigChance: (ctx, subject) => {
+      const distance = value(ctx, 'distanceM', 'm');
+      const xg = value(ctx, 'xg', 'xG');
+      return `${subject} tuvo una ocasión${distance ? ` desde ${distance}` : ''}${xg ? ` de ${xg}` : ''}.`;
+    },
+    siege: (ctx) => {
+      const shots = value(ctx, 'shotsLast10', '');
+      const opp = value(ctx, 'opponentShotsLast10', '');
+      const poss = percent(ctx, 'possessionShare');
+      return `En los últimos diez minutos ${ctx.team} tiró ${shots ?? 'más'} veces frente a ${opp ?? 'menos'}${poss ? `, con ${poss} de posesión` : ''}.`;
+    },
+    momentum: (ctx) => {
+      const swing = value(ctx, 'swing', 'index');
+      return swing ? `El índice de impulso cambió ${swing} en el intervalo.` : `El impulso favorece a ${ctx.team}.`;
+    },
+    milestone: (ctx, subject) => {
+      const goals = value(ctx, 'goals', 'goles');
+      return goals ? `${subject} ya suma ${goals} en este partido.` : `${subject} vuelve a marcar.`;
+    },
+    speed: (ctx, subject) => {
+      const speed = value(ctx, 'speedKph', 'km/h');
+      return speed ? `${subject} alcanzó ${speed}.` : `${subject} firmó la carrera destacada.`;
+    },
+    comeback: (ctx) => {
+      const deficit = value(ctx, 'deficitBefore', 'goles');
+      return deficit ? `${ctx.team} perdía por ${deficit} antes de este gol.` : `${ctx.team} vuelve al partido.`;
+    },
+    review: 'El gol está bajo revisión.',
+    overturn: 'La revisión ha anulado el gol.',
+    penalty: 'Se ha concedido un penalti.',
+    red: (_ctx, subject) => `${subject} vio la tarjeta roja.`,
+    late: (ctx) => `Un gol tardío ha puesto el ${scoreText(ctx)}.`,
+    pressure: (ctx) => `${ctx.team} está apretando.`,
+  },
+  fr: {
+    frame: (ctx) => ctx.team === 'Match'
+      ? `${ctx.minute} — score ${scoreText(ctx)}.`
+      : `${ctx.minute} — ${ctx.team} ${scoreText(ctx)} ${ctx.opponent}.`,
+    goal: (ctx, subject) => {
+      const distance = value(ctx, 'distanceM', 'm');
+      const speed = value(ctx, 'ballSpeedKph', 'km/h');
+      const xg = value(ctx, 'xg', 'xG');
+      return `${subject} a conclu${distance ? ` à ${distance}` : ''}${speed ? ` à ${speed}` : ''}${xg ? ` (${xg} xG)` : ''}.`;
+    },
+    bigChance: (ctx, subject) => {
+      const distance = value(ctx, 'distanceM', 'm');
+      const xg = value(ctx, 'xg', 'xG');
+      return `${subject} a eu une occasion${distance ? ` à ${distance}` : ''}${xg ? ` de ${xg}` : ''}.`;
+    },
+    siege: (ctx) => {
+      const shots = value(ctx, 'shotsLast10', '');
+      const opp = value(ctx, 'opponentShotsLast10', '');
+      const poss = percent(ctx, 'possessionShare');
+      return `Sur les dix dernières minutes, ${ctx.team} a tiré ${shots ?? 'davantage'} fois contre ${opp ?? 'moins'}${poss ? `, avec ${poss} de possession` : ''}.`;
+    },
+    momentum: (ctx) => {
+      const swing = value(ctx, 'swing', 'index');
+      return swing ? `L'indice de momentum a évolué de ${swing} sur la période.` : `Le momentum est du côté de ${ctx.team}.`;
+    },
+    milestone: (ctx, subject) => {
+      const goals = value(ctx, 'goals', 'buts');
+      return goals ? `${subject} en est à ${goals} dans ce match.` : `${subject} marque à nouveau.`;
+    },
+    speed: (ctx, subject) => {
+      const speed = value(ctx, 'speedKph', 'km/h');
+      return speed ? `${subject} a été chronométré à ${speed}.` : `${subject} a signé la course clé.`;
+    },
+    comeback: (ctx) => {
+      const deficit = value(ctx, 'deficitBefore', 'buts');
+      return deficit ? `${ctx.team} était mené de ${deficit} avant ce but.` : `${ctx.team} revient dans le match.`;
+    },
+    review: 'Le but est en cours de révision.',
+    overturn: 'La révision a annulé le but.',
+    penalty: 'Un penalty a été accordé.',
+    red: (_ctx, subject) => `${subject} a reçu un carton rouge.`,
+    late: (ctx) => `Un but tardif porte le score à ${scoreText(ctx)}.`,
+    pressure: (ctx) => `${ctx.team} met la pression.`,
+  },
+};
+
+const languageIndex = (lang: Lang): number => LANGUAGES.indexOf(lang);
+
+function scoreText(ctx: NarrativeContext): string {
+  if (ctx.scoreAt) return `${ctx.scoreAt.home}–${ctx.scoreAt.away}`;
+  return ctx.score ?? '0–0';
 }
 
-const num = (v: string | number | boolean | undefined, fallback = ''): string => (v === undefined ? fallback : String(v));
-const pct = (v: string | number | boolean | undefined): string => {
-  if (v === undefined) return '';
-  const n = typeof v === 'number' ? v : parseFloat(String(v));
-  return Number.isNaN(n) ? '' : n > 1 ? `${Math.round(n)}%` : `${Math.round(n * 100)}%`;
-};
-
-const EN: PhraseSet = {
-  goalHeadline: (c) => `GOAL — ${c.player ?? c.teamAbbr} makes it ${c.score ?? ''}`.trim(),
-  goalBody: (c) =>
-    `${c.player ?? 'The finisher'} strikes from ${num(c.facts['distanceM'])} metres at ${num(c.facts['ballSpeedKph'])} km/h — a ${num(c.facts['xg'])} xG chance${c.facts['isPenalty'] ? ' from the spot' : ''}. The scoreline now reads ${c.score ?? ''}.`,
-  goalCasual: (c) => `It's in! ${c.player ?? c.teamAbbr} scores and the score is ${c.score ?? ''}. The stadium erupts.`,
-  goalClub: (c) => `YES! ${c.player ?? 'Our number nine'} buries it — ${c.score ?? ''} and this one matters. Come on!`,
-  goalPlayer: (c) => `Watch ${c.player ?? 'the scorer'} here: a clean strike from ${num(c.facts['distanceM'])} metres, worth ${num(c.facts['xg'])} xG.`,
-  varReview: () => 'The referee is checking... the goal is under review. Hold everything.',
-  varOverturn: () => 'OVERTURNED. The goal is chalked off and the scoreline rolls back. The insights surrounding that moment are retracted.',
-  penalty: (c) => `Penalty to ${c.team}! A huge chance at ${c.minute}.`,
-  redCard: (c) => `RED CARD — ${num(c.facts['player'], 'a player')} is off (${num(c.facts['reason'], 'serious foul play')}). ${c.team} are down to ten.`,
-  bigChance: (c) =>
-    `Big chance for ${c.team}: ${c.player ?? 'the attacker'} gets a ${num(c.facts['xg'])} xG look from ${num(c.facts['distanceM'])} metres — ${num(c.facts['outcome'])}.`,
-  bigSave: (c) => `What a save! Difficulty ${num(c.facts['difficulty'])} — ${c.player ?? 'the keeper'} denies a ${num(c.facts['xg'])} xG chance.`,
-  momentum: (c) => `Momentum has swung to ${c.team} — a ${num(c.facts['swing'])} shift over the last five minutes.`,
-  siege: (c) => `${c.team} are laying siege: ${num(c.facts['shotsLast10'])} shots in ten minutes with ${pct(c.facts['possessionShare'])} of the ball.`,
-  comeback: (c) => `They're back in it! ${c.player ?? c.team} halves the deficit — ${c.score ?? ''}.`,
-  lateDrama: (c) => `LATE DRAMA at ${c.minute}! ${c.team} strike with the clock nearly out — ${c.score ?? ''}.`,
-  milestone: (c) => `${c.player ?? 'The scorer'} completes a ${num(c.facts['milestone'], 'special moment')} — ${num(c.facts['goals'])} goals today.`,
-  speedFlash: (c) => `Blistering pace from ${num(c.facts['player'], 'the winger')}: ${num(c.facts['speedKph'])} km/h — the fastest of the match so far.`,
-  tacticalPressure: (c) => `${c.team} have shifted the pressure: ${num(c.facts['detail'], 'higher line and quicker pressure')}.`,
-};
-
-const ES: PhraseSet = {
-  goalHeadline: (c) => `GOL — ${c.player ?? c.teamAbbr} pone el ${c.score ?? ''}`.trim(),
-  goalBody: (c) =>
-    `${c.player ?? 'El delantero'} dispara desde ${num(c.facts['distanceM'])} metros a ${num(c.facts['ballSpeedKph'])} km/h — una ocasión de ${num(c.facts['xg'])} xG${c.facts['isPenalty'] ? ' desde el punto de penalti' : ''}. El marcador queda ${c.score ?? ''}.`,
-  goalCasual: (c) => `¡Es gol! ${c.player ?? c.teamAbbr} marca y el resultado es ${c.score ?? ''}. Explota el estadio.`,
-  goalClub: (c) => `¡SÍ! ${c.player ?? 'nuestro nueve'} la manda a guardar — ${c.score ?? ''} y esto importa. ¡Vamos!`,
-  goalPlayer: (c) => `Mira a ${c.player ?? 'el goleador'}: un golpeo limpio desde ${num(c.facts['distanceM'])} metros, ${num(c.facts['xg'])} xG.`,
-  varReview: () => 'El árbitro está revisando... el gol está bajo revisión. Esperen.',
-  varOverturn: () => 'ANULADO. El gol se anula y el marcador retrocede. Las narrativas de ese momento quedan retiradas.',
-  penalty: (c) => `¡Penalti para ${c.team}! Una ocasión enorme al ${c.minute}.`,
-  redCard: (c) => `TARJETA ROJA — ${num(c.facts['player'], 'un jugador')} se va (${num(c.facts['reason'], 'juego brusco grave')}). ${c.team} se queda con diez.`,
-  bigChance: (c) => `Ocasión clarísima para ${c.team}: ${c.player ?? 'el atacante'} con ${num(c.facts['xg'])} xG desde ${num(c.facts['distanceM'])} metros — ${num(c.facts['outcome'])}.`,
-  bigSave: (c) => `¡Qué parada! Dificultad ${num(c.facts['difficulty'])} — ${c.player ?? 'el portero'} niega una ocasión de ${num(c.facts['xg'])} xG.`,
-  momentum: (c) => `El momento cambió hacia ${c.team} — un giro de ${num(c.facts['swing'])} en cinco minutos.`,
-  siege: (c) => `${c.team} asedia: ${num(c.facts['shotsLast10'])} remates en diez minutos con ${pct(c.facts['possessionShare'])} del balón.`,
-  comeback: (c) => `¡Vuelven a meterse! ${c.player ?? c.team} recorta distancias — ${c.score ?? ''}.`,
-  lateDrama: (c) => `¡DRAMA AL FINAL al ${c.minute}! ${c.team} golpea con el tiempo casi agotado — ${c.score ?? ''}.`,
-  milestone: (c) => `${c.player ?? 'El goleador'} completa un ${num(c.facts['milestone'], 'momento especial')} — ${num(c.facts['goals'])} goles hoy.`,
-  speedFlash: (c) => `Velocidad explosiva de ${num(c.facts['player'], 'el extremo')}: ${num(c.facts['speedKph'])} km/h — la más alta del partido hasta ahora.`,
-  tacticalPressure: (c) => `${c.team} cambió la presión: ${num(c.facts['detail'], 'línea más alta y presión más rápida')}.`,
-};
-
-const FR: PhraseSet = {
-  goalHeadline: (c) => `BUT — ${c.player ?? c.teamAbbr} porte le score à ${c.score ?? ''}`.trim(),
-  goalBody: (c) =>
-    `${c.player ?? "L'attaquant"} frappe depuis ${num(c.facts['distanceM'])} mètres à ${num(c.facts['ballSpeedKph'])} km/h — une occasion de ${num(c.facts['xg'])} xG${c.facts['isPenalty'] ? ' sur penalty' : ''}. Le score est de ${c.score ?? ''}.`,
-  goalCasual: (c) => `C'est but ! ${c.player ?? c.teamAbbr} marque et le score est de ${c.score ?? ''}. Le stade explose.`,
-  goalClub: (c) => `OUI ! ${c.player ?? 'notre numéro neuf'} la met au fond — ${c.score ?? ''} et ça compte. Allez !`,
-  goalPlayer: (c) => `Regardez ${c.player ?? 'le buteur'} : une frappe propre depuis ${num(c.facts['distanceM'])} mètres, ${num(c.facts['xg'])} xG.`,
-  varReview: () => "L'arbitre vérifie... le but est en cours de révision. Patientez.",
-  varOverturn: () => 'ANNULÉ. Le but est refusé et le score revient en arrière. Les analyses de ce moment sont retirées.',
-  penalty: (c) => `Penalty pour ${c.team} ! Une occasion énorme à la ${c.minute}.`,
-  redCard: (c) => `CARTON ROUGE — ${num(c.facts['player'], 'un joueur')} sort (${num(c.facts['reason'], 'jeu dangereux')}). ${c.team} est réduit à dix.`,
-  bigChance: (c) => `Grosse occasion pour ${c.team} : ${c.player ?? "l'attaquant"} avec ${num(c.facts['xg'])} xG depuis ${num(c.facts['distanceM'])} mètres — ${num(c.facts['outcome'])}.`,
-  bigSave: (c) => `Quel arrêt ! Difficulté ${num(c.facts['difficulty'])} — ${c.player ?? 'le gardien'} repousse une occasion de ${num(c.facts['xg'])} xG.`,
-  momentum: (c) => `Le momentum a basculé vers ${c.team} — un écart de ${num(c.facts['swing'])} sur cinq minutes.`,
-  siege: (c) => `${c.team} assiège : ${num(c.facts['shotsLast10'])} tirs en dix minutes avec ${pct(c.facts['possessionShare'])} du ballon.`,
-  comeback: (c) => `Ils reviennent ! ${c.player ?? c.team} réduit l'écart — ${c.score ?? ''}.`,
-  lateDrama: (c) => `DRAME EN FIN DE MATCH à la ${c.minute} ! ${c.team} frappe à l'ultime moment — ${c.score ?? ''}.`,
-  milestone: (c) => `${c.player ?? 'Le buteur'} réalise un ${num(c.facts['milestone'], 'moment spécial')} — ${num(c.facts['goals'])} buts aujourd'hui.`,
-  speedFlash: (c) => `Vitesse fulgurante de ${num(c.facts['player'], "l'ailier")} : ${num(c.facts['speedKph'])} km/h — la plus élevée du match jusqu'ici.`,
-  tacticalPressure: (c) => `${c.team} a changé la pression : ${num(c.facts['detail'], 'ligne plus haute et pressing plus rapide')}.`,
-};
-
-const PHRASES: Record<Lang, PhraseSet> = { en: EN, es: ES, fr: FR };
-
-export interface TemplateNarrative {
-  headline: string;
-  body: string;
+function factFor(ctx: NarrativeContext, key: string): NumericFact | undefined {
+  return scopedNumericFacts(ctx).find((fact) => fact.id === key);
 }
 
-export function templateNarrative(ctx: NarrativeContext, persona: Persona, lang: Lang): TemplateNarrative {
+function value(ctx: NarrativeContext, key: string, unit: string): string | null {
+  const fact = factFor(ctx, key);
+  if (!fact) return null;
+  if (fact.unit === 'fraction') return `${(fact.value * 100).toFixed(0)}%`;
+  if (fact.unit === 'xG') return fact.value.toFixed(2);
+  if (fact.unit === 'km/h') return `${fact.value.toFixed(1)} km/h`;
+  if (fact.unit === 'm') return `${Math.round(fact.value)} m`;
+  if (fact.unit === 'index' && unit === 'index') return `${fact.value > 0 ? '+' : ''}${fact.value.toFixed(2)}`;
+  if (fact.unit === 'goals') return `${fact.value}`;
+  return `${fact.value}${unit && fact.unit !== 'index' ? ` ${unit}` : ''}`.trim();
+}
+
+function percent(ctx: NarrativeContext, key: string): string | null {
+  const fact = factFor(ctx, key);
+  return fact ? `${Math.round(fact.value * 100)}%` : null;
+}
+
+function subjectFor(ctx: NarrativeContext, persona: Persona): string {
+  if (persona === 'club') return ctx.team;
+  if (persona === 'player_focus') return ctx.player ?? ctx.team;
+  return ctx.player ?? ctx.team;
+}
+
+function kindSentence(ctx: NarrativeContext, persona: Persona, lang: Lang, subject: string): string {
   const p = PHRASES[lang];
   switch (ctx.kind) {
-    case 'goal': {
-      const headline = persona === 'club' ? p.goalClub(ctx) : persona === 'casual' ? p.goalCasual(ctx) : p.goalHeadline(ctx);
-      const body = persona === 'player_focus' ? p.goalPlayer(ctx) : p.goalBody(ctx);
-      return { headline, body };
+    case 'goal': return p.goal(ctx, subject);
+    case 'big_chance': return p.bigChance(ctx, subject);
+    case 'big_save': {
+      const xg = value(ctx, 'xg', 'xG');
+      if (lang === 'es') return `El portero evitó un tiro de ${xg ?? 'mucho'} xG.`;
+      if (lang === 'fr') return `Le gardien a repoussé un tir de ${xg ?? 'beaucoup'} xG.`;
+      return `The keeper denied a ${xg ?? 'high-value'} xG chance.`;
     }
-    case 'var_review':
-      return { headline: 'Under review', body: p.varReview(ctx) };
-    case 'var_overturn':
-      return { headline: 'Overturned', body: p.varOverturn(ctx) };
-    case 'penalty':
-      return { headline: 'Penalty', body: p.penalty(ctx) };
-    case 'red_card':
-      return { headline: 'Red card', body: p.redCard(ctx) };
-    case 'big_chance':
-      return { headline: 'Big chance', body: p.bigChance(ctx) };
-    case 'big_save':
-      return { headline: 'Big save', body: p.bigSave(ctx) };
-    case 'momentum_shift':
-      return { headline: 'Momentum shift', body: p.momentum(ctx) };
-    case 'siege':
-      return { headline: 'Sustained pressure', body: p.siege(ctx) };
-    case 'comeback_trigger':
-      return { headline: 'Back in it', body: p.comeback(ctx) };
-    case 'late_drama':
-      return { headline: 'Late drama', body: p.lateDrama(ctx) };
-    case 'milestone':
-      return { headline: 'Milestone', body: p.milestone(ctx) };
-    case 'speed_flash':
-      return { headline: 'Fastest of the match', body: p.speedFlash(ctx) };
-    case 'tactical_pressure':
-      return { headline: 'Pressure shift', body: p.tacticalPressure(ctx) };
-    default:
-      return { headline: 'Moment', body: `${ctx.team} — ${ctx.minute}.` };
+    case 'siege': return p.siege(ctx);
+    case 'momentum_shift': return p.momentum(ctx);
+    case 'milestone': return p.milestone(ctx, subject);
+    case 'speed_flash': return p.speed(ctx, subject);
+    case 'comeback_trigger': return p.comeback(ctx);
+    case 'var_review': return p.review;
+    case 'var_overturn': return p.overturn;
+    case 'penalty': return p.penalty;
+    case 'red_card': return p.red(ctx, subject);
+    case 'late_drama': return p.late(ctx);
+    case 'tactical_pressure': return p.pressure(ctx);
+    default: return '';
   }
 }
 
-/** Short ticker line for the live commentary feed. */
+/** Facts-only floor. No raw detail, outcome reason or model prose. */
+export function metricOnlyNarrative(ctx: NarrativeContext, lang: Lang): TemplateNarrative {
+  const i = languageIndex(lang);
+  const score = scopedNumericFacts(ctx).filter((fact) => fact.metric === 'score');
+  const time = Number.isFinite(ctx.asOf) ? `${ctx.asOf} s` : /^\d+(?:\+\d+)?'$/.test(ctx.minute) ? ctx.minute : '';
+  const body = score.length === 2
+    ? `${['Score (home–away)', 'Marcador (local–visitante)', 'Score (domicile–extérieur)'][i]}: ${score[0]!.value}–${score[1]!.value}.`
+    : `${['Match observation', 'Observación del partido', 'Observation du match'][i]}.`;
+  return { headline: `${['Match update', 'Actualización', 'Actualisation'][i]} · ${time}`.trim(), body };
+}
+
+/** Controlled, evidence-bound rendering. Every number comes from a typed
+ *  fact (subject, metric, unit, as-of time); the verifier compares the exact
+ *  rendering, so no model prose can inherit this approval. */
+export function templateNarrative(ctx: NarrativeContext, persona: Persona, lang: Lang): TemplateNarrative {
+  const i = languageIndex(lang);
+  const subject = subjectFor(ctx, persona);
+  const title = TITLES[ctx.kind]?.[i] ?? ['Match update', 'Actualización', 'Actualisation'][i];
+  const frame = PHRASES[lang].frame(ctx);
+  const detail = kindSentence(ctx, persona, lang, subject);
+  return { headline: `${title} · ${subject}`, body: `${frame}${detail ? ` ${detail}` : ''}`.trim() };
+}
+
 export function tickerLine(ctx: NarrativeContext, lang: Lang): string {
-  const p = PHRASES[lang];
-  switch (ctx.kind) {
-    case 'goal':
-      return p.goalHeadline(ctx);
-    case 'var_overturn':
-      return p.varOverturn(ctx);
-    case 'red_card':
-      return p.redCard(ctx);
-    case 'penalty':
-      return p.penalty(ctx);
-    case 'big_save':
-      return p.bigSave(ctx);
-    case 'momentum_shift':
-      return p.momentum(ctx);
-    default:
-      return `${ctx.minute} ${ctx.team}`;
-  }
+  const narrative = templateNarrative(ctx, 'analyst', lang);
+  return `${narrative.headline}. ${PHRASES[lang].frame(ctx)}`;
 }

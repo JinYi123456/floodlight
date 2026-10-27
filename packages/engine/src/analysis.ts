@@ -23,7 +23,7 @@ export interface WindowFeatures {
   shots: number;
   /** Home team's xT accrual minus away's, in the window. */
   xtBalance: number;
-  /** Defensive actions in the attacking half per minute (pressing proxy). */
+  /** Tackles, interceptions and fouls in the opponent's defensive 60% per minute (pressing proxy). */
   highPressPerMinute: number;
 }
 

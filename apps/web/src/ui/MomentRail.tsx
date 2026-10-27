@@ -12,18 +12,14 @@ import { kindStyle } from './kinds';
 export function MomentRail() {
   const match = useAppStore((state) => state.match);
   const t = useAppStore((state) => state.t);
-  const maxT = useAppStore((state) => state.maxT);
   const spoilerFree = useAppStore((state) => state.spoilerFree);
+  const prefs = useAppStore((state) => state.prefs);
   const selectedMomentId = useAppStore((state) => state.selectedMomentId);
   const selectMoment = useAppStore((state) => state.selectMoment);
-  const scrub = useAppStore((state) => state.scrub);
+  const replay = useAppStore((state) => state.replay);
   const liveRef = useRef<HTMLLIElement | null>(null);
 
-  const feed = match ? buildFeed(match, t) : [];
-  // The watermark, not the playhead: scrubbing back never re-hides what the
-  // viewer has already been past.
-  const visible = spoilerFree ? feed.filter((item) => item.t <= maxT) : feed;
-  const hidden = feed.length - visible.length;
+  const visible = match ? buildFeed(match, t, spoilerFree ? 0 : 150, prefs) : [];
   const liveId = visible.filter((item) => item.state === 'live').at(-1)?.candidateId ?? null;
 
   useEffect(() => {
@@ -36,7 +32,7 @@ export function MomentRail() {
     <aside className="moment-rail">
       <header className="rail-head">
         <h2>Rundown</h2>
-        <span className="rail-count">{feed.filter((i) => i.state !== 'upcoming').length} aired</span>
+        <span className="rail-count">{visible.filter((i) => i.state !== 'upcoming').length} aired</span>
       </header>
       <ol className="moment-list">
         {visible.map((item) => {
@@ -50,8 +46,8 @@ export function MomentRail() {
               ref={isLive ? liveRef : undefined}
               className={`moment-item ${item.state}${isSelected ? ' selected' : ''}${isLive ? ' is-live' : ''}${item.synthetic ? ' structural' : ''}`}
               onClick={() => {
-                if (!item.synthetic) selectMoment(item.candidateId);
-                if (!retracted) scrub(Math.max(0, item.t - 6));
+                if (retracted) selectMoment(item.candidateId);
+                else replay(Math.max(0, item.t - 6));
               }}
               title={
                 retracted
@@ -70,10 +66,9 @@ export function MomentRail() {
           );
         })}
       </ol>
-      {hidden > 0 && (
-        <p className="rail-hidden">
-          Spoiler-free — {hidden} upcoming {hidden === 1 ? 'entry' : 'entries'} hidden until you get there.
-        </p>
+      {spoilerFree && <p className="rail-hidden">Spoiler-free — only events at or before your playhead are shown.</p>}
+      {(prefs.clubId || prefs.playerId || prefs.metric) && (
+        <p className="rail-hidden">Focused rundown · score-changing events and decisions always remain visible.</p>
       )}
     </aside>
   );

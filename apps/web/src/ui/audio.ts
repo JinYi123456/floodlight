@@ -21,8 +21,19 @@ interface HitEvent {
 interface VoiceLine {
   text: string;
   url?: string;
+  expiresAt: number;
   /** Big moments cut in louder and faster — the commentator raising his voice. */
   urgent?: boolean;
+}
+
+export interface AudioPlayback {
+  /** Match object identity also separates regenerated matches with the same id. */
+  sessionId?: unknown;
+  epoch?: number;
+  lang?: string;
+  persona?: string;
+  preferenceKey?: string;
+  rate?: number;
 }
 
 const MASTER_GAIN = 0.9;
@@ -48,7 +59,15 @@ export class BroadcastAudio {
   private clipCache = new Map<string, AudioBuffer>();
   private clipMisses = new Set<string>();
   private lastPlaying = false;
-  private voice: SpeechSynthesisVoice | null = null;
+  private sessionId: unknown;
+  private epoch: number | undefined;
+  private lang = 'en';
+  private persona = 'analyst';
+  private preferenceKey = '';
+  private rate = 1;
+  private generation = 0;
+  private loading: AbortController | null = null;
+  private utterance: SpeechSynthesisUtterance | null = null;
   private queueCount = 0;
   private sayCount = 0;
   private cancelCount = 0;
@@ -97,37 +116,8 @@ export class BroadcastAudio {
       this.speechGain.connect(this.master);
     }
     void this.ctx.resume().catch(() => undefined);
-    if (this.voice === null && typeof speechSynthesis !== 'undefined') {
-      // Pick the most engaging voice on offer: natural/neural first, then
-      // the livelier named voices, English before the rest.
-      const score = (candidate: SpeechSynthesisVoice): number => {
-        const name = candidate.name.toLowerCase();
-        if (!candidate.lang.toLowerCase().startsWith('en')) return -1;
-        let value = candidate.lang === 'en-GB' || candidate.lang === 'en-US' ? 6 : 3;
-        if (/natural|online|neural/.test(name)) value += 5;
-        if (/guy|ryan|george|christopher|daniel|alex|brian/.test(name)) value += 3;
-        if (/aria|jenny|sonia|libby/.test(name)) value += 2;
-        if (/david|mark|zira/.test(name)) value += 1;
-        return value;
-      };
-      const pick = () => {
-        const voices = speechSynthesis.getVoices();
-        let best: SpeechSynthesisVoice | null = null;
-        let bestScore = 0;
-        for (const candidate of voices) {
-          const value = score(candidate);
-          if (value > bestScore) {
-            best = candidate;
-            bestScore = value;
-          }
-        }
-        this.voice = best;
-      };
-      pick();
-      speechSynthesis.onvoiceschanged = pick;
-    }
     this.enabled = true;
-    this.crowd?.gain.setTargetAtTime(CROWD_BASE, this.ctx.currentTime, 0.8);
+    this.crowd?.gain.setTargetAtTime(this.lastPlaying ? CROWD_BASE : 0.0001, this.ctx.currentTime, 0.8);
     return true;
   }
 
@@ -137,22 +127,49 @@ export class BroadcastAudio {
     if (this.ctx && this.crowd) {
       this.crowd.gain.setTargetAtTime(0.0001, this.ctx.currentTime, 0.25);
     }
-    if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel();
-    this.speaking = false;
-    this.pending = [];
-    this.stopClip();
+    this.cancelCommentary();
   }
 
-  /** Advance the audio clock: fire the sounds of events crossed since the
-   *  last call, decay excitement, and keep the pointer honest on scrubs.
-   *  Paused means silent: the bed fades out and the commentary desk stops
-   *  mid-sentence — resuming picks the match up where the viewer left it. */
-  update(events: HitEvent[], t: number, playing: boolean): void {
+  /** Advance even while muted: seeks/preferences must invalidate async work
+   *  before a previously requested fetch or decode can reach the speaker. */
+  update(events: HitEvent[], t: number, playing: boolean, playback: AudioPlayback = {}): void {
+    const sessionId = playback.sessionId ?? events;
+    const lang = (playback.lang ?? 'en').toLowerCase();
+    const persona = playback.persona ?? 'analyst';
+    const preferenceKey = playback.preferenceKey ?? '';
+    const requestedRate = playback.rate ?? 1;
+    const rate = Number.isFinite(requestedRate) ? Math.max(0.25, Math.min(4, requestedRate)) : 1;
+    const newSession = sessionId !== this.sessionId;
+    // Epoch catches even a seek to the exact same timestamp. The detector is
+    // a fallback for callers without an explicit clock lifecycle.
+    const jumped = Number.isFinite(this.prevT) &&
+      (t < this.prevT || (playback.epoch === undefined && t - this.prevT > 2.5));
+    const reset = newSession || playback.epoch !== this.epoch || jumped ||
+      lang !== this.lang || persona !== this.persona || preferenceKey !== this.preferenceKey;
+    if (reset || rate !== this.rate || (!playing && this.lastPlaying)) this.cancelCommentary();
+    if (reset) {
+      this.spoken.clear();
+      this.pointer = seek(events, t);
+      this.prevT = t;
+      this.excitement = 0;
+      this.kickCooldown = 0;
+      this.whistleCooldown = 0;
+    }
+    if (newSession) {
+      this.clipCache.clear();
+      this.clipMisses.clear();
+    }
+    this.sessionId = sessionId;
+    this.epoch = playback.epoch;
+    this.lang = lang;
+    this.persona = persona;
+    this.preferenceKey = preferenceKey;
+    this.rate = rate;
+    this.lastPlaying = playing;
     if (!this.ctx || !this.enabled) {
-      this.lastPlaying = false;
+      this.prevT = t;
       return;
     }
-    this.lastPlaying = playing;
     const wall = performance.now();
     const dt = this.lastWall > 0 ? Math.min(1, (wall - this.lastWall) / 1000) : 0.1;
     this.lastWall = wall;
@@ -161,13 +178,6 @@ export class BroadcastAudio {
     this.whistleCooldown = Math.max(0, this.whistleCooldown - dt);
 
     if (!playing) {
-      if (this.speaking || this.pending.length > 0 || this.clip) {
-        if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel();
-        this.speaking = false;
-        this.pending = [];
-        this.stopClip();
-        this.cancelCount++;
-      }
       this.crowd?.gain.setTargetAtTime(0.0001, this.ctx.currentTime, 0.12);
       this.prevT = t;
       return;
@@ -176,12 +186,6 @@ export class BroadcastAudio {
     const level = Math.min(CROWD_PEAK, CROWD_BASE + this.excitement * (CROWD_PEAK - CROWD_BASE));
     this.crowd?.gain.setTargetAtTime(level, this.ctx.currentTime, 0.35);
 
-    if (Number.isNaN(this.prevT) || t < this.prevT || t - this.prevT > 2.5) {
-      // A scrub or a big jump — resynchronise without firing a burst.
-      this.pointer = seek(events, this.pointer, t);
-      this.prevT = t;
-      return;
-    }
     while (this.pointer < events.length && events[this.pointer]!.t <= this.prevT) this.pointer++;
     while (this.pointer < events.length && events[this.pointer]!.t <= t) {
       this.hit(events[this.pointer]!);
@@ -190,90 +194,93 @@ export class BroadcastAudio {
     this.prevT = t;
   }
 
-  /** Read a story moment aloud — the recorded commentator clip when one is
-   *  available, the platform voice otherwise. Goals and other turning points
-   *  interrupt the current line, the way a commentator cuts himself off. */
+  /** clipUrl must already be bound to this exact text/locale by the caller. */
   moment(id: string, text: string, clipUrl: string | null, interrupt = false): void {
-    if (!this.enabled || !text) return;
-    if (this.spoken.has(id)) return;
+    if (!this.enabled || !this.lastPlaying || !text || this.spoken.has(id)) return;
     this.spoken.add(id);
+    // At 4× even short narration falls behind. Keep effects, explicitly mute
+    // commentary rather than accumulating a queue or speaking stale stories.
+    if (this.rate > 2) return;
     this.queueCount++;
-    if (this.spoken.size > 400) this.spoken.clear();
-    const line: VoiceLine =
-      clipUrl && !this.clipMisses.has(clipUrl) ? { text, url: clipUrl, urgent: interrupt } : { text, urgent: interrupt };
+    const line: VoiceLine = {
+      text,
+      url: clipUrl && !this.clipMisses.has(clipUrl) ? clipUrl : undefined,
+      urgent: interrupt,
+      expiresAt: this.prevT + 5,
+    };
     if (interrupt) {
-      this.pending = [];
-      this.cancelSpeech();
-      this.stopClip();
+      this.cancelCommentary();
       this.play(line);
-      return;
+    } else if (this.busy()) {
+      // One fresh line at normal speed, none when the match is accelerated.
+      if (this.rate <= 1) this.pending = [line];
+    } else {
+      this.play(line);
     }
-    if (this.busy()) {
-      if (this.pending.length >= 2) this.pending.shift();
-      this.pending.push(line);
-      return;
-    }
-    this.play(line);
   }
 
   /** Read a line through the platform voice (the play-by-play mic). */
   speak(id: string, text: string, interrupt = false): void {
-    if (!this.enabled || typeof speechSynthesis === 'undefined' || !text) return;
-    if (this.spoken.has(id)) return;
-    this.spoken.add(id);
-    this.queueCount++;
-    if (this.spoken.size > 400) this.spoken.clear();
-    if (interrupt) {
-      this.pending = [];
-      this.cancelSpeech();
-      this.stopClip();
-      this.say(text, true);
-      return;
-    }
-    if (this.busy()) {
-      if (this.pending.length >= 2) this.pending.shift();
-      this.pending.push({ text });
-      return;
-    }
-    this.say(text);
+    this.moment(id, text, null, interrupt);
   }
 
   private busy(): boolean {
-    return this.speaking || this.clip !== null;
+    return this.speaking || this.clip !== null || this.loading !== null;
+  }
+
+  private current(generation: number): boolean {
+    return generation === this.generation && this.enabled && this.lastPlaying && this.rate <= 2;
   }
 
   private play(line: VoiceLine): void {
+    const generation = ++this.generation;
     if (line.url) {
-      void this.playClip(line.url, line);
-      return;
+      void this.playClip(line.url, line, generation);
+    } else {
+      this.say(line.text, line.urgent ?? false, generation);
     }
-    this.say(line.text, line.urgent ?? false);
   }
 
-  private async playClip(url: string, line: VoiceLine): Promise<void> {
+  private async playClip(url: string, line: VoiceLine, generation: number): Promise<void> {
     const ctx = this.ctx;
-    if (!ctx) return;
+    if (!ctx || !this.current(generation)) return;
     let buffer = this.clipCache.get(url);
     if (!buffer) {
+      const controller = new AbortController();
+      this.loading = controller;
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, { signal: controller.signal });
+        if (!this.current(generation)) return;
         if (!response.ok) throw new Error(String(response.status));
-        buffer = await ctx.decodeAudioData(await response.arrayBuffer());
+        const bytes = await response.arrayBuffer();
+        if (!this.current(generation)) return;
+        buffer = await ctx.decodeAudioData(bytes);
+        // decodeAudioData is not abortable; never trust completion alone.
+        if (!this.current(generation)) return;
         this.clipCache.set(url, buffer);
       } catch {
-        // Missing or undecodable clip — fall back to the platform voice.
+        if (!this.current(generation)) return;
         this.clipMisses.add(url);
-        if (this.enabled && this.lastPlaying) this.say(line.text, line.urgent ?? false);
+        this.loading = null;
+        if (this.prevT <= line.expiresAt) this.say(line.text, line.urgent ?? false, generation);
+        else this.drainPending();
         return;
+      } finally {
+        if (this.loading === controller) this.loading = null;
       }
     }
-    if (!this.enabled || !this.lastPlaying) return;
-    this.stopClip();
+    if (!this.current(generation)) return;
+    if (this.prevT > line.expiresAt) {
+      this.drainPending();
+      return;
+    }
     const source = ctx.createBufferSource();
     source.buffer = buffer;
+    source.playbackRate.value = this.rate;
     source.connect(this.speechGain ?? this.master!);
     source.onended = () => {
-      if (this.clip === source) {
+      source.disconnect();
+      if (this.current(generation) && this.clip === source) {
         this.clip = null;
         this.drainPending();
       }
@@ -288,42 +295,69 @@ export class BroadcastAudio {
     if (!this.clip) return;
     const source = this.clip;
     this.clip = null;
+    source.onended = null;
     try {
       source.stop();
     } catch {
       /* already stopped */
     }
+    source.disconnect();
     this.clipStopCount++;
   }
 
-  private cancelSpeech(): void {
+  private cancelCommentary(): void {
+    // Invalidate callbacks before stop/cancel, which can fire synchronously.
+    this.generation++;
+    this.loading?.abort();
+    this.loading = null;
+    this.pending = [];
+    this.utterance = null;
     if (typeof speechSynthesis !== 'undefined' && this.speaking) speechSynthesis.cancel();
     this.speaking = false;
+    this.stopClip();
+    this.cancelCount++;
   }
 
   private drainPending(): void {
     const next = this.pending.shift();
-    if (next && this.enabled && this.lastPlaying) this.play(next);
+    if (next && next.expiresAt >= this.prevT && this.enabled && this.lastPlaying && this.rate <= 2) this.play(next);
   }
 
-  private say(text: string, urgent = false): void {
-    if (typeof speechSynthesis === 'undefined') return;
+  private say(text: string, urgent: boolean, generation: number): void {
+    if (!this.current(generation) || typeof speechSynthesis === 'undefined' ||
+      typeof SpeechSynthesisUtterance === 'undefined') return;
     const utterance = new SpeechSynthesisUtterance(text);
-    if (this.voice) utterance.voice = this.voice;
-    utterance.rate = urgent ? 1.22 : 1.07;
+    const locale = ({ en: 'en-GB', es: 'es-ES', fr: 'fr-FR' } as Record<string, string>)[this.lang] ?? this.lang;
+    // Resolve per line: voice lists often arrive after enable(), and a
+    // language switch must never retain the previously selected English mic.
+    const voices = speechSynthesis.getVoices().filter((voice) =>
+      voice.lang.toLowerCase().split('-')[0] === this.lang.split('-')[0]);
+    const score = (voice: SpeechSynthesisVoice) =>
+      (voice.lang.toLowerCase() === locale.toLowerCase() ? 4 : 0) +
+      (/natural|neural/i.test(voice.name) ? 2 : 0);
+    voices.sort((a, b) => score(b) - score(a));
+    if (voices[0]) utterance.voice = voices[0];
+    utterance.lang = locale;
+    utterance.rate = Math.min(2, (urgent ? 1.22 : 1.07) * this.rate);
     utterance.pitch = urgent ? 1.07 : 0.99;
     utterance.volume = urgent ? 1 : 0.95;
-    utterance.onend = () => {
+    const finished = () => {
+      if (!this.current(generation) || this.utterance !== utterance) return;
+      this.utterance = null;
       this.speaking = false;
       this.drainPending();
     };
-    utterance.onerror = () => {
-      this.speaking = false;
-    };
+    utterance.onend = finished;
+    utterance.onerror = finished;
+    this.utterance = utterance;
     this.speaking = true;
     this.sayCount++;
     this.lastText = text.slice(0, 80);
-    speechSynthesis.speak(utterance);
+    try {
+      speechSynthesis.speak(utterance);
+    } catch {
+      finished();
+    }
   }
 
   private hit(event: HitEvent): void {
@@ -468,6 +502,11 @@ export class BroadcastAudio {
     clips: number;
     clipStops: number;
     clipCache: number;
+    pending: number;
+    loading: boolean;
+    lang: string;
+    rate: number;
+    commentary: string;
   } {
     return {
       enabled: this.enabled,
@@ -484,12 +523,17 @@ export class BroadcastAudio {
       clips: this.clipCount,
       clipStops: this.clipStopCount,
       clipCache: this.clipCache.size,
+      pending: this.pending.length,
+      loading: this.loading !== null,
+      lang: this.lang,
+      rate: this.rate,
+      commentary: !this.enabled ? 'muted' : !this.lastPlaying ? 'paused' : this.rate > 2 ? 'fast-playback-muted' : 'ready',
     };
   }
 }
 
 /** Nearest event index with `t >= time` — cheap binary search for scrubs. */
-function seek(events: HitEvent[], from: number, t: number): number {
+function seek(events: HitEvent[], t: number): number {
   let lo = 0;
   let hi = events.length;
   while (lo < hi) {
@@ -497,7 +541,6 @@ function seek(events: HitEvent[], from: number, t: number): number {
     if (events[mid]!.t < t) lo = mid + 1;
     else hi = mid;
   }
-  void from;
   return lo;
 }
 

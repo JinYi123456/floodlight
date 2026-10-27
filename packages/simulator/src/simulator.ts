@@ -77,11 +77,6 @@ interface CardRecord {
   red: boolean;
 }
 
-interface ScheduledEmit {
-  atT: number;
-  fn: () => void;
-}
-
 const attackingDirection: Record<TeamSide, 1 | -1> = { home: 1, away: -1 };
 
 export function buildMatchConfig(seed: number, scenario: Scenario | undefined): MatchConfig {
@@ -138,7 +133,7 @@ export class MatchSimulator {
   private readonly intentWindows: IntentWindow[] = [];
   private readonly pending: PendingDirective[] = [];
   private readonly cards = new Map<string, CardRecord>();
-  private readonly scheduled: ScheduledEmit[] = [];
+  private period: 1 | 2 = 1;
 
   private readonly squads: Record<TeamSide, Map<string, SquadPlayer>> = { home: new Map(), away: new Map() };
   private readonly lineups: { home: Lineup; away: Lineup };
@@ -157,7 +152,7 @@ export class MatchSimulator {
   private ball: Vec2 = { x: 0, y: 0 };
   private carrierId: string | null = null;
 
-  private pendingGoal: { team: TeamSide; style: 'open_play' | 'screamer' | 'penalty' } | null = null;
+  private pendingGoal: { team: TeamSide; style: 'open_play' | 'screamer' | 'penalty'; byT: number } | null = null;
   private pendingRed: TeamSide | null = null;
   private pendingRedSetAt = 0;
   private pendingOverturn: TeamSide | null = null;
@@ -177,7 +172,7 @@ export class MatchSimulator {
     };
     for (const side of ['home', 'away'] as const) {
       for (const p of this.lineups[side].starters) {
-        this.squads[side].set(p.id, p);
+        this.squads[side].set(p.id, { ...p });
         this.onPitch[side].push(p.id);
       }
       for (const p of this.lineups[side].bench) this.squads[side].set(p.id, { ...p, team: side });
@@ -208,21 +203,24 @@ export class MatchSimulator {
   /* ----------------------------- public ----------------------------- */
 
   run(): SimulationResult {
-    const stop1 = this.rngStateStoppage(1);
-    const stop2 = this.rngStateStoppage(2);
-    this.halfTimeT = HALF_SECONDS + stop1;
-    const fullTimeT = 2 * HALF_SECONDS + stop1 + stop2;
+    const plannedStop1 = this.rngStateStoppage(1);
+    const plannedStop2 = this.rngStateStoppage(2);
+    this.halfTimeT = HALF_SECONDS + plannedStop1;
 
     this.kickoff('home', 0, 'Kick off');
     this.playPeriod(this.halfTimeT);
-    this.flushScheduled(this.halfTimeT + 1);
+    // A review already in progress is resolved before the period ends.
+    this.halfTimeT = this.t;
+    const stop1 = this.halfTimeT - HALF_SECONDS;
     this.emit('half_time', 'none', null, this.ball, null, {
       detail: `Half time — ${this.config.home.abbr} ${this.score.home}, ${this.config.away.abbr} ${this.score.away}`,
     });
 
+    this.period = 2;
     this.kickoff('away', this.halfTimeT, 'Second half under way');
-    this.playPeriod(fullTimeT);
-    this.flushScheduled(fullTimeT);
+    this.playPeriod(this.halfTimeT + HALF_SECONDS + plannedStop2);
+    const fullTimeT = this.t;
+    const stop2 = fullTimeT - this.halfTimeT - HALF_SECONDS;
 
     this.emit('full_time', 'none', null, this.ball, null, {
       detail: `Full time — ${this.config.home.abbr} ${this.score.home}, ${this.config.away.abbr} ${this.score.away}`,
@@ -254,15 +252,17 @@ export class MatchSimulator {
   /* --------------------------- match loop ---------------------------- */
 
   private playPeriod(endT: number): void {
-    while (this.t < endT) this.step();
+    while (this.t < endT) this.step(endT);
   }
 
-  private step(): void {
-    this.advanceDirectives();
-    this.runScheduled();
-
+  private step(endT: number): void {
     const dt = this.rng.float(2.2, 6.0) / this.tempoFactor();
+    if (this.t + dt >= endT) {
+      this.t = endT;
+      return;
+    }
     this.t += dt;
+    this.advanceDirectives();
 
     if (this.t >= this.nextSubT.home || this.t >= this.nextSubT.away) {
       this.maybeSubstitution(this.t >= this.nextSubT.home ? 'home' : 'away');
@@ -286,7 +286,7 @@ export class MatchSimulator {
 
     // Scripted directives take priority over natural decisions.
     if (this.pendingGoal?.team === team) {
-      const urgency = this.directiveUrgency('force_goal', team);
+      const urgency = this.pendingGoal.byT - this.t;
       if (inRange || urgency < 150) {
         if (this.pendingGoal.style === 'penalty') this.forcePenalty(team);
         else this.shoot(team, carrier, { forcedOutcome: 'goal', style: this.pendingGoal.style });
@@ -310,7 +310,8 @@ export class MatchSimulator {
     if (challenger) {
       const cp = this.positionOfId(challenger.id, flip(team));
       const inBoxChallenge = this.inAttackingBox(this.ball, team);
-      if (distance(this.ball.x, this.ball.y, cp.x, cp.y) < 4.0 && this.rng.chance(inBoxChallenge ? 0.25 : 0.58)) {
+      const engagement = this.pressEngagement(this.ball, flip(team));
+      if (distance(this.ball.x, this.ball.y, cp.x, cp.y) < 4.0 && this.rng.chance((inBoxChallenge ? 0.25 : 0.58) * engagement)) {
         this.resolveDuel(team, carrier, challenger.id);
         return;
       }
@@ -355,7 +356,7 @@ export class MatchSimulator {
     const oppScore = this.score[flip(team)];
     const chase = myScore < oppScore && this.t > 60 * 60 ? 0.03 : 0;
     return clamp(
-      0.008 + 0.085 * range ** 1.5 * (0.5 + 0.5 * centrality) + 0.025 * tactics.risk + attackBias * 0.05 + chase,
+      0.008 + 0.085 * range ** 1.5 * (0.5 + 0.5 * centrality) + 0.025 * tactics.risk + attackBias * 0.16 + chase,
       0.004,
       0.18,
     );
@@ -367,6 +368,14 @@ export class MatchSimulator {
 
   /* --------------------------- ball actions -------------------------- */
 
+  /** Pressing changes willingness to engage nearby opponents, not guaranteed success. */
+  private pressEngagement(pos: Vec2, defendingTeam: TeamSide): number {
+    const highZone = pos.x * attackingDirection[defendingTeam] >= -PITCH.length * 0.1;
+    if (!highZone) return 1;
+    const pressing = clamp(this.tactics(defendingTeam).pressing + (this.currentIntent(defendingTeam)?.pressBias ?? 0), 0, 1);
+    return 0.45 + pressing * 1.1;
+  }
+
   private pressureAt(pos: Vec2, team: TeamSide): number {
     const opponents = flip(team);
     let pressure = 0;
@@ -377,7 +386,7 @@ export class MatchSimulator {
       else if (d < 6) pressure += 0.2;
       else if (d < 9) pressure += 0.06;
     }
-    return clamp(pressure, 0, 1.2);
+    return clamp(pressure * this.pressEngagement(pos, opponents), 0, 1.2);
   }
 
   private attemptPass(
@@ -398,10 +407,17 @@ export class MatchSimulator {
 
     const candidates = teammates.map((mate) => {
       const base = this.positionOf(mate, team);
-      const target = {
-        x: clamp(base.x + this.rng.gaussian(0, 1.1), -PITCH.halfLength - 1.5, PITCH.halfLength + 1.5),
-        y: clamp(base.y + this.rng.gaussian(0, 1.1), -PITCH.halfWidth - 1.5, PITCH.halfWidth + 1.5),
+      const raw = {
+        x: clamp(base.x + this.rng.gaussian(0, 1.1), -PITCH.halfLength + 0.5, PITCH.halfLength - 0.5),
+        y: clamp(base.y + this.rng.gaussian(0, 1.1), -PITCH.halfWidth + 0.5, PITCH.halfWidth - 0.5),
       };
+      // A single pass never crosses both halves end to end. Keep the receiver
+      // in a plausible target zone; the longest balls are still ~78 m.
+      const rawLen = distance(start.x, start.y, raw.x, raw.y);
+      const scale = rawLen > 78 ? 78 / rawLen : 1;
+      const target = scale < 1
+        ? { x: start.x + (raw.x - start.x) * scale, y: start.y + (raw.y - start.y) * scale }
+        : raw;
       const len = distance(start.x, start.y, target.x, target.y);
       const progress = (target.x - start.x) * sign;
       let weight = 1;
@@ -431,11 +447,7 @@ export class MatchSimulator {
     );
     const successP = clamp(0.992 - difficulty * 0.32 - 0.002 * Math.max(0, chosen.len - 30), 0.5, 0.99);
 
-    const xtStart = this.xtOf(start, sign);
-    const xtEnd = this.xtOf(chosen.target, sign);
     const height: PassHeight = chosen.len > 32 ? 'high' : chosen.len > 18 && this.rng.chance(0.35) ? 'low' : 'ground';
-    const progressive = (chosen.target.x - start.x) * sign > 10;
-
     let outcome: PassEvent['outcome'];
     if (options.forceComplete) {
       outcome = 'complete';
@@ -443,31 +455,61 @@ export class MatchSimulator {
       const roll = this.rng.next();
       outcome = roll < successP ? 'complete' : this.rng.chance(0.42) ? 'out' : 'incomplete';
     }
+    if (Math.abs(chosen.target.x) >= PITCH.halfLength || Math.abs(chosen.target.y) >= PITCH.halfWidth) outcome = 'out';
 
-    const event = this.emit('pass', team, carrier.id, start, chosen.target, {
+    // Judge the receiver and all defenders at release, before moving the ball.
+    const receiverAtRelease = this.positionOf(chosen.mate, team);
+    const offside = outcome === 'complete' && this.isOffsideAtRelease(start, receiverAtRelease, team);
+    if (offside) outcome = 'incomplete';
+    // Most inaccurate passes escape laterally; overhit balls keep their bearing.
+    // This is an error destination, not a completed pass to an off-pitch player.
+    const missTarget = outcome === 'out' && this.rng.chance(0.85)
+      ? { x: chosen.target.x, y: chosen.target.y < 0 ? -PITCH.halfWidth : PITCH.halfWidth }
+      : chosen.target;
+    let target = outcome === 'out' ? this.exitPoint(start, missTarget) : chosen.target;
+    if (outcome === 'out') {
+      const escape = distance(start.x, start.y, target.x, target.y);
+      if (escape > 82) {
+        // An overhit ball that would cross the whole pitch is kept in play as
+        // an inaccurate pass instead of becoming an implausible 100 m exit.
+        target = {
+          x: start.x + (target.x - start.x) * (82 / escape),
+          y: start.y + (target.y - start.y) * (82 / escape),
+        };
+        outcome = 'incomplete';
+      }
+    }
+    const event = this.emit('pass', team, carrier.id, start, target, {
       recipientId: chosen.mate.id,
-      lengthM: roundTo(chosen.len, 2),
-      angleDeg: roundTo(angleOf(start, chosen.target), 1),
+      lengthM: roundTo(distance(start.x, start.y, target.x, target.y), 2),
+      angleDeg: roundTo(angleOf(start, target), 1),
       height,
       outcome,
       difficulty: roundTo(difficulty, 3),
-      xtSwing: roundTo(xtEnd - xtStart, 4),
-      progressive,
-      lineBreak: this.countLinesBroken(start, chosen.target, team) > 0,
+      xtSwing: roundTo(this.xtOf(target, sign) - this.xtOf(start, sign), 4),
+      progressive: (target.x - start.x) * sign > 10,
+      lineBreak: this.countLinesBroken(start, target, team) > 0,
       nearestOpponentM: roundTo(this.nearestOpponentDistance(start, team), 2),
       pressureAtRelease: roundTo(pressure, 3),
     }) as PassEvent;
 
+    if (offside) {
+      this.emit('offside', team, chosen.mate.id, receiverAtRelease, null, {
+        detail: 'Offside',
+        relatedEventId: event.id,
+        ballAtRelease: { ...start },
+        receiverAtRelease,
+        secondLastDefenderX: this.secondLastDefenderX(team),
+      });
+      this.possession = flip(team);
+      this.ball = receiverAtRelease;
+      this.carrierId = null;
+      this.emitPossessionChange(this.possession, 'set_piece');
+      return;
+    }
     if (outcome === 'complete') {
-      this.ball = chosen.target;
+      this.ball = target;
       this.carrierId = chosen.mate.id;
-      // Occasional offside on long balls into the final third.
-      const nearAttackGoal = (chosen.target.x - sign * PITCH.halfLength) * sign < 35;
-      if (progressive && chosen.len > 25 && nearAttackGoal && this.rng.chance(0.025)) {
-        this.emit('offside', team, chosen.mate.id, chosen.target, null, { detail: 'Offside' });
-        this.possession = flip(team);
-        this.carrierId = null;
-      }
       return;
     }
     if (outcome === 'incomplete') {
@@ -495,7 +537,7 @@ export class MatchSimulator {
         return;
       }
     }
-    this.restartAfterOut(team, chosen.target, event);
+    this.restartAfterOut(team, target, event);
   }
 
   private forcedProgression(team: TeamSide, carrier: SquadPlayer): void {
@@ -553,7 +595,7 @@ export class MatchSimulator {
     const engage = this.nearestOpponent(end, team);
     if (engage) {
       const ep = this.positionOfId(engage.id, flip(team));
-      if (distance(end.x, end.y, ep.x, ep.y) < 2.2 && this.rng.chance(0.25)) {
+      if (distance(end.x, end.y, ep.x, ep.y) < 2.2 && this.rng.chance(0.25 * this.pressEngagement(end, flip(team)))) {
         this.resolveDuel(team, carrier, engage.id);
       }
     }
@@ -676,9 +718,10 @@ export class MatchSimulator {
       start = { x: sign * (PITCH.halfLength - 11), y: 0 };
     } else if (options.style === 'screamer') {
       start = { x: sign * (PITCH.halfLength - 27 + this.rng.float(-2, 4)), y: this.rng.float(-7, 7) };
-    } else if (options.forcedOutcome === 'goal' && distance(start.x, start.y, sign * PITCH.halfLength, 0) > 26) {
-      // Guarantee forced goals originate from a plausible shooting position.
-      start = { x: sign * (PITCH.halfLength - this.rng.float(7, 15)), y: this.rng.gaussian(0, 4.5) };
+    } else if (options.forcedOutcome && (options.forcedOutcome === 'saved' || distance(start.x, start.y, sign * PITCH.halfLength, 0) > 26)) {
+      // Authored chances use plausible shooting locations rather than inflated xG.
+      const range = options.forcedOutcome === 'saved' ? this.rng.float(5, 9) : this.rng.float(7, 15);
+      start = { x: sign * (PITCH.halfLength - range), y: clamp(this.rng.gaussian(0, 3), -8, 8) };
     }
     this.ball = start;
 
@@ -688,23 +731,19 @@ export class MatchSimulator {
     let xg = options.isPenalty
       ? 0.78
       : clamp(
-          1 / (1 + Math.exp(-(0.05 - 0.19 * dist + 0.5 * centrality - 0.75 * pressure + 0.4 * (shooter.ability.shooting - 0.6)))),
+          1 / (1 + Math.exp(-(-0.2 - 0.19 * dist + 0.5 * centrality - 0.75 * pressure + 0.4 * (shooter.ability.shooting - 0.6)))),
           0.01,
           0.45,
         );
-    if (options.style === 'screamer') xg = clamp(xg, 0.02, 0.06);
-    if (options.forcedOutcome === 'saved') xg = Math.max(xg, 0.34);
-
+    // Heuristic, not fitted to real-world shots. The recorded value is also
+    // the exact Bernoulli probability, including goalkeeper ability.
     const goalkeeper = this.goalkeeperOf(flip(team));
     const keeperAdj = goalkeeper ? 1 - 0.3 * (goalkeeper.ability.defending - 0.6) : 1;
+    xg = roundTo(clamp(xg * keeperAdj, 0.001, 0.99), 3);
     let outcome: ShotEvent['outcome'];
     if (options.forcedOutcome) {
       outcome = options.forcedOutcome;
-    } else if (
-      options.isPenalty
-        ? this.rng.chance(0.76)
-        : this.rng.chance(clamp(xg * keeperAdj * (this.scripted ? 0.5 : 0.7), 0.005, 0.9))
-    ) {
+    } else if (this.rng.chance(xg)) {
       outcome = 'goal';
     } else {
       const roll = this.rng.next();
@@ -730,9 +769,12 @@ export class MatchSimulator {
     const isOverturn = underReview && this.pendingOverturn === team;
     if (isOverturn) this.pendingOverturn = null;
 
-    this.emit('shot', team, shooter.id, start, { x: sign * PITCH.halfLength, y: clamp(start.y * 0.3, -3, 3) }, {
+    const shot = this.emit('shot', team, shooter.id, start, { x: sign * PITCH.halfLength, y: clamp(start.y * 0.3, -3, 3) }, {
       outcome,
-      xg: roundTo(xg, 3),
+      xg,
+      // Authored overrides are explicit; their xG is the counterfactual natural probability.
+      outcomeForced: Boolean(options.forcedOutcome),
+      naturalGoalSuppressed: this.naturalGoalSuppressed(team),
       bodyPart: options.isPenalty || this.rng.chance(0.75) ? (this.rng.chance(0.6) ? 'right' : 'left') : this.rng.chance(0.6) ? 'head' : 'other',
       distanceM: roundTo(dist, 1),
       angleDeg: roundTo(angleOf(start, { x: sign * PITCH.halfLength, y: 0 }), 1),
@@ -744,21 +786,26 @@ export class MatchSimulator {
     }) as ShotEvent;
 
     if (outcome === 'goal') {
+      // Like the engine, count provisionally on the shot and retract only on overturn.
+      this.score[team] += 1;
       if (underReview) {
-        const reviewT = this.t;
-        this.emit('var_check', 'none', null, this.ball, null, { detail: 'Goal under review' });
-        this.schedule(reviewT + 90, () => {
-          this.emit('var_check', 'none', null, this.ball, null, {
-            detail: isOverturn ? 'Overturned — offside' : 'Goal awarded',
-          });
+        this.emit('var_check', 'none', null, start, null, { detail: 'Goal under review', relatedEventId: shot.id });
+        // No ordinary play, directives or substitutions while the ball is dead.
+        this.t += 90;
+        if (isOverturn) this.score[team] -= 1;
+        this.emit('var_check', 'none', null, start, null, {
+          detail: isOverturn ? 'Overturned — offside' : 'Goal awarded',
+          relatedEventId: shot.id,
         });
-        this.schedule(reviewT + 150, () => {
-          if (isOverturn) this.restartFromDefendingTeam(flip(team));
-          else this.kickoff(flip(team), this.t, 'Restart after review');
-        });
+        this.t += 60;
+        if (isOverturn) {
+          this.possession = flip(team);
+          this.ball = start;
+          this.carrierId = null;
+          this.emitPossessionChange(this.possession, 'set_piece');
+        } else this.kickoff(flip(team), this.t, 'Restart after review');
         return;
       }
-      this.score[team] += 1;
       this.t += 45;
       this.kickoff(flip(team), this.t, 'Restart after goal');
       return;
@@ -830,9 +877,10 @@ export class MatchSimulator {
     this.emitPossessionChange(team, 'out_of_play');
   }
 
-  private corner(team: TeamSide): void {
+  private corner(team: TeamSide, exitY?: number): void {
     const sign = attackingDirection[team];
-    const y = this.rng.chance(0.5) ? -PITCH.halfWidth + 0.4 : PITCH.halfWidth - 0.4;
+    const lowerSide = exitY === undefined ? this.rng.chance(0.5) : exitY < 0;
+    const y = lowerSide ? -PITCH.halfWidth + 0.4 : PITCH.halfWidth - 0.4;
     const spot = { x: sign * (PITCH.halfLength - 0.4), y };
     this.emit('corner', team, null, spot, null, { detail: 'Corner' });
     this.possession = team;
@@ -855,35 +903,58 @@ export class MatchSimulator {
     this.emitPossessionChange(this.possession, 'turnover');
   }
 
+  /** First boundary crossed by an errant pass, extending its travel if needed. */
+  private exitPoint(start: Vec2, target: Vec2): Vec2 {
+    const dx = target.x - start.x;
+    const dy = target.y - start.y;
+    const tx = dx === 0 ? Infinity : ((dx > 0 ? PITCH.halfLength : -PITCH.halfLength) - start.x) / dx;
+    const ty = dy === 0 ? Infinity : ((dy > 0 ? PITCH.halfWidth : -PITCH.halfWidth) - start.y) / dy;
+    const travel = Math.min(tx >= 0 ? tx : Infinity, ty >= 0 ? ty : Infinity);
+    if (!Number.isFinite(travel)) return { x: clamp(start.x, -PITCH.halfLength, PITCH.halfLength), y: PITCH.halfWidth };
+    return {
+      x: clamp(start.x + dx * travel, -PITCH.halfLength, PITCH.halfLength),
+      y: clamp(start.y + dy * travel, -PITCH.halfWidth, PITCH.halfWidth),
+    };
+  }
+
   private restartAfterOut(team: TeamSide, where: Vec2, sourceEvent: MatchEvent): void {
     const sign = attackingDirection[team];
-    const towardAttackGoal = (where.x - sign * PITCH.halfLength) * sign > PITCH.halfLength - 18;
-    const towardOwnGoal = (where.x - -sign * PITCH.halfLength) * -sign > PITCH.halfLength - 18;
-
-    if (towardOwnGoal) {
-      // A back-pass gone astray: corner for the opponent.
-      this.corner(flip(team));
-      return;
-    }
-    if (towardAttackGoal) {
-      if (Math.abs(where.y) > PITCH.halfWidth - 9) {
-        this.corner(team);
-        return;
+    const exit = this.exitPoint(sourceEvent.at, where);
+    if (Math.abs(exit.x) >= PITCH.halfLength - 1e-6) {
+      if (exit.x * sign < 0) {
+        // Last touched by the defending team: corner at that end and touchline.
+        this.corner(flip(team), exit.y);
+      } else {
+        const spot = { x: sign * (PITCH.halfLength - PITCH.sixYardLength), y: 0 };
+        this.emit('goal_kick', flip(team), null, spot, null, { detail: 'Goal kick' });
+        this.possession = flip(team);
+        this.ball = spot;
+        this.carrierId = this.goalkeeperOf(this.possession)?.id ?? null;
+        this.emitPossessionChange(this.possession, 'out_of_play');
       }
-      this.emit('goal_kick', flip(team), null, { x: sign * (PITCH.halfLength - 5.5), y: 0 }, null, { detail: 'Goal kick' });
-      this.restartFromDefendingTeam(flip(team));
       return;
     }
     const throwTeam = flip(team);
-    this.emit('throw_in', throwTeam, null, where, null, { detail: 'Throw-in' });
+    const spot = { x: exit.x, y: exit.y < 0 ? -PITCH.halfWidth : PITCH.halfWidth };
+    this.emit('throw_in', throwTeam, null, spot, null, { detail: 'Throw-in' });
     this.possession = throwTeam;
-    this.ball = {
-      x: clamp(where.x, -PITCH.halfLength + 1, PITCH.halfLength - 1),
-      y: clamp(where.y, -PITCH.halfWidth + 0.3, PITCH.halfWidth - 0.3),
-    };
+    this.ball = spot;
     this.carrierId = null;
     this.emitPossessionChange(throwTeam, 'out_of_play');
-    void sourceEvent;
+  }
+
+  private secondLastDefenderX(team: TeamSide): number {
+    const sign = attackingDirection[team];
+    const defenders = this.onPitch[flip(team)]
+      .map((id) => this.positionOfId(id, flip(team)).x)
+      .sort((a, b) => b * sign - a * sign);
+    return defenders[1] ?? -sign * PITCH.halfLength;
+  }
+
+  private isOffsideAtRelease(ball: Vec2, receiver: Vec2, team: TeamSide): boolean {
+    const sign = attackingDirection[team];
+    const receiverX = receiver.x * sign;
+    return receiverX > 0 && receiverX > ball.x * sign && receiverX > this.secondLastDefenderX(team) * sign;
   }
 
   /* --------------------------- substitutions ------------------------- */
@@ -916,7 +987,7 @@ export class MatchSimulator {
     this.benchIndex[side] = idx + 1;
     this.removeFromPitch(side, off.id);
     this.onPitch[side].push(on.id);
-    this.squads[side].set(on.id, { ...on, team: side });
+    this.squads[side].set(on.id, { ...on, team: side, slot: off.slot });
     this.emit('substitution', side, off.id, this.ball, null, {
       playerId: off.id,
       playerOffId: off.id,
@@ -933,25 +1004,6 @@ export class MatchSimulator {
 
   /* ----------------------------- helpers ------------------------------ */
 
-  private schedule(atT: number, fn: () => void): void {
-    this.scheduled.push({ atT, fn });
-    this.scheduled.sort((a, b) => a.atT - b.atT);
-  }
-
-  private runScheduled(): void {
-    while (this.scheduled.length > 0 && this.scheduled[0]!.atT <= this.t) {
-      const item = this.scheduled.shift()!;
-      item.fn();
-    }
-  }
-
-  private flushScheduled(untilT: number): void {
-    while (this.scheduled.length > 0 && this.scheduled[0]!.atT <= untilT) {
-      const item = this.scheduled.shift()!;
-      item.fn();
-    }
-  }
-
   private advanceDirectives(): void {
     for (const p of this.pending) {
       if (p.done) continue;
@@ -959,8 +1011,9 @@ export class MatchSimulator {
       switch (d.kind) {
         case 'force_goal': {
           const deadline = d.byMinute * 60;
-          if (this.t >= deadline - 200 && this.winBallFor === d.team) {
-            this.pendingGoal = { team: d.team, style: d.style };
+          if (this.t >= deadline - 200) {
+            this.pendingGoal = { team: d.team, style: d.style, byT: deadline };
+            this.winBallFor = d.team;
             p.done = true;
           } else if (this.t >= deadline - 380) {
             this.winBallFor = d.team;
@@ -1011,15 +1064,6 @@ export class MatchSimulator {
     if (this.winBallFor && this.possession === this.winBallFor) {
       this.winBallFor = null;
     }
-  }
-
-  private directiveUrgency(kind: 'force_goal', team: TeamSide): number {
-    for (const p of this.pending) {
-      if (!p.done && p.directive.kind === kind && p.directive.team === team) {
-        return p.directive.byMinute * 60 - this.t;
-      }
-    }
-    return Infinity;
   }
 
   private naturalGoalSuppressed(team: TeamSide): boolean {
@@ -1102,21 +1146,21 @@ export class MatchSimulator {
     for (const id of this.onPitch[opponents]) {
       const opp = this.squads[opponents].get(id)!;
       if (opp.role === 'GK') continue;
-      lineXs.push(this.positionOfId(id, opponents).x);
+      lineXs.push(this.positionOfId(id, opponents).x * sign);
     }
-    // Cluster opponent positions into defensive lines (1-D clustering, 6m tolerance).
-    lineXs.sort((a, b) => a * sign - b * sign);
+    // Work entirely in attack-normalized coordinates; backward passes cannot break lines.
+    const low = start.x * sign;
+    const high = end.x * sign;
+    if (high <= low) return 0;
+    lineXs.sort((a, b) => a - b);
     const lines: number[] = [];
     for (const x of lineXs) {
       const last = lines[lines.length - 1];
-      if (last === undefined || Math.abs(x - last) * sign > 6) lines.push(x);
+      if (last === undefined || x - last > 6) lines.push(x);
     }
     let broken = 0;
-    const low = Math.min(start.x, end.x) * sign;
-    const high = Math.max(start.x, end.x) * sign;
     for (const line of lines) {
-      const l = line * sign;
-      if (l > low + 0.5 && l < high - 0.5) broken++;
+      if (line > low + 0.5 && line < high - 0.5) broken++;
     }
     return broken;
   }
@@ -1149,12 +1193,11 @@ export class MatchSimulator {
     payload: Record<string, unknown>,
   ): MatchEvent {
     this.eventIndex++;
-    const period: 1 | 2 = this.t < this.halfTimeT ? 1 : 2;
     const event = {
       id: `e${String(this.eventIndex).padStart(5, '0')}`,
       index: this.eventIndex,
       t: roundTo(this.t, 1),
-      period,
+      period: this.period,
       type,
       team,
       playerId,

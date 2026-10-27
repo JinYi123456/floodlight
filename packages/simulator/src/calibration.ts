@@ -43,26 +43,27 @@ export function summarizeMatch(result: SimulationResult): MatchSummary {
   const completed = passes.filter((p) => p.outcome === 'complete').length;
   const shots = events.filter((e) => e.type === 'shot') as Array<MatchEvent & { outcome: string; xg: number; isPenalty?: boolean; id: string }>;
 
-  // Goals that were overturned by VAR do not count.
+  // Link decisions to their exact shot, not to whichever goal happened last.
   const overturnedShotIds = new Set<string>();
+  let activeReviewId: string | undefined;
   for (let i = 0; i < events.length; i++) {
     const e = events[i]!;
-    if (e.type === 'var_check' && (e as MatchEvent & { detail: string }).detail.includes('Overturned')) {
-      for (let j = i - 1; j >= 0; j--) {
-        const s = events[j]!;
-        if (s.type === 'shot' && (s as MatchEvent & { outcome: string }).outcome === 'goal' && e.t - s.t < 200) {
-          overturnedShotIds.add(s.id);
-          break;
-        }
-      }
+    if (e.type !== 'var_check') continue;
+    const review = e as MatchEvent & { detail: string; relatedEventId?: string };
+    const previous = events[i - 1];
+    if (review.detail.includes('under review')) {
+      activeReviewId = review.relatedEventId ?? (previous?.type === 'shot' && previous.outcome === 'goal' ? previous.id : undefined);
+    } else {
+      const goalId = review.relatedEventId ?? activeReviewId;
+      if (review.detail.includes('Overturned') && goalId) overturnedShotIds.add(goalId);
+      activeReviewId = undefined;
     }
   }
   const goals = shots.filter((s) => s.outcome === 'goal' && !overturnedShotIds.has(s.id));
-  const onTarget = shots.filter((s) => (s.outcome === 'goal' && !overturnedShotIds.has(s.id)) || s.outcome === 'saved');
+  // Attempts remain attempts after review, consistently with the engine.
+  const onTarget = shots.filter((s) => s.outcome === 'goal' || s.outcome === 'saved');
 
-  // Possession from in-play share (excluding dead-ball phases is approximated
-  // by counting completed-pass seconds; we use pass counts as the proxy that
-  // the engine also reports for live possession).
+  // Completed-pass share is a batch possession proxy, not the engine's clock-weighted share.
   const homeCompleted = passes.filter((p) => p.outcome === 'complete' && p.team === 'home').length;
   const awayCompleted = passes.filter((p) => p.outcome === 'complete' && p.team === 'away').length;
   const totalCompleted = Math.max(homeCompleted + awayCompleted, 1);
@@ -80,7 +81,7 @@ export function summarizeMatch(result: SimulationResult): MatchSummary {
     completedPasses: completed,
     passAccuracy: passes.length > 0 ? completed / passes.length : 0,
     progressivePasses: passes.filter((p) => p.progressive).length,
-    xgTotal: shots.reduce((acc, s) => acc + (s.isPenalty ? 0 : s.xg), 0) + goals.length * 0,
+    xgTotal: shots.reduce((acc, s) => acc + s.xg, 0),
     tackles: count('tackle'),
     interceptions: count('interception'),
     fouls: count('foul'),

@@ -49,9 +49,11 @@ export function openAICompatProvider(options: OpenAICompatOptions): LLMProvider 
       const headers: Record<string, string> = { 'Content-Type': 'application/json' };
       if (options.azureDeployment) headers['api-key'] = options.apiKey;
       else headers['Authorization'] = `Bearer ${options.apiKey}`;
+      signal?.throwIfAborted();
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 25_000);
-      if (signal) signal.addEventListener('abort', () => controller.abort());
+      const abort = () => controller.abort(signal?.reason);
+      signal?.addEventListener('abort', abort, { once: true });
       try {
         const response = await fetch(url, {
           method: 'POST',
@@ -71,9 +73,11 @@ export function openAICompatProvider(options: OpenAICompatOptions): LLMProvider 
         const json = (await response.json()) as { choices?: Array<{ message?: { content?: string } }> };
         const text = json.choices?.[0]?.message?.content;
         if (!text) throw new Error(`${options.id} returned empty completion`);
+        controller.signal.throwIfAborted();
         return text.trim();
       } finally {
         clearTimeout(timeout);
+        signal?.removeEventListener('abort', abort);
       }
     },
   };
@@ -132,26 +136,33 @@ export class ProviderGateway {
     this.cooldownMs = options.cooldownMs ?? 60_000;
   }
 
-  /** Returns null when every provider is unavailable or failing. */
-  async complete(req: CompletionRequest): Promise<CompletionResult | null> {
+  private readonly inFlight = new Set<string>();
+
+  /** Returns null when providers are unavailable; aborted calls cannot publish. */
+  async complete(req: CompletionRequest, signal?: AbortSignal): Promise<CompletionResult | null> {
+    signal?.throwIfAborted();
+    this.lastUsed = null;
     for (const provider of this.providers) {
-      if (!provider.enabled()) continue;
+      signal?.throwIfAborted();
+      if (!provider.enabled() || this.inFlight.has(provider.id)) continue;
       const breaker = this.breakers.get(provider.id) ?? { failures: 0, openedAt: 0 };
-      if (breaker.failures >= this.breakerThreshold && Date.now() - breaker.openedAt < this.cooldownMs) {
-        continue; // circuit open
-      }
+      if (breaker.failures >= this.breakerThreshold && Date.now() - breaker.openedAt < this.cooldownMs) continue;
+      this.inFlight.add(provider.id);
       try {
-        const text = await provider.complete(req);
+        const text = await provider.complete(req, signal);
+        signal?.throwIfAborted();
         this.breakers.set(provider.id, { failures: 0, openedAt: 0 });
         this.lastUsed = provider.id;
         return { text, providerId: provider.id };
-      } catch {
+      } catch (error) {
+        if (signal?.aborted) throw error;
         breaker.failures++;
         breaker.openedAt = Date.now();
         this.breakers.set(provider.id, breaker);
+      } finally {
+        this.inFlight.delete(provider.id);
       }
     }
-    this.lastUsed = null;
     return null;
   }
 

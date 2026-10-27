@@ -9,170 +9,12 @@
  * and the xG each side has generated.
  */
 
-import { formatMinute, type MatchEvent } from '@floodlight/core';
+import { formatMinute } from '@floodlight/core';
+import { useMemo } from 'react';
 import { useAppStore } from '../state/store';
+import type { OutcomeProbabilities } from '../state/winProbability';
+import { buildModel, type PackModel, type Side, type TeamAggregate } from '../state/matchPack';
 import type { PreparedMatch } from '../pipeline/protocol';
-
-type Side = 'home' | 'away';
-
-interface TeamAggregate {
-  possession: number;
-  passes: number;
-  completed: number;
-  shots: number;
-  onTarget: number;
-  xg: number;
-  thirdEntries: number;
-}
-
-interface PackModel {
-  aggregates: Record<Side, TeamAggregate>;
-  shots: Array<{ t: number; team: Side; x: number; y: number; xg: number; outcome: string }>;
-  subs: Array<{ t: number; team: Side; off: string; on: string }>;
-  usedOn: Set<string>;
-  score: { home: number; away: number };
-  winCurve: Array<{ t: number; home: number }>;
-  /** Average action position per player — the tracking vocabulary's
-   *  "average position map", built from where each player acted. */
-  avgPos: Record<Side, Map<string, { x: number; y: number; count: number }>>;
-}
-
-const EMPTY_AGGREGATE: TeamAggregate = {
-  possession: 0,
-  passes: 0,
-  completed: 0,
-  shots: 0,
-  onTarget: 0,
-  xg: 0,
-  thirdEntries: 0,
-};
-
-function buildModel(match: PreparedMatch, t: number): PackModel {
-  const aggregates: Record<Side, TeamAggregate> = { home: { ...EMPTY_AGGREGATE }, away: { ...EMPTY_AGGREGATE } };
-
-  // Possession by time between possession change-points.
-  let holder: Side | null = null;
-  let since = 0;
-  const possessionSeconds: Record<Side, number> = { home: 0, away: 0 };
-  for (const event of match.events) {
-    if (event.t > t) break;
-    if (event.type === 'kickoff' || event.type === 'possession_change') {
-      if (holder && event.team !== 'none') possessionSeconds[holder] += event.t - since;
-      holder = event.team === 'none' ? holder : (event.team as Side);
-      since = event.t;
-    }
-  }
-  if (holder) possessionSeconds[holder] += Math.max(0, t - since);
-  const total = possessionSeconds.home + possessionSeconds.away;
-
-  const shots: PackModel['shots'] = [];
-  const subs: PackModel['subs'] = [];
-  const usedOn = new Set<string>();
-  const score = { home: 0, away: 0 };
-  const xgSoFar: Record<Side, number> = { home: 0, away: 0 };
-  const xgTimeline: Array<{ t: number; xgHome: number; xgAway: number }> = [];
-  const avgPos: PackModel['avgPos'] = { home: new Map(), away: new Map() };
-
-  for (const event of match.events) {
-    if (event.t > t) break;
-    const side = event.team === 'home' || event.team === 'away' ? (event.team as Side) : null;
-    if (!side) continue;
-    if (event.playerId) {
-      const map = avgPos[side];
-      const entry = map.get(event.playerId) ?? { x: 0, y: 0, count: 0 };
-      entry.x += event.at.x;
-      entry.y += event.at.y;
-      entry.count++;
-      map.set(event.playerId, entry);
-    }
-    const xg = (event as { xg?: number }).xg ?? 0;
-    switch (event.type) {
-      case 'pass': {
-        aggregates[side].passes++;
-        if ((event as { outcome?: string }).outcome === 'complete') aggregates[side].completed++;
-        if ((side === 'home' && event.at.x >= 35) || (side === 'away' && event.at.x <= -35)) {
-          aggregates[side].thirdEntries++;
-        }
-        break;
-      }
-      case 'carry': {
-        if ((side === 'home' && event.at.x >= 35) || (side === 'away' && event.at.x <= -35)) {
-          aggregates[side].thirdEntries++;
-        }
-        break;
-      }
-      case 'shot': {
-        const outcome = String((event as { outcome?: string }).outcome ?? '');
-        aggregates[side].shots++;
-        if (outcome === 'goal' || outcome === 'saved') aggregates[side].onTarget++;
-        aggregates[side].xg += xg;
-        xgSoFar[side] += xg;
-        if (outcome === 'goal') score[side]++;
-        shots.push({ t: event.t, team: side, x: event.at.x, y: event.at.y, xg, outcome });
-        xgTimeline.push({ t: event.t, xgHome: xgSoFar.home, xgAway: xgSoFar.away });
-        break;
-      }
-      case 'substitution': {
-        const sub = event as MatchEvent & { playerOffId: string; playerOnId: string };
-        subs.push({ t: event.t, team: side, off: sub.playerOffId, on: sub.playerOnId });
-        usedOn.add(sub.playerOnId);
-        break;
-      }
-      default:
-        break;
-    }
-  }
-
-  aggregates.home.possession = total > 0 ? possessionSeconds.home / total : 0.5;
-  aggregates.away.possession = total > 0 ? possessionSeconds.away / total : 0.5;
-
-  // Win probability across the match so far, then at now.
-  const winCurve: PackModel['winCurve'] = [];
-  const full = match.timing.fullTimeT;
-  let sample = -1;
-  for (let at = 0; at <= t + 1e-6; at += 60) {
-    while (sample + 1 < xgTimeline.length && xgTimeline[sample + 1]!.t <= at) sample++;
-    const xgH = sample >= 0 ? xgTimeline[sample]!.xgHome : 0;
-    const xgA = sample >= 0 ? xgTimeline[sample]!.xgAway : 0;
-    let h = 0;
-    let a = 0;
-    for (const goal of match.scoreTimeline) {
-      if (goal.t > at) break;
-      h = goal.home;
-      a = goal.away;
-    }
-    winCurve.push({ t: at, home: poissonWin(h - a, xgH, xgA, at, full) });
-  }
-  winCurve.push({ t, home: poissonWin(score.home - score.away, xgSoFar.home, xgSoFar.away, t, full) });
-  return { aggregates, shots, subs, usedOn, score, winCurve, avgPos };
-}
-
-function poissonPmf(k: number, lambda: number): number {
-  let acc = Math.exp(-lambda);
-  for (let i = 2; i <= k; i++) acc = (acc * lambda) / i;
-  return acc;
-}
-
-/** P(home wins) under a Poisson model: each side scores using its xG edge
- *  over the remaining time. Deliberately simple and stated as a model. */
-function poissonWin(diff: number, xgHome: number, xgAway: number, t: number, full: number): number {
-  const remaining = Math.max(0, 1 - t / full);
-  const edge = Math.max(-0.6, Math.min(0.6, (xgHome - xgAway) * 0.25));
-  const lambdaHome = Math.max(0.02, (1.35 + edge) * remaining);
-  const lambdaAway = Math.max(0.02, (1.35 - edge) * remaining);
-  let home = 0;
-  let draw = 0;
-  let away = 0;
-  for (let i = 0; i <= 8; i++) {
-    for (let j = 0; j <= 8; j++) {
-      const p = poissonPmf(i, lambdaHome) * poissonPmf(j, lambdaAway);
-      if (i - j > -diff) home += p;
-      else if (i - j === -diff) draw += p;
-      else away += p;
-    }
-  }
-  return home / Math.max(1e-9, home + draw + away);
-}
 
 function nameOf(match: PreparedMatch, id: string): string {
   const all = [...match.lineups.home, ...match.lineups.away, ...match.bench.home, ...match.bench.away];
@@ -181,11 +23,11 @@ function nameOf(match: PreparedMatch, id: string): string {
 
 export function MatchPack() {
   const match = useAppStore((state) => state.match);
-  const t = useAppStore((state) => state.t);
-  if (!match) return null;
+  const t = useAppStore((state) => state.match && state.t >= state.match.timing.fullTimeT ? state.match.timing.fullTimeT : Math.floor(state.t));
+  const model = useMemo(() => match ? buildModel(match, t) : null, [match, t]);
+  if (!match || !model) return null;
 
-  const model = buildModel(match, t);
-  const now = model.winCurve[model.winCurve.length - 1]?.home ?? 0.5;
+  const now = model.winCurve[model.winCurve.length - 1] ?? { home: 0, draw: 1, away: 0 };
 
   return (
     <div className="match-pack">
@@ -397,7 +239,7 @@ function ShotMap({ match, shots }: { match: PreparedMatch; shots: PackModel['sho
   );
 }
 
-function WinProb({ match, model, now }: { match: PreparedMatch; model: PackModel; now: number }) {
+function WinProb({ match, model, now }: { match: PreparedMatch; model: PackModel; now: OutcomeProbabilities }) {
   const width = 320;
   const height = 96;
   const curve = model.winCurve;
@@ -419,16 +261,17 @@ function WinProb({ match, model, now }: { match: PreparedMatch; model: PackModel
       </svg>
       <div className="win-now">
         <span>
-          <strong>{Math.round(now * 100)}%</strong> {match.meta.home.abbr} win
+          <strong>{Math.round(now.home * 100)}%</strong> {match.meta.home.abbr}
         </span>
         <span className="win-score">{scoreline}</span>
         <span>
-          <strong>{Math.round((1 - now) * 100)}%</strong> {match.meta.away.abbr}
+          <strong>{Math.round(now.away * 100)}%</strong> {match.meta.away.abbr}
         </span>
       </div>
       <p className="pack-foot">
-        P(draw included in the gap). A Poisson model on the scoreline, the xG each side has generated and the time
-        left — not a betting line, an honest sketch.
+        Draw {Math.round(now.draw * 100)}%. Three outcomes that sum to 100%, from a Poisson model on the current
+        score, each side's xG and the time left — an honest sketch, not a betting line. At full time the result is
+        certain.
       </p>
     </div>
   );

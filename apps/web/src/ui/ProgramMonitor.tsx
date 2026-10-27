@@ -12,27 +12,30 @@
 import { useEffect, useRef, useState, type MouseEvent } from 'react';
 import * as THREE from 'three';
 import { formatClock, type TrackingFrame } from '@floodlight/core';
-import { cuesAt, cueForSlot } from '../state/derive';
+import { cueForSlot, matchesPreferences, textForViewer } from '../state/derive';
 import { useAppStore, trackingCache } from '../state/store';
 import { createPitchTexture } from './pitchTexture';
 import { createGoalFrames, createPlayerFigure, type PlayerFigure } from './players3d';
+import { createNightSky, createStadium } from './stadium';
 import { broadcast } from './audio';
-import { PlayByPlay } from './commentary';
+import { cuesForViewer, isCriticalMoment, PlayByPlay, recordedMomentClip, spokenLine } from './commentary';
 
-type CameraMode = 'tactical' | 'follow' | 'player';
+type CameraMode = 'broadcast' | 'tactical' | 'follow' | 'player';
 
 const SPRINT_RING = 0xffa53a;
 
 export function ProgramMonitor() {
   const match = useAppStore((state) => state.match);
   const t = useAppStore((state) => state.t);
-  const focusPlayerId = useAppStore((state) => state.prefs.playerId);
+  const prefs = useAppStore((state) => state.prefs);
+  const rate = useAppStore((state) => state.rate);
+  const focusPlayerId = prefs.playerId;
   const setPrefs = useAppStore((state) => state.setPrefs);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const tagRef = useRef<HTMLDivElement | null>(null);
   const frameRef = useRef<TrackingFrame | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
-  const [mode, setMode] = useState<CameraMode>('tactical');
+  const [mode, setMode] = useState<CameraMode>('broadcast');
   const modeRef = useRef(mode);
   const [audioOn, setAudioOn] = useState(false);
   const playByPlayRef = useRef<PlayByPlay | null>(null);
@@ -43,8 +46,24 @@ export function ProgramMonitor() {
   // resume attempt here normally sticks; the toggle is the fallback.
   useEffect(() => {
     setAudioOn(broadcast.enabled || broadcast.enable());
-    // Leaving the studio silences the programme.
-    return () => broadcast.disable();
+    const sync = (state: ReturnType<typeof useAppStore.getState>) => {
+      broadcast.update(state.match?.events ?? [], state.t, state.playing && !!state.match, {
+        sessionId: state.match,
+        epoch: state.playbackEpoch,
+        lang: state.prefs.lang,
+        persona: state.prefs.persona,
+        preferenceKey: JSON.stringify([state.prefs.clubId, state.prefs.playerId, state.prefs.metric]),
+        rate: state.rate,
+      });
+    };
+    sync(useAppStore.getState());
+    // Synchronous store notification, not the next animation frame: pause or
+    // even two seeks between frames must invalidate an in-flight decoder now.
+    const unsubscribe = useAppStore.subscribe(sync);
+    return () => {
+      unsubscribe();
+      broadcast.disable();
+    };
   }, []);
 
   // Click a player to follow them: project every tracked player into screen
@@ -83,14 +102,14 @@ export function ProgramMonitor() {
     if (hit) {
       setPrefs({ playerId: hit });
     } else if (focusPlayerId) {
-      // Clicking away releases the focus and returns to the wide camera.
+      // Clicking away releases the focus and returns to the broadcast camera.
       setPrefs({ playerId: null });
-      setMode('tactical');
+      setMode('broadcast');
     }
   };
 
   useEffect(() => {
-    if (focusPlayerId) setMode('player');
+    setMode((current) => focusPlayerId ? 'player' : current === 'player' ? 'broadcast' : current);
   }, [focusPlayerId]);
 
   useEffect(() => {
@@ -104,19 +123,26 @@ export function ProgramMonitor() {
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.16;
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFShadowMap;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color('#04070d');
-    scene.fog = new THREE.Fog('#04070d', 140, 260);
+    scene.fog = new THREE.Fog('#04070d', 155, 330);
+    const sky = createNightSky();
+    scene.add(sky);
 
-    const camera = new THREE.PerspectiveCamera(42, 16 / 9, 0.6, 400);
+    const camera = new THREE.PerspectiveCamera(38, 16 / 9, 0.6, 420);
+    camera.position.set(0, 30, 52);
     const cameraTarget = new THREE.Vector3(0, 0, 0);
 
-    // Floodlights.
-    scene.add(new THREE.HemisphereLight(0xe8f1ff, 0x0b1520, 1.0));
-    const key = new THREE.DirectionalLight(0xfff3d6, 1.9);
+    // Night-match lighting. The stadium adds four soft mast lights; these
+    // directional/ambient lights carry the shadow and colour separation.
+    scene.add(new THREE.HemisphereLight(0xdfeaff, 0x0a1420, 1.1));
+    scene.add(new THREE.AmbientLight(0x233048, 0.55));
+    const key = new THREE.DirectionalLight(0xfff1d2, 2.7);
     key.position.set(55, 95, 40);
     key.castShadow = true;
     key.shadow.mapSize.set(2048, 2048);
@@ -128,14 +154,14 @@ export function ProgramMonitor() {
     key.shadow.camera.far = 260;
     key.shadow.bias = -0.0006;
     scene.add(key);
-    const fill = new THREE.DirectionalLight(0xbfd8ff, 0.55);
+    const fill = new THREE.DirectionalLight(0xbfd8ff, 0.75);
     fill.position.set(-70, 60, -45);
     scene.add(fill);
 
-    // Ground + pitch + goals.
+    // Ground + pitch + goals + the stadium bowl.
     const ground = new THREE.Mesh(
-      new THREE.PlaneGeometry(240, 170),
-      new THREE.MeshStandardMaterial({ color: '#050a12', roughness: 1 }),
+      new THREE.PlaneGeometry(300, 220),
+      new THREE.MeshStandardMaterial({ color: '#040910', roughness: 1 }),
     );
     ground.rotation.x = -Math.PI / 2;
     ground.position.y = -0.25;
@@ -155,6 +181,9 @@ export function ProgramMonitor() {
 
     const goals = createGoalFrames();
     scene.add(goals);
+
+    const stadium = createStadium(match.meta.home, match.meta.away);
+    scene.add(stadium);
 
     // Player figures, created lazily as they appear in the feed.
     interface PlayerObject {
@@ -195,7 +224,7 @@ export function ProgramMonitor() {
     };
 
     const roster = new Map(
-      [...match.lineups.home, ...match.lineups.away].map((p) => [
+      [...match.lineups.home, ...match.lineups.away, ...match.bench.home, ...match.bench.away].map((p) => [
         p.id,
         { team: p.team, shirt: p.shirt, role: p.role } as const,
       ]),
@@ -208,11 +237,17 @@ export function ProgramMonitor() {
       const isHome = (info?.team ?? 'home') === 'home';
       const club = isHome ? match.meta.home : match.meta.away;
       const isKeeper = info?.role === 'GK';
-      const figure = createPlayerFigure(
-        isKeeper
-          ? { shirt: club.secondary, shorts: '#161a22', socks: '#161a22' }
-          : { shirt: club.primary, shorts: club.secondary, socks: club.primary },
-      );
+      const keeperShirt = club.secondary.toLowerCase() === club.primary.toLowerCase() ? '#e7b84b' : club.secondary;
+      const figure = createPlayerFigure({
+        id: playerId,
+        number: info?.shirt,
+        numberColor: club.onPrimary,
+        shirt: isKeeper ? keeperShirt : club.primary,
+        shorts: isKeeper ? '#161a22' : club.secondary,
+        socks: isKeeper ? keeperShirt : club.primary,
+        keeper: isKeeper,
+        height: isKeeper ? 1.05 : undefined,
+      });
       const ring = new THREE.Mesh(
         new THREE.RingGeometry(1.3, 1.65, 26),
         new THREE.MeshBasicMaterial({ color: SPRINT_RING, side: THREE.DoubleSide, transparent: true, opacity: 0.9 }),
@@ -231,8 +266,8 @@ export function ProgramMonitor() {
           depthTest: true,
         }),
       );
-      number.scale.setScalar(2.1);
-      number.position.y = 2.35;
+      number.scale.setScalar(1.72);
+      number.position.y = 2.2;
       const group: PlayerObject = { figure, ring, ownerRing, number, lastPos: { x: 0, y: 0 } };
       scene.add(figure.group);
       scene.add(ring);
@@ -288,44 +323,40 @@ export function ProgramMonitor() {
     const project = new THREE.Vector3();
     let lastTick = performance.now();
     let raf = 0;
+    let lastEpoch: number | undefined;
+    let lastTime = Number.NaN;
     const render = () => {
-      raf = requestAnimationFrame(render);
       const state = useAppStore.getState();
       const currentMatch = state.match;
-      if (!currentMatch) return;
+      if (!currentMatch || currentMatch !== match) return;
       const time = state.t;
+      const epoch = state.playbackEpoch;
+      if (epoch !== lastEpoch || time < lastTime) trailCount = 0;
+      lastEpoch = epoch;
+      lastTime = time;
       const frame = trackingCache.atSmooth(time);
       frameRef.current = frame;
       cameraRef.current = camera;
 
-      const active = cuesAt(currentMatch, time);
+      const active = cuesForViewer(currentMatch, time, state.prefs);
       const tagCue = cueForSlot(active, 'player_tag');
       const telestration = cueForSlot(active, 'telestration');
 
-      // Sound follows the clock: kick thumps, whistles and the goal roar,
-      // plus the two commentary voices — story moments play the recorded
-      // commentator clip (falling back to the platform voice), and the
-      // play-by-play mic reads the live event stream, goals cutting in
-      // mid-sentence.
-      broadcast.update(currentMatch.events, time, state.playing);
+      // Audio clock/cancellation is subscribed to the store above. The render
+      // loop only offers fresh lines, using the same copy as the viewer desk.
       if (state.playing) {
-        const line = playByPlayRef.current?.feed(currentMatch, time) ?? null;
-        if (line) broadcast.speak(line.id, line.text);
-        const clipScenario =
-          state.recordingId && currentMatch.providerSummary.recorded && currentMatch.meta.scenario === state.recordingId
-            ? state.recordingId
-            : null;
+        const line = playByPlayRef.current?.feed(currentMatch, time, { epoch, lang: state.prefs.lang }) ?? null;
+        if (line) broadcast.speak(line.id, line.text, line.priority >= 95);
         for (const moment of currentMatch.moments) {
-          if (!moment.air.air) continue;
+          if (!moment.air.air || !moment.verification.approved) continue;
+          const interrupt = isCriticalMoment(moment);
+          if (!interrupt && !matchesPreferences(currentMatch, moment.candidate, state.prefs)) continue;
           const mt = moment.candidate.t;
           if (mt <= time && mt > time - 2.5) {
-            const kind = moment.candidate.kind;
-            const interrupt =
-              kind === 'goal' || kind === 'penalty' || kind === 'red_card' || kind === 'var_overturn';
-            const clipUrl = clipScenario
-              ? new URL(`recordings/audio/${clipScenario}/${moment.candidate.id}.mp3`, document.baseURI).href
-              : null;
-            broadcast.moment(moment.candidate.id, spokenLine(moment.headline), clipUrl, interrupt);
+            const text = textForViewer(currentMatch, moment, state.prefs);
+            const clip = recordedMomentClip(currentMatch, moment, state.prefs, state.recordingId, text.headline);
+            const clipUrl = clip ? new URL(clip, document.baseURI).href : null;
+            broadcast.moment(moment.candidate.id, spokenLine(text.headline), clipUrl, interrupt);
           }
         }
       }
@@ -402,20 +433,34 @@ export function ProgramMonitor() {
         // Camera.
         const mode = modeRef.current;
         const focusId = state.prefs.playerId;
-        const desired = new THREE.Vector3(0, 84, 48);
-        const target = new THREE.Vector3(0, 0, 0);
-        if (mode === 'follow') {
-          const bx = THREE.MathUtils.clamp(frame.ball.pos.x, -34, 34);
-          desired.set(bx * 0.55, 40, 30 + frame.ball.pos.y * 0.25);
-          target.set(bx * 0.85, 0, frame.ball.pos.y * 0.55);
-        } else if (mode === 'player' && focusId) {
+        const ballX = frame.ball.pos.x;
+        const ballY = frame.ball.pos.y;
+        const desired = new THREE.Vector3(0, 31, 52);
+        const target = new THREE.Vector3(0, 1.2, 0);
+        if (mode === 'tactical') {
+          desired.set(0, 82, 48);
+          target.set(0, 0, 0);
+        } else if (mode === 'broadcast') {
+          const bx = THREE.MathUtils.clamp(ballX, -28, 28);
+          desired.set(bx * 0.3, 32, 52 + THREE.MathUtils.clamp(ballY, -12, 12) * 0.18);
+          target.set(bx * 0.72, 1.2, THREE.MathUtils.clamp(ballY, -20, 20) * 0.35);
+        } else if (mode === 'follow') {
+          const bx = THREE.MathUtils.clamp(ballX, -34, 34);
+          desired.set(bx * 0.55, 38, 32 + ballY * 0.25);
+          target.set(bx * 0.85, 1, ballY * 0.55);
+        } else if (mode === 'player') {
           const focused = frame.players.find((p) => p.playerId === focusId);
-          const px = focused?.pos.x ?? frame.ball.pos.x;
-          const py = focused?.pos.y ?? frame.ball.pos.y;
-          desired.set(px * 0.6 + 9, 24, 20 + py * 0.3);
-          target.set(px, 1, py);
+          if (focused) {
+            desired.set(focused.pos.x * 0.55 + 10, 22, 19 + focused.pos.y * 0.3);
+            target.set(focused.pos.x, 1.2, focused.pos.y);
+          } else {
+            // A substituted/dismissed player is not the ball. Show the wide
+            // camera and its real mode; retain the viewer's analysis filter.
+            modeRef.current = 'broadcast';
+            setMode('broadcast');
+          }
         }
-        const smoothing = mode === 'tactical' ? 0.05 : 0.075;
+        const smoothing = modeRef.current === 'tactical' ? 0.045 : 0.07;
         camera.position.lerp(desired, smoothing);
         cameraTarget.lerp(target, smoothing * 1.4);
         camera.lookAt(cameraTarget);
@@ -464,7 +509,11 @@ export function ProgramMonitor() {
 
       renderer.render(scene, camera);
     };
-    raf = requestAnimationFrame(render);
+    const tick = () => {
+      render();
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
 
     if (import.meta.env.DEV) {
       (window as unknown as { __floodlightScene?: unknown }).__floodlightScene = {
@@ -507,10 +556,22 @@ export function ProgramMonitor() {
       observer.disconnect();
       for (const object of playerObjects.values()) {
         scene.remove(object.figure.group, object.ring, object.ownerRing, object.number);
+        object.figure.dispose();
+        object.ring.geometry.dispose();
+        (object.ring.material as THREE.Material).dispose();
+        object.ownerRing.geometry.dispose();
+        (object.ownerRing.material as THREE.Material).dispose();
       }
       scene.remove(goals);
+      scene.remove(stadium);
+      scene.remove(sky);
+      stadium.userData.dispose?.();
+      sky.geometry.dispose();
+      (sky.material as THREE.Material).dispose();
       for (const texture of numberTextureCache.values()) texture.dispose();
       pitchTexture.dispose();
+      ball.geometry.dispose();
+      (ball.material as THREE.Material).dispose();
       trailGeometry.dispose();
       teleGeometry.dispose();
       renderer.dispose();
@@ -519,13 +580,14 @@ export function ProgramMonitor() {
 
   if (!match) return null;
 
-  const active = cuesAt(match, t);
+  const active = cuesForViewer(match, t, prefs);
   const lowerThird = cueForSlot(active, 'lower_third');
   const statBumper = cueForSlot(active, 'stat_bumper');
   const ribbon = cueForSlot(active, 'momentum_ribbon');
   const flash = cueForSlot(active, 'goal_flash');
   const tagCue = cueForSlot(active, 'player_tag');
-  const focusedName = [...match.lineups.home, ...match.lineups.away].find((p) => p.id === focusPlayerId)?.name ?? null;
+  const focusedName = [...match.lineups.home, ...match.lineups.away, ...match.bench.home, ...match.bench.away]
+    .find((p) => p.id === focusPlayerId)?.name ?? null;
 
   return (
     <div className="program-monitor">
@@ -537,7 +599,7 @@ export function ProgramMonitor() {
         title="Click a player to follow them"
       />
       <div className="monitor-cams">
-        {(['tactical', 'follow', 'player'] as CameraMode[]).map((value) => (
+        {(['broadcast', 'tactical', 'follow', 'player'] as CameraMode[]).map((value) => (
           <button
             type="button"
             key={value}
@@ -546,7 +608,7 @@ export function ProgramMonitor() {
             disabled={value === 'player' && !focusPlayerId}
             title={value === 'player' && focusedName ? `Follow ${focusedName}` : undefined}
           >
-            {value === 'tactical' ? 'Tactical' : value === 'follow' ? 'Follow ball' : 'Player'}
+            {value === 'broadcast' ? 'Broadcast' : value === 'tactical' ? 'Tactical' : value === 'follow' ? 'Follow ball' : 'Player'}
           </button>
         ))}
         <button
@@ -609,13 +671,6 @@ export function ProgramMonitor() {
       </div>
     </div>
   );
-}
-
-/** Commentary reads the headline trimmed to its first clause — a
- *  commentator's line, not a paragraph. */
-function spokenLine(headline: string): string {
-  const first = headline.split(',')[0]?.trim() ?? headline;
-  return first.length >= 12 ? first : headline;
 }
 
 function teamColor(match: NonNullable<ReturnType<typeof useAppStore.getState>['match']>, team: string): string {

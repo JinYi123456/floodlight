@@ -14,6 +14,7 @@ import {
   ProductionCrew,
   templateNarrative,
   verifyDraft,
+  verifyNumericClaim,
   type MatchFacts,
   type NarrativeContext,
 } from '@floodlight/agents';
@@ -35,6 +36,9 @@ const CTX: NarrativeContext = {
   opponentAbbr: 'NOR',
   player: 'Alden Keller',
   score: '2–1',
+  scoreAt: { home: 2, away: 1 },
+  asOf: 4200,
+  window: null,
   facts: { distanceM: 12.4, xg: 0.18, ballSpeedKph: 92.1, isPenalty: false },
 };
 
@@ -55,25 +59,34 @@ describe('templates and verifier', () => {
     }
   });
 
-  it('template drafts pass the deterministic verifier', () => {
+  const vocabulary = ['Alden Keller', 'Keller', 'Riverside Athletic', 'Northgate United', 'RIV', 'NOR'];
+  const pack = buildEvidencePack({ facts: CTX.facts, minuteLabel: "70'", t: 4200 }, [], vocabulary, CTX);
+  const binding = { persona: 'analyst' as const, lang: 'en' as const, surface: 'narrative' as const };
+
+  it('accepts only the evidence-bound rendering, not free-form prose', () => {
     const narrative = templateNarrative(CTX, 'analyst', 'en');
-    const pack = buildEvidencePack(
-      { facts: { xg: 0.18, distanceM: 12.4, ballSpeedKph: 92.1, score: '2–1' }, minuteLabel: "70'" },
-      [2, 1],
-      ['Alden Keller', 'Keller', 'Riverside Athletic', 'Northgate United', 'RIV', 'NOR'],
-    );
-    const verdict = verifyDraft(`${narrative.headline} ${narrative.body}`, pack);
+    const verdict = verifyDraft(`${narrative.headline} ${narrative.body}`, pack, { binding });
     expect(verdict.issues).toEqual([]);
     expect(verdict.approved).toBe(true);
+    expect(verdict.basis).toBe('evidence_bound');
   });
 
-  it('rejects fabricated numbers and unsupported claims', () => {
-    const pack = buildEvidencePack({ facts: { xg: 0.18 }, minuteLabel: "70'" }, [1], ['Alden Keller']);
+  it('rejects fabricated numbers, unsupported claims and unbound copy', () => {
     expect(verifyDraft('Alden Keller scored his 99th goal.', pack).approved).toBe(false);
     expect(verifyDraft('That is a new record for this stadium.', pack).approved).toBe(false);
     expect(verifyDraft('He never misses from there.', pack).approved).toBe(false);
-    const ok = verifyDraft('A finish worth 0.18 xG.', pack);
-    expect(ok.approved).toBe(true);
+    // A true-looking number is not enough: text that is not the bound
+    // rendering has no semantic licence.
+    expect(verifyDraft('A finish worth 0.18 xG.', pack, { binding }).approved).toBe(false);
+    expect(verifyDraft('A finish worth 0.18 xG.', pack).approved).toBe(false);
+  });
+
+  it('checks a typed claim against subject, metric, unit and as-of time', () => {
+    const claim = { id: 'xg', subject: 'Alden Keller', metric: 'shot xG', value: 0.18, unit: 'xG' as const, asOf: 4200, window: null };
+    expect(verifyNumericClaim(claim, pack).approved).toBe(true);
+    expect(verifyNumericClaim({ ...claim, subject: 'Northgate United' }, pack).approved).toBe(false);
+    expect(verifyNumericClaim({ ...claim, value: 0.99 }, pack).approved).toBe(false);
+    expect(verifyNumericClaim({ ...claim, asOf: 4300 }, pack).approved).toBe(false);
   });
 
   it('parses tolerant JSON narration', () => {

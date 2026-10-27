@@ -145,6 +145,7 @@ export function pickLineup(
     const [chosen] = available.splice(bestIndex, 1);
     if (chosen) {
       chosen.team = team;
+      chosen.slot = starters.length;
     }
     starters.push(chosen!);
   }

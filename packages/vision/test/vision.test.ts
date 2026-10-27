@@ -148,8 +148,9 @@ describe('analysis window report', () => {
 
   it('analysis is tunable — a coarse pass tracks possession like the fine pass', () => {
     const sim = comeback();
-    // A contact-heavy stretch; both rates find it hard.
-    const window = { t0: 3000, t1: 3040 };
+    // A live passage with frequent changes of possession. (3000–3040 is a
+    // VAR review in this fixture — dead time, not a possession test.)
+    const window = { t0: 2450, t1: 2490 };
     const fine = buildReport(sim, analyzeWindow(sim, { ...window, hz: 10, warmupS: 20 }), window);
     const coarse = buildReport(sim, analyzeWindow(sim, { ...window, hz: 5, warmupS: 20 }), window);
     expect(fine.possessionAgreement).toBeGreaterThan(0.8);

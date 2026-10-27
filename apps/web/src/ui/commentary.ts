@@ -5,8 +5,63 @@
  */
 
 import type { MatchEvent, TeamSide } from '@floodlight/core';
+import type { NarratedMoment } from '@floodlight/agents';
+import type { Cue } from '@floodlight/cuesheet';
 import type { PreparedMatch } from '../pipeline/protocol';
-import { scoreAt } from '../state/derive';
+import { cuesAt, matchesPreferences, scoreAt, textForViewer } from '../state/derive';
+
+export interface CommentaryPrefs {
+  persona: string;
+  lang: string;
+  clubId: string | null;
+  playerId: string | null;
+  metric: string | null;
+}
+
+/** Same selected copy in screen-fixed graphics and on the story mic. */
+export function cuesForViewer(match: PreparedMatch, t: number, prefs: CommentaryPrefs): Cue[] {
+  return cuesAt(match, t).flatMap((cue) => {
+    const id = cue.payload.candidateId ?? cue.source.candidateId ?? cue.source.momentId;
+    const moment = match.moments.find((entry) => entry.candidate.id === id);
+    if (!moment) return prefs.lang === 'en' || !cue.payload.headline ? [cue] : [];
+    if (!isCriticalMoment(moment) && !matchesPreferences(match, moment.candidate, prefs)) return [];
+    const text = textForViewer(match, moment, prefs);
+    return [{ ...cue, payload: { ...cue.payload, headline: text.headline, body: text.body, lang: prefs.lang } }];
+  });
+}
+
+export interface CommentaryPlayback {
+  epoch?: number;
+  lang?: string;
+}
+
+/** Critical match facts stay on air even when analysis is focused elsewhere. */
+export function isCriticalMoment(moment: NarratedMoment): boolean {
+  return ['goal', 'penalty', 'red_card', 'var_review', 'var_overturn', 'late_drama', 'comeback_trigger']
+    .includes(moment.candidate.kind);
+}
+
+/** Keep this first-clause rule aligned with the existing static audio renderer. */
+export function spokenLine(headline: string): string {
+  const first = headline.split(',')[0]?.trim() ?? headline;
+  return first.length >= 12 ? first : headline;
+}
+
+/** No network probe can establish provenance. Only the worker's validated
+ *  recording binding may authorize a static English clip; all other copy is
+ *  spoken locally in the viewer's language. */
+export function recordedMomentClip(
+  match: PreparedMatch,
+  moment: NarratedMoment,
+  prefs: { lang: string; persona: string },
+  recordingId: string | null,
+  headline: string,
+): string | null {
+  if (!recordingId || !match.providerSummary.recorded || match.meta.scenario !== recordingId ||
+    prefs.lang !== 'en' || moment.lang !== prefs.lang || moment.persona !== prefs.persona ||
+    moment.provider !== 'llm' || !moment.verification.approved || headline !== moment.headline) return null;
+  return `recordings/audio/${encodeURIComponent(recordingId)}/${encodeURIComponent(moment.candidate.id)}.mp3`;
+}
 
 export interface SpokenLine {
   id: string;
@@ -39,15 +94,28 @@ export class PlayByPlay {
   private venue = 'the ground';
   private momentTimes: Array<{ t: number; kind: string }> = [];
   private lastSide: TeamSide = 'home';
+  private epoch: number | undefined;
+  private lang = 'en';
 
   /**
    * Called every frame while the clock runs. Consumes events up to `t` and
    * returns at most one line — the best of the window, gap-throttled so the
    * voice paces itself instead of narrating every touch.
    */
-  feed(match: PreparedMatch, t: number): SpokenLine | null {
-    if (match !== this.match || t < this.cursorT - 2 || t - this.cursorT > 6) {
+  feed(match: PreparedMatch, t: number, playback: CommentaryPlayback = {}): SpokenLine | null {
+    const lang = playback.lang ?? 'en';
+    if (match !== this.match || playback.epoch !== this.epoch || lang !== this.lang ||
+      t < this.cursorT || (playback.epoch === undefined && t - this.cursorT > 6)) {
       this.resync(match, t);
+    }
+    this.epoch = playback.epoch;
+    this.lang = lang;
+    // The event mic is authored in English. In other languages the verified
+    // localized story desk owns the mic; never read English in an ES/FR voice.
+    if (lang !== 'en') {
+      while (this.pointer < match.events.length && match.events[this.pointer]!.t <= t) this.pointer++;
+      this.cursorT = t;
+      return null;
     }
 
     let pick: SpokenLine | null = null;
@@ -99,6 +167,14 @@ export class PlayByPlay {
     }
     this.pointer = lo;
     this.cursorT = t;
+    this.lastSide = 'home';
+    for (let i = lo - 1; i >= 0; i--) {
+      const side = match.events[i]!.team;
+      if (side === 'home' || side === 'away') {
+        this.lastSide = side;
+        break;
+      }
+    }
     // A scrub is not a talking point — let the next real event break the
     // silence instead of dumping everything skipped.
     this.lastSpokenT = t - URGENT_GAP_SECONDS;

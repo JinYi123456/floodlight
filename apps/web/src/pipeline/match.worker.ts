@@ -6,7 +6,8 @@
 
 import { SCENARIOS, simulateMatch, trackingWindow, formationSlotFor, type SimulationResult } from '@floodlight/simulator';
 import { MatchEngine } from '@floodlight/engine';
-import { ProductionCrew, type NarratedMoment } from '@floodlight/agents';
+import { ProductionCrew, createRecordingBinding, validateRecording, applyRecordedMoment, summarizeProviders, type NarratedMoment } from '@floodlight/agents';
+import { buildScoreTimeline } from './scoreTimeline';
 import { createLiveFactsClient } from '@floodlight/mcp/live';
 import { compileCues } from '@floodlight/cuesheet';
 import {
@@ -38,33 +39,14 @@ const post = (message: WorkerResponse) => self.postMessage(message);
 const progress = (label: string, fraction: number, channel: 'prepare' | 'vision' = 'prepare') =>
   post({ type: 'progress', label, fraction, channel });
 
-interface RecordedMoment {
-  candidateId: string;
-  headline: string;
-  body: string;
-  lang: string;
-  persona: string;
-  ticker?: string | null;
-  variants?: Array<{ persona: string; lang: string; headline: string; body: string }>;
-  provider?: string;
-}
-
-interface Recording {
-  scenarioId: string;
-  seed: number;
-  provider: string;
-  model: string;
-  moments: RecordedMoment[];
-}
-
-async function loadRecording(id: string, base: string | null): Promise<Recording | null> {
+async function loadRecording(id: string, base: string | null): Promise<unknown> {
   try {
     // Relative paths inside a worker resolve against the worker script, not
     // the page — the base URL is handed over by the control room instead.
     const url = new URL(`${id}.json`, base ?? './recordings/');
     const response = await fetch(url);
     if (!response.ok) return null;
-    return (await response.json()) as Recording;
+    return await response.json();
   } catch {
     return null;
   }
@@ -99,11 +81,13 @@ async function prepare(request: { scenarioId: string | null; seed: number; recor
   candidates.sort((a, b) => a.t - b.t || a.id.localeCompare(b.id));
 
   const loaded = request.recording ? await loadRecording(request.recording, request.recordingsBase ?? null) : null;
-  // The studio voice is recorded against the canonical seed — replaying it on
-  // another seed would put verified copy on unrelated moments.
-  const recording = loaded && loaded.seed === request.seed ? loaded : null;
-  const recordedById = new Map<string, RecordedMoment>();
-  if (recording) for (const m of recording.moments) recordedById.set(m.candidateId, m);
+  const binding = await createRecordingBinding({ scenarioId: scenario?.id ?? null, seed: request.seed,
+    meta: simulation.meta, events: simulation.events, candidates });
+  const checked = request.recording ? validateRecording(loaded, binding) : { recording: null, issues: [] };
+  const recordingIssues = [...checked.issues];
+  const recordedById = new Map(checked.recording?.moments.map((m) => [m.candidateId, m]) ?? []);
+  const candidateIds = new Set(candidates.map((candidate) => candidate.id));
+  for (const id of recordedById.keys()) if (!candidateIds.has(id)) recordingIssues.push(`unknown recorded candidate ${id}`);
 
   // The crew verifies mid-write through the MCP tool surface — the same
   // handshake an external host performs, linked in-process off the main
@@ -111,44 +95,32 @@ async function prepare(request: { scenarioId: string | null; seed: number; recor
   const facts = await createLiveFactsClient(engine);
   const crew = new ProductionCrew({ generateVariants: true, facts });
   const moments: NarratedMoment[] = [];
+  const appliedIssues: string[] = [];
   for (const candidate of candidates) {
     const moment = await crew.processCandidate(candidate, engine);
     if (!moment) continue;
     const recorded = recordedById.get(candidate.id);
-    if (recorded) {
-      moment.headline = recorded.headline;
-      moment.body = recorded.body;
-      moment.provider = recorded.provider === 'template' ? 'template' : 'llm';
-      if (recorded.ticker) moment.ticker = recorded.ticker;
-      if (recorded.variants?.length) {
-        moment.variants = recorded.variants as NarratedMoment['variants'];
-      }
+    if (!recorded) {
+      moments.push(moment);
+      continue;
     }
-    moments.push(moment);
+    // Every override is re-verified against this match's evidence; an old or
+    // foreign recording never inherits the fresh moment's approval.
+    const applied = applyRecordedMoment(moment, recorded, await crew.evidenceFor(candidate, engine));
+    appliedIssues.push(...applied.issues.map((issue) => `${candidate.id}: ${issue}`));
+    moments.push(applied.moment);
   }
 
   progress('Compiling the cue sheet', 0.9);
   const events = new Map(simulation.events.map((e) => [e.id, e]));
   const cues = compileCues(moments, simulation.meta, { events });
 
-  // Score timeline for the timeline scrubber.
-  const scoreTimeline: PreparedMatch['scoreTimeline'] = [{ t: 0, home: 0, away: 0 }];
-  let home = 0;
-  let away = 0;
-  const overturned = new Set(
-    candidates.filter((c) => c.kind === 'var_overturn').map((c) => c.t),
-  );
-  for (const event of simulation.events) {
-    if (event.type === 'shot' && (event as { outcome: string }).outcome === 'goal') {
-      const wasOverturned = [...overturned].some((ot) => ot > event.t && ot - event.t < 200);
-      if (wasOverturned) continue;
-      if (event.team === 'home') home++;
-      else away++;
-      scoreTimeline.push({ t: event.t, home, away });
-    }
-  }
+  // Score timeline for the timeline scrubber: provisional goals count until
+  // their exact linked review decision, never retroactively.
+  const scoreTimeline: PreparedMatch['scoreTimeline'] = buildScoreTimeline(simulation.events);
 
   const stats = crew.runtime.stats();
+  const providerSummary = summarizeProviders(moments, stats, Boolean(request.recording), [...recordingIssues, ...appliedIssues]);
   const formations = {
     home: simulation.config.tactics.home.formation,
     away: simulation.config.tactics.away.formation,
@@ -183,12 +155,7 @@ async function prepare(request: { scenarioId: string | null; seed: number; recor
     players: engine.snapshot().players,
     traces: crew.runtime.allTraces(),
     scoreTimeline,
-    providerSummary: {
-      completed: stats.completed,
-      fallback: stats.fallback,
-      failed: stats.failed,
-      recorded: Boolean(recording),
-    },
+    providerSummary,
   };
   progress('Ready', 1);
   post({ type: 'ready', payload });

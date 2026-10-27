@@ -1,7 +1,7 @@
 /**
- * Shared positional model — the single source of truth for where players
- * stand when the tracking feed is generated. Events and positions can never
- * drift apart: every anchor is computed from the governing event state.
+ * Shared off-ball formation preferences. These are targets, not instantaneous
+ * player positions: tracking constrains motion to event coordinates and physical
+ * limits, and uses these anchors only when there is time to recover shape.
  *
  * The model is a block, the way teams actually move: each player holds a
  * role line (defence / midfield / attack), the lines shift together with

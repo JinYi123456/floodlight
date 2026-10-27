@@ -7,13 +7,11 @@ const STAGES = ['Ingest', 'Interpret', 'Explain', 'Render', 'Personalize'];
 export function Launch() {
   const [selected, setSelected] = useState('comeback');
   const [seed, setSeed] = useState(2026);
-  const [studioVoice, setStudioVoice] = useState(true);
   const ensurePrepared = useAppStore((state) => state.ensurePrepared);
 
   const start = () => {
     const card = SCENARIO_CARDS.find((c) => c.id === selected);
-    const recording = studioVoice && selected !== 'freeplay' ? selected : null;
-    void ensurePrepared(card?.id ?? null, seed, recording);
+    void ensurePrepared(card?.id ?? null, seed, null);
   };
 
   return (
@@ -27,8 +25,8 @@ export function Launch() {
         </div>
         <p className="tagline">Every moment, under the floodlights.</p>
         <p className="pitch">
-          A live football intelligence pipeline. Synthetic match events go in — calibrated, explainable, broadcast-ready
-          storytelling comes out. Two teams, one clock, and a production crew that never blinks.
+          A live football intelligence pipeline. Synthetic match events go in — football-realistic, evidence-checked
+          broadcast storytelling comes out. Two teams, one clock, and a production crew that never blinks.
         </p>
         <div className="stage-strip" aria-label="Pipeline stages">
           {STAGES.map((stage, index) => (
@@ -60,7 +58,7 @@ export function Launch() {
             <h2>{card.name}</h2>
             <p className="scenario-tagline">{card.tagline}</p>
             <p className="scenario-beat">
-              <span>Story beats</span> {card.beat}
+              <span>Focus</span> {card.beat}
             </p>
           </button>
         ))}
@@ -85,12 +83,7 @@ export function Launch() {
           </button>
         </label>
         <label className="studio-toggle">
-          <input
-            type="checkbox"
-            checked={studioVoice}
-            onChange={(event) => setStudioVoice(event.target.checked)}
-          />
-          <span>Studio voice when available</span>
+          <span className="evidence-note">Evidence-bound narration · verified against this match</span>
         </label>
         <button type="button" className="cta" onClick={start}>
           Take to air
@@ -98,8 +91,8 @@ export function Launch() {
       </section>
 
       <footer className="launch-foot">
-        All clubs, players and matches are fictional. Every number is produced live by the simulation — nothing is
-        pre-baked.
+        All clubs, players and matches are fictional. Every match is generated from its seed; every aired number is
+        checked against that match's evidence. Narration is rendered from that evidence and never from unbound prose.
       </footer>
     </div>
   );
