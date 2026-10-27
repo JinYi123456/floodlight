@@ -161,7 +161,7 @@ audience sees is the verification the tools serve.
 
 ```bash
 npm install
-npm test            # 160 deterministic tests: simulator, engine, agents, cues,
+npm test            # 161 deterministic tests: simulator, engine, agents, cues,
                     # vision, dataset, api, mcp and browser state
 npm run dev         # the web app (Vite dev server)
 npm run api         # the HTTP/SSE service (and POST /mcp on the same port)
